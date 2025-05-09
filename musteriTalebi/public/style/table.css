@@ -1,0 +1,200 @@
+/* Genel vücut ve sayfa düzeni */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Tablo container'ı */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablo başlıkları */
+th {
+    background-color: #212121;
+    color: white;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+/* Tablo hücreleri */
+td {
+    background-color: #fff;
+    padding: 8px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Sıralı satırların arka plan rengi */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Fare ile üzerine gelindiğinde satır rengi değişir */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Son satırın altını kesme */
+tr:last-child td {
+    border-bottom: none;
+}
+
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+   }
+   
+   .input {
+    width: 100%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+   }
+   
+   .input::placeholder {
+    color: #9e9ea7;
+   }
+   
+   .input:focus, input:hover {
+    outline: none;
+    border-color: rgba(234,76,137,0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+   }
+   
+   .icon {
+    position: absolute;
+    left: 1rem;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+   }
+   
+   .sidebar {
+    height: 100%;
+    width: 250px; /* Sidebar genişliği */
+    position: fixed;
+    top: 0;
+    left: -250px; /* Başlangıçta gizli, sol kenardan 250px uzaklıkta */
+    background-color: #111; /* Koyu arka plan */
+    overflow-x: hidden; /* Yatay kaydırma çubuğunu gizle */
+    transition: 0.5s; /* Animasyon */
+    padding-top: 60px; /* Başlık için üst boşluk */
+    z-index: 9999; /* En üstte görünmesini sağla */
+  }
+  
+  .sidebar-header {
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    padding: 15px;
+    background-color: #333; /* Koyu başlık arka planı */
+  }
+  
+  .sidebar-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-list li {
+    padding: 8px 16px;
+    text-align: left;
+  }
+  
+  .sidebar-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    transition: 0.3s; /* Link hover animasyonu */
+  }
+  
+  .sidebar-list li a:hover {
+    background-color: #575757; /* Hover efekti */
+  }
+  
+  /* Kapama butonu */
+  .close-btn {
+    color: white;
+    font-size: 36px;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+  }
+  
+  /* Sidebar açık olduğunda görünmesi */
+  .sidebar.open {
+    left: 0; /* Sidebar, sol kenara 0 px mesafede olacak */
+  }
+  
+  /* Sidebar açma butonu */
+  .open-btn {
+    font-size: 30px;
+    background-color: #111;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9998; /* Sidebar'dan bir alt katmanda */
+  }
+  
+  .open-btn:hover {
+    background-color: #333; /* Hover efekti */
+  }
+  .left{
+    height: 100%;
+    width: 1%;
+  }
+  .right{
+    /* background-color: blue; */
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+  }
+  .table-container {
+    width: 100%;
+    overflow-x: auto; /* Yatay kaydırma çubuğu ekle */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+
+  }
+   
+   
+   
+   

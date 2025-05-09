@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa</title>
+</head>
+<body>
+  <div style="width: 50%; height: 100%; background-color: red;">
+
+  </div>
+
+  <div style="width: 50%; height: 100%;">
+    <canvas id="grafik" width="400" height="200"></canvas>
+  </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    fetch('/kayitlar')
+  .then(res => res.json())
+  .then(data => {
+    const basliklar = {};
+    data.forEach(item => {
+      if (basliklar[item.e_talep_basligi]) {
+        basliklar[item.e_talep_basligi]++;
+      } else {
+        basliklar[item.e_talep_basligi] = 1;
+      }
+    });
+
+    const labels = Object.keys(basliklar);
+    const values = Object.values(basliklar);
+
+    const ctx = document.getElementById('grafik').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Talep Başlığına Göre Kayıt Sayısı',
+          data: values,
+          backgroundColor: '#58A6FF'
+        }]
+      }
+    });
+  });
+
+</script>
+</html>

@@ -1,0 +1,218 @@
+/* Buton düzenlemeleri */
+button {
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+   }
+   
+   button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+   }
+   
+   button:hover {
+    color: #e8e8e8;
+   }
+   
+   button:hover::before {
+    width: 100%;
+   }
+   /* Card düzenlemeleri */
+   .card {
+    width: 75%;
+    height: 100%;
+    background-color: #e8e8e8;
+    border-radius: 15px;
+    padding: 20px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+   }
+   .card h1 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #212121;
+   }
+   .card-header {
+    background-color: #212121;
+    color: #e8e8e8;
+    border-radius: 15px 15px 0 0;
+    font-size: 20px;
+    font-weight: bold;
+   }
+
+   body {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+/* input ayarları */
+.input {
+    border: 2px solid transparent;
+    width: 99%;
+    height: 2.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
+  
+  .input:hover,
+  .input:focus {
+    border: 2px solid #212121;
+    box-shadow: 0 0 10px rgba(22, 81, 150, 0.5);
+    background-color: white;
+  }
+  
+
+
+  /* ek ayarlar */
+  .gap{
+    display: flex;
+    flex-direction: column;
+  }
+  .gap label{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+  /* Textarea genel stil */
+textarea {
+    width: 100%;                /* En geniş alana yayılmasını sağlar */
+    font-size: 16px;            /* Yazı boyutunu büyütür */
+    line-height: 1.5;           /* Satır yüksekliği */
+    border-radius: 8px;         /* Kenarları yuvarlatır */
+    border: 2px solid #ddd;     /* İnce gri kenar */
+    background-color: #f9f9f9;  /* Açık gri arka plan */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Geçiş efektleri */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Hafif iç gölge */
+    height: 230px;
+  }
+  
+  /* Odaklanıldığında border rengini değiştir */
+  textarea:focus {
+    border-color: #212121;      /* Mavi odak rengi */
+    outline: none;              /* Odak kutusunun dış çizgisini kaldırır */
+    box-shadow: 0 0 10px rgba(22, 81, 150, 0.5); /* Odaklanıldığında belirginleşen gölge */
+  }
+  
+  /* Yazıyı sola hizalayın ve kenar boşluklarını ayarlayın */
+  textarea::placeholder {
+    color: #6D6D6F;  /* Gri placeholder rengi */
+    opacity: 0.7;     /* Hafif opaklık */
+    font-style: italic; /* İtalik placeholder */
+  }
+  /* sidebar ayarlamaları */
+  /* Genel Sidebar stili */
+.sidebar {
+  height: 100%;
+  width: 250px; /* Sidebar genişliği */
+  position: fixed;
+  top: 0;
+  left: -250px; /* Başlangıçta gizli, sol kenardan 250px uzaklıkta */
+  background-color: #111; /* Koyu arka plan */
+  overflow-x: hidden; /* Yatay kaydırma çubuğunu gizle */
+  transition: 0.5s; /* Animasyon */
+  padding-top: 60px; /* Başlık için üst boşluk */
+  z-index: 9999; /* En üstte görünmesini sağla */
+}
+
+.sidebar-header {
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  padding: 15px;
+  background-color: #333; /* Koyu başlık arka planı */
+}
+
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list li {
+  padding: 8px 16px;
+  text-align: left;
+}
+
+.sidebar-list li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  transition: 0.3s; /* Link hover animasyonu */
+}
+
+.sidebar-list li a:hover {
+  background-color: #575757; /* Hover efekti */
+}
+
+/* Kapama butonu */
+.close-btn {
+  color: white;
+  font-size: 36px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  cursor: pointer;
+}
+
+/* Sidebar açık olduğunda görünmesi */
+.sidebar.open {
+  left: 0; /* Sidebar, sol kenara 0 px mesafede olacak */
+}
+
+/* Sidebar açma butonu */
+.open-btn {
+  font-size: 30px;
+  background-color: #111;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9998; /* Sidebar'dan bir alt katmanda */
+}
+
+.open-btn:hover {
+  background-color: #333; /* Hover efekti */
+}
+.left{
+  height: 100%;
+  width: 30%;
+}
+.right{
+  width: 50%;
+  height: 100%;
+}
+.center{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
