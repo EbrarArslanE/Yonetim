@@ -7,32 +7,23 @@
     <title>Kayıt Listesi</title>
 </head>
 <body>
-    <div class="left">
-        <div id="sidebar" class="sidebar">
-          <div class="sidebar-header">
-            <span style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Eron Yazılım</span>
-            <span style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Talep Kayıtları</span>
-            <span id="close-btn" class="close-btn">&times;</span>
-          </div>
-          <ul class="sidebar-list">
-            <li style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><a href="/pages/anasayfa/anasayfa.html">Ana Sayfa</a></li>
-            <li style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><a href="/pages/kayitOlustur/kayitOlustur.html">Talep Kaydı Oluştur</a></li>
-            <li style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><a href="#">Talep Kayıtları</a></li>
-          </ul>
-        </div>
-        
-        <!-- Sidebar Toggle Button -->
-        <button id="open-btn" class="open-btn">☰ Menü</button>
+   <div class="container-body">
+    <div class="body-top">
+      <div class="top-bar">
+        <div class="logo">📋 Kayıtlar</div>
+          <div class="nav-links">
+            <a href="index.html">Anasayfa</a>
+            <a href="musteri-kaydi.html">Müşteri Kaydı Oluştur</a>
+            <a href="musteri-listesi.html">Müşteri Listesi</a> 
+          </div>          
       </div>
-
-      <div class="right">
-        <div class="header">
-            <h1>Kayıtlar</h1>
-        </div>
-        <div class="group">
+      <div class="group">
             <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
-            <input placeholder="Search" id="filterInput" type="search" class="input">
+            <input placeholder="Kayıtlar İçinde Ara" id="filterInput" type="search" class="input">
           </div>
+    </div>
+    <div class="body-bottom">
+          <div class="right">        
           <div class="table-container">
               <table id="veriTablosu">
                   <thead>
@@ -48,7 +39,9 @@
                   </tbody>
               </table>
           </div>
+        </div>
       </div>
+   </div>
 
    <script src="kayitListesi.js"></script>
 </body>
