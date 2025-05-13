@@ -71,9 +71,6 @@ app.post('/kaydet', (req, res) => {
   });
 });
 
-// POST /sil endpoint'i ile veri silme işlemi
-// POST /sil endpoint'i ile veri silme işlemi
-// POST /sil endpoint'i ile veri silme işlemi
 app.post('/sil', (req, res) => {
   const { e_musteri_numarasi } = req.body;  // JSON'dan gelen müşteri numarasını alıyoruz
 
