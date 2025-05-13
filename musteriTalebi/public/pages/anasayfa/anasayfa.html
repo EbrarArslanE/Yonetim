@@ -1,140 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <style>
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.sidebar {
-    height: 100%;
-    width: 250px; /* Sidebar genişliği */
-    position: fixed;
-    top: 0;
-    left: -250px; /* Başlangıçta gizli, sol kenardan 250px uzaklıkta */
-    background-color: #111; /* Koyu arka plan */
-    overflow-x: hidden; /* Yatay kaydırma çubuğunu gizle */
-    transition: 0.5s; /* Animasyon */
-    padding-top: 60px; /* Başlık için üst boşluk */
-    z-index: 9999; /* En üstte görünmesini sağla */
-  }
-  
-  .sidebar-header {
-    color: #fff;
-    text-align: center;
-    font-size: 30px;
-    padding: 15px;
-    background-color: #333; /* Koyu başlık arka planı */
-  }
-  
-  .sidebar-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar-list li {
-    padding: 8px 16px;
-    text-align: left;
-  }
-  
-  .sidebar-list li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    display: block;
-    transition: 0.3s; /* Link hover animasyonu */
-  }
-  
-  .sidebar-list li a:hover {
-    background-color: #575757; /* Hover efekti */
-  }
-  
-  /* Kapama butonu */
-  .close-btn {
-    color: white;
-    font-size: 36px;
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    cursor: pointer;
-  }
-  
-  /* Sidebar açık olduğunda görünmesi */
-  .sidebar.open {
-    left: 0; /* Sidebar, sol kenara 0 px mesafede olacak */
-  }
-  
-  /* Sidebar açma butonu */
-  .open-btn {
-    font-size: 30px;
-    background-color: #111;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 9998; /* Sidebar'dan bir alt katmanda */
-  }
-  
-  .open-btn:hover {
-    background-color: #333; /* Hover efekti */
-  }
-  .left{
-    height: 100%;
-    width: 1%;
-  }
-  .right{
-    /* background-color: blue; */
-    width: 50%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-  }
-  .header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10%;
-  }
-  </style>
+  <link rel="stylesheet" href="/style/anasayfa.css">
+  <link rel="stylesheet" href="/style/top-bar.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ana Sayfa</title>
 </head>
 <body>
- <div class="left">
-        <div id="sidebar" class="sidebar">
-          <div class="sidebar-header">
-            <span style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Eron Yazılım</span>
-            <span style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Talep Kayıtları</span>
-            <span id="close-btn" class="close-btn">&times;</span>
-          </div>
-          <ul class="sidebar-list">
-            <li style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><a href="/pages/anasayfa/anasayfa.html">Ana Sayfa</a></li>
-            <li style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><a href="/pages/kayitOlustur/kayitOlustur.html">Talep Kaydı Oluştur</a></li>
-            <li style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><a href="/pages/kayitListesi/kayitListesi.html">Talep Kayıtları</a></li>
-          </ul>
-        </div>
-        
-        <!-- Sidebar Toggle Button -->
-        <button id="open-btn" class="open-btn">☰ Menü</button>
-      </div>
 
-  <div class="right">
-    <canvas id="grafik" width="400" height="200"></canvas>
+  <div class="container-body">
+    <div class="body-top">
+      <div class="top-bar">
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM6 19H18V9.15745L12 3.7029L6 9.15745V19ZM12 15C10.6193 15 9.5 13.8807 9.5 12.5C9.5 11.1193 10.6193 9.99998 12 9.99998C13.3807 9.99998 14.5 11.1193 14.5 12.5C14.5 13.8807 13.3807 15 12 15Z"></path>
+          </svg>
+          Anasayfa
+        </div>
+          <div class="nav-links">
+            <a href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
+            <a href="/pages/kayitOlustur/kayitOlustur.html">Kayıt Oluştur</a>
+            <a href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
+          </div>          
+      </div>
+    </div>
+    <div class="body-bottom">
+      <div class="right">
+        <div class="left">
+          <canvas id="grafik"></canvas>
+        </div>
+      </div>
+    </div>
   </div>
+  
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

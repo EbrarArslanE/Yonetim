@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.sidebar {
+    height: 100%;
+    width: 250px; /* Sidebar genişliği */
+    position: fixed;
+    top: 0;
+    left: -250px; /* Başlangıçta gizli, sol kenardan 250px uzaklıkta */
+    background-color: #111; /* Koyu arka plan */
+    overflow-x: hidden; /* Yatay kaydırma çubuğunu gizle */
+    transition: 0.5s; /* Animasyon */
+    padding-top: 60px; /* Başlık için üst boşluk */
+    z-index: 9999; /* En üstte görünmesini sağla */
+  }
+  
+  .sidebar-header {
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    padding: 15px;
+    background-color: #333; /* Koyu başlık arka planı */
+  }
+  
+  .sidebar-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-list li {
+    padding: 8px 16px;
+    text-align: left;
+  }
+  
+  .sidebar-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    transition: 0.3s; /* Link hover animasyonu */
+  }
+  
+  .sidebar-list li a:hover {
+    background-color: #575757; /* Hover efekti */
+  }
+  
+  /* Kapama butonu */
+  .close-btn {
+    color: white;
+    font-size: 36px;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+  }
+  
+  /* Sidebar açık olduğunda görünmesi */
+  .sidebar.open {
+    left: 0; /* Sidebar, sol kenara 0 px mesafede olacak */
+  }
+  
+  /* Sidebar açma butonu */
+  .open-btn {
+    font-size: 30px;
+    background-color: #111;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9998; /* Sidebar'dan bir alt katmanda */
+  }
+  
+  .open-btn:hover {
+    background-color: #333; /* Hover efekti */
+  }
+  .left{
+    height: 100%;
+    width: 50%;
+  }
+  .right{
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+  }
+.right canvas{
+    width: 10%;
+    height: 10%;
+}

@@ -39,8 +39,8 @@ button {
    }
    /* Card düzenlemeleri */
    .card {
-    width: 75%;
-    height: 100%;
+    width: 30%;
+    height: 90%;
     background-color: #e8e8e8;
     border-radius: 15px;
     padding: 20px;
@@ -61,12 +61,23 @@ button {
     font-weight: bold;
    }
 
-   body {
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: row;
+/* Genel vücut ve sayfa düzeni */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 /* input ayarları */
 .input {
     border: 2px solid transparent;
@@ -206,9 +217,14 @@ textarea {
   width: 30%;
 }
 .right{
-  width: 50%;
-  height: 100%;
-}
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
 .center{
   width: 100%;
   height: 100%;
