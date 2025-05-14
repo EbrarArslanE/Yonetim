@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style/girisEkrani.css">
-    <title>Giriş ve Kayıt</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="giris.css">
+  <title>Document</title>
 </head>
 <body>
-  <form action="/kullanici-ekle" method="POST">
-    <div class="wrapper">
-      <div class="card-switch">
-        <label class="switch">
-          <input class="toggle" type="checkbox">
-          <span class="slider"></span>
-          <span class="card-side"></span>
-          <div class="flip-card__inner">
-            <!-- Log in kısmı -->
-            <div class="flip-card__front">
-              <div class="title">Log in</div>
-              <form action="/giris" method="POST" class="flip-card__form">
-                <input type="email" placeholder="Email" name="email" class="flip-card__input">
-                <input type="password" placeholder="Password" name="password" class="flip-card__input">
-                <button class="flip-card__btn">Let’s go!</button>
-              </form>
-            </div>
-
-            <!-- Sign up kısmı -->
-            <div class="flip-card__back">
-              <div class="title">Sign up</div>
-              <form action="/kullanici-ekle" method="POST" class="flip-card__form">
-                <input type="text" placeholder="Name" id="e_ad" name="kullanici_adi" class="flip-card__input">
-                <input type="email" placeholder="Email" id="e_mail" name="kullanici_email" class="flip-card__input">
-                <input type="password" placeholder="Password" id="e_sifre" name="kullanici_sifre" class="flip-card__input">
-                <button class="flip-card__btn">Confirm!</button>
-              </form>
-            </div>
-          </div>
-        </label>
-      </div>
-    </div>
+  <div class="card">
+    <form class="form">
+      <p class="title">Kullanıcı Oluştur</p>
+      <p class="message">İşlemlere kullanıcı atamak için. </p>
+          <div class="flex">
+          <label>
+              <input required="" placeholder="" type="text" class="input">
+              <span>Firstname</span>
+          </label>
+  
+          <label>
+              <input required="" placeholder="" type="text" class="input">
+              <span>Lastname</span>
+          </label>
+      </div>  
+              
+      <label>
+          <input required="" placeholder="" type="email" class="input">
+          <span>Email</span>
+      </label> 
+          
+      <label>
+          <input required="" placeholder="" type="password" class="input">
+          <span>Password</span>
+      </label>
+      <label>
+          <input required="" placeholder="" type="password" class="input">
+          <span>Confirm password</span>
+      </label>
+      <button class="submit">Submit</button>
+     
   </form>
+  </div>
 </body>
 </html>

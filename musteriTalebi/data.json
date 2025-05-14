@@ -12,5 +12,54 @@
     "e_talep_basligi": "isokal",
     "e_durum": "Tamamlandı",
     "e_talep": "Bütün talepler tamamlandı..."
+  },
+  {
+    "e_musteri_adi": "Ernur Optik Darıca",
+    "e_musteri_numarasi": "2597",
+    "e_talep_basligi": "Tema Optik",
+    "e_durum": "Bekliyor",
+    "e_talep": "Barkotlarda indirim uygulanınca okunmuyor"
+  },
+  {
+    "e_musteri_adi": "Bilinmiyor",
+    "e_musteri_numarasi": "64 68",
+    "e_talep_basligi": "Bilinmiyor",
+    "e_durum": "Tamamlandı",
+    "e_talep": "Numaraların sonu ile işaretlenmiştir."
+  },
+  {
+    "e_musteri_adi": "MINT OPTIK",
+    "e_musteri_numarasi": "2765",
+    "e_talep_basligi": "Tema Optik",
+    "e_durum": "Tamamlandı",
+    "e_talep": "Talep Alınacak eron sandbox notlarıma eklenecek talebi"
+  },
+  {
+    "e_musteri_adi": "Anadolu Optik Selim Hirik",
+    "e_musteri_numarasi": "Bulunmuyor",
+    "e_talep_basligi": "Tema Optik",
+    "e_durum": "Tamamlandı",
+    "e_talep": "Talep Alınacak"
+  },
+  {
+    "e_musteri_adi": "bilinmiyor",
+    "e_musteri_numarasi": "64 82",
+    "e_talep_basligi": "Bilinmiyor",
+    "e_durum": "Bekliyor",
+    "e_talep": "Numaraların sonu ile işaretlenmiştir."
+  },
+  {
+    "e_musteri_adi": "Ömer Bey",
+    "e_musteri_numarasi": "Yok",
+    "e_talep_basligi": "Platinium",
+    "e_durum": "Tamamlandı",
+    "e_talep": "Can abiye bildirilecek"
+  },
+  {
+    "e_musteri_adi": "bilinmiyor",
+    "e_musteri_numarasi": "48 48",
+    "e_talep_basligi": "Bilinmiyor",
+    "e_durum": "Tamamlandı",
+    "e_talep": "Numaraların sonu ile işaretlenmiştir."
   }
 ]
