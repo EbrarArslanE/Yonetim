@@ -88,3 +88,22 @@ fetch('/kayitlar')
       const diff = now.getDate() - day + (day === 0 ? -6 : 1); // pazartesi
       return new Date(now.setDate(diff));
     }
+  // const btn = document.querySelector('.dropdown-btn');
+  const kullaniciBtn = document.getElementById('kullanici');
+  const kayitBtn = document.getElementById('kayit');
+  const content = document.querySelector('.dropdown-content');
+
+  kullaniciBtn.addEventListener('click', () => {
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  });
+  kayitBtn.addEventListener('click', () => {
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Dışarı tıklayınca dropdown'ı kapat
+  window.addEventListener('click', (e) => {
+    if (!e.target.matches('.dropdown-btn')) {
+      content.style.display = 'none';
+    }
+  });
+
