@@ -40,7 +40,7 @@ button {
    /* Card düzenlemeleri */
    .card {
     width: 30%;
-    height: 90%;
+    height: 100%;
     background-color: #e8e8e8;
     border-radius: 15px;
     padding: 20px;

@@ -1,6 +1,10 @@
-    fetch('/kayitlar')
+let grafikChart1 = null;
+let grafikChart2 = null;
+
+fetch('/kayitlar')
   .then(res => res.json())
   .then(data => {
+    // 1. Grafik: Talep Başlığına Göre Bar Chart
     const basliklar = {};
     data.forEach(item => {
       if (basliklar[item.e_talep_basligi]) {
@@ -10,22 +14,61 @@
       }
     });
 
-    const labels = Object.keys(basliklar);
-    const values = Object.values(basliklar);
+    const baslikLabels = Object.keys(basliklar);
+    const baslikValues = Object.values(basliklar);
 
-    const ctx = document.getElementById('grafik').getContext('2d');
-    new Chart(ctx, {
+    // Eğer grafik varsa önce sil, sonra yenisini çiz
+    const ctx1 = document.getElementById('grafik1').getContext('2d');
+    if (grafikChart1) {
+      grafikChart1.destroy();
+    }
+    grafikChart1 = new Chart(ctx1, {
       type: 'bar',
       data: {
-        labels: labels,
+        labels: baslikLabels,
         datasets: [{
           label: 'Talep Başlığına Göre Kayıt Sayısı',
-          data: values,
+          data: baslikValues,
           backgroundColor: '#58A6FF'
         }]
       }
     });
+
+    // 2. Grafik: Duruma Göre Pie Chart
+    const durumlar = {};
+    data.forEach(item => {
+      if (durumlar[item.e_durum]) {
+        durumlar[item.e_durum]++;
+      } else {
+        durumlar[item.e_durum] = 1;
+      }
+    });
+
+    const durumLabels = Object.keys(durumlar);
+    const durumValues = Object.values(durumlar);
+
+    const ctx2 = document.getElementById('grafik2').getContext('2d');
+    if (grafikChart2) {
+      grafikChart2.destroy();
+    }
+    grafikChart2 = new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: durumLabels,
+        datasets: [{
+          label: 'Duruma Göre Kayıt Sayısı',
+          data: durumValues,
+          backgroundColor: [
+            '#58A6FF',
+            '#D9FF3E',
+            '#FF6B6B',
+            '#1C1C2E'
+          ]
+        }]
+      }
+    });
   });
+
     fetch('/kayitlar')
       .then(res => res.json())
       .then(data => {

@@ -3,146 +3,114 @@ body {
     background-color: #f4f4f9;
     margin: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
-.sidebar {
-    height: 100%;
-    width: 250px; /* Sidebar genişliği */
-    position: fixed;
-    top: 0;
-    left: -250px; /* Başlangıçta gizli, sol kenardan 250px uzaklıkta */
-    background-color: #111; /* Koyu arka plan */
-    overflow-x: hidden; /* Yatay kaydırma çubuğunu gizle */
-    transition: 0.5s; /* Animasyon */
-    padding-top: 60px; /* Başlık için üst boşluk */
-    z-index: 9999; /* En üstte görünmesini sağla */
-  }
-  
-  .sidebar-header {
-    color: #fff;
-    text-align: center;
-    font-size: 30px;
-    padding: 15px;
-    background-color: #333; /* Koyu başlık arka planı */
-  }
-  
-  .sidebar-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar-list li {
-    padding: 8px 16px;
-    text-align: left;
-  }
-  
-  .sidebar-list li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    display: block;
-    transition: 0.3s; /* Link hover animasyonu */
-  }
-  
-  .sidebar-list li a:hover {
-    background-color: #575757; /* Hover efekti */
-  }
-  
-  /* Kapama butonu */
-  .close-btn {
-    color: white;
-    font-size: 36px;
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    cursor: pointer;
-  }
-  
-  /* Sidebar açık olduğunda görünmesi */
-  .sidebar.open {
-    left: 0; /* Sidebar, sol kenara 0 px mesafede olacak */
-  }
-  
-  /* Sidebar açma butonu */
-  .open-btn {
-    font-size: 30px;
+
+.container-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.body-top {
+    width: 100%;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #111;
     color: white;
     padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 9998; /* Sidebar'dan bir alt katmanda */
-  }
-  
-  .open-btn:hover {
-    background-color: #333; /* Hover efekti */
-  }
-  .left{
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    border-radius: 15px;
-    width: 50%;
-    background-color: #f4f4f9;
-    border: 1px solid #0d0c22;
-  }
-  .right{
-    /* background-color: blue; */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.body-bottom {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-  }
-  .header{
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.left {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10%;
-  }
-.right canvas{
-    width: 10%;
-    height: 10%;
+    flex-direction: column;
+    width: 45%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+}
+
 .istatistik-kartlari {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin: 20px 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .kart {
-  flex: 1 1 200px;
-  background-color: white;
-  color: #0d0c22;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
+    flex: 1 1 200px;
+    background-color: white;
+    color: #0d0c22;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    text-align: center;
 }
 
 .kart:hover {
-  transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .kart h3 {
-  margin: 0;
-  font-size: 18px;
+    margin: 0;
+    font-size: 18px;
 }
 
 .kart p {
-  margin-top: 10px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #D9FF3E;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #D9FF3E;
 }

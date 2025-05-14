@@ -64,11 +64,11 @@ if (openBtn && closeBtn && sidebar) {
 }
 
 // Kayıt silme
-function sil(e_musteri_numarasi) {
+function sil(e_musteri_numarasi, e_durum, e_talep_basligi, e_talep, e_musteri_adi) {
   fetch('/sil', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ e_musteri_numarasi })
+    body: JSON.stringify({ e_musteri_numarasi, e_durum, e_talep_basligi, e_talep, e_musteri_adi })
   })
     .then(res => res.json())
     .then(data => {

@@ -73,23 +73,23 @@ app.post('/kaydet', (req, res) => {
 });
 
 app.post('/sil', (req, res) => {
-  const { e_musteri_numarasi } = req.body;  // JSON'dan gelen müşteri numarasını alıyoruz
+  const gelenVeri = req.body;
 
-  console.log('Silme işlemi için gelen müşteri numarası:', e_musteri_numarasi);
+  console.log('Silme için gelen veri:', gelenVeri);
 
-  // Eğer müşteri numarası gelmediyse, hata mesajı gönderiyoruz
-  if (!e_musteri_numarasi) {
-    return res.status(400).json({ hata: 'Müşteri numarası sağlanmadı.' });
+  // Eğer veri boşsa hata döndür
+  if (!gelenVeri || Object.keys(gelenVeri).length === 0) {
+    return res.status(400).json({ hata: 'Silinecek veri sağlanmadı.' });
   }
 
-  // JSON dosyasını okuma
+  // JSON dosyasını oku
   fs.readFile(DATA_PATH, 'utf8', (err, data) => {
     if (err) {
       console.error('Veri okuma hatası:', err);
       return res.status(500).json({ hata: 'Veriler alınamadı.' });
     }
 
-    let veriListesi = [];
+    let veriListesi;
 
     try {
       veriListesi = JSON.parse(data);
@@ -98,18 +98,26 @@ app.post('/sil', (req, res) => {
       return res.status(500).json({ hata: 'Veri formatı hatalı.' });
     }
 
-    // Silme işlemi
-    const yeniListe = veriListesi.filter(item => item.e_musteri_numarasi !== e_musteri_numarasi);
+    let silindiMi = false;
 
-    // Eğer kayıt bulunamadıysa
-    if (yeniListe.length === veriListesi.length) {
+    // İlk eşleşen kaydı bul ve sil
+    const yeniListe = veriListesi.filter(item => {
+      const tamEslesen = Object.keys(gelenVeri).every(key => item[key] === gelenVeri[key]);
+      if (tamEslesen && !silindiMi) {
+        silindiMi = true; // sadece ilk eşleşeni sil
+        return false;     // bu kaydı listeden çıkar
+      }
+      return true; // diğerlerini tut
+    });
+
+    if (!silindiMi) {
       return res.status(404).json({ hata: 'Silinecek kayıt bulunamadı.' });
     }
 
-    // Silme sonrası güncel veriyi yazma
+    // Yeni listeyi dosyaya yaz
     fs.writeFile(DATA_PATH, JSON.stringify(yeniListe, null, 2), (err) => {
       if (err) {
-        console.error('Veri silme hatası:', err);
+        console.error('Veri yazma hatası:', err);
         return res.status(500).json({ hata: 'Kayıt silinemedi.' });
       }
 
@@ -117,6 +125,7 @@ app.post('/sil', (req, res) => {
     });
   });
 });
+
 
 // POST /guncelle - Talep durumunu güncelle
 app.post('/guncelle', (req, res) => {

@@ -1,16 +1,23 @@
 [
   {
-    "e_musteri_adi": "Volkan Beeyyysss",
-    "e_musteri_numarasi": "1312",
-    "e_talep_basligi": "isokal",
-    "e_durum": "Tamamlandı",
-    "e_talep": "test"
+    "e_musteri_adi": "Opticool Optik",
+    "e_musteri_numarasi": "2605",
+    "e_talep_basligi": "Tema Optik",
+    "e_durum": "İptal Edildi",
+    "e_talep": "Bazı gözlükler stokta gözükmüyor"
+  },
+  {
+    "e_musteri_adi": "bilecik dönmez optik",
+    "e_musteri_numarasi": "2620",
+    "e_talep_basligi": "Tema Optik",
+    "e_durum": "Bekliyor",
+    "e_talep": "ÜTS Stok Listesi Eksik"
   },
   {
     "e_musteri_adi": "ebrar",
     "e_musteri_numarasi": "1312",
-    "e_talep_basligi": "Tema Optik",
+    "e_talep_basligi": "İnci",
     "e_durum": "Tamamlandı",
-    "e_talep": "testt"
+    "e_talep": "test"
   }
 ]
