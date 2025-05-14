@@ -85,8 +85,15 @@ body {
     background-color: #333; /* Hover efekti */
   }
   .left{
-    height: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 15px;
     width: 50%;
+    background-color: #f4f4f9;
+    border: 1px solid #0d0c22;
   }
   .right{
     /* background-color: blue; */
@@ -106,4 +113,36 @@ body {
 .right canvas{
     width: 10%;
     height: 10%;
+}
+.istatistik-kartlari {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.kart {
+  flex: 1 1 200px;
+  background-color: white;
+  color: #0d0c22;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.kart:hover {
+  transform: scale(1.03);
+}
+
+.kart h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.kart p {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #D9FF3E;
 }

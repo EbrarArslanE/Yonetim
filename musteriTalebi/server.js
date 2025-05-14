@@ -34,15 +34,16 @@ app.get('/kayitlar', (req, res) => {
 
 // POST /kaydet isteği alındığında veriyi JSON dosyasına kaydet
 app.post('/kaydet', (req, res) => {
-  const { e_musteri_adi, e_musteri_numarasi, e_talep_basligi, e_talep } = req.body;
+  const { e_musteri_adi, e_durum, e_musteri_numarasi, e_talep_basligi, e_talep } = req.body;
 
   // Veriyi kontrol et (isteğe bağlı)
-  console.log(e_musteri_adi, e_musteri_numarasi, e_talep_basligi, e_talep);
+  console.log(e_musteri_adi, e_durum, e_musteri_numarasi, e_talep_basligi, e_talep);
 
   const yeniVeri = {
     e_musteri_adi,
     e_musteri_numarasi,
     e_talep_basligi,
+    e_durum,
     e_talep
   };
 
@@ -65,7 +66,7 @@ app.post('/kaydet', (req, res) => {
         res.status(500).send('Veri kaydedilemedi.');
       } else {
         // Kayıt başarıyla eklendiğinde yönlendirme değil alert göndereceğiz
-        res.json({ mesaj: 'Veri başarıyla kaydedildi.' });
+          res.redirect('/pages/anasayfa/anasayfa.html');
       }
     });
   });

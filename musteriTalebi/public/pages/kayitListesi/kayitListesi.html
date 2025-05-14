@@ -50,7 +50,28 @@
         </div>
       </div>
    </div>
+    <script src="kayitListesi.js"></script>
+  <!-- MODAL -->
+<div class="modal-container" id="duzenleModal" style="display: none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Düzenle</h2>
+    </div>
+    <div class="modal-body">
+      <form>
+        <label for="durumSec" style="display:block; margin-bottom:8px;">Durum Seç:</label>
+        <select id="durumSec" class="custom-select">
+          <option value="Tamamlandı">Tamamlandı</option>
+          <option value="İptal Edildi">İptal Edildi</option>
+        </select>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="button" onclick="kapatModal()"><span>Kapat</span></button>
+    </div>
+  </div>
+</div>
 
-   <script src="kayitListesi.js"></script>
 </body>
+
 </html>

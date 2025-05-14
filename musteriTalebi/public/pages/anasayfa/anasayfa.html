@@ -29,6 +29,26 @@
         <div class="left">
           <canvas id="grafik"></canvas>
         </div>
+        <div class="left">
+          <div class="istatistik-kartlari">
+            <div class="kart">
+              <h3>📦 Toplam Talepler</h3>
+              <p id="toplamTalep">0</p>
+            </div>
+            <div class="kart">
+              <h3>🟢 Bugünkü Talepler</h3>
+              <p id="bugunTalep">0</p>
+            </div>
+            <div class="kart">
+              <h3>📈 Haftalık Talepler</h3>
+              <p id="haftalikTalep">0</p>
+            </div>
+            <div class="kart">
+              <h3>🕒 Ortalama Süre</h3>
+              <p id="ortalamaSure">-</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -36,51 +56,5 @@
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    fetch('/kayitlar')
-  .then(res => res.json())
-  .then(data => {
-    const basliklar = {};
-    data.forEach(item => {
-      if (basliklar[item.e_talep_basligi]) {
-        basliklar[item.e_talep_basligi]++;
-      } else {
-        basliklar[item.e_talep_basligi] = 1;
-      }
-    });
-
-    const labels = Object.keys(basliklar);
-    const values = Object.values(basliklar);
-
-    const ctx = document.getElementById('grafik').getContext('2d');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Talep Başlığına Göre Kayıt Sayısı',
-          data: values,
-          backgroundColor: '#58A6FF'
-        }]
-      }
-    });
-  });
-
-</script>
-<script>
-    // Açma ve kapama butonlarına işlevsellik ekleyelim
-  const sidebar = document.getElementById('sidebar');
-const openBtn = document.getElementById('open-btn');
-const closeBtn = document.getElementById('close-btn');
-
-// Sidebar'ı açmak için
-openBtn.addEventListener('click', () => {
-  sidebar.classList.add('open');
-});
-
-// Sidebar'ı kapatmak için
-closeBtn.addEventListener('click', () => {
-  sidebar.classList.remove('open');
-});
-</script>
+<script src="anasayfa.js"></script>
 </html>

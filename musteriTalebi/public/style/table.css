@@ -208,10 +208,9 @@ tr:last-child td {
   width: 75px;
   height: 35px;
   border-radius: 15px;
-  background-color: rgb(255, 95, 95);
+  background-color: rgb(0, 0, 0);
   cursor: pointer;
   border: none;
-  /* border: 3px solid rgb(255, 201, 201); */
   transition-duration: 0.3s;
 }
 .bin-bottom {
@@ -241,9 +240,9 @@ tr:last-child td {
   height: 40px;
   border: none;
   padding: 0px 20px;
-  background-color: rgb(168, 38, 255);
-  border-color: 1px solid black;
-  color: white;
+  background-color: white;
+  border: 1px solid black;
+  color: #0d0c22;
   font-weight: 500;
   cursor: pointer;
   border-radius: 15px;
@@ -256,7 +255,7 @@ tr:last-child td {
   position: absolute;
   right: 0;
   margin-right: 20px;
-  fill: white;
+  fill: #0d0c22;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, right 0.3s ease;
@@ -325,4 +324,168 @@ tr:last-child td {
 
 .nav-links a:hover {
   color: #58A6FF; /* light blue */
+}
+.modal-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #ffffff;
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #0d0c22;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modal-body {
+  flex-grow: 1;
+}
+
+.modal-footer {
+  text-align: right;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+/* Select kutusu */
+.custom-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #0d0c22;
+  font-size: 14px;
+  appearance: none;
+}
+
+.button {
+ display: inline-block;
+ width: 70px;
+ height: 30px;
+ border-radius: 10px;
+ border: 1px solid #03045e;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.5s ease-in;
+ z-index: 1;
+}
+
+.button::before,
+.button::after {
+ content: '';
+ position: absolute;
+ top: 0;
+ width: 0;
+ height: 100%;
+ transform: skew(15deg);
+ transition: all 0.5s;
+ overflow: hidden;
+ z-index: -1;
+}
+
+.button::before {
+ left: -10px;
+ background: #D1D1D6;
+}
+
+.button::after {
+ right: -10px;
+ background: #0d0c22;
+}
+
+.button:hover::before,
+.button:hover::after {
+ width: 58%;
+}
+
+.button:hover span {
+ color: #f1f1f1;
+ transition: 0.3s;
+}
+
+.button span {
+ color: #03045e;
+ font-size: 18px;
+ transition: all 0.3s ease-in;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.custom-select{
+    position: relative;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    border: none;
+    cursor: pointer;
+}
+.custom-select::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000;
+    transform: translateY(-50%);
+}
+.custom-select:hover{
+    background-color: #e0e0e0;
+}   
+.custom-select:focus{
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.custom-select:active{
+    background-color: #d0d0d0;
+}
+.custom-select:focus::after{
+    border-top-color: #000;
+}
+.custom-select option {
+    padding: 12px 16px;
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.custom-select option:hover {
+    background-color: #f5f5f5;
+    color: #111111;
+}
+
+.custom-select option:focus {
+    background-color: #eaeaea;
+    color: #000000;
+}
+
+.custom-select option:active {
+    background-color: #dcdcdc;
+    color: #000000;
 }
