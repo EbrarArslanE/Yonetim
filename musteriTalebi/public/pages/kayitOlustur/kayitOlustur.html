@@ -45,11 +45,22 @@
             <label for="e_musteri_numarasi">Müşteri Numarası:</label><br>
             <input class="input" type="text" id="e_musteri_numarasi" name="e_musteri_numarasi" required><br><br>
           </div>
+
+          <div class="gap">
+            <label for="durumSec" style="display:block; margin-bottom:8px;">Durum Seç:</label>
+              <select name="e_durum" id="durumSec" class="custom-select">
+                <option value="">---- Seçiniz ----</option>
+                <option value="Bekliyor">Bekliyor</option>
+                <option value="Tamamlandı">Tamamlandı</option>
+                <option value="İptal Edildi">İptal Edildi</option>
+              </select>
+           </div>
                         
            <div class="gap">
              <label for="e_talep">Müşteri Talebi:</label><br>
              <textarea id="e_talep" name="e_talep" required></textarea><br><br>
            </div>
+           
            <div class="center">
              <button type="submit">Gönder</button>
            </div>

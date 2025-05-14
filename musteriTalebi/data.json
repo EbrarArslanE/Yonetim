@@ -1,1 +1,16 @@
-[{"e_musteri_adi":"Termal Optik","e_musteri_numarasi":"2006","e_talep_basligi":"Tema Optik","e_talep":"bu bir test"},{"e_musteri_adi":"a","e_musteri_numarasi":"6","e_talep_basligi":"isokal","e_talep":"g"}]
+[
+  {
+    "e_musteri_adi": "Volkan Beeyyysss",
+    "e_musteri_numarasi": "1312",
+    "e_talep_basligi": "isokal",
+    "e_durum": "Tamamlandı",
+    "e_talep": "test"
+  },
+  {
+    "e_musteri_adi": "ebrar",
+    "e_musteri_numarasi": "1312",
+    "e_talep_basligi": "Tema Optik",
+    "e_durum": "Tamamlandı",
+    "e_talep": "testt"
+  }
+]

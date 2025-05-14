@@ -118,6 +118,44 @@ app.post('/sil', (req, res) => {
   });
 });
 
+// POST /guncelle - Talep durumunu güncelle
+app.post('/guncelle', (req, res) => {
+  const { e_musteri_numarasi, e_durum } = req.body;
+
+  fs.readFile(DATA_PATH, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ hata: 'Dosya okunamadı.' });
+
+    let veriListesi;
+    try {
+      veriListesi = JSON.parse(data);
+    } catch (parseErr) {
+      return res.status(500).json({ hata: 'JSON formatı hatalı.' });
+    }
+
+    let bulundu = false;
+
+    const guncellenmisListe = veriListesi.map(item => {
+      if (item.e_musteri_numarasi === e_musteri_numarasi) {
+        item.e_durum = e_durum;
+        bulundu = true;
+      }
+      return item;
+    });
+
+    if (!bulundu) {
+      return res.status(404).json({ hata: 'Müşteri numarası bulunamadı' });
+    }
+
+    fs.writeFile(DATA_PATH, JSON.stringify(guncellenmisListe, null, 2), err => {
+      if (err) return res.status(500).json({ hata: 'Dosyaya yazılamadı' });
+
+      res.json({ mesaj: 'Durum güncellendi' });
+    });
+  });
+});
+
+
+
 
 
 // Sunucuyu başlat
