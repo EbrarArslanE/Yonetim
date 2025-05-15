@@ -1,14 +1,8 @@
 [
   {
-    "e_onaylayan_kullanici": "bu kullanıcı silinmek için açılmıştır",
-    "e_ad": "asd",
-    "e_soyad": "asd",
-    "e_durum": "Pasif"
-  },
-  {
-    "e_onaylayan_kullanici": "Nazım123",
-    "e_ad": "adı düzenledin",
-    "e_soyad": "soyadı düzenledin",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_ad": "Ebrar",
+    "e_soyad": "Arslan",
     "e_durum": "Aktif"
   }
 ]

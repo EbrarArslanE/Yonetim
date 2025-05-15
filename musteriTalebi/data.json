@@ -2,11 +2,17 @@
   {
     "e_musteri_adi": "ebrar",
     "e_musteri_numarasi": "1312",
-    "e_talep_basligi": "isokal",
+    "e_talep_basligi": "eron yazılım",
     "e_durum": "Bekliyor",
-    "e_onaylayan_kullanici": "admin01",
-    "e_talep": "test",
-    "e_ad": "Emirhan",
-    "e_soyad": "Göven"
+    "e_onaylayan_kullanici": "bu kullanıcı silinmek için açılmıştır",
+    "e_talep": "test"
+  },
+  {
+    "e_musteri_adi": "Nazım",
+    "e_musteri_numarasi": "1232352",
+    "e_talep_basligi": "Cinsel Organ Taciz Davası",
+    "e_durum": "İptal Edildi",
+    "e_onaylayan_kullanici": "bu kullanıcı silinmek için açılmıştır",
+    "e_talep": "test"
   }
 ]

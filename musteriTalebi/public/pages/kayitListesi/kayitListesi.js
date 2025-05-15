@@ -4,6 +4,18 @@ window.onload = function () {
   const filterInput = document.querySelector('#filterInput');
 
   // Veriyi al
+fetch('/kullaniciListesi')
+  .then(r => r.json())
+  .then(list => {
+    const sel = document.getElementById('e_onaylayan_kullanici');
+    list.forEach(u => {
+      const opt = document.createElement('option');
+      opt.value = u.e_onaylayan_kullanici;
+      opt.textContent = `${u.e_ad} ${u.e_soyad} (${u.e_onaylayan_kullanici})`;
+      sel.appendChild(opt);
+    });
+  });
+
   fetch('/kayitListesi')
     .then(response => response.json())
     .then(data => {

@@ -78,13 +78,36 @@
     </div>
     <div class="modal-body">
       <form>
-        <label for="durumSec" style="display:block; margin-bottom:8px;">Talep Durumu:</label>
-        <select name="e_durum" id="durumSec" class="custom-select">
-            <option value="">---- Seçiniz ----</option>
-            <option value="Bekliyor">Bekliyor</option>
-            <option value="Tamamlandı">Tamamlandı</option>
-            <option value="İptal Edildi">İptal Edildi</option>
-        </select>
+        <div class="half">
+          <div class="row">
+            <div class="half-left">
+            <label for="durumSec" style="display:block; margin-bottom:8px;">Talep Durumu:</label>
+            <select name="e_durum" id="durumSec" class="custom-select">
+                <option value="">---- Seçiniz ----</option>
+                <option value="Bekliyor">Bekliyor</option>
+                <option value="Tamamlandı">Tamamlandı</option>
+                <option value="İptal Edildi">İptal Edildi</option>
+            </select>
+            </div>
+            
+            <div class="half-right">
+            <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Onaylayan Kullanıcı:</label>
+              <select id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" class="custom-select" required>
+                <option value="">Üstlenecek kullanıcı seçin</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="column-flat">
+          <label for="">Ad *</label>
+          <input id="e_ad" required="" placeholder="" type="text" class="input" required>
+        </div>
+
+        <div class="column-flat">
+          <label for="">Soyad *</label>
+          <input id="e_soyad" required="1" placeholder="" type="text" class="input" required>
+        </div>
       </form>
     </div>
       <div class="modal-footer">
