@@ -4,7 +4,7 @@ window.onload = function () {
   const filterInput = document.querySelector('#filterInput');
 
   // Veriyi al
-  fetch('/kayitlar')
+  fetch('/kayitListesi')
     .then(response => response.json())
     .then(data => {
       // Veriyi tabloya ekle
@@ -18,6 +18,7 @@ window.onload = function () {
             <td>${item.e_musteri_numarasi}</td>
             <td>${item.e_talep}</td>
             <td>${item.e_durum}</td>
+            <td>${item.e_onaylayan_kullanici || 'Yok'}</td>
             <td>
               <button onclick="sil('${item.e_musteri_numarasi}')" class="bin-button">
                 <!-- SVG sil ikonu -->
@@ -65,7 +66,7 @@ if (openBtn && closeBtn && sidebar) {
 
 // Kayıt silme
 function sil(e_musteri_numarasi, e_durum, e_talep_basligi, e_talep, e_musteri_adi) {
-  fetch('/sil', {
+  fetch('/kayitSil', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ e_musteri_numarasi, e_durum, e_talep_basligi, e_talep, e_musteri_adi })
@@ -103,7 +104,7 @@ function durumGuncelle() {
   const durum = document.getElementById('durumSec').value;
   const musteriNumarasi = document.getElementById('duzenleModal').dataset.musteriNumarasi;
 
-  fetch('/guncelle', {
+  fetch('/kayitDurumuGuncelle', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

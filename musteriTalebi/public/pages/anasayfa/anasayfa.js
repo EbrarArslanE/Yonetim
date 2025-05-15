@@ -1,7 +1,7 @@
 let grafikChart1 = null;
 let grafikChart2 = null;
 
-fetch('/kayitlar')
+fetch('/kayitListesi')
   .then(res => res.json())
   .then(data => {
     // 1. Grafik: Talep Başlığına Göre Bar Chart
@@ -69,11 +69,11 @@ fetch('/kayitlar')
     });
   });
 
-    fetch('/kayitlar')
+    fetch('/kayitListesi')
       .then(res => res.json())
       .then(data => {
         const toplam = data.length;
-        const bugun = data.filter(t => t.tarih === new Date().toISOString().slice(0, 10)).length;
+        const bugun = data.length;
         const hafta = data.filter(t => new Date(t.tarih) >= haftaninIlkGunu()).length;
 
         document.getElementById('toplamTalep').textContent = toplam;

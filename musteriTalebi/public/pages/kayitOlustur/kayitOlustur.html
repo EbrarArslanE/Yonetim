@@ -22,7 +22,7 @@
                   <span>Kullanıcı Ayarları</span>
                   <div class="dropdown-content">
                     <a href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcılar</a>
-                    <a href="/pages/kullaniciOlustur/kullaniciOlustur.html">Kullanıcı Oluştur</a>
+                    <a href="/pages/kullaniciEkle/kullaniciEkle.html">Kullanıcı Oluştur</a>
                   </div>
                 </div>
                 
@@ -40,23 +40,29 @@
 
       <div class="right">
     <div class="card">
-      <div class="card-body">
+      <div class="card-header">
         <h1>Müşteri Talep Kaydı Formu</h1>
-        <form action="/kaydet" method="POST">
+      </div>
+      <div class="card-body">
+        <form action="/kayitIslemiKaydet" method="POST">
           
           <div class="gap">
             <label for="e_talep_basligi">Firma:</label><br>
             <input class="input" type="text" id="e_talep_basligi" name="e_talep_basligi" required><br><br>
           </div>  
 
-          <div class="gap">
-            <label for="e_musteri_adi">Müşteri Adı:</label><br>
-            <input class="input" type="text" id="e_musteri_adi" name="e_musteri_adi" required><br><br>
-          </div>
-          
-          <div class="gap">
-            <label for="e_musteri_numarasi">Müşteri Numarası:</label><br>
-            <input class="input" type="text" id="e_musteri_numarasi" name="e_musteri_numarasi" required><br><br>
+          <div class="half">
+            <div class="row">
+              <div class="half-left">
+                  <label for="e_musteri_adi">Müşteri Adı:</label><br>
+                  <input class="input" type="text" id="e_musteri_adi" name="e_musteri_adi" required><br><br>
+              </div>
+
+              <div class="half-right">
+                <label for="e_musteri_numarasi">Müşteri Numarası:</label><br>
+                <input class="input" type="text" id="e_musteri_numarasi" name="e_musteri_numarasi" required><br><br>
+              </div>
+            </div>
           </div>
 
           <div class="gap">
@@ -67,6 +73,13 @@
                 <option value="Tamamlandı">Tamamlandı</option>
                 <option value="İptal Edildi">İptal Edildi</option>
               </select>
+           </div>
+
+           <div class="gap">
+            <label for="e_onaylayan_kullanici">Onaylayan Kullanıcı:</label>
+            <select id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" class="custom-select" required>
+              <option value="">Üstlenecek kullanıcı seçin</option>
+            </select>
            </div>
                         
            <div class="gap">
@@ -80,7 +93,7 @@
         </form>
       </div>
     </div>
-  </div>
+   </div>
   </div>
  </div>
 

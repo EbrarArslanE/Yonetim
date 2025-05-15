@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style/giris.css">
+  <link rel="stylesheet" href="/style/custom-select.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="card">
+    <form class="form">
+      <p class="title">Kullanıcı Oluştur</p>
+      <p class="message">İşlemlere kullanıcı atamak için. </p>
+          <div class="flex">
+          <label>
+              <input id="e_ad" required="" placeholder="" type="text" class="input">
+              <span>Ad</span>
+          </label>
+  
+          <label>
+              <input id="e_soyad" required="" placeholder="" type="text" class="input">
+              <span>Soyad</span>
+          </label>
+      </div>  
+              
+      <label>
+          <input id="e_onaylayan_kullanici" required="" placeholder="" type="text" class="input">
+          <span>Kullanıcı Adı</span>
+      </label> 
+
+      <label for="">
+        <select class="custom-select" name="" id="e_durum">
+          <option value="">---- Seçiniz ----</option>
+          <option value="Aktif">Aktif</option>
+          <option value="Pasif">Pasif</option>
+        </select>
+      </label>
+      
+      <button class="submit">Submit</button>
+     
+  </form>
+  </div>
+  <script src="kullaniciEkle.js"></script>
+</body>
+</html>

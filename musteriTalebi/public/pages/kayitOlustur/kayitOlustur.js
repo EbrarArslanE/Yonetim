@@ -1,7 +1,7 @@
 function kaydet() {
   const formData = new FormData(document.querySelector('form')); // Formdan veriyi alıyoruz
 
-  fetch('http://localhost:1312/kaydet', {
+  fetch('http://localhost:1312/kayitIslemiKaydet', {
     method: 'POST',
     body: formData // Form verisini POST olarak gönderiyoruz
   })
@@ -16,6 +16,19 @@ function kaydet() {
     alert('Kayıt eklenirken bir hata oluştu.');
   });
 }
+fetch('/kullaniciListesi')
+  .then(r => r.json())
+  .then(list => {
+    const sel = document.getElementById('e_onaylayan_kullanici');
+    list.forEach(u => {
+      const opt = document.createElement('option');
+      opt.value = u.e_onaylayan_kullanici;
+      opt.textContent = `${u.e_ad} ${u.e_soyad} (${u.e_onaylayan_kullanici})`;
+      sel.appendChild(opt);
+    });
+  });
+
+
   // Açma ve kapama butonlarına işlevsellik ekleyelim
 const sidebar = document.getElementById('sidebar');
 const openBtn = document.getElementById('open-btn');

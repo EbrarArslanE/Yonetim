@@ -40,12 +40,22 @@ button {
    /* Card düzenlemeleri */
    .card {
     width: 30%;
-    height: 100%;
+    max-height: 100%;
+    /* background-color: red; */
     background-color: #e8e8e8;
+    gap: 12px;
     border-radius: 15px;
     padding: 20px;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+   }
+   .card-body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;  
+    align-items: flex-start;  
    }
    .card h1 {
     font-size: 30px;
@@ -54,11 +64,14 @@ button {
     color: #212121;
    }
    .card-header {
-    background-color: #212121;
+    /* background-color: #212121; */
     color: #e8e8e8;
     border-radius: 15px 15px 0 0;
     font-size: 20px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
    }
 
 /* Genel vücut ve sayfa düzeni */
@@ -98,36 +111,48 @@ body {
     background-color: white;
   }
   
+form{
+    width: 100%;
+   
+    padding: 12px;
 
+}
 
   /* ek ayarlar */
   .gap{
     display: flex;
     flex-direction: column;
+    margin-bottom: 16px;
+
   }
   .gap label{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
+    font-size: 16px;
+    font-weight: 500; 
+    display: inline-block; /* genişlik-kontrolü için */  
+  }
   /* Textarea genel stil */
 textarea {
-    width: 100%;                /* En geniş alana yayılmasını sağlar */
-    font-size: 16px;            /* Yazı boyutunu büyütür */
-    line-height: 1.5;           /* Satır yüksekliği */
-    border-radius: 8px;         /* Kenarları yuvarlatır */
-    border: 2px solid #ddd;     /* İnce gri kenar */
-    background-color: #f9f9f9;  /* Açık gri arka plan */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Geçiş efektleri */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Hafif iç gölge */
-    height: 230px;
-  }
-  
-  /* Odaklanıldığında border rengini değiştir */
-  textarea:focus {
-    border-color: #212121;      /* Mavi odak rengi */
-    outline: none;              /* Odak kutusunun dış çizgisini kaldırır */
-    box-shadow: 0 0 10px rgba(22, 81, 150, 0.5); /* Odaklanıldığında belirginleşen gölge */
-  }
-  
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    resize: vertical; /* Kullanıcının dikey olarak boyutlandırmasına izin verir */
+    min-height: 100px;
+}
+
+textarea:focus {
+    border-color: #212121;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(22, 81, 150, 0.5);
+    outline: none;
+}
+
   /* Yazıyı sola hizalayın ve kenar boşluklarını ayarlayın */
   textarea::placeholder {
     color: #6D6D6F;  /* Gri placeholder rengi */
@@ -212,10 +237,6 @@ textarea {
 .open-btn:hover {
   background-color: #333; /* Hover efekti */
 }
-.left{
-  height: 100%;
-  width: 30%;
-}
 .right{
     /* background-color: blue; */
     width: 100%;
@@ -227,7 +248,6 @@ textarea {
   }
 .center{
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -289,3 +309,46 @@ textarea {
     background-color: #dcdcdc;
     color: #000000;
 }
+.half{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+  .half-left{
+    width: 50%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+  }
+  .half-right{
+    width: 50%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column {
+    width: 50%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+  }
+  .row{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+  .flat{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+  }

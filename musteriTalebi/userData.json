@@ -1,0 +1,32 @@
+[
+  {
+    "e_onaylayan_kullanici": "admin01",
+    "e_ad": "",
+    "e_soyad": "",
+    "e_durum": "Pasif"
+  },
+  {
+    "e_onaylayan_kullanici": "Nazım123",
+    "e_ad": "Nazım",
+    "e_soyad": "Çeltekli",
+    "e_durum": "Pasif"
+  },
+  {
+    "e_onaylayan_kullanici": "Ebrar123",
+    "e_ad": "Ebrar",
+    "e_soyad": "Arslan",
+    "e_durum": "Aktif"
+  },
+  {
+    "e_onaylayan_kullanici": "bu kullanıcı silinmek için açılmıştır",
+    "e_ad": "asd",
+    "e_soyad": "asd",
+    "e_durum": "Pasif"
+  },
+  {
+    "e_onaylayan_kullanici": "Nazım123",
+    "e_ad": "Emirhan",
+    "e_soyad": "Göven",
+    "e_durum": "Pasif"
+  }
+]
