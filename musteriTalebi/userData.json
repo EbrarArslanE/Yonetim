@@ -1,11 +1,5 @@
 [
   {
-    "e_onaylayan_kullanici": "Nazım123",
-    "e_ad": "soyadı düzenledin",
-    "e_soyad": "adı düzenledin şimdide ama ters yaptın mal",
-    "e_durum": "Aktif"
-  },
-  {
     "e_onaylayan_kullanici": "bu kullanıcı silinmek için açılmıştır",
     "e_ad": "asd",
     "e_soyad": "asd",
@@ -13,8 +7,8 @@
   },
   {
     "e_onaylayan_kullanici": "Nazım123",
-    "e_ad": "soyadı düzenledin",
-    "e_soyad": "adı düzenledin şimdide ama ters yaptın mal",
+    "e_ad": "adı düzenledin",
+    "e_soyad": "soyadı düzenledin",
     "e_durum": "Aktif"
   }
 ]
