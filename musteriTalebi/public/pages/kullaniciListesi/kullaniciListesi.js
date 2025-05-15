@@ -88,6 +88,11 @@ function kullaniciDurumGuncelle() {
   const soyad = document.getElementById('e_soyad').value;
   const musteriNumarasi = document.getElementById('duzenleModal').dataset.musteriNumarasi;
 
+ if (!durum || !ad || !kullaniciAdi || !soyad) {
+    alert("Lütfen tüm alanları doldurunuz.");
+    return; // İşlemi durdur
+  }
+
   fetch('/kullaniciGuncelle', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

@@ -45,6 +45,11 @@
   font-size: 15px;
   transition: color 0.3s ease;
 }
+.a {
+  color: #ffffff; /* arctic lime */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
 .nav-links a:hover {
   color: #303e4e; /* light blue */
