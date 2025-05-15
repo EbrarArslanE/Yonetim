@@ -5,6 +5,7 @@
   <title>Müşteri Talep Kaydı Formu</title>
   <link rel="stylesheet" href="/style/musteriTalepFormu.css">
   <link rel="stylesheet" href="/style/top-bar.css">
+  <link rel="stylesheet" href="/style/dropdown.css">
 </head>
 <body>
  <div class="container-body">
@@ -16,13 +17,23 @@
         </svg>
           Kayıt Oluştur
         </div>
-          <div class="nav-links">
-            <a href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
-            <a href="/pages/kayitOlustur/kayitOlustur.html">Kayıt Oluştur</a>
-            <a href="">Kullanıcı Oluştur</a> 
-            <a href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
-            <a href="">Kullanıcılar</a>  
-          </div>          
+          <div class="dropdown-container">
+                <div class="dropdown">
+                  <span>Kullanıcı Ayarları</span>
+                  <div class="dropdown-content">
+                    <a href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcılar</a>
+                    <a href="/pages/kullaniciOlustur/kullaniciOlustur.html">Kullanıcı Oluştur</a>
+                  </div>
+                </div>
+                
+                <div class="dropdown">
+                  <span>Kayıt Ayarları</span>
+                  <div class="dropdown-content">
+                     <a href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
+                    <a href="/pages/kayitOlustur/kayitOlustur.html">Kayıt Oluştur</a>
+                  </div>
+                </div>
+            </div>         
       </div>
   </div>
   <div class="body-bottom">

@@ -6,7 +6,8 @@
     <title>Ana Sayfa</title>
     <link rel="stylesheet" href="/style/anasayfa.css">
     <link rel="stylesheet" href="/style/top-bar.css">
-</head>
+    <link rel="stylesheet" href="/style/dropdown.css">
+  </head>
 <body>
   <div class="container-body">
         <div class="body-top">
@@ -17,14 +18,30 @@
                     </svg>
                     Anasayfa ve Portföyünüz
                 </div>
-                <div class="nav-links">
+                <!-- <div class="nav-links">
                     <a href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
                      <a href="/pages/kayitOlustur/kayitOlustur.html">Kayıt Oluştur</a>
                      <a href="">Kullanıcı Oluştur</a> 
                      <a href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
-                     <a href="">Kullanıcılar</a> 
-                </div>          
-            </div>
+                </div>           -->
+                  <div class="dropdown-container">
+                  <div class="dropdown">
+                    <span>Kullanıcı Ayarları</span>
+                    <div class="dropdown-content">
+                      <a href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcılar</a>
+                      <a href="/pages/kullaniciOlustur/kullaniciOlustur.html">Kullanıcı Oluştur</a>
+                    </div>
+                  </div>
+                  
+                  <div class="dropdown">
+                    <span>Kayıt Ayarları</span>
+                    <div class="dropdown-content">
+                       <a href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
+                      <a href="/pages/kayitOlustur/kayitOlustur.html">Kayıt Oluştur</a>
+                    </div>
+                  </div>
+                 </div>
+              </div>
         </div>
         <div class="body-bottom">
 
@@ -39,7 +56,7 @@
             <div class="left">
                 <div class="istatistik-kartlari">
                     <div class="kart">
-                        <h3>📦 Toplam Talepler</h3>
+                        <h3>📦 Toplam Kayıt Sayısı</h3>
                         <p id="toplamTalep">0</p>
                     </div>
                     <div class="kart">
