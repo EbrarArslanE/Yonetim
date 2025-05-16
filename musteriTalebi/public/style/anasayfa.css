@@ -53,6 +53,7 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
+    /* background-color: #f4f4f9; */
 }
 
 .left {

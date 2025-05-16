@@ -2,9 +2,17 @@
   {
     "e_musteri_adi": "ebrar",
     "e_musteri_numarasi": "1312",
-    "e_talep_basligi": "eron yazılım",
-    "e_durum": "Bekliyor",
-    "e_onaylayan_kullanici": "bu kullanıcı silinmek için açılmıştır",
+    "e_talep_basligi": "isokal",
+    "e_durum": "Tamamlandı",
+    "e_onaylayan_kullanici": "ebrar",
     "e_talep": "test"
+  },
+  {
+    "e_musteri_adi": "emirhan",
+    "e_musteri_numarasi": "2344",
+    "e_talep_basligi": "Tema Optik",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "etst"
   }
 ]

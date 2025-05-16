@@ -16,8 +16,8 @@ window.onload = () => {
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td>${u.e_onaylayan_kullanici}</td>
-            <td class="text-center">${u.e_ad}</td>
-            <td class="text-center">${u.e_soyad}</td>
+            <td class="text-center w-10">${u.e_ad}</td>
+            <td class="text-center w-10">${u.e_soyad}</td>
             <td class="text-center"><span class="w-100 badge ${badgeDegeri}">${badgeSinifi}</span></td>
             <td class="text-center flex w-100 justify-content-center gap-2">
               <button onclick="sil('${u.e_onaylayan_kullanici}')" class="bin-button w-50">

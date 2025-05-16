@@ -1,445 +1,473 @@
 /* Genel vücut ve sayfa düzeni */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family:Arial,sans-serif;
+  background-color:#f4f4f9;
+  margin:0;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
 }
-
 /* Tablo container'ı */
 table {
-    width: 80%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-top: 20px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    font-family: 'Segoe UI', sans-serif;
+  width:95%;
+  border-collapse:separate;
+  border-spacing:0;
+  margin-top:20px;
+  border-radius:2px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);
+  font-family:'Segoe UI',sans-serif;
 }
-
 /* Başlık hücreleri */
 th {
-    background-color: #212121;
-    color: #ffffff;
-    padding: 12px 18px;
-    text-align: center;
-    font-weight: 600;
-    border-bottom: 2px solid #444;
+  background-color:#212121;
+  color:#ffffff;
+  padding:12px 18px;
+  text-align:center;
+  font-weight:600;
+  border-bottom:2px solid #444;
 }
-
 /* Normal hücreler */
 td {
-    background-color: #ffffff;
-    padding: 2.5px 5px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-    transition: background-color 0.2s ease;
-    border: 0.5px lightgray solid;
+  background-color:#ffffff;
+  padding:2.5px 5px;
+  text-align:left;
+  border-bottom:1px solid #ccc;
+  border-left:1px solid #ccc;
+  transition:background-color 0.2s ease;
+  /* border:0.5px lightgray solid;
+  */
 }
-
 /* Hover efekti */
 tr:hover td {
-    background-color: #f1f1f1;
+  background-color:#f1f1f1;
 }
-
 /* İlk sütunları daha belirgin yap istersen */
 td:first-child {
-    font-weight: 500;
-    color: #333;
+  font-weight:500;
+  color:#333;
 }
-
-
-.text-center {
-    text-align: center;
-}
-.text-left {
-    text-align: left;
-}
-.text-right {
-    text-align: right;
+.table-header {
+  width:100%;
+  height:10%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:row;
+  gap:12px;
 }
 .group {
-    display: flex;
-    line-height: 28px;
-    align-items: center;
-    position: relative;
-    width: 375px;
-   }
-   
-   .input {
-    width: 100%;
-    height: 40px;
-    line-height: 28px;
-    padding: 0 1rem;
-    padding-left: 2.5rem;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    outline: none;
-    background-color: #f3f3f4;
-    color: #0d0c22;
-    transition: .3s ease;
-   }
-   
-   .input::placeholder {
-    color: #9e9ea7;
-   }
-   
-   .input:focus, input:hover {
-    outline: none;
-    border-color: rgba(234,76,137,0.4);
-    background-color: #fff;
-    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
-   }
-   
-   .icon {
-    position: absolute;
-    left: 1rem;
-    fill: #9e9ea7;
-    width: 1rem;
-    height: 1rem;
-   }
-   
-   .sidebar {
-    height: 100%;
-    width: 250px; /* Sidebar genişliği */
-    position: fixed;
-    top: 0;
-    left: -250px; /* Başlangıçta gizli, sol kenardan 250px uzaklıkta */
-    background-color: #111; /* Koyu arka plan */
-    overflow-x: hidden; /* Yatay kaydırma çubuğunu gizle */
-    transition: 0.5s; /* Animasyon */
-    padding-top: 60px; /* Başlık için üst boşluk */
-    z-index: 9999; /* En üstte görünmesini sağla */
-  }
-  
-  .sidebar-header {
-    color: #fff;
-    text-align: center;
-    font-size: 30px;
-    padding: 15px;
-    background-color: #333; /* Koyu başlık arka planı */
-  }
-  
-  .sidebar-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar-list li {
-    padding: 8px 16px;
-    text-align: left;
-  }
-  
-  .sidebar-list li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    display: block;
-    transition: 0.3s; /* Link hover animasyonu */
-  }
-  
-  .sidebar-list li a:hover {
-    background-color: #575757; /* Hover efekti */
-  }
-  
-  /* Kapama butonu */
+  display:flex;
+  line-height:28px;
+  align-items:center;
+  position:relative;
+  width:375px;
+}
+.input {
+  width:100%;
+  height:40px;
+  line-height:28px;
+  padding:0 1rem;
+  padding-left:2.5rem;
+  border:2px solid transparent;
+  border-radius:8px;
+  outline:none;
+  background-color:#f3f3f4;
+  color:#0d0c22;
+  transition:.3s ease;
+}
+.input::placeholder {
+  color:#9e9ea7;
+}
+.input:focus,input:hover {
+  outline:none;
+  border-color:rgba(234,76,137,0.4);
+  background-color:#fff;
+  box-shadow:0 0 0 4px rgb(234 76 137 / 10%);
+}
+.icon {
+  position:absolute;
+  left:1rem;
+  fill:#9e9ea7;
+  width:1rem;
+  height:1rem;
+}
+.sidebar {
+  height:100%;
+  width:250px;
+  /* Sidebar genişliği */
+    position:fixed;
+  top:0;
+  left:-250px;
+  /* Başlangıçta gizli,sol kenardan 250px uzaklıkta */
+    background-color:#111;
+  /* Koyu arka plan */
+    overflow-x:hidden;
+  /* Yatay kaydırma çubuğunu gizle */
+    transition:0.5s;
+  /* Animasyon */
+    padding-top:60px;
+  /* Başlık için üst boşluk */
+    z-index:9999;
+  /* En üstte görünmesini sağla */
+}
+.sidebar-header {
+  color:#fff;
+  text-align:center;
+  font-size:30px;
+  padding:15px;
+  background-color:#333;
+  /* Koyu başlık arka planı */
+}
+.sidebar-list {
+  list-style-type:none;
+  padding:0;
+  margin:0;
+}
+.sidebar-list li {
+  padding:8px 16px;
+  text-align:left;
+}
+.sidebar-list li a {
+  color:white;
+  text-decoration:none;
+  font-size:18px;
+  display:block;
+  transition:0.3s;
+  /* Link hover animasyonu */
+}
+.sidebar-list li a:hover {
+  background-color:#575757;
+  /* Hover efekti */
+}
+/* Kapama butonu */
   .close-btn {
-    color: white;
-    font-size: 36px;
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    cursor: pointer;
-  }
-  
-  /* Sidebar açık olduğunda görünmesi */
+  color:white;
+  font-size:36px;
+  position:absolute;
+  top:15px;
+  right:25px;
+  cursor:pointer;
+}
+/* Sidebar açık olduğunda görünmesi */
   .sidebar.open {
-    left: 0; /* Sidebar, sol kenara 0 px mesafede olacak */
-  }
-  
-  /* Sidebar açma butonu */
+  left:0;
+  /* Sidebar,sol kenara 0 px mesafede olacak */
+}
+/* Sidebar açma butonu */
   .open-btn {
-    font-size: 30px;
-    background-color: #111;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 9998; /* Sidebar'dan bir alt katmanda */
-  }
-  
-  .open-btn:hover {
-    background-color: #333; /* Hover efekti */
-  }
-  .left{
-    height: 100%;
-    width: 1%;
-  }
-  .right{
-    /* background-color: blue; */
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-  }
-  .header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10%;
-  }
-  .table-container {
-    width: 100%;
-    overflow-x: auto; /* Yatay kaydırma çubuğu ekle */
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-
-  }
-   
-  .bin-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 55px;
-  height: 35px;
-  border-radius: 5px;
-  background-color: rgb(0, 0, 0);
-  cursor: pointer;
-  border: none;
-  transition-duration: 0.3s;
+  font-size:30px;
+  background-color:#111;
+  color:white;
+  padding:10px 20px;
+  border:none;
+  cursor:pointer;
+  position:fixed;
+  top:20px;
+  left:20px;
+  z-index:9998;
+  /* Sidebar'dan bir alt katmanda */
+}
+.open-btn:hover {
+  background-color:#333;
+  /* Hover efekti */
+}
+.left {
+  height:100%;
+  width:1%;
+}
+.right {
+  /* background-color:blue;
+  */
+    width:100%;
+  display:flex;
+  justify-content:flex-start;
+  flex-direction:column;
+  align-items:center;
+  height:100%;
+}
+.header {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:10%;
+}
+.table-container {
+  box-shadow:0 8px 24px rgba(0,0,0,0.15);
+  width:80%;
+  height:80%;
+  border-radius:2px;
+  overflow-x:auto;
+  /* Yatay kaydırma çubuğu ekle */
+    margin-top:20px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+.table-body {
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+}
+.bin-button {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:55px;
+  height:35px;
+  border-radius:5px;
+  background-color:rgb(0,0,0);
+  cursor:pointer;
+  border:none;
+  transition-duration:0.3s;
 }
 .bin-bottom {
-  width: 15px;
+  width:15px;
 }
 .bin-top {
-  width: 17px;
-  transform-origin: right;
-  transition-duration: 0.3s;
+  width:17px;
+  transform-origin:right;
+  transition-duration:0.3s;
 }
 .bin-button:hover .bin-top {
-  transform: rotate(45deg);
+  transform:rotate(45deg);
 }
 .bin-button:hover {
-  background-color: rgb(255, 0, 0);
+  background-color:rgb(255,0,0);
 }
 .bin-button:active {
-  transform: scale(0.9);
+  transform:scale(0.9);
 }
-
 .Btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 55px;
-  height: 35px;
-  border-radius: 5px;
-  border: none;
-  padding: 0px 20px;
-  background-color: white;
-  border: 1px solid black;
-  color: #0d0c22;
-  font-weight: 500;
-  cursor: pointer;
-  transition-duration: 0.3s;
-  overflow: hidden;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:55px;
+  height:35px;
+  border-radius:5px;
+  border:none;
+  padding:0px 20px;
+  background-color:white;
+  border:1px solid black;
+  color:#0d0c22;
+  font-weight:500;
+  cursor:pointer;
+  transition-duration:0.3s;
+  overflow:hidden;
 }
-
 .svg {
-  width: 13px;
-  position: absolute;
-  right: 0;
-  margin-right: 20px;
-  fill: #0d0c22;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, right 0.3s ease;
+  width:13px;
+  position:absolute;
+  right:0;
+  margin-right:20px;
+  fill:#0d0c22;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 0.3s ease,right 0.3s ease;
 }
-
 .Btn:hover {
-  color: transparent;
+  color:transparent;
 }
-
 .Btn:hover .svg {
-  right: 43%;
-  margin: 0;
-  padding: 0;
-  opacity: 1;
-  visibility: visible;
+  right:43%;
+  margin:0;
+  padding:0;
+  opacity:1;
+  visibility:visible;
 }
-
 .Btn:active {
-  transform: translate(3px, 3px);
-  transition-duration: 0.3s;
-  box-shadow: 2px 2px 0px rgb(140, 32, 212);
+  transform:translate(3px,3px);
+  transition-duration:0.3s;
+  box-shadow:2px 2px 0px rgb(140,32,212);
 }
-.container-body{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #0d0c22;
+.container-body {
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  background-color:#0d0c22;
 }
-.body-top{
-  width: 100%;
-  height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 12px;
+.body-top {
+  width:100%;
+  height:10%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:12px;
 }
-.body-bottom{
-  width: 100%;
-  height: 90%;
+.body-bottom {
+  width:100%;
+  height:90%;
 }
 .top-bar {
-  background-color: #1C1C2E; /* navy blue */
-  color: white;
-  padding: 12px 24px;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  font-family: Arial, sans-serif;
+  background-color:#1C1C2E;
+  /* navy blue */
+  color:white;
+  padding:12px 24px;
+  display:flex;
+  width:100%;
+  justify-content:space-between;
+  align-items:center;
+  font-family:Arial,sans-serif;
 }
-
 .logo {
-  font-size: 18px;
-  font-weight: bold;
+  font-size:18px;
+  font-weight:bold;
 }
-
 .nav-links a {
-  color: #D9FF3E; /* arctic lime */
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 15px;
-  transition: color 0.3s ease;
+  color:#D9FF3E;
+  /* arctic lime */
+  text-decoration:none;
+  margin-left:20px;
+  font-size:15px;
+  transition:color 0.3s ease;
 }
-
 .nav-links a:hover {
-  color: #58A6FF; /* light blue */
+  color:#58A6FF;
+  /* light blue */
 }
-
 /* Select kutusu */
 .custom-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  color: #0d0c22;
-  font-size: 14px;
-  appearance: none;
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  background-color:#f9f9f9;
+  color:#0d0c22;
+  font-size:14px;
+  appearance:none;
 }
-
 .button {
- display: inline-block;
- width: 70px;
- height: 30px;
- border-radius: 10px;
- border: 1px solid #03045e;
- position: relative;
- overflow: hidden;
- transition: all 0.5s ease-in;
- z-index: 1;
+  display:inline-block;
+  width:70px;
+  height:30px;
+  border-radius:10px;
+  border:1px solid #03045e;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.5s ease-in;
+  z-index:1;
 }
-
 .button {
-  background-color: #f3f7fe;
-  color: #3b82f6;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
-  width: 100px;
-  height: 45px;
-  transition: 0.3s;
+  background-color:#f3f7fe;
+  color:#3b82f6;
+  border:none;
+  cursor:pointer;
+  border-radius:8px;
+  width:100px;
+  height:45px;
+  transition:0.3s;
 }
-
 .button:hover {
-  background-color: #3b82f6;
-  box-shadow: 0 0 0 5px #3b83f65f;
-  color: #fff;
+  background-color:#3b82f6;
+  box-shadow:0 0 0 5px #3b83f65f;
+  color:#fff;
 }
-
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.custom-select{
-    position: relative;
-    width: 200px;
-    height: 40px;
-    border-radius: 5px;
-    background-color: whitesmoke;
-    border: none;
-    cursor: pointer;
+.custom-select {
+  position:relative;
+  width:200px;
+  height:40px;
+  border-radius:5px;
+  background-color:whitesmoke;
+  border:none;
+  cursor:pointer;
 }
-.custom-select::after{
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #000;
-    transform: translateY(-50%);
+.custom-select::after {
+  content:'';
+  position:absolute;
+  top:50%;
+  right:10px;
+  width:0;
+  height:0;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-top:5px solid #000;
+  transform:translateY(-50%);
 }
-.custom-select:hover{
-    background-color: #e0e0e0;
-}   
-.custom-select:focus{
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+.custom-select:hover {
+  background-color:#e0e0e0;
 }
-.custom-select:active{
-    background-color: #d0d0d0;
+.custom-select:focus {
+  outline:none;
+  box-shadow:0 0 5px rgba(0,0,0,0.2);
 }
-.custom-select:focus::after{
-    border-top-color: #000;
+.custom-select:active {
+  background-color:#d0d0d0;
+}
+.custom-select:focus::after {
+  border-top-color:#000;
 }
 .custom-select option {
-    padding: 12px 16px;
-    background-color: #ffffff;
-    color: #000000;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    font-size: 14px;
-    cursor: pointer;
+  padding:12px 16px;
+  background-color:#ffffff;
+  color:#000000;
+  transition:background-color 0.2s ease,color 0.2s ease;
+  font-size:14px;
+  cursor:pointer;
 }
-
 .custom-select option:hover {
-    background-color: #f5f5f5;
-    color: #111111;
+  background-color:#f5f5f5;
+  color:#111111;
 }
-
 .custom-select option:focus {
-    background-color: #eaeaea;
-    color: #000000;
+  background-color:#eaeaea;
+  color:#000000;
 }
-
 .custom-select option:active {
-    background-color: #dcdcdc;
-    color: #000000;
+  background-color:#dcdcdc;
+  color:#000000;
+}
+.add-button {
+  position:relative;
+  display:inline-block;
+  /* margin:15px;
+  */
+  /* padding:15px 30px;
+  */
+  text-align:center;
+  font-size:12px;
+  letter-spacing:1px;
+  text-decoration:none;
+  color:#ffffff;
+  background:transparent;
+  cursor:pointer;
+  transition:ease-out 0.5s;
+  border:2px solid #ffffff;
+  border-radius:5px;
+  box-shadow:inset 0 0 0 0 #ffffff;
+}
+.add-button:hover {
+  color:black;
+  box-shadow:inset 0 -100px 0 0 #f9f9f9;
+}
+.add-button:hover .text {
+  color:black;
+  box-shadow:inset 0 -100px 0 0 #f9f9f9;
+}
+.add-button:active {
+  transform:scale(0.9);
+}
+.text {
+  font-size:12px;
+  color:white;
+  /* font-weight:bold;
+  */
+  text-decoration:none;
 }

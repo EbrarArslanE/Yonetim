@@ -28,13 +28,3 @@
 .dropdown-content a:hover {
   background-color: #f1f1f1;
 }
-.dropdown-container{
-  width: 60%;
-  height: 100%;
-  /* background-color: red; */
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
-  gap: 32px;
-}

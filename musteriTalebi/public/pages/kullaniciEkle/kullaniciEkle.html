@@ -1,84 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/style/giris.css">
-   <link rel="stylesheet" href="/style/musteriTalepFormu.css">
-  <link rel="stylesheet" href="/style/top-bar.css">
-  <link rel="stylesheet" href="/style/dropdown.css">
-  <link rel="stylesheet" href="/style/custom-select.css">
-  <title>Document</title>
-</head>
-<body>
-  <div class="container-body">
-    <div class="body-top">
-      <div class="top-bar">
-        <div class="logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,1)">
-            <path d="M14 14.252V16.3414C13.3744 16.1203 12.7013 16 12 16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14C12.6906 14 13.3608 14.0875 14 14.252ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11ZM18 17V14H20V17H23V19H20V22H18V19H15V17H18Z"></path>
-          </svg>
-        Kullanıcı Kaydı Oluştur
-        </div>
-         <div class="dropdown-container">
-        
-           <a class="a" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
-        
-           <div class="dropdown">
-           <span>Kullanıcı Ayarları</span>
-           <div class="dropdown-content">
-             <a href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcılar</a>
-             <a href="/pages/kullaniciEkle/kullaniciEkle.html">Kullanıcı Oluştur</a>
-           </div>
-         </div>
-         
-         <div class="dropdown">
-           <span>Kayıt Ayarları</span>
-           <div class="dropdown-content">
-              <a href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
-             <a href="/pages/kayitOlustur/kayitOlustur.html">Kayıt Oluştur</a>
-           </div>
-         </div>
-        </div>        
-      </div>
-    </div>
-  <div class="body-bottom">
-    <div class="form-card-wrapper">
-      <div class="form-card">
-      <form class="form">
-        <p class="title">Kullanıcı Oluştur</p>
-        <p class="message">İşlemlere kullanıcı atamak için. </p>
-            
-              <div class="gap">
-                <label>Kullanıcı Adı *</label>
-                <input id="e_onaylayan_kullanici" required="" placeholder="" type="text" class="input">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/giris.css">
+    <link rel="stylesheet" href="/style/musteriTalepFormu.css">
+    <link rel="stylesheet" href="/style/top-bar.css">
+    <link rel="stylesheet" href="/style/dropdown.css">
+    <link rel="stylesheet" href="/style/custom-select.css">
+    <title>
+      Document
+    </title>
+  </head>
+  
+  <body>
+    <div class="container-body">
+      <div class="body-top">
+        <div class="top-bar">
+          <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,1)">
+              <path d="M14 14.252V16.3414C13.3744 16.1203 12.7013 16 12 16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14C12.6906 14 13.3608 14.0875 14 14.252ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11ZM18 17V14H20V17H23V19H20V22H18V19H15V17H18Z">
+              </path>
+            </svg>
+            Kullanıcı Kaydı Oluştur
+          </div>
+          <div class="dropdown-container">
+            <a class="a" href="/pages/anasayfa/anasayfa.html">
+              Anasayfa
+            </a>
+            <div class="dropdown">
+              <span>
+                Kullanıcı Ayarları
+              </span>
+              <div class="dropdown-content">
+                <a href="/pages/kullaniciListesi/kullaniciListesi.html">
+                  Kullanıcılar
+                </a>
+                <a href="/pages/kullaniciEkle/kullaniciEkle.html">
+                  Kullanıcı Oluştur
+                </a>
               </div>
-              
+            </div>
+            <div class="dropdown">
+              <span>
+                Kayıt Ayarları
+              </span>
+              <div class="dropdown-content">
+                <a href="/pages/kayitListesi/kayitListesi.html">
+                  Kayıt Listesi
+                </a>
+                <a href="/pages/kayitOlustur/kayitOlustur.html">
+                  Kayıt Oluştur
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="body-bottom">
+        <div class="form-card-wrapper">
+          <div class="form-card">
+            <form class="form">
+              <p class="title">
+                Kullanıcı Oluştur
+              </p>
+              <p class="message">
+                İşlemlere kullanıcı atamak için.
+              </p>
               <div class="gap">
-                <label>Ad *</label>
+                <label>
+                  Kullanıcı Adı *
+                </label>
+                <input id="e_onaylayan_kullanici" required="" placeholder="" type="text"
+                class="input">
+              </div>
+              <div class="gap">
+                <label>
+                  Ad *
+                </label>
                 <input id="e_ad" required="" placeholder="" type="text" class="input">
-              </div> 
-              
+              </div>
               <div class="gap">
-                <label>Soyad *</label>
+                <label>
+                  Soyad *
+                </label>
                 <input id="e_soyad" required="" placeholder="" type="text" class="input">
               </div>
-            
-          
               <div class="gap">
-            <label>Durum *</label>
-              <select class="custom-select" name="" id="e_durum">
-                <option value="">---- Seçiniz ----</option>
-                <option value="Aktif">Aktif</option>
-                <option value="Pasif">Pasif</option>
-              </select>
-              </div>            
-             <button class="submit">Submit</button>
-        </form>
+                <label>
+                  Durum *
+                </label>
+                <select class="custom-select" name="" id="e_durum">
+                  <option value="">
+                    ---- Seçiniz ----
+                  </option>
+                  <option value="Aktif">
+                    Aktif
+                  </option>
+                  <option value="Pasif">
+                    Pasif
+                  </option>
+                </select>
+              </div>
+              <button class="submit">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
- </div>
-  <script src="kullaniciEkle.js"></script>
-</body>
+    <script src="kullaniciEkle.js">
+    </script>
+  </body>
+
 </html>
