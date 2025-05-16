@@ -1,26 +1,50 @@
 [
   {
-    "e_musteri_adi": "Sistem",
-    "e_musteri_numarasi": "0000",
+    "e_musteri_adi": "Yönetim",
+    "e_musteri_numarasi": "1",
+    "e_talep_basligi": "Yönetim paneli ile ilgili adımlar",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "Kayıtlarda müşteri soyadı gönderilecek ve telefon numarası gönderilecek"
+  },
+  {
+    "e_musteri_adi": "Yönetim",
+    "e_musteri_numarasi": "2",
+    "e_talep_basligi": "üst panele eklenecek şeyler",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "filtreleme özellikleri buraya gelecek, input, tarih, belki kayıt sayısı"
+  },
+  {
+    "e_musteri_adi": "acil",
+    "e_musteri_numarasi": "3",
+    "e_talep_basligi": "ana sayfa düzenlemesi",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "nazım",
+    "e_talep": "ana sayfanın görünümünü düzelt değiştir allah için."
+  },
+  {
+    "e_musteri_adi": "Önemli",
+    "e_musteri_numarasi": "4",
+    "e_talep_basligi": "Yönetim paneli ile ilgili adımlar",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "Kayıt eklenirken tarih bilgisi gönderilecek, ardındanda bu bilgiler ana sayfada tarihi yaklaşan talepler olarak ekrana basılacak Eklenecek Fieldlar: e_saat_baslangic e_saat_son e_tarih_baslangic e_tarih_son"
+  },
+  {
+    "e_musteri_adi": "Önemli",
+    "e_musteri_numarasi": "5",
+    "e_talep_basligi": "Modal Düzenlemesi",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "kayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugün"
+  },
+  {
+    "e_musteri_adi": "scroll denemesi",
+    "e_musteri_numarasi": "244234",
     "e_talep_basligi": "Sistem ",
     "e_durum": "Bekliyor",
     "e_onaylayan_kullanici": "ebrar",
-    "e_talep": "üst panele filtreleme özellikleri eklenecek \r\nservis yazılması gerekiyor"
-  },
-  {
-    "e_musteri_adi": "ebrar",
-    "e_musteri_numarasi": "0001",
-    "e_talep_basligi": "Sistem ",
-    "e_durum": "Tamamlandı",
-    "e_onaylayan_kullanici": "nazım",
-    "e_talep": "  height:35px;\r\n  height:35px;\r\n  height:35px;\r\n  height:35px;\r\n  height:35px;\r\n  height:35px;\r\n  height:35px;\r\n  height:35px;\r\n  height:35px;\r\n  height:35px;\r\n  height:35px;\r\n"
-  },
-  {
-    "e_musteri_adi": "asdas",
-    "e_musteri_numarasi": "321432",
-    "e_talep_basligi": "eron yazılım",
-    "e_durum": "Bekliyor",
-    "e_onaylayan_kullanici": "nazım",
-    "e_talep": "sdfsdfsdf"
+    "e_talep": "işgflöedrögpamöertgkpoemgeıorjmoaıerjgmkayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugünkayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugünkayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugün"
   }
 ]
