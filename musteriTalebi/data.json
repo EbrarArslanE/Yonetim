@@ -6,13 +6,5 @@
     "e_durum": "Bekliyor",
     "e_onaylayan_kullanici": "bu kullanıcı silinmek için açılmıştır",
     "e_talep": "test"
-  },
-  {
-    "e_musteri_adi": "Nazım",
-    "e_musteri_numarasi": "1232352",
-    "e_talep_basligi": "Cinsel Organ Taciz Davası",
-    "e_durum": "İptal Edildi",
-    "e_onaylayan_kullanici": "bu kullanıcı silinmek için açılmıştır",
-    "e_talep": "test"
   }
 ]

@@ -19,42 +19,56 @@ body {
 /* Tablo container'ı */
 table {
     width: 80%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin-top: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* Tablo başlıkları */
+/* Başlık hücreleri */
 th {
     background-color: #212121;
-    color: white;
-    padding: 10px 15px;
-    text-align: left;
+    color: #ffffff;
+    padding: 12px 18px;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 2px solid #444;
 }
 
-/* Tablo hücreleri */
+/* Normal hücreler */
 td {
-    background-color: #fff;
-    padding: 8px 15px;
+    background-color: #ffffff;
+    padding: 2.5px 5px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.2s ease;
+    border: 0.5px lightgray solid;
 }
 
-/* Sıralı satırların arka plan rengi */
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Fare ile üzerine gelindiğinde satır rengi değişir */
-tr:hover {
+/* Hover efekti */
+tr:hover td {
     background-color: #f1f1f1;
 }
 
-/* Son satırın altını kesme */
-tr:last-child td {
-    border-bottom: none;
+/* İlk sütunları daha belirgin yap istersen */
+td:first-child {
+    font-weight: 500;
+    color: #333;
 }
 
+
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
 .group {
     display: flex;
     line-height: 28px;
@@ -205,9 +219,9 @@ tr:last-child td {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 75px;
+  width: 55px;
   height: 35px;
-  border-radius: 15px;
+  border-radius: 5px;
   background-color: rgb(0, 0, 0);
   cursor: pointer;
   border: none;
@@ -235,9 +249,10 @@ tr:last-child td {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: 90px;
-  height: 40px;
+  justify-content: center;
+  width: 55px;
+  height: 35px;
+  border-radius: 5px;
   border: none;
   padding: 0px 20px;
   background-color: white;
@@ -245,7 +260,6 @@ tr:last-child td {
   color: #0d0c22;
   font-weight: 500;
   cursor: pointer;
-  border-radius: 15px;
   transition-duration: 0.3s;
   overflow: hidden;
 }
