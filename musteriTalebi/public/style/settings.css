@@ -58,3 +58,36 @@
 .text-center  { text-align: center; }
 .text-left    { text-align: left; }
 .text-right   { text-align: right; }
+
+/* Margin Ayarları */
+.m-10 { margin: 10px; }
+.mt-10 { margin-top: 10px; }
+.mr-10 { margin-right: 10px; }
+.mb-10 { margin-bottom: 10px; }
+.ml-10 { margin-left: 10px; }
+.mx-10 { margin-left: 10px; margin-right: 10px; }
+.my-10 { margin-top: 10px; margin-bottom: 10px; }
+
+/* Padding Ayarları */
+.p-10 { padding: 10px; }
+.pt-10 { padding-top: 10px; }
+.pr-10 { padding-right: 10px; }
+.pb-10 { padding-bottom: 10px; }
+.pl-10 { padding-left: 10px; }
+.px-10 { padding-left: 10px; padding-right: 10px; }
+.py-10 { padding-top: 10px; padding-bottom: 10px; }
+
+/* Background Ayarları */
+.bg-red { background-color: red; }
+.bg-blue { background-color: blue; }
+.bg-gray { background-color: gray; }
+.bg-black { background-color: black; }
+.bg-white { background-color: white; }
+
+/* Font Size Ayarları */
+.text-xs { font-size: 12px; }
+.text-sm { font-size: 14px; }
+.text-base { font-size: 16px; }
+.text-lg { font-size: 18px; }
+.text-xl { font-size: 20px; }
+.text-2xl { font-size: 24px; }
