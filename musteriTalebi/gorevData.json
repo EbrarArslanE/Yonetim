@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "e_gorevli_kullanici": "nazım",
+    "e_onaylayan_kullanici": "bu görevi ebrar atadı",
+    "e_kullanici_adi": "Nazım",
+    "e_gorev": "Deneme Nazım",
+    "e_durum": "İptal Edildi"
+  }
+]

@@ -25,11 +25,9 @@
                </div>
                <div class="dropdown-container">
                 <a class="a" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
-
-                  <a class="a" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcılar</a>
-                  <!-- <a href="/pages/kullaniciEkle/kullaniciEkle.html">Kullanıcı Oluştur</a> -->  
-
-                   <a class="a" href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
+                <a class="a" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcılar</a>
+                <a class="a" href="/pages/gorevListesi/gorevListesi.html">Görev Listesi</a>  
+                <a class="a" href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
              </div>         
            </div>
         </div>
@@ -44,7 +42,7 @@
                   <label for="">Arama :</label>
                   <div class="group">
                     <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
-                    <input placeholder="Firma Adına Göre Ara" id="filterInput" type="search" class="input">
+                    <input placeholder="Görev Adına Göre Ara" id="filterInput" type="search" class="input">
                   </div>
                 </div>
                 
@@ -74,7 +72,7 @@
                             <th>Durum</th>
                             <th>
                               <button class="add-button w-100">
-                                <a class="text" href="/pages/kayitOlustur/kayitOlustur.html">Görev Oluştur</a>                
+                                <a class="text" onclick="gorevEkle()">Görev Oluştur</a>                
                               </button>
                             </th>
                           </tr>
@@ -91,10 +89,10 @@
    </div>
     <script src="gorevListesi.js"></script>
   <!-- MODAL -->
-<div class="modal-container" id="duzenleModal" style="display: none;">
+<div class="modal-container" id="gorevDuzenleModal" style="display: none;">
   <div class="modal-content">
     <div class="modal-header">
-      <h2>Talep Durumu Düzenle</h2>
+      <h2>Görev Durumu Düzenle</h2>
     </div>
     <div class="modal-body">
       <form>
@@ -133,6 +131,54 @@
       <div class="modal-footer">
         <button class="button" onclick="durumGuncelle()"><span>Güncelle</span></button>
         <button class="button" onclick="kapatModal()"><span>Kapat</span></button>
+      </div>
+  </div>
+</div>
+
+<div class="modal-container" id="gorevEkleModal" style="display: none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Görev Ekle</h2>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="half">
+          <div class="row">
+            <div class="half-left">
+            <label for="durumSec" style="display:block; margin-bottom:8px;">Görev Durumu:</label>
+            <select name="e_durum" id="durumSec" class="custom-select">
+                <option value="">---- Seçiniz ----</option>
+                <option value="Bekliyor">Bekliyor</option>
+                <option value="Tamamlandı">Tamamlandı</option>
+                <option value="İptal Edildi">İptal Edildi</option>
+            </select>
+            </div>
+            
+            <div class="half-right">
+            <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Onaylayan Kullanıcı:</label>
+              <select id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" class="custom-select" required>
+                <option value="">Üstlenecek kullanıcı seçin</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="column-flat">
+          <label for="">Kullanıcı Adı *</label>
+          <input id="e_kullanici_adi" required="" placeholder="" type="text" class="input" required>
+        </div>
+
+        <div class="column-flat">
+          <label for="">Görev Adı *</label>
+          <input id="e_gorev_adi" required="1" placeholder="" type="text" class="input" required>
+        </div>
+      </form>
+    </div>
+      <div class="modal-footer">
+        <div class="flex gap-2">
+          <button class="button" onclick="gorevEkle()"><span>Ekle</span></button>
+          <button class="button" onclick="kapatModal()"><span>Kapat</span></button>
+        </div>
       </div>
   </div>
 </div>

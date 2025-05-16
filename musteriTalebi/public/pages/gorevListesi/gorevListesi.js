@@ -102,15 +102,22 @@ function sil( e_gorevli_kullanici, e_kullanici_adi, e_durum, e_onaylayan_kullani
 }
 
 // Modal açma
-function acModal(musteriNumarasi) {
+function gorevDuzenle(musteriNumarasi) {
   const modal = document.getElementById("duzenleModal");
+  modal.dataset.musteriNumarasi = musteriNumarasi;
+  modal.style.display = "flex";
+}
+
+function gorevEkle(musteriNumarasi) {
+  const modal = document.getElementById("gorevEkleModal");
   modal.dataset.musteriNumarasi = musteriNumarasi;
   modal.style.display = "flex";
 }
 
 // Modal kapatma
 function kapatModal() {
-  document.getElementById("duzenleModal").style.display = "none";
+  document.getElementById("gorevDuzenleModal").style.display = "none";
+  document.getElementById("gorevEkleModal").style.display = "none";
 }
 
 // Dışarı tıklanınca modal kapansın
