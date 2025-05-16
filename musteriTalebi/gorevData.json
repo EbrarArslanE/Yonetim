@@ -1,9 +1,20 @@
 [
   {
+    "e_gorevli_kullanici": "ebrar",
+    "e_onaylayan_kullanici": "nazım",
+    "e_gorev": "deneme",
+    "e_durum": "Tamamlandı"
+  },
+  {
+    "e_gorevli_kullanici": "ebrar",
+    "e_onaylayan_kullanici": "nazım",
+    "e_gorev": "31 çek",
+    "e_durum": "Bekliyor"
+  },
+  {
     "e_gorevli_kullanici": "nazım",
-    "e_onaylayan_kullanici": "bu görevi ebrar atadı",
-    "e_kullanici_adi": "Nazım",
-    "e_gorev": "Deneme Nazım",
-    "e_durum": "İptal Edildi"
+    "e_onaylayan_kullanici": "ebrar",
+    "e_gorev": "sdsdfsdgf",
+    "e_durum": "Tamamlandı"
   }
 ]

@@ -103,19 +103,19 @@ app.post('/kullaniciEkle', (req, res) => {
 app.post('/gorevEkle', (req, res) => {
   const { 
     e_gorevli_kullanici,
+    e_onaylayan_kullanici,
     e_gorev,
-    e_kullanici_adi,  
     e_durum 
   } = req.body;
 
-  if (!e_gorevli_kullanici || !e_gorev || !e_kullanici_adi || !e_durum) {
+  if (!e_gorevli_kullanici || !e_onaylayan_kullanici || !e_gorev || !e_durum) {
     return res.status(400).json({ hata: 'Eksik kullanıcı bilgisi' });
   }
 
   const yeniGorev = { 
     e_gorevli_kullanici,
+    e_onaylayan_kullanici,
     e_gorev,
-    e_kullanici_adi, 
     e_durum 
     };
 
