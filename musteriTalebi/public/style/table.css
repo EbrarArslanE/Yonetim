@@ -38,8 +38,8 @@ td {
   background-color:#ffffff;
   padding:2.5px 5px;
   text-align:left;
-  border-bottom:1px solid #ccc;
-  border-left:1px solid #ccc;
+  border-bottom:1px solid #e5e4e4;
+  border-left:1px solid #e5e4e4;
   transition:background-color 0.2s ease;
   /* border:0.5px lightgray solid;
   */
@@ -251,8 +251,8 @@ td:first-child {
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  width: 88px;
-  height: 20px;
+  width: 100px;
+  height: 25px;
   border-radius:5px;
   background-color:rgb(0,0,0);
   cursor:pointer;
@@ -271,7 +271,7 @@ td:first-child {
   transform:rotate(45deg);
 }
 .bin-button:hover {
-  background-color:rgb(255,0,0);
+  background-color:rgb(0,0,0);
 }
 .bin-button:active {
   transform:scale(0.9);
@@ -283,8 +283,8 @@ td:first-child {
   justify-content:center;
   border-radius:5px;
   border:none;
-  width: 88px;
-  height: 20px;
+  width: 100px;
+  height: 25px;
   padding:0px 20px;
   background-color:white;
   border:1px solid black;
