@@ -1,40 +1,53 @@
 /* uzunluk ayarları */
-.w-5 { width: 5%; }
-.w-10 { width: 10%; }
-.w-20 { width: 20%; }
-.w-30 { width: 30%; }
-.w-40 { width: 40%; }
-.w-50 { width: 50%; }
-.w-60 { width: 60%; }
-.w-70 { width: 70%; }
-.w-80 { width: 80%; }
-.w-90 { width: 90%; }
-.w-100 { width: 100%; }
+.w-5    { width: 5%; }
+.w-10   { width: 10%; }
+.w-20   { width: 20%; }
+.w-30   { width: 30%; }
+.w-40   { width: 40%; }
+.w-50   { width: 50%; }
+.w-60   { width: 60%; }
+.w-70   { width: 70%; }
+.w-80   { width: 80%; }
+.w-90   { width: 90%; }
+.w-100  { width: 100%; }
 
 /* yükseklik ayarları */
-.h-5 { height: 5%; }
-.h-10 { height: 10%; }
-.h-20 { height: 20%; }
-.h-30 { height: 30%; }
-.h-40 { height: 40%; }
-.h-50 { height: 50%; }
-.h-60 { height: 60%; }
-.h-70 { height: 70%; }
-.h-80 { height: 80%; }
-.h-90 { height: 90%; }
-.h-100 { height: 100%; }
+.h-5    { height: 5%; }
+.h-10   { height: 10%; }
+.h-20   { height: 20%; }
+.h-30   { height: 30%; }
+.h-40   { height: 40%; }
+.h-50   { height: 50%; }
+.h-60   { height: 60%; }
+.h-70   { height: 70%; }
+.h-80   { height: 80%; }
+.h-90   { height: 90%; }
+.h-100  { height: 100%; }
 
 /* Flex Ayarları */
-.flex { display: flex; }
+.flex     { display: flex; }
 .flex-col { flex-direction: column; }
 .flex-row { flex-direction: row; }
-.items-center { align-items: center; }
-.justify-center { justify-content: center; }
+
+/* justify-content (ana eksen hizalama) */
+.justify-start    { justify-content: flex-start; }
+.justify-center   { justify-content: center; }
+.justify-end      { justify-content: flex-end; }
+.justify-between  { justify-content: space-between; }
+.justify-around   { justify-content: space-around; }
+.justify-evenly   { justify-content: space-evenly; }
+
+/* align-items (çapraz eksen hizalama) */
+.items-start    { align-items: flex-start; }
+.items-center   { align-items: center; }
+.items-end      { align-items: flex-end; }
+.items-stretch  { align-items: stretch; }
+.items-baseline { align-items: baseline; }
 
 /* Gap Ayarları */
-.gap-0 { gap: 0px; }
-.gap-4 { gap: 4px; }
-.gap-8 { gap: 8px; }
+.gap-0  { gap: 0px; }
+.gap-4  { gap: 4px; }
+.gap-8  { gap: 8px; }
 .gap-12 { gap: 12px; }
 .gap-16 { gap: 16px; }
 .gap-20 { gap: 20px; }
@@ -42,6 +55,6 @@
 .gap-32 { gap: 32px; }
 .gap-40 { gap: 40px; }
 
-.text-center{ text-align: center; }
-.text-left  { text-align: left; }
-.text-right { text-align: right; }
+.text-center  { text-align: center; }
+.text-left    { text-align: left; }
+.text-right   { text-align: right; }

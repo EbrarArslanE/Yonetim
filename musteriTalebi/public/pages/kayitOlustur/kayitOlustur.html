@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
-  
   <head>
     <meta charset="UTF-8">
-    <title>
-      Müşteri Talep Kaydı Formu
-    </title>
+    <title>Müşteri Talep Kaydı Formu</title>
     <link rel="stylesheet" href="/style/musteriTalepFormu.css">
     <link rel="stylesheet" href="/style/top-bar.css">
     <link rel="stylesheet" href="/style/dropdown.css">
   </head>
-  
   <body>
     <div class="container-body">
       <div class="body-top">
@@ -22,128 +18,87 @@
             </svg>
             Kayıt Oluştur
           </div>
+
           <div class="dropdown-container">
-            <a class="a" href="/pages/anasayfa/anasayfa.html">
-              Anasayfa
-            </a>
+            <a class="a" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
             <div class="dropdown">
-              <span>
-                Kullanıcı Ayarları
-              </span>
+              <span>Kullanıcı Ayarları</span>
               <div class="dropdown-content">
-                <a href="/pages/kullaniciListesi/kullaniciListesi.html">
-                  Kullanıcılar
-                </a>
-                <a href="/pages/kullaniciEkle/kullaniciEkle.html">
-                  Kullanıcı Oluştur
-                </a>
+                <a href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcılar</a>
+                <a href="/pages/kullaniciEkle/kullaniciEkle.html">Kullanıcı Oluştur</a>
               </div>
             </div>
+            
             <div class="dropdown">
-              <span>
-                Kayıt Ayarları
-              </span>
+              <span>Kayıt Ayarları</span>
               <div class="dropdown-content">
-                <a href="/pages/kayitListesi/kayitListesi.html">
-                  Kayıt Listesi
-                </a>
-                <a href="/pages/kayitOlustur/kayitOlustur.html">
-                  Kayıt Oluştur
-                </a>
+                <a href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a>
+                <a href="/pages/kayitOlustur/kayitOlustur.html">Kayıt Oluştur</a>
               </div>
             </div>
+
           </div>
         </div>
       </div>
       <div class="body-bottom">
         <div class="right">
           <div class="card">
+            
             <div class="card-header">
-              <h1>
-                Müşteri Talep Kaydı Formu
-              </h1>
+              <h1>Müşteri Talep Kaydı Formu</h1>
             </div>
+            
             <div class="card-body">
               <form action="/kayitIslemiKaydet" method="POST">
+                
                 <div class="gap">
-                  <label for="e_talep_basligi">
-                    Firma:
-                  </label>
-                  <br>
-                  <input class="input" type="text" id="e_talep_basligi" name="e_talep_basligi"
-                  required>
-                  <br>
-                  <br>
+                  <label for="e_talep_basligi">Firma:</label><br>
+                  <input class="input" type="text" id="e_talep_basligi" name="e_talep_basligi" required><br><br>
                 </div>
+                
                 <div class="half">
                   <div class="row">
+
                     <div class="half-left">
-                      <label for="e_musteri_adi">
-                        Müşteri Adı:
-                      </label>
-                      <br>
-                      <input class="input" type="text" id="e_musteri_adi" name="e_musteri_adi"
-                      required>
-                      <br>
-                      <br>
+                      <label for="e_musteri_adi">Müşteri Adı:</label><br>
+                      <input class="input" type="text" id="e_musteri_adi" name="e_musteri_adi"required><br><br>
                     </div>
+
                     <div class="half-right">
-                      <label for="e_musteri_numarasi">
-                        Müşteri Numarası:
-                      </label>
-                      <br>
-                      <input class="input" type="text" id="e_musteri_numarasi" name="e_musteri_numarasi"
-                      required>
-                      <br>
-                      <br>
+                      <label for="e_musteri_numarasi">Müşteri Numarası:</label><br>
+                      <input class="input" type="text" id="e_musteri_numarasi" name="e_musteri_numarasi"required><br><br>
                     </div>
+
                   </div>
                 </div>
+
                 <div class="gap">
-                  <label for="durumSec" style="display:block; margin-bottom:8px;">
-                    Durum Seç:
-                  </label>
+                  <label for="durumSec" style="display:block; margin-bottom:8px;">Durum Seç:</label>
                   <select name="e_durum" id="durumSec" class="custom-select">
-                    <option value="">
-                      ---- Seçiniz ----
-                    </option>
-                    <option value="Bekliyor">
-                      Bekliyor
-                    </option>
-                    <option value="Tamamlandı">
-                      Tamamlandı
-                    </option>
-                    <option value="İptal Edildi">
-                      İptal Edildi
-                    </option>
+                    <option value="">---- Seçiniz ----</option>
+                    <option value="Bekliyor">Bekliyor</option>
+                    <option value="Tamamlandı">Tamamlandı</option>
+                    <option value="İptal Edildi">İptal Edildi</option>
                   </select>
                 </div>
+                
                 <div class="gap">
-                  <label for="e_onaylayan_kullanici">
-                    Onaylayan Kullanıcı:
-                  </label>
-                  <select id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" class="custom-select"
-                  required>
-                    <option value="">
-                      Üstlenecek kullanıcı seçin
-                    </option>
+                  <label for="e_onaylayan_kullanici">Onaylayan Kullanıcı:</label>
+                  <select id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" class="custom-select"required>
+                    <option value="">Üstlenecek kullanıcı seçin</option>
                   </select>
                 </div>
+
                 <div class="gap">
-                  <label for="e_talep">
-                    Müşteri Talebi:
-                  </label>
+                  <label for="e_talep">Müşteri Talebi:</label>
                   <br>
-                  <textarea id="e_talep" name="e_talep" required>
-                  </textarea>
-                  <br>
-                  <br>
+                  <textarea id="e_talep" name="e_talep" required></textarea><br><br>
                 </div>
+
                 <div class="center">
-                  <button type="submit">
-                    Gönder
-                  </button>
+                  <button type="submit">Gönder</button>
                 </div>
+              
               </form>
             </div>
           </div>

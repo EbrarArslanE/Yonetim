@@ -48,8 +48,10 @@
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px;
+    height: 100%;
     padding: 20px;
     background-color: #f4f4f9;
+    /* background-color: blue; */
 }
 .right{
     /* background-color: blue; */
