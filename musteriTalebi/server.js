@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 // Veri yolları
 const DATA_PATH = path.join(__dirname, 'data.json');
 const USER_DATA_PATH = path.join(__dirname, 'userData.json');
+const TALEP_DATA_PATH = path.join(__dirname, 'gorevData.json');
 
 // Ana sayfaya yönlendirme
 app.get('/', (req, res) => {
@@ -22,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 // LİSTELEME İŞLEMLERİ
-app.get('/kayitListesi', (req, res) => {
+app.get('/musteriListesi', (req, res) => {
   fs.readFile(DATA_PATH, 'utf8', (err, data) => {
     if (err) {
       console.error('Veri okuma hatası:', err);
@@ -49,7 +50,23 @@ app.get('/kullaniciListesi', (req, res) => {
   });
 });
 
-// KULLANICI EKLEME İŞLEMLERİ
+app.get('/gorevListesi', (req, res) => {
+  fs.readFile(TALEP_DATA_PATH, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Görev verisi okunamadı:', err);
+      return res.status(500).json({ hata: 'Görev Listesi alınamadı.' });
+    }
+
+    try {
+      const gorevListesi = JSON.parse(data);
+      res.json(gorevListesi);
+    } catch (e) {
+      return res.status(500).json({ hata: 'Görev Listesi formatı hatalı.' });
+    }
+  });
+});
+
+// EKLEME İŞLEMLERİ
 app.post('/kullaniciEkle', (req, res) => {
   const { e_onaylayan_kullanici, e_ad, e_soyad, e_durum } = req.body;
 
@@ -83,8 +100,50 @@ app.post('/kullaniciEkle', (req, res) => {
   });
 });
 
-// Kayıt ekle
-app.post('/kayitIslemiKaydet', (req, res) => {
+app.post('/gorevEkle', (req, res) => {
+  const { 
+    e_gorevli_kullanici,
+    e_gorev,
+    e_kullanici_adi,  
+    e_durum 
+  } = req.body;
+
+  if (!e_gorevli_kullanici || !e_gorev || !e_kullanici_adi || !e_durum) {
+    return res.status(400).json({ hata: 'Eksik kullanıcı bilgisi' });
+  }
+
+  const yeniGorev = { 
+    e_gorevli_kullanici,
+    e_gorev,
+    e_kullanici_adi, 
+    e_durum 
+    };
+
+  fs.readFile(TALEP_DATA_PATH, 'utf8', (err, data) => {
+    let gorevListesi = [];
+
+    if (!err && data) {
+      try {
+        gorevListesi = JSON.parse(data);
+      } catch (e) {
+        console.error('gorevData.json parse hatası:', e);
+      }
+    }
+
+    gorevListesi.push(yeniGorev);
+
+    fs.writeFile(TALEP_DATA_PATH, JSON.stringify(gorevListesi, null, 2), err => {
+      if (err) {
+        console.error('Görev yazma hatası:', err);
+        return res.status(500).json({ hata: 'Görev eklenemedi.' });
+      }
+
+      res.json({ mesaj: 'Görev başarıyla eklendi.' });
+    });
+  });
+});
+
+app.post('/musteriEkle', (req, res) => {
   const { e_musteri_adi, e_durum, e_musteri_numarasi, e_talep_basligi, e_onaylayan_kullanici, e_talep } = req.body;
 
   const yeniVeri = {
@@ -198,6 +257,46 @@ app.post('/kullaniciSil', (req, res) => {
     });
   });
 });
+
+app.post('/gorevSil', (req, res) => {
+  const gelenVeri = req.body;
+
+  if (!gelenVeri || Object.keys(gelenVeri).length === 0) {
+    return res.status(400).json({ hata: 'Silinecek veri sağlanmadı.' });
+  }
+
+  fs.readFile(TALEP_DATA_PATH, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ hata: 'Veriler alınamadı.' });
+
+    let gorevListesi;
+    try {
+      gorevListesi = JSON.parse(data);
+    } catch (parseErr) {
+      return res.status(500).json({ hata: 'Veri formatı hatalı.' });
+    }
+
+    let silindiMi = false;
+    const yeniListe = gorevListesi.filter(item => {
+      const tamEslesen = Object.keys(gelenVeri).every(key => item[key] === gelenVeri[key]);
+      if (tamEslesen && !silindiMi) {
+        silindiMi = true;
+        return false;
+      }
+      return true;
+    });
+
+    if (!silindiMi) {
+      return res.status(404).json({ hata: 'Silinecek görev bulunamadı.' });
+    }
+
+    fs.writeFile(TALEP_DATA_PATH, JSON.stringify(yeniListe, null, 2), (err) => {
+      if (err) return res.status(500).json({ hata: 'Görev silinemedi.' });
+
+      res.json({ mesaj: 'Görev başarıyla silindi.' });
+    });
+  });
+});
+
 
 // DÜZENLEME İŞLEMLERİ
 app.post('/kayitDurumuGuncelle', (req, res) => {

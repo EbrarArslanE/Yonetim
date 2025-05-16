@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/style/dropdown.css">
     <link rel="stylesheet" href="/style/settings.css">
     <link rel="stylesheet" href="/style/custom-modal.css">
-    <title>Kayıt Listesi</title>
+    <title>Görev Listesi</title>
 </head>
 <body>
    <div class="container-body">
@@ -21,7 +21,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                      <path d="M8 4H21V6H8V4ZM3 3.5H6V6.5H3V3.5ZM3 10.5H6V13.5H3V10.5ZM3 17.5H6V20.5H3V17.5ZM8 11H21V13H8V11ZM8 18H21V20H8V18Z"></path>
                   </svg>
-                  <h1>Kayıt Listesi</h1>
+                  <h1>Görev Listesi</h1>
                </div>
                <div class="dropdown-container">
                 <a class="a" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
@@ -64,18 +64,17 @@
             <div class="table-bottom">
               <div class="table-container">
                 <div class="table-body">
-                  <table class="td-th" id="veriTablosu">
+                  <table class="td-th" id="gorevTablosu">
                       <thead>
-                          <tr>
-                            <th>Firma Adı</th>
-                            <th>Müşteri Adı</th>
-                            <th>Müşteri Numarası</th>
-                            <th>Üstlenen Kullanıcı</th>
-                            <th>Talep Açıklaması</th>
-                            <th>Talep Durumu</th>
+                        <tr>
+                            <th>Görev Üstlenici</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>Görev Adı</th>
+                            <th>Görevi Atayan</th>
+                            <th>Durum</th>
                             <th>
                               <button class="add-button w-100">
-                                <a class="text" href="/pages/kayitOlustur/kayitOlustur.html">Kayıt Oluştur</a>                
+                                <a class="text" href="/pages/kayitOlustur/kayitOlustur.html">Görev Oluştur</a>                
                               </button>
                             </th>
                           </tr>
@@ -90,7 +89,7 @@
         </div>
       </div>
    </div>
-    <script src="kayitListesi.js"></script>
+    <script src="gorevListesi.js"></script>
   <!-- MODAL -->
 <div class="modal-container" id="duzenleModal" style="display: none;">
   <div class="modal-content">

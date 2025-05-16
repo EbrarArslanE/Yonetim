@@ -48,7 +48,7 @@ td {
 td, th {
     word-wrap: break-word;
     word-break: break-word;
-    max-width: 200px; /* ya da ihtiyacına göre bir genişlik */
+    width: 200px; /* ya da ihtiyacına göre bir genişlik */
     overflow-wrap: break-word;
 }
 
