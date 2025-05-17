@@ -91,11 +91,12 @@
         <div class="modal-header">
           <h2> Kullanıcı Bilgisi Düzenle</h2>
         </div>
+        <hr>
         <div class="modal-body">
           <form>
             <div class="column-flat">
               <label for="durumSec" style="display:block; margin-bottom:8px;">Kullanıcı Durumu:</label>
-              <select class="custom-select" name="" id="e_durum" required>
+              <select class="custom-select w-100" name="" id="e_durum" required>
                 <option value="">---- Seçiniz ----</option>
                 <option value="Aktif">Aktif</option>
                 <option value="Pasif">Pasif</option>
@@ -116,7 +117,7 @@
             </div>
           </form>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer gap-12">
           <button class="button" onclick="kullaniciDurumGuncelle()">
             <span>Güncelle</span>
           </button>
