@@ -2,15 +2,15 @@
   {
     "e_musteri_adi": "Yönetim",
     "e_musteri_numarasi": "1",
-    "e_talep_basligi": "Yönetim paneli ile ilgili adımlar",
-    "e_durum": "Bekliyor",
+    "e_firma_adi": "Yönetim paneli ile ilgili adımlar",
+    "e_durum": "",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "Kayıtlarda müşteri soyadı gönderilecek ve telefon numarası gönderilecek"
   },
   {
     "e_musteri_adi": "Yönetim",
     "e_musteri_numarasi": "2",
-    "e_talep_basligi": "üst panele eklenecek şeyler",
+    "e_firma_adi": "üst panele eklenecek şeyler",
     "e_durum": "Bekliyor",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "filtreleme özellikleri buraya gelecek, input, tarih, belki kayıt sayısı"
@@ -18,7 +18,7 @@
   {
     "e_musteri_adi": "acil",
     "e_musteri_numarasi": "3",
-    "e_talep_basligi": "ana sayfa düzenlemesi",
+    "e_firma_adi": "ana sayfa düzenlemesi",
     "e_durum": "Bekliyor",
     "e_onaylayan_kullanici": "nazım",
     "e_talep": "ana sayfanın görünümünü düzelt değiştir allah için."
@@ -26,7 +26,7 @@
   {
     "e_musteri_adi": "Önemli",
     "e_musteri_numarasi": "4",
-    "e_talep_basligi": "Yönetim paneli ile ilgili adımlar",
+    "e_firma_adi": "Yönetim paneli ile ilgili adımlar",
     "e_durum": "Bekliyor",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "Kayıt eklenirken tarih bilgisi gönderilecek, ardındanda bu bilgiler ana sayfada tarihi yaklaşan talepler olarak ekrana basılacak Eklenecek Fieldlar: e_saat_baslangic e_saat_son e_tarih_baslangic e_tarih_son"
@@ -34,7 +34,7 @@
   {
     "e_musteri_adi": "Önemli",
     "e_musteri_numarasi": "5",
-    "e_talep_basligi": "Modal Düzenlemesi",
+    "e_firma_adi": "Modal Düzenlemesi",
     "e_durum": "Bekliyor",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "kayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugün"

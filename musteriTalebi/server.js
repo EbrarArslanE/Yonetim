@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 // LİSTELEME İŞLEMLERİ
-app.get('/musteriListesi', (req, res) => {
+app.get('/musteriTalepListesi', (req, res) => {
   fs.readFile(DATA_PATH, 'utf8', (err, data) => {
     if (err) {
       console.error('Veri okuma hatası:', err);
@@ -143,13 +143,13 @@ app.post('/gorevEkle', (req, res) => {
   });
 });
 
-app.post('/musteriEkle', (req, res) => {
-  const { e_musteri_adi, e_durum, e_musteri_numarasi, e_talep_basligi, e_onaylayan_kullanici, e_talep } = req.body;
+app.post('/musteriTalepEkle', (req, res) => {
+  const { e_musteri_adi, e_durum, e_musteri_numarasi, e_firma_adi, e_onaylayan_kullanici, e_talep } = req.body;
 
   const yeniVeri = {
     e_musteri_adi,
     e_musteri_numarasi,
-    e_talep_basligi,
+    e_firma_adi,
     e_durum,
     e_onaylayan_kullanici,
     e_talep
@@ -299,7 +299,7 @@ app.post('/gorevSil', (req, res) => {
 
 
 // DÜZENLEME İŞLEMLERİ
-app.post('/kayitDurumuGuncelle', (req, res) => {
+app.post('/musteriTalepDuzenle', (req, res) => {
   const { e_musteri_numarasi, e_durum } = req.body;
 
   fs.readFile(DATA_PATH, 'utf8', (err, data) => {

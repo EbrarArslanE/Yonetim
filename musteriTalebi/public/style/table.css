@@ -498,3 +498,30 @@ body {
   */
   text-decoration:none;
 }
+textarea {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    resize: vertical; /* Kullanıcının dikey olarak boyutlandırmasına izin verir */
+    min-height: 100px;
+}
+
+textarea:focus {
+    border-color: #212121;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(22, 81, 150, 0.5);
+    outline: none;
+}
+
+  /* Yazıyı sola hizalayın ve kenar boşluklarını ayarlayın */
+  textarea::placeholder {
+    color: #6D6D6F;  /* Gri placeholder rengi */
+    opacity: 0.7;     /* Hafif opaklık */
+    font-style: italic; /* İtalik placeholder */
+  }
