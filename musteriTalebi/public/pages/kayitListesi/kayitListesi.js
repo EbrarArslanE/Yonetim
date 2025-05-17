@@ -7,7 +7,7 @@ window.onload = function () {
 fetch('/kullaniciListesi')
   .then(r => r.json())
   .then(list => {
-    const sel = document.getElementById('e_onaylayan_kullanici');
+    const sel = document.getElementById('kullaniciListele');
     list.forEach(u => {
       const opt = document.createElement('option');
       opt.value = u.e_onaylayan_kullanici;
@@ -146,49 +146,64 @@ window.addEventListener("click", function (event) {
 });
 
 function musteriTalepKaydet() {
-  const formData = new FormData(document.querySelector('form')); // Formdan veriyi alıyoruz
+  const form = document.getElementById("talepEkle");
+  const formData = new FormData(form);
+  const data = {};
+
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
 
   fetch('/musteriTalepEkle', {
     method: 'POST',
-    body: formData // Form verisini POST olarak gönderiyoruz
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
   })
-  .then(response => response.json()) // JSON olarak yanıt alıyoruz
+  .then(response => {
+    if (!response.ok) throw new Error('Sunucu hatası');
+    return response.json();
+  })
   .then(data => {
-    if (data.mesaj) {
-      alert(data.mesaj); // Başarı mesajını alert olarak gösteriyoruz
+    alert(data.mesaj);
+    if (data.success && data.redirectUrl) {
+      window.location.href = data.redirectUrl;
     }
   })
-  .catch(error => {
-    console.error('Kayıt ekleme hatası:', error);
-    alert('Kayıt eklenirken bir hata oluştu.');
+  .catch(err => {
+    console.error('Kayıt ekleme hatası:', err);
+    alert('Kayıt eklenirken hata oluştu');
   });
 }
+
+// Düzenleme için kullanıcı listesini çek
 fetch('/kullaniciListesi')
   .then(r => r.json())
   .then(list => {
-    const sel = document.getElementById('e_onaylayan_kullanici');
+    const degisenKullanici = document.getElementById('secilenKullanici');
     list.forEach(u => {
       const opt = document.createElement('option');
       opt.value = u.e_onaylayan_kullanici;
       opt.textContent = `${u.e_ad} ${u.e_soyad} (${u.e_onaylayan_kullanici})`;
-      sel.appendChild(opt);
+      degisenKullanici.appendChild(opt);
     });
   });
 
 // Durum güncelleme
 function durumGuncelle() {
   const durum                   = document.getElementById('durumSec').value;
-  const secilenKullanici        = document.getElementById('durumSec').value;
-  const  degisenMusteriAdi      = document.getElementById('durumSec').value;
-  const  degisenFirmaAdi        = document.getElementById('durumSec').value;
-  const  degisenTalepAciklamasi = document.getElementById('durumSec').value;
+  const secilenKullanici        = document.getElementById('secilenKullanici').value;
+  const degisenMusteriAdi       = document.getElementById('degisenMusteriAdi').value;
+  const degisenFirmaAdi         = document.getElementById('degisenFirmaAdi').value;
+  const degisenTalepAciklamasi  = document.getElementById('degisenTalepAciklamasi').value;
   const musteriNumarasi         = document.getElementById('musteriTalepDuzenleModal').dataset.musteriNumarasi;
 
   fetch('/musteriTalepDuzenle', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      e_musteri_numarasi: musteriNumarasi,
+      e_musteri_numarasi    : musteriNumarasi,
       e_onaylayan_kullanici : secilenKullanici,
       e_musteri_adi         : degisenMusteriAdi,
       e_firma_adi           : degisenFirmaAdi,
@@ -196,15 +211,18 @@ function durumGuncelle() {
       e_talep               : degisenTalepAciklamasi,
     })
   })
-    .then(res => res.json())
-    .then(data => {
-      if (data.mesaj) {
-        alert('Durum güncellendi.');
-        kapatModal();
-        location.reload();
-      } else {
-        alert('Hata: ' + data.hata);
-      }
-    });
-    
+  .then(res => res.json())
+  .then(data => {
+    if (data.mesaj) {
+      alert('Durum güncellendi.');
+      kapatModal();
+      location.reload();
+    } else {
+      alert('Hata: ' + data.hata);
+    }
+  })
+  .catch(err => {
+    console.error('Güncelleme hatası:', err);
+    alert('Güncelleme sırasında bir hata oluştu.');
+  });
 }

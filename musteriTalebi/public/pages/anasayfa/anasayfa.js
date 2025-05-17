@@ -1,7 +1,7 @@
 let grafikChart1 = null;
 let grafikChart2 = null;
 
-fetch('/musteriListesi')
+fetch('/musteriTalepListesi')
   .then(res => res.json())
   .then(data => {
     // 1. Grafik: Talep Başlığına Göre Bar Chart
@@ -69,7 +69,7 @@ fetch('/musteriListesi')
     });
   });
 
-    fetch('/musteriListesi')
+    fetch('/musteriTalepListesi')
       .then(res => res.json())
       .then(data => {
         const toplam = data.length;

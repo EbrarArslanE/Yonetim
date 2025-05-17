@@ -3,7 +3,7 @@
     "e_musteri_adi": "Yönetim",
     "e_musteri_numarasi": "1",
     "e_firma_adi": "Yönetim paneli ile ilgili adımlar",
-    "e_durum": "",
+    "e_durum": "Bekliyor",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "Kayıtlarda müşteri soyadı gönderilecek ve telefon numarası gönderilecek"
   },
@@ -38,5 +38,37 @@
     "e_durum": "Bekliyor",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "kayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugün"
+  },
+  {
+    "e_musteri_adi": "Müşteri Adı Burada",
+    "e_musteri_numarasi": "1234",
+    "e_firma_adi": "Firma Adı Burada",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "talep buradaf"
+  },
+  {
+    "e_musteri_adi": "Müşteri Adı Burada",
+    "e_musteri_numarasi": "34",
+    "e_firma_adi": "Firma Adı Burada",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "talep"
+  },
+  {
+    "e_musteri_adi": "Müşteri Adı Burada",
+    "e_musteri_numarasi": "1312",
+    "e_firma_adi": "Firma Adı Burada",
+    "e_durum": "Tamamlandı",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "Başarılı talep kaydı"
+  },
+  {
+    "e_musteri_adi": "Ebrar Müşteri Adını Değiştirdi",
+    "e_musteri_numarasi": "Bunu değiştir",
+    "e_firma_adi": "Ebrar Firma Adını Değiştirdi",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "Ebrar Talebi Değiştirdi",
+    "e_durum": "Tamamlandı"
   }
 ]

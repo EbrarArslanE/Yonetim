@@ -114,7 +114,7 @@
             <div class="flex flex-col w-50">
               <div class="flex-col">
                   <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Onaylayan Kullanıcı <span style="color: red;">*</span></label>
-                  <select class="custom-select w-100" id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" required>
+                  <select class="custom-select w-100" id="secilenKullanici" name="e_onaylayan_kullanici" required>
                     <option value="">Üstlenecek kullanıcı seçin</option>
                   </select>
               </div>            
@@ -124,22 +124,22 @@
         <div class="flex flex-row w-100 gap-2">
           <div class="flex-col">
               <label for="">Firma Adı <span style="color: red;">*</span></label>
-              <input class="input w-100" id="e_firma_adi" required="" placeholder="" type="text" class="input" required>
+              <input class="input w-100" id="degisenFirmaAdi" required="" placeholder="" type="text" class="input" required>
           </div>
           <div class="flex-col">
               <label for="">Müşteri Adı <span style="color: red;">*</span></label>
-              <input class="input w-100" id="e_musteri_adi" required="1" placeholder="" type="text" class="input" required>
+              <input class="input w-100" id="degisenMusteriAdi" required="1" placeholder="" type="text" class="input" required>
           </div>
         </div>
         
         <div class="flex-col">
             <label for="">Müşteri Numarası <span style="color: red;">*</span></label>
-            <input class="input w-100" id="e_musteri_numarasi" required="1" placeholder="" type="text" class="input" required>
+            <input class="input w-100" id="musteriNumarasi" required="1" placeholder="" type="text" class="input" required>
         </div>
 
         <div class="flex flex-col">
           <label for="">Talep <span style="color: red;">*</span></label>
-          <textarea id="e_talep" name="e_talep" required></textarea><br><br>
+          <textarea id="degisenTalepAciklamasi" name="e_talep" required></textarea><br><br>
         </div>
 
       </form>
@@ -157,7 +157,7 @@
       <h2>Müşteri Talep Ekleme Formu</h2>
     </div>
     <div class="modal-body">
-      <form action="/musteriTalepEkle" method="POST">
+      <form id="talepEkle">
         <div class="flex flex-row w-100 gap-2">
 
           <div class="flex flex-col w-50">
@@ -175,7 +175,7 @@
             <div class="flex flex-col w-50">
               <div class="flex-col">
                   <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Onaylayan Kullanıcı <span style="color: red;">*</span></label>
-                  <select class="custom-select w-100" id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" required>
+                  <select name="e_onaylayan_kullanici" class="custom-select w-100" id="kullaniciListele" required>
                     <option value="">Üstlenecek kullanıcı seçin</option>
                   </select>
               </div>            
@@ -185,17 +185,17 @@
         <div class="flex flex-row w-100 gap-2">
           <div class="flex-col">
               <label for="">Firma Adı <span style="color: red;">*</span></label>
-              <input class="input w-100" id="e_firma_adi" required="" placeholder="" type="text" class="input" required>
+              <input class="input w-100" name="e_firma_adi" id="e_firma_adi" required="" placeholder="" type="text" class="input" required>
           </div>
           <div class="flex-col">
               <label for="">Müşteri Adı <span style="color: red;">*</span></label>
-              <input class="input w-100" id="e_musteri_adi" required="1" placeholder="" type="text" class="input" required>
+              <input class="input w-100" name="e_musteri_adi" id="e_musteri_adi" required="1" placeholder="" type="text" class="input" required>
           </div>
         </div>
         
         <div class="flex-col">
             <label for="">Müşteri Numarası <span style="color: red;">*</span></label>
-            <input class="input w-100" id="e_musteri_numarasi" required="1" placeholder="" type="text" class="input" required>
+            <input class="input w-100" name="e_musteri_numarasi" id="e_musteri_numarasi" required="1" placeholder="" type="text" class="input" required>
         </div>
 
         <div class="flex flex-col">
@@ -206,7 +206,7 @@
       </form>
     </div>
       <div class="modal-footer gap-12">
-        <button class="button" onclick="musteriTalepKaydet()"><span>Ekle</span></button>
+        <button type="submit" class="button" onclick="musteriTalepKaydet()"><span>Ekle</span></button>
         <button class="button" onclick="kapatModal()"><span>Kapat</span></button>
       </div>
   </div>

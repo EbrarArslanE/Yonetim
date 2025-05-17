@@ -171,10 +171,10 @@ app.post('/musteriTalepEkle', (req, res) => {
     fs.writeFile(DATA_PATH, JSON.stringify(veriListesi, null, 2), (err) => {
       if (err) {
         console.error('Veri kaydetme hatası:', err);
-        res.status(500).send('Veri kaydedilemedi.');
-      } else {
-        res.redirect('/pages/anasayfa/anasayfa.html');
-      }
+        return res.status(500).json({ success: false, mesaj: 'Veri kaydedilemedi.' });
+      } 
+      // BURADA REDIRECT YOK, JSON DÖNÜYORUZ
+      res.json({ success: true, mesaj: 'Kayıt başarılı.'});
     });
   });
 });
@@ -300,7 +300,7 @@ app.post('/gorevSil', (req, res) => {
 
 // DÜZENLEME İŞLEMLERİ
 app.post('/musteriTalepDuzenle', (req, res) => {
-  const { e_musteri_numarasi, e_durum } = req.body;
+  const { e_musteri_numarasi, e_durum, e_musteri_adi, e_firma_adi, e_onaylayan_kullanici, e_talep } = req.body;
 
   fs.readFile(DATA_PATH, 'utf8', (err, data) => {
     if (err) return res.status(500).json({ hata: 'Dosya okunamadı.' });
@@ -316,7 +316,12 @@ app.post('/musteriTalepDuzenle', (req, res) => {
 
     const guncellenmisListe = veriListesi.map(item => {
       if (item.e_musteri_numarasi === e_musteri_numarasi) {
-        item.e_durum = e_durum;
+        item.e_durum                = e_durum;
+        item.e_talep                = e_talep;
+        item.e_musteri_adi          = e_musteri_adi;
+        item.e_musteri_numarasi     = e_musteri_numarasi;
+        item.e_onaylayan_kullanici  = e_onaylayan_kullanici;
+        item.e_firma_adi            = e_firma_adi;
         bulundu = true;
       }
       return item;
