@@ -94,42 +94,47 @@
       <h2>Görev Durumu Düzenle</h2>
     </div>
     <div class="modal-body">
-      <form>
-        <div class="half">
-          <div class="row">
-            <div class="half-left">
-            <label for="durumSec" style="display:block; margin-bottom:8px;">Talep Durumu:</label>
-            <select name="e_durum" id="durumSec" class="custom-select">
-                <option value="">---- Seçiniz ----</option>
-                <option value="Bekliyor">Bekliyor</option>
-                <option value="Tamamlandı">Tamamlandı</option>
-                <option value="İptal Edildi">İptal Edildi</option>
-            </select>
+     <form>
+            <div class="flex flex-col gap-12">
+              
+              <div class="flex-col">
+                <label for="durumSec" style="display:block; margin-bottom:8px;">Görev Durumu:</label>
+                <select name="e_durum" id="e_durum" class="custom-select w-100">
+                    <option value="">---- Seçiniz ----</option>
+                    <option value="Bekliyor">Bekliyor</option>
+                    <option value="Tamamlandı">Tamamlandı</option>
+                    <option value="İptal Edildi">İptal Edildi</option>
+                </select>
+              </div>
             </div>
-            
-            <div class="half-right">
-            <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Onaylayan Kullanıcı:</label>
-              <select id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" class="custom-select" required>
-                <option value="">Üstlenecek kullanıcı seçin</option>
-              </select>
+            <div class="flex flex-row gap-12">
+              <div class="flex-col w-50">
+              <label for="e_gorevli_kullanici" style="display:block; margin-bottom:8px;">Görevi Üstlenen Kullanıcı:</label>
+                <select id="kullaniciListele" name="e_gorevli_kullanici" class="custom-select w-100" required>
+                  <option value="">Üstlenecek kullanıcı seçin</option>
+                </select>
+              </div>
+              
+              <div class="flex-col w-50">
+              <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Görevi Atayan Kullanıcı:</label>
+                <select id="kullaniciAtamaListele" name="e_onaylayan_kullanici" class="custom-select w-100" required>
+                  <option value="">Atayacak kullanıcı seçin</option>
+                </select>
+              </div>
             </div>
-          </div>
-        </div>
 
         <div class="column-flat">
-          <label for="">Ad *</label>
-          <input id="e_ad" required="" placeholder="" type="text" class="input" required>
+          <label for="e_gorev">Görev Adı *</label>
+          <input id="e_gorev" name="e_gorev" required placeholder="" type="text" class="input">
         </div>
 
-        <div class="column-flat">
-          <label for="">Soyad *</label>
-          <input id="e_soyad" required="1" placeholder="" type="text" class="input" required>
-        </div>
       </form>
     </div>
       <div class="modal-footer">
-        <button class="button" onclick="durumGuncelle()"><span>Güncelle</span></button>
-        <button class="button" onclick="kapatModal()"><span>Kapat</span></button>
+        <div class="flex gap-2">
+          <button class="button" onclick="gorevGuncelle()"><span>Güncelle</span></button>
+          <button class="button" onclick="kapatModal()"><span>Kapat</span></button>
+        </div>
       </div>
   </div>
 </div>

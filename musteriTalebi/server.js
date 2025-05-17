@@ -377,6 +377,44 @@ app.post('/kullaniciGuncelle', (req, res) => {
   });
 });
 
+app.post('/gorevDuzenle', (req, res) => {
+  const { e_gorev, e_durum, e_gorevli_kullanici, e_onaylayan_kullanici } = req.body;
+
+  fs.readFile(TALEP_DATA_PATH, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ hata: 'Dosya okunamadı.' });
+
+    let veriListesi;
+    try {
+      veriListesi = JSON.parse(data);
+    } catch (parseErr) {
+      return res.status(500).json({ hata: 'JSON formatı hatalı.' });
+    }
+
+    let bulundu = false;
+
+    const guncellenmisListe = veriListesi.map(item => {
+      if (item.e_gorevli_kullanici === e_gorevli_kullanici) {
+        item.e_durum                = e_durum;
+        item.e_gorevli_kullanici    = e_gorevli_kullanici;
+        item.e_gorev                = e_gorev;
+        item.e_onaylayan_kullanici  = e_onaylayan_kullanici;
+        bulundu = true;
+      }
+      return item;
+    });
+
+    if (!bulundu) {
+      return res.status(404).json({ hata: 'Müşteri numarası bulunamadı' });
+    }
+
+    fs.writeFile(TALEP_DATA_PATH, JSON.stringify(guncellenmisListe, null, 2), err => {
+      if (err) return res.status(500).json({ hata: 'Dosyaya yazılamadı' });
+
+      res.json({ mesaj: 'Görev Güncellendi' });
+    });
+  });
+});
+
 // Sunucuyu başlat
 app.listen(PORT, () => {
   console.log(`Sunucu ${PORT} portunda çalışıyor.`);

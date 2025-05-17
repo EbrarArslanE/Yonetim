@@ -105,7 +105,7 @@ function sil(e_gorevli_kullanici) {
 
 // Modal işlemleri
 function acModal(musteriNumarasi) {
-  const modal = document.getElementById("duzenleModal");
+  const modal = document.getElementById("gorevDuzenleModal");
   modal.dataset.musteriNumarasi = musteriNumarasi;
   modal.style.display = "flex";
 }
@@ -117,7 +117,7 @@ function gorevEkle(musteriNumarasi) {
 }
 
 function kapatModal() {
-  document.getElementById("duzenleModal").style.display = "none";
+  document.getElementById("gorevDuzenleModal").style.display = "none";
 }
 
 function gorevModalKapat() {
@@ -126,7 +126,7 @@ function gorevModalKapat() {
 
 // Modal dışına tıklanınca kapat
 window.addEventListener("click", function (event) {
-  const modal1 = document.getElementById("duzenleModal");
+  const modal1 = document.getElementById("gorevDuzenleModal");
   const modal2 = document.getElementById("gorevEkleModal");
   if (event.target === modal1) modal1.style.display = "none";
   if (event.target === modal2) modal2.style.display = "none";
@@ -169,6 +169,40 @@ function gorevKaydet() {
   .catch(err => {
     console.error('Hata:', err);
     alert("Görev eklenirken hata oluştu.");
+  });
+}
+
+function gorevGuncelle() {
+  const durum                   = document.getElementById('durumSec').value;
+  const secilenKullanici        = document.getElementById('secilenKullanici').value;
+  const degisenGorevli          = document.getElementById('kullaniciListele').value;
+  const degisenGorevAdi         = document.getElementById('degisenFirmaAdi').value;
+  // const degisenTalepAciklamasi  = document.getElementById('degisenTalepAciklamasi').value;
+  // const musteriNumarasi         = document.getElementById('musteriTalepDuzenleModal').dataset.musteriNumarasi;
+
+  fetch('/gorevDuzenle', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      e_onaylayan_kullanici : secilenKullanici,
+      e_gorevli_kullanici   : degisenGorevli,
+      e_durum               : durum,
+      e_gorev               : degisenGorevAdi
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.mesaj) {
+      alert('Görev güncellendi.');
+      kapatModal();
+      location.reload();
+    } else {
+      alert('Hata: ' + data.hata);
+    }
+  })
+  .catch(err => {
+    console.error('Güncelleme hatası:', err);
+    alert('Güncelleme sırasında bir hata oluştu.');
   });
 }
 
