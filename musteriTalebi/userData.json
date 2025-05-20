@@ -1,14 +1,30 @@
 [
   {
+    "e_id": "56dea904-3b0e-4272-9a34-85bc1df31952",
     "e_onaylayan_kullanici": "ebrar",
     "e_ad": "Ebrar",
     "e_soyad": "Arslan",
     "e_durum": "Aktif"
   },
   {
+    "e_id": "2756aa99-157f-4d83-b1c6-b6644cfefd21",
     "e_onaylayan_kullanici": "nazım",
     "e_ad": "Nazım",
     "e_soyad": "Çeltekli",
+    "e_durum": "Aktif"
+  },
+  {
+    "e_id": "3e7abdf1-dae1-4524-a99a-d3cac9375a3a",
+    "e_onaylayan_kullanici": "        console.error('kullanıcı e_id:', e_id);",
+    "e_ad": "        console.error('kullanıcı e_id:', e_id);",
+    "e_soyad": "        console.error('kullanıcı e_id:', e_id);",
     "e_durum": "Pasif"
+  },
+  {
+    "e_id": "a80536d6-62a7-49d3-9909-b1f5acc2d37b",
+    "e_onaylayan_kullanici": "      console.log('kullanıcı e_id:');",
+    "e_ad": "      console.log('kullanıcı e_id:');",
+    "e_soyad": "      console.log('kullanıcı e_id:');",
+    "e_durum": "Aktif"
   }
 ]

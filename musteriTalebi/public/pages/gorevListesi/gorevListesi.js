@@ -7,22 +7,36 @@ window.onload = function () {
   fetch('/kullaniciListesi')
     .then(r => r.json())
     .then(list => {
-      const sel1 = document.getElementById('kullaniciListele');
-      const sel2 = document.getElementById('kullaniciAtamaListele');
+      const kullaniciAtamaEkle = document.getElementById('kullaniciAtamaEkle');
+      const ustlenenKullanıcıEkle = document.getElementById('ustlenenKullanıcıEkle');
+      const atananKullanıcıDuzenle = document.getElementById('atananKullanıcıDuzenle');
+      const ustlenenKullanıcıDuzenle = document.getElementById('ustlenenKullanıcıDuzenle');
+      
       list.forEach(u => {
         const optionText = `${u.e_ad} ${u.e_soyad} (${u.e_onaylayan_kullanici})`;
 
         const opt1 = document.createElement('option');
         opt1.value = u.e_onaylayan_kullanici;
         opt1.textContent = optionText;
-        sel1.appendChild(opt1);
+        kullaniciAtamaEkle.appendChild(opt1);
 
         const opt2 = document.createElement('option');
         opt2.value = u.e_onaylayan_kullanici;
         opt2.textContent = optionText;
-        sel2.appendChild(opt2);
+        ustlenenKullanıcıEkle.appendChild(opt2);
+        
+        const opt3 = document.createElement('option');
+        opt3.value = u.e_onaylayan_kullanici;
+        opt3.textContent = optionText;
+        atananKullanıcıDuzenle.appendChild(opt3);
+        
+        const opt4 = document.createElement('option');
+        opt4.value = u.e_onaylayan_kullanici;
+        opt4.textContent = optionText;
+        ustlenenKullanıcıDuzenle.appendChild(opt4);
       });
     });
+    
 
   // Görev listesini getir
   fetch('/gorevListesi')
@@ -46,6 +60,7 @@ window.onload = function () {
             <td class="text-left">${gorev.e_onaylayan_kullanici || 'Yok'}</td>
             <td class="text-left">${gorev.e_gorev}</td>
             <td class="text-center"><span class="w-100 badge ${badgeDegeri}">${badgeSinifi}</span></td>
+            <td class="text-center">${gorev.e_id}</td>
             <td class="text-center w-10">
               <div class="flex flex-row gap-2 w-100">
                 <button class="Btn" onclick="acModal('${gorev.e_gorevli_kullanici}')">
@@ -142,10 +157,10 @@ function gorevKaydet() {
   // Eğer e_gorevli_kullanici boşsa, e_onaylayan_kullanıcı'yı kullan (senin istediğin şey bu)
   const gidecek_gorevli = e_gorevli_kullanici || e_onaylayan_kullanici;
 
-  if (!gidecek_gorevli || !e_onaylayan_kullanici || !e_gorev || !e_durum) {
-    alert("Lütfen tüm alanları doldurun.");
-    return;
-  }
+  // if (!gidecek_gorevli || !e_onaylayan_kullanici || !e_gorev || !e_durum) {
+  //   alert("Lütfen tüm alanları doldurun.");
+  //   return;
+  // }
 
   const yeniGorev = {
     e_gorevli_kullanici: gidecek_gorevli,

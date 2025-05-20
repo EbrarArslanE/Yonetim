@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
+const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = 1312;
 
@@ -74,7 +75,15 @@ app.post('/kullaniciEkle', (req, res) => {
     return res.status(400).json({ hata: 'Eksik kullanıcı bilgisi' });
   }
 
-  const yeniKullanici = { e_onaylayan_kullanici, e_ad, e_soyad, e_durum };
+  const e_id = uuidv4();
+
+  const yeniKullanici = {
+     e_id,
+     e_onaylayan_kullanici, 
+     e_ad, 
+     e_soyad, 
+     e_durum 
+    };
 
   fs.readFile(USER_DATA_PATH, 'utf8', (err, data) => {
     let kullaniciListesi = [];
@@ -95,7 +104,7 @@ app.post('/kullaniciEkle', (req, res) => {
         return res.status(500).json({ hata: 'Kullanıcı eklenemedi.' });
       }
 
-      res.json({ mesaj: 'Kullanıcı başarıyla eklendi.' });
+      res.json({ mesaj: 'Kullanıcı başarıyla eklendi.', e_id });
     });
   });
 });
@@ -111,8 +120,10 @@ app.post('/gorevEkle', (req, res) => {
   if (!e_gorevli_kullanici || !e_onaylayan_kullanici || !e_gorev || !e_durum) {
     return res.status(400).json({ hata: 'Eksik kullanıcı bilgisi' });
   }
+    const g_id = uuidv4();
 
   const yeniGorev = { 
+    g_id ,
     e_gorevli_kullanici,
     e_onaylayan_kullanici,
     e_gorev,

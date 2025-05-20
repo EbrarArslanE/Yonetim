@@ -69,6 +69,7 @@
                             <th>Görevi Atayan</th>
                             <th>Görev Adı</th>
                             <th>Durum</th>
+                            <th>E_ID</th>
                             <th>
                               <button class="add-button w-100">
                                 <a class="text" onclick="gorevEkle()">Görev Oluştur</a>                
@@ -86,7 +87,6 @@
         </div>
       </div>
    </div>
-    <script src="gorevListesi.js"></script>
   <!-- MODAL -->
 <div class="modal-container" id="gorevDuzenleModal" style="display: none;">
   <div class="modal-content">
@@ -110,14 +110,14 @@
             <div class="flex flex-row gap-12">
               <div class="flex-col w-50">
               <label for="e_gorevli_kullanici" style="display:block; margin-bottom:8px;">Görevi Üstlenen Kullanıcı:</label>
-                <select id="kullaniciListele" name="e_gorevli_kullanici" class="custom-select w-100" required>
+                <select id="ustlenenKullanıcıDuzenle" name="e_gorevli_kullanici" class="custom-select w-100" required>
                   <option value="">Üstlenecek kullanıcı seçin</option>
                 </select>
               </div>
               
               <div class="flex-col w-50">
               <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Görevi Atayan Kullanıcı:</label>
-                <select id="kullaniciAtamaListele" name="e_onaylayan_kullanici" class="custom-select w-100" required>
+                <select id="atananKullanıcıDuzenle" name="e_onaylayan_kullanici" class="custom-select w-100" required>
                   <option value="">Atayacak kullanıcı seçin</option>
                 </select>
               </div>
@@ -161,14 +161,14 @@
             <div class="flex flex-row gap-12">
               <div class="flex-col w-50">
               <label for="e_gorevli_kullanici" style="display:block; margin-bottom:8px;">Görevi Üstlenen Kullanıcı:</label>
-                <select id="kullaniciListele" name="e_gorevli_kullanici" class="custom-select w-100" required>
+                <select id="ustlenenKullanıcıEkle" name="e_gorevli_kullanici" class="custom-select w-100" required>
                   <option value="">Üstlenecek kullanıcı seçin</option>
                 </select>
               </div>
               
               <div class="flex-col w-50">
               <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Görevi Atayan Kullanıcı:</label>
-                <select id="kullaniciAtamaListele" name="e_onaylayan_kullanici" class="custom-select w-100" required>
+                <select id="kullaniciAtamaEkle" name="e_onaylayan_kullanici" class="custom-select w-100" required>
                   <option value="">Atayacak kullanıcı seçin</option>
                 </select>
               </div>
@@ -189,7 +189,6 @@
       </div>
   </div>
 </div>
-
+<script src="gorevListesi.js"></script>
 </body>
-
 </html>
