@@ -85,6 +85,12 @@ function acModal(musteriNumarasi) {
   modal.style.display = "flex";
 }
 
+function kullaniciOlusturModal(musteriNumarasi) {
+  const modal = document.getElementById("duzenleModal");
+  modal.dataset.musteriNumarasi = musteriNumarasi;
+  modal.style.display = "flex";
+}
+
 // Modal kapatma
 function kapatModal() {
   document.getElementById("duzenleModal").style.display = "none";
@@ -119,6 +125,42 @@ function kullaniciDurumGuncelle() {
       e_soyad : soyad
     })
   })
+    .then(res => res.json())
+    .then(data => {
+      if (data.mesaj) {
+        alert('Durum güncellendi.');
+        kapatModal();
+        location.reload();
+      } else {
+        alert('Hata: ' + data.hata);
+      }
+    });
+}
+
+
+function kullaniciOlustur() {
+  const e_ad = document.getElementById('e_ad').value;
+  const e_soyad = document.getElementById('e_soyad').value;
+  const e_onaylayan_kullanici = document.getElementById('e_onaylayan_kullanici').value;
+  const e_durum = document.getElementById('e_durum').value;
+
+    if (!e_ad || !e_soyad || !e_onaylayan_kullanici || !e_durum) {
+      alert("Lütfen tüm alanları doldurun.");
+      return;
+    }
+
+  fetch('/kullaniciEkle', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        e_ad,
+        e_soyad,
+        e_onaylayan_kullanici,
+        e_durum
+      })
+    })
     .then(res => res.json())
     .then(data => {
       if (data.mesaj) {

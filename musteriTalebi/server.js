@@ -120,10 +120,10 @@ app.post('/gorevEkle', (req, res) => {
   if (!e_gorevli_kullanici || !e_onaylayan_kullanici || !e_gorev || !e_durum) {
     return res.status(400).json({ hata: 'Eksik kullanıcı bilgisi' });
   }
-    const g_id = uuidv4();
+    const e_id = uuidv4();
 
   const yeniGorev = { 
-    g_id ,
+    e_id ,
     e_gorevli_kullanici,
     e_onaylayan_kullanici,
     e_gorev,

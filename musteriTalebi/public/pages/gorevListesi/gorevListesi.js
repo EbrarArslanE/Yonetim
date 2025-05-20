@@ -149,8 +149,8 @@ window.addEventListener("click", function (event) {
 
 // görev ekleme
 function gorevKaydet() {
-  const e_gorevli_kullanici   = document.getElementById("kullaniciListele").value;
-  const e_onaylayan_kullanici = document.getElementById("kullaniciAtamaListele").value;
+  const e_gorevli_kullanici   = document.getElementById("ustlenenKullanıcıEkle").value;
+  const e_onaylayan_kullanici = document.getElementById("kullaniciAtamaEkle").value;
   const e_gorev               = document.getElementById("e_gorev").value;
   const e_durum               = document.getElementById("e_durum").value;
 
