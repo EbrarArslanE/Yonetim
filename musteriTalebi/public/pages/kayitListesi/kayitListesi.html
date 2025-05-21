@@ -72,7 +72,7 @@
                             <th>Talep Açıklaması</th>
                             <th>Talep Durumu</th>
                             <th>
-                              <button class="add-button w-100"  onclick="musteriTalepEkle()">
+                              <button class="add-button w-100"  onclick="kullaniciOlusturModal()">
                                 <a class="text">Kayıt Oluştur</a>                
                               </button>
                             </th>
@@ -90,68 +90,8 @@
    </div>
     <script src="kayitListesi.js"></script>
   <!-- MODAL -->
-<div class="modal-container" id="musteriTalepDuzenleModal" style="display: none;">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2>Talep Durumu Düzenleme Formu</h2>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="flex flex-row w-100 gap-2">
 
-          <div class="flex flex-col w-50">
-              <div class="flex-col">
-            <label for="durumSec" style="display:block; margin-bottom:8px;">Talep Durumu <span style="color: red;">*</span></label>
-            <select name="e_durum" id="durumSec" class="custom-select w-100">
-                <option value="">---- Seçiniz ----</option>
-                <option value="Bekliyor">Bekliyor</option>
-                <option value="Tamamlandı">Tamamlandı</option>
-                <option value="İptal Edildi">İptal Edildi</option>
-            </select>
-              </div>            
-            </div>
-          
-            <div class="flex flex-col w-50">
-              <div class="flex-col">
-                  <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Onaylayan Kullanıcı <span style="color: red;">*</span></label>
-                  <select class="custom-select w-100" id="secilenKullanici" name="e_onaylayan_kullanici" required>
-                    <option value="">Üstlenecek kullanıcı seçin</option>
-                  </select>
-              </div>            
-            </div>
-        </div>
-
-        <div class="flex flex-row w-100 gap-2">
-          <div class="flex-col">
-              <label for="">Firma Adı <span style="color: red;">*</span></label>
-              <input class="input w-100" id="degisenFirmaAdi" required="" placeholder="" type="text" class="input" required>
-          </div>
-          <div class="flex-col">
-              <label for="">Müşteri Adı <span style="color: red;">*</span></label>
-              <input class="input w-100" id="degisenMusteriAdi" required="1" placeholder="" type="text" class="input" required>
-          </div>
-        </div>
-        
-        <div class="flex-col">
-            <label for="">Müşteri Numarası <span style="color: red;">*</span></label>
-            <input class="input w-100" id="musteriNumarasi" required="1" placeholder="" type="text" class="input" required>
-        </div>
-
-        <div class="flex flex-col">
-          <label for="">Talep <span style="color: red;">*</span></label>
-          <textarea id="degisenTalepAciklamasi" name="e_talep" required></textarea><br><br>
-        </div>
-
-      </form>
-    </div>
-      <div class="modal-footer gap-12">
-        <button class="button" onclick="durumGuncelle()"><span>Güncelle</span></button>
-        <button class="button" onclick="kapatModal()"><span>Kapat</span></button>
-      </div>
-  </div>
-</div>
-
-<div class="modal-container" id="musteriTalepEkleModal" style="display: none;">
+<div class="modal-container" id="musteriTalepModal" style="display: none;">
   <div class="modal-content">
     <div class="modal-header">
       <h2>Müşteri Talep Ekleme Formu</h2>
@@ -162,8 +102,8 @@
 
           <div class="flex flex-col w-50">
               <div class="flex-col">
-            <label for="durumSec" style="display:block; margin-bottom:8px;">Talep Durumu <span style="color: red;">*</span></label>
-            <select name="e_durum" id="durumSec" class="custom-select w-100">
+            <label for="e_durum" style="display:block; margin-bottom:8px;">Talep Durumu <span style="color: red;">*</span></label>
+            <select name="e_durum" id="e_durum" class="custom-select w-100">
                 <option value="">---- Seçiniz ----</option>
                 <option value="Bekliyor">Bekliyor</option>
                 <option value="Tamamlandı">Tamamlandı</option>
@@ -175,7 +115,7 @@
             <div class="flex flex-col w-50">
               <div class="flex-col">
                   <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Onaylayan Kullanıcı <span style="color: red;">*</span></label>
-                  <select name="e_onaylayan_kullanici" class="custom-select w-100" id="kullaniciListele" required>
+                  <select name="e_onaylayan_kullanici" class="custom-select w-100" id="e_onaylayan_kullanici" required>
                     <option value="">Üstlenecek kullanıcı seçin</option>
                   </select>
               </div>            
@@ -206,7 +146,7 @@
       </form>
     </div>
       <div class="modal-footer gap-12">
-        <button type="submit" class="button" onclick="musteriTalepKaydet()"><span>Ekle</span></button>
+        <button type="submit" class="button" onclick="kullaniciDurumGuncelle()"><span>Ekle</span></button>
         <button class="button" onclick="kapatModal()"><span>Kapat</span></button>
       </div>
   </div>

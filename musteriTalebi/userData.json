@@ -14,13 +14,6 @@
     "e_durum": "Aktif"
   },
   {
-    "e_id": "3e7abdf1-dae1-4524-a99a-d3cac9375a3a",
-    "e_onaylayan_kullanici": "        console.error('kullanıcı e_id:', e_id);",
-    "e_ad": "        console.error('kullanıcı e_id:', e_id);",
-    "e_soyad": "        console.error('kullanıcı e_id:', e_id);",
-    "e_durum": "Pasif"
-  },
-  {
     "e_id": "a80536d6-62a7-49d3-9909-b1f5acc2d37b",
     "e_onaylayan_kullanici": "      console.log('kullanıcı e_id:');",
     "e_ad": "      console.log('kullanıcı e_id:');",

@@ -88,11 +88,21 @@
     "e_talep": "ID DENEME"
   },
   {
-    "e_musteri_adi": "const e_id = uuidv4();",
-    "e_musteri_numarasi": "const e_id = uuidv4();",
-    "e_firma_adi": "const e_id = uuidv4();",
+    "e_id": "64fe1d64-b477-4eb5-a53c-ca54f0db272f",
+    "e_musteri_adi": "asd",
+    "e_musteri_numarasi": "asd",
+    "e_firma_adi": "asd",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "asd"
+  },
+  {
+    "e_id": "bb2901eb-e446-4ff4-b718-fb30df6ce08d",
+    "e_musteri_adi": "çalışıyor",
+    "e_musteri_numarasi": "çalışıyor",
+    "e_firma_adi": "çalışıyor",
     "e_durum": "Tamamlandı",
-    "e_onaylayan_kullanici": "nazım",
-    "e_talep": "const e_id = uuidv4();"
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "çalışıyoraaa"
   }
 ]

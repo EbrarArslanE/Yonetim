@@ -49,7 +49,7 @@
       background-color: #161b22;
       padding: 1rem;
       border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 8px rgb(255 255 255 / 20%);
     }
     .grafik-box {
       background-color: #21262d;
@@ -99,6 +99,50 @@
       font-weight: bold;
       font-size: 1rem;
     }
+    .title {
+  font-size: 28px;
+  color: rgb(17, 219, 37);
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 140px;
+  bottom: -20px;
+}
+
+.title::before,.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: rgb(17, 219, 37);
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: rgb(17, 219, 37);
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
   </style>
 </head>
 <body>
@@ -128,29 +172,34 @@
           <canvas id="grafik2"></canvas>
         </div>
       </div>
-      <div class="flex flex-col w-50 gap-12">
+      <div class="flex flex-row w-50 h-20 gap-12">
 
         <div class="left">
           <div class="istatistik-kartlari">
+            <h1 style="font-size: 30px;">Kullanıcı Bilgileri</h1>
             <div class="kart">
-              <h3>📦 Kayıt Sayısı</h3>
-              <p id="toplamTalep">6</p>
+              <h3 style="font-size: 20px;">📦 Kayıt Sayısı</h3>
+              <p id="toplamTalep"></p>
             </div>
             <div class="kart">
-              <h3>🟢 Aktif Kullanıcı</h3>
-              <p id="bugunTalep">6</p>
+              <h3 style="font-size: 20px;">
+                <p class="title"></p>
+                 Aktif Kullanıcı
+                </h3>
+              <p id="aktifKullanici"></p>
             </div>
           </div>
         </div>
   
           <div class="left">
             <div class="istatistik-kartlari">
+              <h1 style="font-size: 30px;">Sistem Bilgileri</h1>
               <div class="kart">
-                <h3>📈 Haftalık Talep</h3>
+                <h3 style="font-size: 20px;">📈 Haftalık Talep</h3>
                 <p id="haftalikTalep">0</p>
               </div>
               <div class="kart">
-                <h3>🕒 Yaklaşan</h3>
+                <h3 style="font-size: 20px;">🕒 Yaklaşan</h3>
                 <p id="ortalamaSure">3s 20dk</p>
               </div>
             </div>

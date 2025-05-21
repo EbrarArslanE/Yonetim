@@ -77,7 +77,19 @@ fetch('/musteriTalepListesi')
         const hafta = data.filter(t => new Date(t.tarih) >= haftaninIlkGunu()).length;
 
         document.getElementById('toplamTalep').textContent = toplam;
-        document.getElementById('bugunTalep').textContent = bugun;
+        document.getElementById('haftalikTalep').textContent = hafta;
+        document.getElementById('ortalamaSure').textContent = '3s 20dk'; // örnek
+      });
+   
+      fetch('/kullaniciListesi')
+      .then(res => res.json())
+      .then(data => {
+        const toplam = data.length;
+        const kullanicilar = data.length;
+        const hafta = data.filter(t => new Date(t.tarih) >= haftaninIlkGunu()).length;
+
+        document.getElementById('toplamTalep').textContent = toplam;
+        document.getElementById('aktifKullanici').textContent = kullanicilar;
         document.getElementById('haftalikTalep').textContent = hafta;
         document.getElementById('ortalamaSure').textContent = '3s 20dk'; // örnek
       });
