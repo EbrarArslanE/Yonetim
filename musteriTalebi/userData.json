@@ -12,19 +12,5 @@
     "e_ad": "Nazım",
     "e_soyad": "Çeltekli",
     "e_durum": "Aktif"
-  },
-  {
-    "e_id": "a80536d6-62a7-49d3-9909-b1f5acc2d37b",
-    "e_onaylayan_kullanici": "      console.log('kullanıcı e_id:');",
-    "e_ad": "      console.log('kullanıcı e_id:');",
-    "e_soyad": "      console.log('kullanıcı e_id:');",
-    "e_durum": "Aktif"
-  },
-  {
-    "e_id": "2f702b09-9fc7-4d0a-8881-ee23cd2600fa",
-    "e_onaylayan_kullanici": "Nazım123",
-    "e_ad": "Emirhan",
-    "e_soyad": "Göven",
-    "e_durum": "Aktif"
   }
 ]

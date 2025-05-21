@@ -69,10 +69,9 @@
                             <th>Görevi Atayan</th>
                             <th>Görev Adı</th>
                             <th>Durum</th>
-                            <th>E_ID</th>
                             <th>
                               <button class="add-button w-100">
-                                <a class="text" onclick="gorevEkle()">Görev Oluştur</a>                
+                                <a class="text" onclick="kullaniciOlusturModal()">Görev Oluştur</a>                
                               </button>
                             </th>
                           </tr>
@@ -88,58 +87,7 @@
       </div>
    </div>
   <!-- MODAL -->
-<div class="modal-container" id="gorevDuzenleModal" style="display: none;">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2>Görev Durumu Düzenle</h2>
-    </div>
-    <div class="modal-body">
-     <form>
-            <div class="flex flex-col gap-12">
-              
-              <div class="flex-col">
-                <label for="durumSec" style="display:block; margin-bottom:8px;">Görev Durumu:</label>
-                <select name="e_durum" id="e_durum" class="custom-select w-100">
-                    <option value="">---- Seçiniz ----</option>
-                    <option value="Bekliyor">Bekliyor</option>
-                    <option value="Tamamlandı">Tamamlandı</option>
-                    <option value="İptal Edildi">İptal Edildi</option>
-                </select>
-              </div>
-            </div>
-            <div class="flex flex-row gap-12">
-              <div class="flex-col w-50">
-              <label for="e_gorevli_kullanici" style="display:block; margin-bottom:8px;">Görevi Üstlenen Kullanıcı:</label>
-                <select id="ustlenenKullanıcıDuzenle" name="e_gorevli_kullanici" class="custom-select w-100" required>
-                  <option value="">Üstlenecek kullanıcı seçin</option>
-                </select>
-              </div>
-              
-              <div class="flex-col w-50">
-              <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Görevi Atayan Kullanıcı:</label>
-                <select id="atananKullanıcıDuzenle" name="e_onaylayan_kullanici" class="custom-select w-100" required>
-                  <option value="">Atayacak kullanıcı seçin</option>
-                </select>
-              </div>
-            </div>
-
-        <div class="column-flat">
-          <label for="e_gorev">Görev Adı *</label>
-          <input id="e_gorev" name="e_gorev" required placeholder="" type="text" class="input">
-        </div>
-
-      </form>
-    </div>
-      <div class="modal-footer">
-        <div class="flex gap-2">
-          <button class="button" onclick="gorevGuncelle()"><span>Güncelle</span></button>
-          <button class="button" onclick="kapatModal()"><span>Kapat</span></button>
-        </div>
-      </div>
-  </div>
-</div>
-
-<div class="modal-container" id="gorevEkleModal" style="display: none;">
+<div class="modal-container" id="gorevTanimlariModal" style="display: none;">
   <div class="modal-content">
     <div class="modal-header">
       <h2>Görev Ekle</h2>
@@ -161,14 +109,14 @@
             <div class="flex flex-row gap-12">
               <div class="flex-col w-50">
               <label for="e_gorevli_kullanici" style="display:block; margin-bottom:8px;">Görevi Üstlenen Kullanıcı:</label>
-                <select id="ustlenenKullanıcıEkle" name="e_gorevli_kullanici" class="custom-select w-100" required>
+                <select id="e_gorevli_kullanici" name="e_gorevli_kullanici" class="custom-select w-100" required>
                   <option value="">Üstlenecek kullanıcı seçin</option>
                 </select>
               </div>
               
               <div class="flex-col w-50">
               <label for="e_onaylayan_kullanici" style="display:block; margin-bottom:8px;">Görevi Atayan Kullanıcı:</label>
-                <select id="kullaniciAtamaEkle" name="e_onaylayan_kullanici" class="custom-select w-100" required>
+                <select id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" class="custom-select w-100" required>
                   <option value="">Atayacak kullanıcı seçin</option>
                 </select>
               </div>
@@ -183,12 +131,13 @@
     </div>
       <div class="modal-footer">
         <div class="flex gap-2">
-          <button class="button" onclick="gorevKaydet()"><span>Ekle</span></button>
-          <button class="button" onclick="gorevModalKapat()"><span>Kapat</span></button>
+          <button class="button" onclick="kullaniciDurumGuncelle()"><span>Kaydet</span></button>
+          <button class="button" onclick="kapatModal()"><span>Kapat</span></button>
         </div>
       </div>
   </div>
 </div>
 <script src="gorevListesi.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

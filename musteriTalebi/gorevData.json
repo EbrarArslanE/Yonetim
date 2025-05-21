@@ -1,50 +1,72 @@
 [
   {
+    "e_id": "2e29dc3b-7d94-48d2-9969-f7e9c1b0a201",
     "e_gorevli_kullanici": "ebrar",
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Görevlerde silme fonksiyonu yanlış çalışıyor seçilen kaydı silmiyor bunun nedenini bul",
     "e_durum": "Bekliyor"
   },
   {
+    "e_id": "5729e1e2-1888-4c13-a7ec-3f5d7709cf17",
     "e_gorevli_kullanici": "ebrar",
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Görev Sekmesinde düzenleme modalını ayarla",
     "e_durum": "Bekliyor"
   },
   {
+    "e_id": "cbf61be2-4d41-4f91-864e-f7f3e26b1595",
     "e_gorevli_kullanici": "ebrar",
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Görev adını inputtan textarea'ya çevir",
     "e_durum": "Bekliyor"
   },
   {
+    "e_id": "edb30563-79f3-4bb4-b2b5-e3c8e0426cd1",
     "e_gorevli_kullanici": "ebrar",
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Kullanıcı Girişi ekle ",
     "e_durum": "Bekliyor"
   },
   {
+    "e_id": "f0fe6bb9-f75c-4d8c-94d2-d013160b95c9",
     "e_gorevli_kullanici": "nazım",
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Yandaki SideBar'a RemixIcon sitesinden uygun iconlar bul ve ekle settings.css'i kullan. ",
     "e_durum": "Bekliyor"
   },
   {
+    "e_id": "7f0a6db2-1cf3-46e2-beb9-17d5e1d8de17",
     "e_gorevli_kullanici": "ebrar",
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Kullanıcı Kaydı ve Kullanıcı Kaydını modal olarak ekle",
     "e_durum": "Bekliyor"
   },
   {
+    "e_id": "57d71c4a-fbcd-4213-b2a6-e2ed747a4b1b",
     "e_gorevli_kullanici": "ebrar",
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Görev filtrelemesinde Üstlenici filtresi ekle sadece seçilen kişinin görevleri gözüksün",
     "e_durum": "Bekliyor"
   },
   {
+    "e_id": "92a4f5fa-9be7-4342-823b-2a6cd0e81932",
     "e_gorevli_kullanici": "ebrar",
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Ana Ekrana Kullanıcıların görev sayısını ekle",
     "e_durum": "Bekliyor"
+  },
+  {
+    "e_id": "d5bacb4f-bb15-465d-97fe-0e151df3dd32",
+    "e_gorevli_kullanici": "ebrar",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_gorev": "asd",
+    "e_durum": "Tamamlandı"
+  },
+  {
+    "e_id": "11a90419-341e-4e7d-92e7-c35f3e0ab9c8",
+    "e_gorevli_kullanici": "ebrar",
+    "e_onaylayan_kullanici": "nazım",
+    "e_gorev": "deneme",
+    "e_durum": "Tamamlandı"
   }
 ]

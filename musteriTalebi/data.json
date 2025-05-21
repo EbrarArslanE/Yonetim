@@ -1,5 +1,6 @@
 [
   {
+    "e_id": "b0d4fda1-1d7e-42f2-90d2-ef0e07f6ae61",
     "e_musteri_adi": "Yönetim",
     "e_musteri_numarasi": "1",
     "e_firma_adi": "Yönetim paneli ile ilgili adımlar",
@@ -8,6 +9,7 @@
     "e_talep": "Kayıtlarda müşteri soyadı gönderilecek ve telefon numarası gönderilecek"
   },
   {
+    "e_id": "5019a23b-2925-42ec-940d-cb0fa176a180",
     "e_musteri_adi": "Yönetim",
     "e_musteri_numarasi": "2",
     "e_firma_adi": "üst panele eklenecek şeyler",
@@ -16,6 +18,7 @@
     "e_talep": "filtreleme özellikleri buraya gelecek, input, tarih, belki kayıt sayısı"
   },
   {
+    "e_id": "6ac969d3-df49-4410-9c0d-d2f8b86713ca",
     "e_musteri_adi": "acil",
     "e_musteri_numarasi": "3",
     "e_firma_adi": "ana sayfa düzenlemesi",
@@ -24,6 +27,7 @@
     "e_talep": "ana sayfanın görünümünü düzelt değiştir allah için."
   },
   {
+    "e_id": "f8f4c7ea-3095-42b3-b85b-52e6d47cb52f",
     "e_musteri_adi": "Önemli",
     "e_musteri_numarasi": "4",
     "e_firma_adi": "Yönetim paneli ile ilgili adımlar",
@@ -32,6 +36,7 @@
     "e_talep": "Kayıt eklenirken tarih bilgisi gönderilecek, ardındanda bu bilgiler ana sayfada tarihi yaklaşan talepler olarak ekrana basılacak Eklenecek Fieldlar: e_saat_baslangic e_saat_son e_tarih_baslangic e_tarih_son"
   },
   {
+    "e_id": "289bc478-dcec-4044-8e58-9e51aaf94a1a",
     "e_musteri_adi": "Önemli",
     "e_musteri_numarasi": "5",
     "e_firma_adi": "Modal Düzenlemesi",
@@ -40,6 +45,7 @@
     "e_talep": "kayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugün"
   },
   {
+    "e_id": "1f47b327-1dd6-4e15-9612-2091fa0f2783",
     "e_musteri_adi": "Müşteri Adı Burada",
     "e_musteri_numarasi": "1234",
     "e_firma_adi": "Firma Adı Burada",
@@ -48,6 +54,7 @@
     "e_talep": "talep buradaf"
   },
   {
+    "e_id": "d69b89d7-603b-4a90-9356-19322f4fa88d",
     "e_musteri_adi": "Müşteri Adı Burada",
     "e_musteri_numarasi": "34",
     "e_firma_adi": "Firma Adı Burada",
@@ -56,6 +63,7 @@
     "e_talep": "talep"
   },
   {
+    "e_id": "ee887870-b264-4ab0-9b91-4a165b39fc5b",
     "e_musteri_adi": "Müşteri Adı Burada",
     "e_musteri_numarasi": "1312",
     "e_firma_adi": "Firma Adı Burada",
@@ -64,6 +72,7 @@
     "e_talep": "Başarılı talep kaydı"
   },
   {
+    "e_id": "e5f6a2d5-e15a-4b50-b9fa-29e8fd8001c4",
     "e_musteri_adi": "Ebrar Müşteri Adını Değiştirdi",
     "e_musteri_numarasi": "Bunu değiştir",
     "e_firma_adi": "Ebrar Firma Adını Değiştirdi",
@@ -72,6 +81,7 @@
     "e_durum": "Tamamlandı"
   },
   {
+    "e_id": "c3c2e869-c6a5-4d95-8d3b-35df313d2de1",
     "e_musteri_adi": "calisiuo",
     "e_musteri_numarasi": "calisiuo",
     "e_firma_adi": "calisiuo",
@@ -80,6 +90,7 @@
     "e_talep": "calisiuo"
   },
   {
+    "e_id": "4a5d25c7-416f-4c43-9262-b36f78dfad10",
     "e_musteri_adi": "ID DENEME",
     "e_musteri_numarasi": "ID DENEME",
     "e_firma_adi": "ID DENEME",
