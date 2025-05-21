@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = 1312;
+app.use(express.json());
+
 
 // Public klasörünü statik dosyalar için kullan
 app.use(express.static('public'));
@@ -156,8 +158,11 @@ app.post('/gorevEkle', (req, res) => {
 
 app.post('/musteriTalepEkle', (req, res) => {
   const { e_musteri_adi, e_durum, e_musteri_numarasi, e_firma_adi, e_onaylayan_kullanici, e_talep } = req.body;
+  
+  const e_id = uuidv4();
 
   const yeniVeri = {
+    e_id,
     e_musteri_adi,
     e_musteri_numarasi,
     e_firma_adi,
@@ -165,6 +170,7 @@ app.post('/musteriTalepEkle', (req, res) => {
     e_onaylayan_kullanici,
     e_talep
   };
+
 
   fs.readFile(DATA_PATH, 'utf8', (err, data) => {
     let veriListesi = [];

@@ -70,5 +70,29 @@
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "Ebrar Talebi Değiştirdi",
     "e_durum": "Tamamlandı"
+  },
+  {
+    "e_musteri_adi": "calisiuo",
+    "e_musteri_numarasi": "calisiuo",
+    "e_firma_adi": "calisiuo",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "calisiuo"
+  },
+  {
+    "e_musteri_adi": "ID DENEME",
+    "e_musteri_numarasi": "ID DENEME",
+    "e_firma_adi": "ID DENEME",
+    "e_durum": "Bekliyor",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_talep": "ID DENEME"
+  },
+  {
+    "e_musteri_adi": "const e_id = uuidv4();",
+    "e_musteri_numarasi": "const e_id = uuidv4();",
+    "e_firma_adi": "const e_id = uuidv4();",
+    "e_durum": "Tamamlandı",
+    "e_onaylayan_kullanici": "nazım",
+    "e_talep": "const e_id = uuidv4();"
   }
 ]

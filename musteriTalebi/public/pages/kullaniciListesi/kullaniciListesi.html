@@ -33,7 +33,7 @@
             <div class="dropdown-container">
               <div class="dropdown-container">
                 <a class="a" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
-                <a class="a" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcılar</a>
+                <a class="a" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcı Listesi</a>
                 <a class="a" href="/pages/gorevListesi/gorevListesi.html">Görev Listesi</a>  
                 <a class="a" href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
               </div>
@@ -65,7 +65,7 @@
                         <th class="w-5">Soyad</th>
                         <th class="w-10">Durum</th>
                         <th class="w-10">
-                          <button class="add-button w-100" onclick="kullaniciOlustur()">
+                          <button class="add-button w-100" onclick="kullaniciOlusturModal()">
                             <a class="text">
                               Kullanıcı Oluştur
                             </a>
@@ -86,17 +86,17 @@
     <script src="kullaniciListesi.js">
     </script>
     <!-- MODAL -->
-    <div class="modal-container" id="duzenleModal" style="display: none;">
+    <div class="modal-container" id="kullaniciTanimlariModal" style="display: none;">
       <div class="modal-content">
         <div class="modal-header">
-          <h2> Kullanıcı Bilgisi Düzenle</h2>
+          <h2> Kullanıcı Ekleme Formu</h2>
         </div>
         <hr>
         <div class="modal-body">
           <form>
             <div class="column-flat">
               <label for="durumSec" style="display:block; margin-bottom:8px;">Kullanıcı Durumu:</label>
-              <select class="custom-select w-100" name="" id="e_durum" required>
+              <select class="custom-select w-100" name="e_durum" id="e_durum" required>
                 <option value="">---- Seçiniz ----</option>
                 <option value="Aktif">Aktif</option>
                 <option value="Pasif">Pasif</option>
@@ -104,22 +104,21 @@
             </div>
             <div class="column-flat">
               <label for="">Kullanıcı Adı *</label>
-              <input id="e_kullanici_adi" required="" placeholder="" type="text" class="input">
+              <input id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" required="" placeholder="" type="text" class="input">
             </div>
             <div class="column-flat">
               <label for="">Ad *</label>
-              <input id="e_ad" required="" placeholder="" type="text" class="input"
-              required>
+              <input id="e_ad" name="e_ad" required="" placeholder="" type="text" class="input" required>
             </div>
             <div class="column-flat">
               <label for="">Soyad *</label>
-              <input id="e_soyad" required="1" placeholder="" type="text" class="input"required>
+              <input id="e_soyad" name="e_soyad" required="1" placeholder="" type="text" class="input" required>
             </div>
           </form>
         </div>
         <div class="modal-footer gap-12">
-          <button class="button" onclick="kullaniciDurumGuncelle()">
-            <span>Güncelle</span>
+          <button type="button" class="button" onclick="kullaniciDurumGuncelle()">
+            <span>Kaydet</span>
           </button>
           <button class="button" onclick="kapatModal()">
             <span>Kapat</span>

@@ -26,5 +26,12 @@
     "e_ad": "      console.log('kullanıcı e_id:');",
     "e_soyad": "      console.log('kullanıcı e_id:');",
     "e_durum": "Aktif"
+  },
+  {
+    "e_id": "2f702b09-9fc7-4d0a-8881-ee23cd2600fa",
+    "e_onaylayan_kullanici": "Nazım123",
+    "e_ad": "Emirhan",
+    "e_soyad": "Göven",
+    "e_durum": "Aktif"
   }
 ]
