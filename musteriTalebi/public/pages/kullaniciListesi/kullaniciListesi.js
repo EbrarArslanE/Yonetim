@@ -87,6 +87,8 @@ window.onload = () => {
       document.getElementById('e_onaylayan_kullanici').value = '';
     }
 
+    console.log(secilenKayit);
+    
     modal.style.display = "flex";
   };
 
@@ -118,7 +120,7 @@ window.onload = () => {
     // Ekleme veya güncelleme
     if (secilenKayit) {
       // Güncelle
-      fetch('/kullaniciGuncelle', {
+      fetch('/kullaniciDuzenle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -142,6 +144,7 @@ window.onload = () => {
         }
         draw(users);
         kapatModal();
+        window.location.reload();
       })
       .catch(err => alert('Güncelleme başarısız: ' + err));
     } else {
