@@ -191,89 +191,100 @@ app.post('/kullaniciEkle', (req, res) => {
 
 
 app.post('/gorevEkle', (req, res) => {
-  const { 
-    e_gorevli_kullanici,
-    e_onaylayan_kullanici,
-    e_gorev,
-    e_durum 
-  } = req.body;
+  const { e_gorevli_kullanici, e_onaylayan_kullanici, e_gorev, e_durum } = req.body;
 
   if (!e_gorevli_kullanici || !e_onaylayan_kullanici || !e_gorev || !e_durum) {
-    return res.status(400).json({ hata: 'Eksik kullanıcı bilgisi' });
+    return res.status(400).json({ hata: 'Eksik görev bilgisi' });
   }
-    const e_id = newId;
 
-  const yeniGorev = { 
-    e_id ,
-    e_gorevli_kullanici,
-    e_onaylayan_kullanici,
-    e_gorev,
-    e_durum 
-    };
-
-  fs.readFile(TALEP_DATA_PATH, 'utf8', (err, data) => {
-    let gorevListesi = [];
-
-    if (!err && data) {
-      try {
-        gorevListesi = JSON.parse(data);
-      } catch (e) {
-        console.error('gorevData.json parse hatası:', e);
-      }
+  // ID üretimini burada yap
+  YENI_GOREV_ID(GOREV_ID_OLUSTUR, (err, newId) => {
+    if (err) {
+      console.error('ID üretme hatası:', err);
+      return res.status(500).json({ hata: 'ID üretilemedi.' });
     }
 
-    gorevListesi.push(yeniGorev);
+    const yeniGorev = {
+      e_id: newId,
+      e_gorevli_kullanici,
+      e_onaylayan_kullanici,
+      e_gorev,
+      e_durum
+    };
 
-    fs.writeFile(TALEP_DATA_PATH, JSON.stringify(gorevListesi, null, 2), err => {
-      if (err) {
-        console.error('Görev yazma hatası:', err);
-        return res.status(500).json({ hata: 'Görev eklenemedi.' });
+    fs.readFile(TALEP_DATA_PATH, 'utf8', (err, data) => {
+      let gorevListesi = [];
+
+      if (!err && data) {
+        try {
+          gorevListesi = JSON.parse(data);
+        } catch (e) {
+          console.error('gorevData.json parse hatası:', e);
+        }
       }
 
-      res.json({ mesaj: 'Görev başarıyla eklendi.' });
+      gorevListesi.push(yeniGorev);
+
+      fs.writeFile(TALEP_DATA_PATH, JSON.stringify(gorevListesi, null, 2), err => {
+        if (err) {
+          console.error('Görev yazma hatası:', err);
+          return res.status(500).json({ hata: 'Görev eklenemedi.' });
+        }
+
+        res.json({ mesaj: 'Görev başarıyla eklendi.', e_id: newId });
+      });
     });
   });
 });
+
 
 app.post('/musteriTalepEkle', (req, res) => {
   const { e_musteri_adi, e_durum, e_musteri_numarasi, e_firma_adi, e_onaylayan_kullanici, e_talep } = req.body;
-  
-  const e_id = newId;
 
-  const yeniVeri = {
-    e_id,
-    e_musteri_adi,
-    e_musteri_numarasi,
-    e_firma_adi,
-    e_durum,
-    e_onaylayan_kullanici,
-    e_talep
-  };
+  if (!e_musteri_adi || !e_durum || !e_musteri_numarasi || !e_firma_adi || !e_onaylayan_kullanici || !e_talep) {
+    return res.status(400).json({ hata: 'Eksik müşteri talep bilgisi' });
+  }
 
-
-  fs.readFile(DATA_PATH, 'utf8', (err, data) => {
-    let veriListesi = [];
-
-    if (!err) {
-      try {
-        veriListesi = JSON.parse(data);
-      } catch (e) {
-        console.error('JSON parse hatası:', e);
-      }
+  YENI_MUSTERI_ID(MUSTERI_ID_OLUSTUR, (err, newId) => {
+    if (err) {
+      console.error('ID üretme hatası:', err);
+      return res.status(500).json({ hata: 'ID üretilemedi.' });
     }
 
-    veriListesi.push(yeniVeri);
+    const yeniVeri = {
+      e_id: newId,
+      e_musteri_adi,
+      e_musteri_numarasi,
+      e_firma_adi,
+      e_durum,
+      e_onaylayan_kullanici,
+      e_talep
+    };
 
-    fs.writeFile(DATA_PATH, JSON.stringify(veriListesi, null, 2), (err) => {
-      if (err) {
-        console.error('Veri kaydetme hatası:', err);
-        return res.status(500).json({ success: false, mesaj: 'Veri kaydedilemedi.' });
-      } 
-      // BURADA REDIRECT YOK, JSON DÖNÜYORUZ
-      res.json({ success: true, mesaj: 'Kayıt başarılı.'});
+    fs.readFile(DATA_PATH, 'utf8', (err, data) => {
+      let veriListesi = [];
+
+      if (!err && data) {
+        try {
+          veriListesi = JSON.parse(data);
+        } catch (e) {
+          console.error('JSON parse hatası:', e);
+        }
+      }
+
+      veriListesi.push(yeniVeri);
+
+      fs.writeFile(DATA_PATH, JSON.stringify(veriListesi, null, 2), (err) => {
+        if (err) {
+          console.error('Veri kaydetme hatası:', err);
+          return res.status(500).json({ success: false, mesaj: 'Veri kaydedilemedi.' });
+        }
+        res.json({ success: true, mesaj: 'Kayıt başarılı.', e_id: newId });
+      });
     });
   });
 });
+
 
 // SİLME İŞLEMLERİ
 app.post('/kayitSil', (req, res) => {
@@ -325,16 +336,16 @@ app.post('/kullaniciSil', (req, res) => {
   fs.readFile(USER_DATA_PATH, 'utf8', (err, data) => {
     if (err) return res.status(500).json({ hata: 'Veriler alınamadı.' });
 
-    let veriListesi;
+    let kullaniciListesi;
     try {
-      veriListesi = JSON.parse(data);
+      kullaniciListesi = JSON.parse(data);
     } catch (parseErr) {
       return res.status(500).json({ hata: 'Veri formatı hatalı.' });
     }
 
     let silindiMi = false;
-    const yeniListe = veriListesi.filter(item => {
-      const tamEslesen = Object.keys(gelenVeri).every(key => item[key] == gelenVeri[key]);
+    const yeniListe = kullaniciListesi.filter(item => {
+      const tamEslesen = Object.keys(gelenVeri).every(key => item[key] === gelenVeri[key]);
       if (tamEslesen && !silindiMi) {
         silindiMi = true;
         return false;
@@ -349,7 +360,7 @@ app.post('/kullaniciSil', (req, res) => {
     fs.writeFile(USER_DATA_PATH, JSON.stringify(yeniListe, null, 2), (err) => {
       if (err) return res.status(500).json({ hata: 'Kayıt silinemedi.' });
 
-      res.json({ mesaj: 'Kayıt başarıyla silindi.' });
+      res.json({ mesaj: 'Kullanıcı başarıyla silindi.' });
     });
   });
 });
@@ -453,10 +464,10 @@ app.post('/kullaniciDuzenle', (req, res) => {
     }
 
     let bulundu = false;
-    const idToUpdate = Number(e_id); // kesin sayıya çevir
+    // const idToUpdate = Number(e_id);
 
     const guncellenmisListe = veriListesi.map(item => {
-      if (item.e_id === idToUpdate) {
+      if (item.e_id === e_id) {
         item.e_onaylayan_kullanici = e_onaylayan_kullanici ?? item.e_onaylayan_kullanici;
         item.e_durum               = e_durum ?? item.e_durum;
         item.e_ad                  = e_ad ?? item.e_ad;
@@ -465,6 +476,7 @@ app.post('/kullaniciDuzenle', (req, res) => {
       }
       return item;
     });
+
 
     if (!bulundu) {
       return res.status(404).json({ hata: 'Kullanıcı bulunamadı' });

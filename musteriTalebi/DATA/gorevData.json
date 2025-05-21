@@ -68,5 +68,12 @@
     "e_onaylayan_kullanici": "nazım",
     "e_gorev": "deneme",
     "e_durum": "Tamamlandı"
+  },
+  {
+    "e_id": 1,
+    "e_gorevli_kullanici": "deneme",
+    "e_onaylayan_kullanici": "deneme",
+    "e_gorev": "ased",
+    "e_durum": "Tamamlandı"
   }
 ]
