@@ -1,18 +1,17 @@
-  let secilenKayit = null; // Global değişken
-
-// Sayfa yüklendiğinde kullanıcıları çek
 window.onload = () => {
   const tbody = document.querySelector('#gorevTablosu tbody');
   const search = document.getElementById('filterUser');
   let users = [];
-
-  // Dropdown listesi için kullanıcıları çek
+  // Kullanıcıları getir ve select'lere ekle
   fetch('/kullaniciListesi')
     .then(r => r.json())
     .then(list => {
+      users = list; // 🔥 Bu satır önemli: listeyi 'users' dizisine atıyoruz
+
       const kullaniciAtamaEkle = document.getElementById('e_onaylayan_kullanici');
       const ustlenenKullanıcıEkle = document.getElementById('e_gorevli_kullanici');
-      
+      const gorevliKullanicilar = document.getElementById('gorevliKullaniciFiltrele');
+
       list.forEach(u => {
         const optionText = `${u.e_ad} ${u.e_soyad} (${u.e_onaylayan_kullanici})`;
 
@@ -25,7 +24,15 @@ window.onload = () => {
         opt2.value = u.e_onaylayan_kullanici;
         opt2.textContent = optionText;
         ustlenenKullanıcıEkle.appendChild(opt2);
+
+        const opt3 = document.createElement('option');
+        opt3.value = u.e_gorevli_kullanici;
+        opt3.textContent = optionText;
+        gorevliKullanicilar.appendChild(opt3);
       });
+
+      // Sayfa yüklendiğinde tüm kullanıcıları çiz
+      draw(users);
     })
     .catch(err => console.error('Kullanıcı çekme hatası:', err));
 
@@ -71,15 +78,28 @@ window.onload = () => {
   }
 
   // Arama filtresi (isteğe bağlı aktif edilebilir)
-  // search.addEventListener('input', () => {
-  //   const q = search.value.toLowerCase();
-  //   const filt = users.filter(u =>
-  //     u.e_onaylayan_kullanici.toLowerCase().includes(q) ||
-  //     u.e_ad.toLowerCase().includes(q) ||
-  //     u.e_soyad.toLowerCase().includes(q)
-  //   );
-  //   draw(filt);
-  // });
+const filterInput = document.getElementById('filterInput');
+
+filterInput.addEventListener('input', () => {
+  const q = filterInput.value.toLowerCase();
+  const filt = users.filter(u =>
+    u.e_onaylayan_kullanici.toLowerCase().includes(q) ||
+    u.e_gorev.toLowerCase().includes(q) ||
+    u.e_gorevli_kullanici.toLowerCase().includes(q)
+  );
+  draw(filt);
+});
+
+const dropdownInput = document.getElementById('gorevliKullaniciFiltrele');
+
+dropdownInput.addEventListener('select', () => {
+  const q = dropdownInput.value.toLowerCase();
+  const filt = users.filter(u =>
+    u.e_gorevli_kullanici.toLowerCase().includes(q)
+  );
+  draw(filt);
+});
+
 
   // Düzenle butonu için modalı açar ve inputları doldurur
   window.gorevDuzenlemeModunaGec = (e_id) => {

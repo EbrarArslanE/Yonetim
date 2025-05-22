@@ -19,5 +19,40 @@
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Chartlar ile ilgilenilecek renk ayarlamaları başlıklar vs",
     "e_durum": "Bekliyor"
+  },
+  {
+    "e_id": "10",
+    "e_gorevli_kullanici": "nazım",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_gorev": "Sayfaları kontrol et kayıt listesine bütün sorunları yaz sonra githubdan pushla",
+    "e_durum": "Bekliyor"
+  },
+  {
+    "e_id": "11",
+    "e_gorevli_kullanici": "ebrar",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_gorev": "Bütün componentler tam halilye çalışır hale getirildi",
+    "e_durum": "Tamamlandı"
+  },
+  {
+    "e_id": "12",
+    "e_gorevli_kullanici": "ebrar",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_gorev": "Badgeler düzenlenecek",
+    "e_durum": "Bekliyor"
+  },
+  {
+    "e_id": "13",
+    "e_gorevli_kullanici": "ebrar",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_gorev": "Sistem Raporları Componenti eklenecek buradan bütün sistem eksiklerini hatalarını not alacağız ve görüntüleyebileceğiz.",
+    "e_durum": "Bekliyor"
+  },
+  {
+    "e_id": "14",
+    "e_gorevli_kullanici": "ebrar",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_gorev": "Giriş sayfası oluşturulacak,\nkullanıcı listesinde kullanıcılara uuid verilecek buradan oluşturulan kullanıcılar bu uuid ile eşleşiyorsa giriş sağlayabilecek",
+    "e_durum": "Bekliyor"
   }
 ]

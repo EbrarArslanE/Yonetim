@@ -29,6 +29,13 @@ window.onload = () => {
     .then(data => {
       users = data;
       draw(users);
+      const sel = document.getElementById('firmaFiltrele');
+      data.forEach(u => {
+        const opt = document.createElement('option');
+        opt.value = u.e_onaylayan_kullanici;
+        opt.textContent = `${u.e_firma_adi}`;
+        sel.appendChild(opt);
+      });
     })
     .catch(err => console.error('Görev çekme hatası', err));
   function draw(arr) {
