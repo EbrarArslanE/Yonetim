@@ -129,6 +129,36 @@
   height: 18px;
   animation: pulse 1s linear infinite;
 }
+    .pasif {
+  font-size: 28px;
+  color: rgb(219, 17, 17);
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+}
+
+.pasif::before,.pasif::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: rgb(219, 17, 17);
+}
+
+.pasif::before {
+  width: 18px;
+  height: 18px;
+  background-color: rgb(219, 17, 17);
+}
+
+.pasif::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
 @keyframes pulse {
   from {
     transform: scale(0.9);
@@ -163,6 +193,58 @@
 .overflow::-webkit-scrollbar-thumb {
   background-color: #D9FF3E; /* scroll bar rengi */
   border-radius: 4px;
+}
+
+.checkmark-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark {
+  width: 30px;
+  height: 30px;
+  stroke: #4CAF50;
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke: #4CAF50;
+  animation: strokeCircle 2s ease-out 1s infinite;
+}
+
+.checkmark-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: #4CAF50;
+  animation: strokeCheck 2s ease-out 1s infinite;
+}
+
+@keyframes strokeCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes strokeCheck {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
   </style>
@@ -202,13 +284,16 @@
             <div class="istatistik-kartlari">
               <h1 style="font-size: 30px;">Kullanıcı Bilgileri</h1>
               <div class="kart">
-                <h3 style="font-size: 20px;">📦 Kayıt Sayısı</h3>
-                <p id="toplamTalep"></p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 25px;">
+                  <p class="pasif"></p>
+                  <h3 style="font-size: 20px; margin: 0;">Pasif Kullanıcı</h3>
+                </div>
+                <p id="pasifKullanici"></p>
               </div>
               <div class="kart">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 25px;">
                   <p class="title"></p>
-                  <h3 style="font-size: 20px;">Aktif Kullanıcı</h3>
+                  <h3 style="font-size: 20px; margin: 0;">Aktif Kullanıcı</h3>
                 </div>
                 <p id="aktifKullanici"></p>
               </div>
@@ -219,24 +304,24 @@
               <div class="istatistik-kartlari">
                 <h1 style="font-size: 30px;">Sistem Bilgileri</h1>
                 <div class="kart">
-                  <h3 style="font-size: 20px;">📈 Haftalık Talep</h3>
-                  <p id="haftalikTalep">0</p>
-                </div>
+                  <h3 style="font-size: 20px;">Toplam Kayıt Sayısı</h3>
+                  <p id="toplamTalep"></p>
+                </div>  
                 <div class="kart">
                   <h3 style="font-size: 20px;">🕒 Yaklaşan</h3>
                   <p id="ortalamaSure">3s 20dk</p>
                 </div>
               </div>
             </div>
-        </div>     
-          <div class="left">
+        </div>    
+        <div class="flex flex-row w-100 h-50 gap-12">
+          <div class="left w-50">
             <div class="istatistik-kartlari">
               <div style="display: flex; align-items: center; gap: 25px;">
                 <p class="title"></p>
-                <h1 style="font-size: 30px;">Şu Anda Aktif Görevi Olan Kullanıcılar</h1>
+                <h1 style="font-size: 20px; margin: 0;">Şu Anda Aktif Görevi Olan Kullanıcılar</h1>
               </div>
               <div class="overflow gap-25" id="gorevKullanicilarContainer">
-                
                 <div class="kart">
                   <div class="flex flex-col justify-start items-start">
                     <h3 style="font-size: 20px;">Ebrar Arslan</h3>
@@ -246,11 +331,35 @@
                     </div>
                   </div>
                 </div>
-            
-
               </div>
             </div>
           </div>
+          <div class="left w-50">
+            <div class="istatistik-kartlari">
+              <div style="display: flex; align-items: center; gap: 5px;">
+                <div class="checkmark-wrapper">
+                  <svg class="checkmark" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+                  </svg>
+                </div>
+                <h1 style="font-size: 20px; margin: 0;">Tamamlanan Görev Sayısı</h1>
+              </div>
+              <div class="overflow gap-25" id="tamamlananGorevlerContainer">
+                <div class="kart">
+                  <div class="flex flex-col justify-start items-start">
+                    <h3 style="font-size: 20px;">Ebrar Arslan</h3>
+                    <div style="display: flex; flex-direction: row; gap: 5px;">
+                      <p>Aktif Görev Sayısı:</p>
+                      <p id="aktifGorevliKullaniciSayisi"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> 
       </div>
 
     </div>

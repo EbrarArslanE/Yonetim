@@ -167,7 +167,7 @@ function kullaniciSil(id) {
   fetch('/kullaniciSil', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ e_id: e_id })
+    body: JSON.stringify({ e_id: id })
   })
   .then(res => {
     if (!res.ok) return res.text().then(text => { throw new Error(text); });

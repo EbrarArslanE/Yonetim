@@ -81,6 +81,7 @@ function YENI_KULLANICI_ID(KULLANICI_ID_OLUSTUR, callback) {
   });
 }
 
+
 // Public klasörünü statik dosyalar için kullan
 app.use(express.static('public'));
 
@@ -191,7 +192,6 @@ app.post('/kullaniciEkle', (req, res) => {
   });
 });
 
-
 app.post('/gorevEkle', (req, res) => {
   const { e_gorevli_kullanici, e_onaylayan_kullanici, e_gorev, e_durum } = req.body;
 
@@ -207,7 +207,7 @@ app.post('/gorevEkle', (req, res) => {
     }
 
     const yeniGorev = {
-      e_id: newId,
+      e_id: String(newId),
       e_gorevli_kullanici,
       e_onaylayan_kullanici,
       e_gorev,
@@ -238,7 +238,6 @@ app.post('/gorevEkle', (req, res) => {
     });
   });
 });
-
 
 app.post('/musteriTalepEkle', (req, res) => {
   const { e_musteri_adi, e_durum, e_musteri_numarasi, e_firma_adi, e_onaylayan_kullanici, e_talep } = req.body;
@@ -286,7 +285,6 @@ app.post('/musteriTalepEkle', (req, res) => {
     });
   });
 });
-
 
 // SİLME İŞLEMLERİ
 app.post('/kayitSil', (req, res) => {
@@ -454,6 +452,7 @@ app.post('/kullaniciDuzenle', (req, res) => {
   if (!e_id) {
     return res.status(400).json({ hata: 'e_id gerekli.' });
   }
+  
 
   fs.readFile(USER_DATA_PATH, 'utf8', (err, data) => {
     if (err) return res.status(500).json({ hata: 'Dosya okunamadı.' });
@@ -493,8 +492,15 @@ app.post('/kullaniciDuzenle', (req, res) => {
 });
 
 
+
+
+
 app.post('/gorevDuzenle', (req, res) => {
-  const { e_gorev, e_durum, e_gorevli_kullanici, e_onaylayan_kullanici } = req.body;
+  const { e_id, e_gorev, e_durum, e_gorevli_kullanici, e_onaylayan_kullanici } = req.body;
+
+  if (!e_id) {
+    return res.status(400).json({ hata: 'e_id gerekli.' });
+  }
 
   fs.readFile(TALEP_DATA_PATH, 'utf8', (err, data) => {
     if (err) return res.status(500).json({ hata: 'Dosya okunamadı.' });
@@ -509,7 +515,7 @@ app.post('/gorevDuzenle', (req, res) => {
     let bulundu = false;
 
     const guncellenmisListe = veriListesi.map(item => {
-      if (item.e_gorevli_kullanici === e_gorevli_kullanici) {
+      if (String(item.e_id) === String(e_id)) {
         item.e_durum                = e_durum;
         item.e_gorevli_kullanici    = e_gorevli_kullanici;
         item.e_gorev                = e_gorev;

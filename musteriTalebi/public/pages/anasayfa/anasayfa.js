@@ -7,10 +7,10 @@ fetch('/musteriTalepListesi')
     // 1. Grafik: Talep Başlığına Göre Bar Chart
     const basliklar = {};
     data.forEach(item => {
-      if (basliklar[item.e_talep_basligi]) {
-        basliklar[item.e_talep_basligi]++;
+      if (basliklar[item.e_firma_adi]) {
+        basliklar[item.e_firma_adi]++;
       } else {
-        basliklar[item.e_talep_basligi] = 1;
+        basliklar[item.e_firma_adi] = 1;
       }
     });
 
@@ -83,41 +83,44 @@ fetch('/musteriTalepListesi')
         document.getElementById('ortalamaSure').textContent = '3s 20dk'; // örnek
       });
    
-      fetch('/kullaniciListesi')
-      .then(res => res.json())
-      .then(data => {
-        const toplam = data.length;
-        const kullanicilar = data.length;
-        const hafta = data.filter(t => new Date(t.tarih) >= haftaninIlkGunu()).length;
+     fetch('/kullaniciListesi')
+  .then(res => res.json())
+  .then(data => {
+    const toplam = data.length;
+    const aktifKullanicilar = data.filter(kullanici => kullanici.e_durum === "Aktif").length;
+    const pasifKullanicilar = data.filter(kullanici => kullanici.e_durum === "Pasif").length;
 
-        document.getElementById('toplamTalep').textContent = toplam;
-        document.getElementById('aktifKullanici').textContent = kullanicilar;
-        document.getElementById('haftalikTalep').textContent = hafta;
-        document.getElementById('ortalamaSure').textContent = '3s 20dk'; // örnek
-      });
+    document.getElementById('toplamTalep').textContent = toplam;
+    document.getElementById('aktifKullanici').textContent = aktifKullanicilar;
+    document.getElementById('pasifKullanici').textContent = pasifKullanicilar;
+  });
+
     
      fetch('/gorevListesi')
   .then(res => res.json())
   .then(data => {
     const aktifGorevler = data.filter(item => item.e_durum === "Bekliyor");
+    const tamamlananGorevler = data.filter(item => item.e_durum === "Tamamlandı");
 
-    // Görevli kullanıcıların görev sayılarını hesapla
-    const gorevSayilari = {};
+    const aktifGorevSayilari = {};
+    const tamamlananGorevSayilari = {};
 
     aktifGorevler.forEach(item => {
       const kullanici = item.e_gorevli_kullanici;
-      if (gorevSayilari[kullanici]) {
-        gorevSayilari[kullanici]++;
-      } else {
-        gorevSayilari[kullanici] = 1;
-      }
+      aktifGorevSayilari[kullanici] = (aktifGorevSayilari[kullanici] || 0) + 1;
     });
 
-    // HTML'e ekle
-    const container = document.getElementById('gorevKullanicilarContainer');
-    container.innerHTML = ''; // varsa eski içeriği temizle
+    tamamlananGorevler.forEach(item => {
+      const kullanici = item.e_gorevli_kullanici;
+      tamamlananGorevSayilari[kullanici] = (tamamlananGorevSayilari[kullanici] || 0) + 1;
+    });
 
-    Object.entries(gorevSayilari).forEach(([kullanici, sayi]) => {
+    const container = document.getElementById('gorevKullanicilarContainer');
+    const container2 = document.getElementById('tamamlananGorevlerContainer');
+    container.innerHTML = '';
+    container2.innerHTML = '';
+
+    Object.entries(aktifGorevSayilari).forEach(([kullanici, sayi]) => {
       const kart = document.createElement('div');
       kart.className = 'kart';
       kart.innerHTML = `
@@ -130,6 +133,21 @@ fetch('/musteriTalepListesi')
         </div>
       `;
       container.appendChild(kart);
+    });
+
+    Object.entries(tamamlananGorevSayilari).forEach(([kullanici, sayi]) => {
+      const kart = document.createElement('div');
+      kart.className = 'kart';
+      kart.innerHTML = `
+        <div class="flex flex-col justify-start items-start">
+          <h3 style="font-size: 20px;">${kullanici}</h3> 
+          <div style="display: flex; flex-direction: row; gap: 5px;">
+            <p>Tamamlanan Görev Sayısı:</p>
+            <p>${sayi}</p>
+          </div>
+        </div>
+      `;
+      container2.appendChild(kart);
     });
   });
 
