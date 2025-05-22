@@ -81,7 +81,6 @@ function YENI_KULLANICI_ID(KULLANICI_ID_OLUSTUR, callback) {
   });
 }
 
-
 // Public klasörünü statik dosyalar için kullan
 app.use(express.static('public'));
 
@@ -253,7 +252,7 @@ app.post('/musteriTalepEkle', (req, res) => {
     }
 
     const yeniVeri = {
-      e_id: newId,
+      e_id: String(newId),
       e_musteri_adi,
       e_musteri_numarasi,
       e_firma_adi,
@@ -404,7 +403,6 @@ app.post('/gorevSil', (req, res) => {
   });
 });
 
-
 // DÜZENLEME İŞLEMLERİ
 app.post('/musteriTalepDuzenle', (req, res) => {
   const { e_musteri_numarasi, e_durum, e_musteri_adi, e_firma_adi, e_onaylayan_kullanici, e_talep } = req.body;
@@ -490,10 +488,6 @@ app.post('/kullaniciDuzenle', (req, res) => {
     });
   });
 });
-
-
-
-
 
 app.post('/gorevDuzenle', (req, res) => {
   const { e_id, e_gorev, e_durum, e_gorevli_kullanici, e_onaylayan_kullanici } = req.body;

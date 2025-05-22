@@ -1,17 +1,10 @@
 [
   {
     "e_id": "5",
-    "e_gorevli_kullanici": "nazim",
+    "e_gorevli_kullanici": "nazım",
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Nazım artık şu iconları yap",
     "e_durum": "Bekliyor"
-  },
-  {
-    "e_id": "6",
-    "e_gorevli_kullanici": "ebrar",
-    "e_onaylayan_kullanici": "nazim",
-    "e_gorev": "test 2",
-    "e_durum": "Tamamlandı"
   },
   {
     "e_id": "8",

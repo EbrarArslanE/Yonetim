@@ -1,16 +1,16 @@
 [
   {
-    "e_id": "8",
-    "e_onaylayan_kullanici": "nazim",
-    "e_ad": "Nazım",
-    "e_soyad": "Çeltekli",
-    "e_durum": "Pasif"
-  },
-  {
     "e_id": "13",
     "e_onaylayan_kullanici": "ebrar",
     "e_ad": "Ebrar",
     "e_soyad": "Arslan",
+    "e_durum": "Aktif"
+  },
+  {
+    "e_id": "22",
+    "e_onaylayan_kullanici": "nazım",
+    "e_ad": "Nazım",
+    "e_soyad": "Çeltekli",
     "e_durum": "Aktif"
   }
 ]
