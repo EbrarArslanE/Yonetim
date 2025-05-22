@@ -29,7 +29,9 @@ fetch('/musteriTalepListesi')
         datasets: [{
           label: 'Talep Başlığına Göre Kayıt Sayısı',
           data: baslikValues,
-          backgroundColor: '#58A6FF'
+          backgroundColor: '#58A6FF',
+          borderColor: '#fff',
+          borderWidth: 1
         }]
       }
     });
@@ -93,6 +95,44 @@ fetch('/musteriTalepListesi')
         document.getElementById('haftalikTalep').textContent = hafta;
         document.getElementById('ortalamaSure').textContent = '3s 20dk'; // örnek
       });
+    
+     fetch('/gorevListesi')
+  .then(res => res.json())
+  .then(data => {
+    const aktifGorevler = data.filter(item => item.e_durum === "Bekliyor");
+
+    // Görevli kullanıcıların görev sayılarını hesapla
+    const gorevSayilari = {};
+
+    aktifGorevler.forEach(item => {
+      const kullanici = item.e_gorevli_kullanici;
+      if (gorevSayilari[kullanici]) {
+        gorevSayilari[kullanici]++;
+      } else {
+        gorevSayilari[kullanici] = 1;
+      }
+    });
+
+    // HTML'e ekle
+    const container = document.getElementById('gorevKullanicilarContainer');
+    container.innerHTML = ''; // varsa eski içeriği temizle
+
+    Object.entries(gorevSayilari).forEach(([kullanici, sayi]) => {
+      const kart = document.createElement('div');
+      kart.className = 'kart';
+      kart.innerHTML = `
+        <div class="flex flex-col justify-start items-start">
+          <h3 style="font-size: 20px;">${kullanici}</h3> 
+          <div style="display: flex; flex-direction: row; gap: 5px;">
+            <p>Aktif Görev Sayısı:</p>
+            <p>${sayi}</p>
+          </div>
+        </div>
+      `;
+      container.appendChild(kart);
+    });
+  });
+
 
     function haftaninIlkGunu() {
       const now = new Date();

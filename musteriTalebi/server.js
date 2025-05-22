@@ -32,6 +32,7 @@ function YENI_MUSTERI_ID(MUSTERI_ID_OLUSTUR, callback) {
     }
   });
 }
+
 function YENI_GOREV_ID(GOREV_ID_OLUSTUR, callback) {
   fs.readFile(GOREV_ID_OLUSTUR, 'utf8', (err, data) => {
     if (err) {
@@ -55,6 +56,7 @@ function YENI_GOREV_ID(GOREV_ID_OLUSTUR, callback) {
     }
   });
 }
+
 function YENI_KULLANICI_ID(KULLANICI_ID_OLUSTUR, callback) {
   fs.readFile(KULLANICI_ID_OLUSTUR, 'utf8', (err, data) => {
     if (err) {
@@ -156,7 +158,7 @@ app.post('/kullaniciEkle', (req, res) => {
     }
 
     const yeniKullanici = {
-      e_id: newId,
+      e_id: String(newId),
       e_onaylayan_kullanici,
       e_ad,
       e_soyad,
@@ -467,7 +469,7 @@ app.post('/kullaniciDuzenle', (req, res) => {
     // const idToUpdate = Number(e_id);
 
     const guncellenmisListe = veriListesi.map(item => {
-      if (item.e_id === e_id) {
+      if (String(item.e_id) === String(e_id)) {
         item.e_onaylayan_kullanici = e_onaylayan_kullanici ?? item.e_onaylayan_kullanici;
         item.e_durum               = e_durum ?? item.e_durum;
         item.e_ad                  = e_ad ?? item.e_ad;

@@ -106,9 +106,6 @@
   letter-spacing: -1px;
   position: relative;
   display: flex;
-  align-items: center;
-  margin-left: 140px;
-  bottom: -20px;
 }
 
 .title::before,.title::after {
@@ -143,6 +140,31 @@
     opacity: 0;
   }
 }
+.overflow {
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #D9FF3E #1C1C2E; /* thumb ve track rengi (Firefox için) */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Webkit tarayıcılar (Chrome, Safari) için custom scrollbar */
+.overflow::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow::-webkit-scrollbar-track {
+  background: #1C1C2E; /* scroll arka planı */
+  border-radius: 4px;
+}
+
+.overflow::-webkit-scrollbar-thumb {
+  background-color: #D9FF3E; /* scroll bar rengi */
+  border-radius: 4px;
+}
+
   </style>
 </head>
 <body>
@@ -172,39 +194,65 @@
           <canvas id="grafik2"></canvas>
         </div>
       </div>
-      <div class="flex flex-row w-50 h-20 gap-12">
 
-        <div class="left">
-          <div class="istatistik-kartlari">
-            <h1 style="font-size: 30px;">Kullanıcı Bilgileri</h1>
-            <div class="kart">
-              <h3 style="font-size: 20px;">📦 Kayıt Sayısı</h3>
-              <p id="toplamTalep"></p>
-            </div>
-            <div class="kart">
-              <h3 style="font-size: 20px;">
-                <p class="title"></p>
-                 Aktif Kullanıcı
-                </h3>
-              <p id="aktifKullanici"></p>
-            </div>
-          </div>
-        </div>
-  
+      <div class="left flex flex-col w-50 gap-12">
+
+        <div class="flex flex-row w-100 h-50 gap-12">
           <div class="left">
             <div class="istatistik-kartlari">
-              <h1 style="font-size: 30px;">Sistem Bilgileri</h1>
+              <h1 style="font-size: 30px;">Kullanıcı Bilgileri</h1>
               <div class="kart">
-                <h3 style="font-size: 20px;">📈 Haftalık Talep</h3>
-                <p id="haftalikTalep">0</p>
+                <h3 style="font-size: 20px;">📦 Kayıt Sayısı</h3>
+                <p id="toplamTalep"></p>
               </div>
               <div class="kart">
-                <h3 style="font-size: 20px;">🕒 Yaklaşan</h3>
-                <p id="ortalamaSure">3s 20dk</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 25px;">
+                  <p class="title"></p>
+                  <h3 style="font-size: 20px;">Aktif Kullanıcı</h3>
+                </div>
+                <p id="aktifKullanici"></p>
+              </div>
+            </div>
+          </div>
+    
+            <div class="left">
+              <div class="istatistik-kartlari">
+                <h1 style="font-size: 30px;">Sistem Bilgileri</h1>
+                <div class="kart">
+                  <h3 style="font-size: 20px;">📈 Haftalık Talep</h3>
+                  <p id="haftalikTalep">0</p>
+                </div>
+                <div class="kart">
+                  <h3 style="font-size: 20px;">🕒 Yaklaşan</h3>
+                  <p id="ortalamaSure">3s 20dk</p>
+                </div>
+              </div>
+            </div>
+        </div>     
+          <div class="left">
+            <div class="istatistik-kartlari">
+              <div style="display: flex; align-items: center; gap: 25px;">
+                <p class="title"></p>
+                <h1 style="font-size: 30px;">Şu Anda Aktif Görevi Olan Kullanıcılar</h1>
+              </div>
+              <div class="overflow gap-25" id="gorevKullanicilarContainer">
+                
+                <div class="kart">
+                  <div class="flex flex-col justify-start items-start">
+                    <h3 style="font-size: 20px;">Ebrar Arslan</h3>
+                    <div style="display: flex; flex-direction: row; gap: 5px;">
+                      <p>Aktif Görev Sayısı:</p>
+                      <p id="aktifGorevliKullaniciSayisi"></p>
+                    </div>
+                  </div>
+                </div>
+            
+
               </div>
             </div>
           </div>
       </div>
+
     </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
