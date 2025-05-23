@@ -551,7 +551,7 @@ app.post('/giris', (req, res) => {
 
     // Oturum başlangıç zamanı ve geçerlilik süresi
     kullanici.lastLogin = Date.now(); // zaman damgası
-    kullanici.sessionExpires = Date.now() + (5 * 1000); // 5 saniye (test için)
+    kullanici.sessionExpires = Date.now() + (5 * 60 * 1000); // 5 dakika (test için)
 
     fs.writeFile(USER_DATA_PATH, JSON.stringify(kullanicilar, null, 2), err => {
       if (err) return res.status(500).json({ hata: 'Oturum bilgisi kaydedilemedi' });

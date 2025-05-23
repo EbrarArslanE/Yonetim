@@ -48,9 +48,23 @@ window.onload = () => {
   function draw(arr) {
     tbody.innerHTML = '';
     arr.forEach(u => {
-      const durumDegeri = String(u.e_durum || '').toLowerCase();
-      const badgeDegeri = durumDegeri === 'aktif' ? 'bg-success' : 'bg-danger';
-      const badgeSinifi = durumDegeri.charAt(0).toUpperCase() + durumDegeri.slice(1);
+         const durumDegeri = String(u.e_durum || '').toLowerCase();
+    let badgeDegeri;
+
+    // Duruma göre rozet rengi ata
+    switch (durumDegeri) {
+      case 'iptal edildi':
+        badgeDegeri = 'bg-danger'; // sarımsı
+        break;
+      case 'tamamlandı':
+        badgeDegeri = 'bg-success'; // yeşil
+        break;
+      case 'bekliyor':
+        badgeDegeri = 'bg-warning'; // bilinmeyen durumlar için gri
+      default:
+    }
+
+    const badgeSinifi = durumDegeri.charAt(0).toUpperCase() + durumDegeri.slice(1);
 
       const tr = document.createElement('tr');
       tr.innerHTML = `

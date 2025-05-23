@@ -201,3 +201,29 @@ function kullaniciSil(id) {
   alert('Silme sırasında hata oluştu: ' + err.message);
 });
 }
+
+// function checkSession() {
+//   const sessionExpires = localStorage.getItem('sessionExpires');
+//   const u_id = localStorage.getItem('u_id');
+
+//   if (!u_id || !sessionExpires) {
+//     alert('Giriş yapmanız gerekiyor!');
+//     window.location.href = 'login.html';
+//     return false;
+//   }
+
+//   const now = Date.now();
+//   if (now > Number(sessionExpires)) {
+//     alert('Oturumunuzun süresi doldu, lütfen tekrar giriş yapın.');
+//     localStorage.removeItem('u_id');
+//     localStorage.removeItem('sessionExpires');
+//     window.location.href = '/giris/giris.html';
+//     return false;
+//   }
+
+//   return true;
+// }
+
+// window.onload = () => {
+//   checkSession();
+// };

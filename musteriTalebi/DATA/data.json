@@ -52,14 +52,5 @@
     "e_kullanici_adi": "ebrar",
     "e_talep": "Ebrar Talebi Değiştirdi",
     "e_durum": "Tamamlandı"
-  },
-  {
-    "e_id": "bb2901eb-e446-4ff4-b718-fb30df6ce08d",
-    "e_musteri_adi": "çalışıyor",
-    "e_musteri_numarasi": "çalışıyor",
-    "e_firma_adi": "çalışıyor",
-    "e_durum": "Tamamlandı",
-    "e_kullanici_adi": "ebrar",
-    "e_talep": "çalışıyoraaa"
   }
 ]

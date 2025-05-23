@@ -26,6 +26,7 @@ form.addEventListener('submit', async (e) => {
     hataMesaji.textContent = data.hata || 'Giriş Başarılı.';
     console.log('Giriş başarılı! Kullanıcı ID:', data.u_id);
     localStorage.setItem('u_id', data.u_id);
+    localStorage.setItem('OturumSuresi', data.sessionExpires);
     localStorage.setItem('e_kullanici_adi', data.e_kullanici_adi);
 
 
