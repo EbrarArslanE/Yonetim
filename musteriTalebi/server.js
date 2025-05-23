@@ -96,7 +96,7 @@ const TALEP_DATA_PATH = path.join(__dirname, '/DATA/gorevData.json');
 
 // Ana sayfaya yönlendirme
 app.get('/', (req, res) => {
-  res.redirect('/pages/anasayfa/anasayfa.html');
+  res.redirect('/pages/giris/giris.html');
 });
 
 // LİSTELEME İŞLEMLERİ
@@ -541,7 +541,7 @@ app.post('/gorevDuzenle', (req, res) => {
 app.post('/giris', (req, res) => {
   const { e_kullanici_adi, e_sifre } = req.body;
 
-  fs.readFile('/DATA/userData.json', 'utf8', (err, data) => {
+  fs.readFile(USER_DATA_PATH, 'utf8', (err, data) => {
     if (err) return res.status(500).json({ hata: 'Dosya okunamadı' });
 
     const kullanicilar = JSON.parse(data);
@@ -551,14 +551,17 @@ app.post('/giris', (req, res) => {
 
     // Oturum başlangıç zamanı ve geçerlilik süresi
     kullanici.lastLogin = Date.now(); // zaman damgası
-    kullanici.sessionExpires = Date.now() + (15 * 60 * 1000); // 15 dakika geçerli
+    kullanici.sessionExpires = Date.now() + (5 * 1000); // 5 saniye (test için)
 
-    fs.writeFile('/DATA/userData.json', JSON.stringify(kullanicilar, null, 2), err => {
+    fs.writeFile(USER_DATA_PATH, JSON.stringify(kullanicilar, null, 2), err => {
       if (err) return res.status(500).json({ hata: 'Oturum bilgisi kaydedilemedi' });
-      res.json({ basarili: true, u_id: kullanici.u_id });
+
+      // 🔽 sessionExpires frontend'e gönderiliyor
+      res.json({ basarili: true, u_id: kullanici.u_id, sessionExpires: kullanici.sessionExpires });
     });
   });
 });
+
 
 
 // Sunucuyu başlat

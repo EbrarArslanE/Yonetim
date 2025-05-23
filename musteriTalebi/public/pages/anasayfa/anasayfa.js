@@ -245,3 +245,10 @@ grafikChart1 = new Chart(ctx1, {
     }
   });
 
+const sessionExpires = localStorage.getItem('sessionExpires');
+if (sessionExpires && Date.now() > parseInt(sessionExpires)) {
+  alert('Oturum süresi doldu. Lütfen tekrar giriş yapın.');
+  localStorage.removeItem('u_id');
+  localStorage.removeItem('sessionExpires');
+  window.location.href = '/pages/giris/giris.html';
+}

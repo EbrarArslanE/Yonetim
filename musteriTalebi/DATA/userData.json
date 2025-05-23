@@ -5,14 +5,19 @@
     "e_ad": "Ebrar",
     "e_soyad": "Arslan",
     "e_durum": "Aktif",
-    "e_sifre": "1313"
+    "e_sifre": "1313",
+    "u_id": "a2b3c4d5-e6f7-8g9h-0i1j-2k3l4m5n6o7p",
+    "lastLogin": 1748005034714,
+    "sessionExpires": 1748005039714
   },
   {
     "e_id": "22",
     "e_kullanici_adi": "nazım",
     "e_ad": "Nazım",
     "e_soyad": "Çeltekli",
-    "e_durum": "Aktif"
+    "e_durum": "Aktif",
+    "e_sifre": "1234",
+    "u_id": "a2b3c4d5-e6f7-8g9h-0i1j-2k3l4m5n6o7p"
   },
   {
     "e_id": "23",
@@ -21,7 +26,8 @@
     "e_soyad": "uuid",
     "e_durum": "Pasif",
     "u_id": "21828a8d-ff22-4550-9a32-0a9a49186a67",
-    "sessionExpires": 1747999652462,
-    "lastLogin": 1747998752462
+    "sessionExpires": 1748004794877,
+    "lastLogin": 1748004789877,
+    "e_sifre": "1"
   }
 ]

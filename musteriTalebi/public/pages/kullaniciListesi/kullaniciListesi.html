@@ -112,23 +112,25 @@
           
             <div class="flex flex-row gap-12 w-100">
               <div class="w-50">
-                <label for="">Ad *</label>
-                <input id="e_ad" name="e_ad" required="1" placeholder="Ad" type="text" class="input" required>
-                </div>
-                <div class="w-50">
-                  <label for="">Soyad *</label>
-                  <input id="e_soyad" name="e_soyad" required="1" placeholder="Soyad" type="text" class="input" required>
+                <label for="e_ad">Ad *</label>
+                <div class="input-wrapper">
+                  <!-- Kullanıcı ikon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+                  </svg>
+                  <input id="e_ad" name="e_ad" placeholder="Ad" type="text" required>
                 </div>
               </div>
             
-            <div class="column-flat">
-              <label for="">Kullanıcı Adı *</label>
-              <input id="e_kullanici_adi" name="e_kullanici_adi" required="1" placeholder="Kullanıcı Adı" type="text" class="input">
-            </div>
-            
-            <div class="column-flat">
-              <label for="">Şifre *</label>
-              <input id="e_sifre" name="e_sifre" required="1" placeholder="Şifre" type="password" class="input">
+              <div class="w-50">
+                <label for="e_soyad">Soyad *</label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+                  </svg>
+                  <input id="e_soyad" name="e_soyad" placeholder="Soyad" type="text" required>
+                </div>
+              </div>
             </div>
 
             <div class="column-flat">
@@ -138,6 +140,28 @@
                 <option value="Aktif">Aktif</option>
                 <option value="Pasif">Pasif</option>
               </select>
+            </div>
+            
+            <div class="column-flat">
+              <label for="e_kullanici_adi">Kullanıcı Adı *</label>
+              <div class="input-wrapper">
+                <!-- @ ikon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2a10 10 0 1 0 10 10h-2a8 8 0 1 1-2.34-5.66l-1.42 1.42a6 6 0 1 0 1.76 4.24v-1h-2v1a4 4 0 1 1-4-4 3.8 3.8 0 0 1 1.24.21l1.63-1.63A10 10 0 0 0 12 2z"/>
+                </svg>
+                <input id="e_kullanici_adi" name="e_kullanici_adi" placeholder="Kullanıcı Adı" type="text" required>
+              </div>
+            </div>
+            
+            <div class="column-flat">
+              <label for="e_sifre">Şifre *</label>
+              <div class="input-wrapper">
+                <!-- kilit ikon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M17 8V6a5 5 0 0 0-10 0v2H5v14h14V8h-2zm-6 0V6a3 3 0 0 1 6 0v2h-6z"/>
+                </svg>
+                <input id="e_sifre" name="e_sifre" placeholder="Şifre" type="password" required>
+              </div>
             </div>
 
           </form>
