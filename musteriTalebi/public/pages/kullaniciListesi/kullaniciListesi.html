@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/style/template.css">
     <link rel="stylesheet" href="/style/dropdown.css">
     <link rel="stylesheet" href="/style/custom-modal.css">
+    <link rel="shortcut icon" href="/assets/images/code-ai-fill.svg" type="image/x-icon">
     <title>
       Kullanıcı Kayıtları
     </title>
@@ -20,6 +21,7 @@
     <div class="container-body">
       <div class="body-top">
         <div class="top-bar">
+            <img src="/assets/images/code-ai-fill.svg" alt="" style="height: 70px;">
           <div class="panel-wrapper">
             <div class="logo">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -33,7 +35,7 @@
             <div class="dropdown-container">
               <div class="dropdown-container">
                 <a class="a" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
-                <a class="a" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcılar</a>
+                <a class="a" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcı Listesi</a>
                 <a class="a" href="/pages/gorevListesi/gorevListesi.html">Görev Listesi</a>  
                 <a class="a" href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
               </div>
@@ -46,12 +48,27 @@
         <div class="right">
           
           <div class="table-top">
-              <div class="table-header">
-                <div class="group">
-                  <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
-                  <input placeholder="Kullanıcı Adına Göre Ara" id="filterUser" type="search" class="input">
+               <div class="table-header items-center justify-start p-30">
+                 
+                <div class="flex flex-col items-start w-30">
+                  <label for="">Arama :</label>
+                  <div class="group w-100">
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+                    <input placeholder="Kullanıcı Adına Göre Ara" id="filterInput" type="search" class="input">
+                  </div>
                 </div>
-              </div>        
+
+                <div class="flex flex-col items-start w-20">
+                  <label for="durumFiltrele" style="display:block;">Durum :</label>
+                  <select name="e_durum" id="durumFiltrele" class="custom-select w-100">
+                    <option value="">---- Seçiniz ----</option>
+                    <option value="Bekliyor">Bekliyor</option>
+                    <option value="Tamamlandı">Tamamlandı</option>
+                    <option value="İptal Edildi">İptal Edildi</option>
+                  </select>
+                </div>
+                
+              </div>         
             </div>
 
             <div class="table-bottom">
@@ -65,7 +82,7 @@
                         <th class="w-5">Soyad</th>
                         <th class="w-10">Durum</th>
                         <th class="w-10">
-                          <button class="add-button w-100" onclick="kullaniciOlustur()">
+                          <button class="add-button w-100" onclick="kullaniciOlusturModal()">
                             <a class="text">
                               Kullanıcı Oluştur
                             </a>
@@ -86,40 +103,74 @@
     <script src="kullaniciListesi.js">
     </script>
     <!-- MODAL -->
-    <div class="modal-container" id="duzenleModal" style="display: none;">
+    <div class="modal-container" id="kullaniciTanimlariModal" style="display: none;">
       <div class="modal-content">
         <div class="modal-header">
-          <h2> Kullanıcı Bilgisi Düzenle</h2>
+          <h2> Kullanıcı Ekleme Formu</h2>
         </div>
         <hr>
         <div class="modal-body">
           <form>
+          
+            <div class="flex flex-row gap-12 w-100">
+              <div class="w-50">
+                <label for="e_ad">Ad *</label>
+                <div class="input-wrapper">
+                  <!-- Kullanıcı ikon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+                  </svg>
+                  <input id="e_ad" name="e_ad" placeholder="Ad" type="text" required>
+                </div>
+              </div>
+            
+              <div class="w-50">
+                <label for="e_soyad">Soyad *</label>
+                <div class="input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+                  </svg>
+                  <input id="e_soyad" name="e_soyad" placeholder="Soyad" type="text" required>
+                </div>
+              </div>
+            </div>
+
             <div class="column-flat">
               <label for="durumSec" style="display:block; margin-bottom:8px;">Kullanıcı Durumu:</label>
-              <select class="custom-select w-100" name="" id="e_durum" required>
+              <select class="custom-select w-100" name="e_durum" id="e_durum" required>
                 <option value="">---- Seçiniz ----</option>
                 <option value="Aktif">Aktif</option>
                 <option value="Pasif">Pasif</option>
               </select>
             </div>
+            
             <div class="column-flat">
-              <label for="">Kullanıcı Adı *</label>
-              <input id="e_kullanici_adi" required="" placeholder="" type="text" class="input">
+              <label for="e_kullanici_adi">Kullanıcı Adı *</label>
+              <div class="input-wrapper">
+                <!-- @ ikon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2a10 10 0 1 0 10 10h-2a8 8 0 1 1-2.34-5.66l-1.42 1.42a6 6 0 1 0 1.76 4.24v-1h-2v1a4 4 0 1 1-4-4 3.8 3.8 0 0 1 1.24.21l1.63-1.63A10 10 0 0 0 12 2z"/>
+                </svg>
+                <input id="e_kullanici_adi" name="e_kullanici_adi" placeholder="Kullanıcı Adı" type="text" required>
+              </div>
             </div>
+            
             <div class="column-flat">
-              <label for="">Ad *</label>
-              <input id="e_ad" required="" placeholder="" type="text" class="input"
-              required>
+              <label for="e_sifre">Şifre *</label>
+              <div class="input-wrapper">
+                <!-- kilit ikon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M17 8V6a5 5 0 0 0-10 0v2H5v14h14V8h-2zm-6 0V6a3 3 0 0 1 6 0v2h-6z"/>
+                </svg>
+                <input id="e_sifre" name="e_sifre" placeholder="Şifre" type="password" required>
+              </div>
             </div>
-            <div class="column-flat">
-              <label for="">Soyad *</label>
-              <input id="e_soyad" required="1" placeholder="" type="text" class="input"required>
-            </div>
+
           </form>
         </div>
         <div class="modal-footer gap-12">
-          <button class="button" onclick="kullaniciDurumGuncelle()">
-            <span>Güncelle</span>
+          <button type="button" class="button" onclick="islemiKaydet()">
+            <span>Kaydet</span>
           </button>
           <button class="button" onclick="kapatModal()">
             <span>Kapat</span>

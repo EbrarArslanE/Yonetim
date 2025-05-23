@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ana Sayfa</title>
+  <link rel="shortcut icon" href="/assets/images/code-ai-fill.svg" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/style/settings.css">
   <style>
@@ -49,7 +50,7 @@
       background-color: #161b22;
       padding: 1rem;
       border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 8px rgb(255 255 255 / 20%);
     }
     .grafik-box {
       background-color: #21262d;
@@ -60,10 +61,10 @@
       align-items: center;
       justify-content: center;
     }
-    .grafik-box canvas {
+    /* .grafik-box canvas {
       width: 50% !important;
       height: auto !important;
-    }
+    } */
     .istatistik-kartlari {
       gap: 0.75rem;
       width: 100%;
@@ -99,11 +100,173 @@
       font-weight: bold;
       font-size: 1rem;
     }
+    .title {
+  font-size: 28px;
+  color: rgb(17, 219, 37);
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+}
+
+.title::before,.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: rgb(17, 219, 37);
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: rgb(17, 219, 37);
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+    .pasif {
+  font-size: 28px;
+  color: rgb(219, 17, 17);
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+}
+
+.pasif::before,.pasif::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: rgb(219, 17, 17);
+}
+
+.pasif::before {
+  width: 18px;
+  height: 18px;
+  background-color: rgb(219, 17, 17);
+}
+
+.pasif::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+.overflow {
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #D9FF3E #1C1C2E; /* thumb ve track rengi (Firefox için) */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Webkit tarayıcılar (Chrome, Safari) için custom scrollbar */
+.overflow::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow::-webkit-scrollbar-track {
+  background: #1C1C2E; /* scroll arka planı */
+  border-radius: 4px;
+}
+
+.overflow::-webkit-scrollbar-thumb {
+  background-color: #D9FF3E; /* scroll bar rengi */
+  border-radius: 4px;
+}
+
+.checkmark-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark {
+  width: 30px;
+  height: 30px;
+  stroke: #4CAF50;
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke: #4CAF50;
+  animation: strokeCircle 2s ease-out 1s infinite;
+}
+
+.checkmark-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: #4CAF50;
+  animation: strokeCheck 2s ease-out 1s infinite;
+}
+
+.pie-chart {
+  position: relative;
+  width: 480px !important;
+  height: 480px !important;
+}
+.bar-chart {
+  position: relative;
+  width: 800px !important;
+  height: 380px !important;
+}
+
+@keyframes strokeCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes strokeCheck {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
   </style>
 </head>
 <body>
   <div class="container-body">
     <div class="top-bar">
+      <div style="width: 20%; height: 40px; display: flex; align-items: center; justify-content: center;">
+          <span id="girisYapanKullanici"></span>
+        </div>
       <div class="logo">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
           <path d="M19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM6 19H18V9.15745L12 3.7029L6 9.15745V19ZM12 15C10.6193 15 9.5 13.8807 9.5 12.5C9.5 11.1193 10.6193 9.99998 12 9.99998C13.3807 9.99998 14.5 11.1193 14.5 12.5C14.5 13.8807 13.3807 15 12 15Z"/>
@@ -113,49 +276,107 @@
       <div class="dropdown-container">
         <a class="text-white text-decoration-none" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
         <a class="text-white text-decoration-none" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcı Tanımları</a>
-        <a class="text-white text-decoration-none" href="/pages/kayitListesi/kayitListesi.html">Kayıt Tanımları</a>
+        <a class="text-white text-decoration-none" href="/pages/kayitListesi/kayitListesi.html">Talep Tanımları</a>
         <a class="text-white text-decoration-none" href="/pages/gorevListesi/gorevListesi.html">Görev Tanımları</a>
       </div>
     </div>
     
     <div class="body-bottom w-100">
       
-      <div class="left flex flex-col w-50">
-        <div class="grafik-box">
-          <canvas id="grafik1"></canvas>
+      <div class="left flex flex-col w-50 h-100">
+        <div class="grafik-box h-50">
+          <canvas class="bar-chart" id="grafik1"></canvas>
         </div>
         <div class="grafik-box">
-          <canvas id="grafik2"></canvas>
+          <canvas class="pie-chart" id="grafik2"></canvas>
         </div>
       </div>
-      <div class="flex flex-col w-50 gap-12">
 
-        <div class="left">
-          <div class="istatistik-kartlari">
-            <div class="kart">
-              <h3>📦 Kayıt Sayısı</h3>
-              <p id="toplamTalep">6</p>
-            </div>
-            <div class="kart">
-              <h3>🟢 Aktif Kullanıcı</h3>
-              <p id="bugunTalep">6</p>
-            </div>
-          </div>
-        </div>
-  
+      <div class="left flex flex-col w-50 gap-12">
+
+        <div class="flex flex-row w-100 h-50 gap-12">
           <div class="left">
             <div class="istatistik-kartlari">
+              <h1 style="font-size: 30px;">Kullanıcı Bilgileri</h1>
               <div class="kart">
-                <h3>📈 Haftalık Talep</h3>
-                <p id="haftalikTalep">0</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 25px;">
+                  <p class="pasif"></p>
+                  <h3 style="font-size: 20px; margin: 0;">Pasif Kullanıcı</h3>
+                </div>
+                <p id="pasifKullanici"></p>
               </div>
               <div class="kart">
-                <h3>🕒 Yaklaşan</h3>
-                <p id="ortalamaSure">3s 20dk</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 25px;">
+                  <p class="title"></p>
+                  <h3 style="font-size: 20px; margin: 0;">Aktif Kullanıcı</h3>
+                </div>
+                <p id="aktifKullanici"></p>
               </div>
             </div>
           </div>
+    
+            <div class="left">
+              <div class="istatistik-kartlari">
+                <h1 style="font-size: 30px;">Sistem Bilgileri</h1>
+                <div class="kart">
+                  <h3 style="font-size: 20px;">Toplam Talep Sayısı</h3>
+                  <p id="toplamTalep"></p>
+                </div>  
+                <div class="kart">
+                  <h3 style="font-size: 20px;">🕒 Yaklaşan</h3>
+                  <p id="ortalamaSure">3s 20dk</p>
+                </div>
+              </div>
+            </div>
+        </div>    
+        <div class="flex flex-row w-100 h-50 gap-12">
+          <div class="left w-50">
+            <div class="istatistik-kartlari">
+              <div style="display: flex; align-items: center; gap: 25px;">
+                <p class="title"></p>
+                <h1 style="font-size: 20px; margin: 0;">Şu Anda Aktif Görevi Olan Kullanıcılar</h1>
+              </div>
+              <div class="overflow gap-25" id="gorevKullanicilarContainer">
+                <div class="kart">
+                  <div class="flex flex-col justify-start items-start">
+                    <h3 style="font-size: 20px;"></h3>
+                    <div style="display: flex; flex-direction: row; gap: 5px;">
+                      <p>Aktif Görev Sayısı:</p>
+                      <p id="aktifGorevliKullaniciSayisi"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="left w-50">
+            <div class="istatistik-kartlari">
+              <div style="display: flex; align-items: center; gap: 5px;">
+                <div class="checkmark-wrapper">
+                  <svg class="checkmark" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+                  </svg>
+                </div>
+                <h1 style="font-size: 20px; margin: 0;">Tamamlanan Görev Sayısı</h1>
+              </div>
+              <div class="overflow gap-25" id="tamamlananGorevlerContainer">
+                <div class="kart">
+                  <div class="flex flex-col justify-start items-start">
+                    <h3 style="font-size: 20px;">Ebrar Arslan</h3>
+                    <div style="display: flex; flex-direction: row; gap: 5px;">
+                      <p>Aktif Görev Sayısı:</p>
+                      <p id="aktifGorevliKullaniciSayisi"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> 
       </div>
+
     </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
