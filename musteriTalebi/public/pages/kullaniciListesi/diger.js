@@ -13,11 +13,11 @@ window.onload = () => {
       users = list;
       draw(users);
 
-      const sel = document.getElementById('e_onaylayan_kullanici');
+      const sel = document.getElementById('e_kullanici_adi');
       list.forEach(u => {
         const opt = document.createElement('option');
-        opt.value = u.e_onaylayan_kullanici;
-        opt.textContent = `${u.e_ad} ${u.e_soyad} (${u.e_onaylayan_kullanici})`;
+        opt.value = u.e_kullanici_adi;
+        opt.textContent = `${u.e_ad} ${u.e_soyad} (${u.e_kullanici_adi})`;
         sel.appendChild(opt);
       });
     })
@@ -33,7 +33,7 @@ window.onload = () => {
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
-          <td>${u.e_onaylayan_kullanici}</td>
+          <td>${u.e_kullanici_adi}</td>
         <td class="text-center w-10">${u.e_ad}</td>
         <td class="text-center w-10">${u.e_soyad}</td>
         <td class="text-center"><span class="w-100 badge ${badgeDegeri}">${badgeSinifi}</span></td>
@@ -46,7 +46,7 @@ window.onload = () => {
             </svg>
           </button>
 
-          <button class="bin-button w-50" onclick="sil('${u.e_id}', '${u.e_onaylayan_kullanici}', '${u.e_ad}', '${u.e_soyad}', '${u.e_durum}')">
+          <button class="bin-button w-50" onclick="sil('${u.e_id}', '${u.e_kullanici_adi}', '${u.e_ad}', '${u.e_soyad}', '${u.e_durum}')">
             <!-- SVG sil ikonu -->
             <svg class="bin-top" viewBox="0 0 39 7" fill="none">
               <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
@@ -71,7 +71,7 @@ window.onload = () => {
   // search.addEventListener('input', () => {
   //   const q = search.value.toLowerCase();
   //   const filt = users.filter(u =>
-  //     u.e_onaylayan_kullanici.toLowerCase().includes(q) ||
+  //     u.e_kullanici_adi.toLowerCase().includes(q) ||
   //     u.e_ad.toLowerCase().includes(q) ||
   //     u.e_soyad.toLowerCase().includes(q)
   //   );
@@ -88,7 +88,7 @@ window.onload = () => {
       document.getElementById('e_durum').value = secilenKayit.e_durum || '';
       document.getElementById('e_ad').value = secilenKayit.e_ad || '';
       document.getElementById('e_soyad').value = secilenKayit.e_soyad || '';
-      document.getElementById('e_onaylayan_kullanici').value = secilenKayit.e_onaylayan_kullanici || '';
+      document.getElementById('e_kullanici_adi').value = secilenKayit.e_kullanici_adi || '';
     }
 
     modal.style.display = "flex";
@@ -102,7 +102,7 @@ window.onload = () => {
     document.getElementById('e_durum').value = '';
     document.getElementById('e_ad').value = '';
     document.getElementById('e_soyad').value = '';
-    document.getElementById('e_onaylayan_kullanici').value = '';
+    document.getElementById('e_kullanici_adi').value = '';
     modal.style.display = "flex";
   };
 
@@ -113,7 +113,7 @@ window.onload = () => {
     document.getElementById('e_durum').value = '';
     document.getElementById('e_ad').value = '';
     document.getElementById('e_soyad').value = '';
-    document.getElementById('e_onaylayan_kullanici').value = '';
+    document.getElementById('e_kullanici_adi').value = '';
   };
 };
 
@@ -125,11 +125,11 @@ let secilenKayit = null; // Global değişken
 fetch('/kullaniciListesi')
   .then(r => r.json())
   .then(list => {
-    const sel = document.getElementById('e_onaylayan_kullanici');
+    const sel = document.getElementById('e_kullanici_adi');
     list.forEach(u => {
       const opt = document.createElement('option');
-      opt.value = u.e_onaylayan_kullanici;
-      opt.textContent = `${u.e_ad} ${u.e_soyad} (${u.e_onaylayan_kullanici})`;
+      opt.value = u.e_kullanici_adi;
+      opt.textContent = `${u.e_ad} ${u.e_soyad} (${u.e_kullanici_adi})`;
       sel.appendChild(opt);
     });
   });
@@ -156,7 +156,7 @@ window.onload = () => {
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
-      <td>${u.e_onaylayan_kullanici}</td>
+      <td>${u.e_kullanici_adi}</td>
         <td class="text-center w-10">${u.e_ad}</td>
         <td class="text-center w-10">${u.e_soyad}</td>
         <td class="text-center"><span class="w-100 badge ${badgeDegeri}">${badgeSinifi}</span></td>
@@ -169,7 +169,7 @@ window.onload = () => {
             </svg>
           </button>
 
-          <button class="bin-button w-50" onclick="sil('${u.e_id}', '${u.e_onaylayan_kullanici}', '${u.e_ad}', '${u.e_soyad}', '${u.e_durum}')">
+          <button class="bin-button w-50" onclick="sil('${u.e_id}', '${u.e_kullanici_adi}', '${u.e_ad}', '${u.e_soyad}', '${u.e_durum}')">
             <!-- SVG sil ikonu -->
             <svg class="bin-top" viewBox="0 0 39 7" fill="none">
               <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
@@ -193,7 +193,7 @@ window.onload = () => {
   // search.addEventListener('input', () => {
   //   const q = search.value.toLowerCase();
   //   const filt = users.filter(u =>
-  //     u.e_onaylayan_kullanici.toLowerCase().includes(q) ||
+  //     u.e_kullanici_adi.toLowerCase().includes(q) ||
   //     u.e_ad.toLowerCase().includes(q) ||
   //     u.e_soyad.toLowerCase().includes(q)
   //   );
@@ -211,13 +211,13 @@ window.onload = () => {
       document.getElementById('e_durum').value = secilenKayit.e_durum || '';
       document.getElementById('e_ad').value = secilenKayit.e_ad || '';
       document.getElementById('e_soyad').value = secilenKayit.e_soyad || '';
-      document.getElementById('e_onaylayan_kullanici').value = secilenKayit.e_onaylayan_kullanici || '';
+      document.getElementById('e_kullanici_adi').value = secilenKayit.e_kullanici_adi || '';
     } else {
       // Boşsa ekleme moduna hazırla
       document.getElementById('e_durum').value = '';
       document.getElementById('e_ad').value = '';
       document.getElementById('e_soyad').value = '';
-      document.getElementById('e_onaylayan_kullanici').value = '';
+      document.getElementById('e_kullanici_adi').value = '';
     }
 
     modal.style.display = "flex";
@@ -230,7 +230,7 @@ window.onload = () => {
     document.getElementById('e_durum').value = '';
     document.getElementById('e_ad').value = '';
     document.getElementById('e_soyad').value = '';
-    document.getElementById('e_onaylayan_kullanici').value = '';
+    document.getElementById('e_kullanici_adi').value = '';
     modal.style.display = "flex";
   };
 
@@ -242,7 +242,7 @@ function kapatModal() {
   document.getElementById('e_durum').value = '';
   document.getElementById('e_ad').value = '';
   document.getElementById('e_soyad').value = '';
-  document.getElementById('e_onaylayan_kullanici').value = '';
+  document.getElementById('e_kullanici_adi').value = '';
 }
 
 
@@ -253,7 +253,7 @@ function kapatModal() {
     document.getElementById('e_durum').value = kayit.e_durum;
     document.getElementById('e_ad').value = kayit.e_ad;
     document.getElementById('e_soyad').value = kayit.e_soyad;
-    document.getElementById('e_onaylayan_kullanici').value = kayit.e_onaylayan_kullanici;
+    document.getElementById('e_kullanici_adi').value = kayit.e_kullanici_adi;
 
     document.getElementById("kullaniciTanimlariModal").style.display = "block";
   }
@@ -266,7 +266,7 @@ function kapatModal() {
   document.getElementById('e_durum').value = '';
   document.getElementById('e_ad').value = '';
   document.getElementById('e_soyad').value = '';
-  document.getElementById('e_onaylayan_kullanici').value = '';
+  document.getElementById('e_kullanici_adi').value = '';
 }
 
 
@@ -274,7 +274,7 @@ function kapatModal() {
     const e_durum = document.getElementById('e_durum').value;
     const e_ad = document.getElementById('e_ad').value;
     const e_soyad = document.getElementById('e_soyad').value;
-    const e_kullanici_adi = document.getElementById('e_onaylayan_kullanici').value;
+    const e_kullanici_adi = document.getElementById('e_kullanici_adi').value;
 
     if (!e_durum || !e_ad || !e_soyad || !e_kullanici_adi) {
       alert('Lütfen tüm alanları doldurun.');
@@ -290,7 +290,7 @@ function kapatModal() {
           e_durum,
           e_ad,
           e_soyad,
-          e_onaylayan_kullanici: e_kullanici_adi
+          e_kullanici_adi: e_kullanici_adi
         })
       }) 
       .then(r => r.json())
@@ -298,7 +298,7 @@ function kapatModal() {
         alert('Güncelleme başarılı!');
         const idx = users.findIndex(u => u.e_id == secilenKayit.e_id);
         if (idx !== -1) {
-          users[idx] = { ...users[idx], e_durum, e_ad, e_soyad, e_onaylayan_kullanici: e_kullanici_adi };
+          users[idx] = { ...users[idx], e_durum, e_ad, e_soyad, e_kullanici_adi: e_kullanici_adi };
         }
         draw(users);
         kapatModal();
@@ -313,7 +313,7 @@ function kapatModal() {
           e_durum,
           e_ad,
           e_soyad,
-          e_onaylayan_kullanici: e_kullanici_adi
+          e_kullanici_adi: e_kullanici_adi
         })
       })
       .then(r => r.json())
@@ -334,10 +334,10 @@ function kapatModal() {
     document.getElementById('e_durum').value = '';
     document.getElementById('e_ad').value = '';
     document.getElementById('e_soyad').value = '';
-    document.getElementById('e_onaylayan_kullanici').value = '';
+    document.getElementById('e_kullanici_adi').value = '';
   }
 
-  window.sil = (e_id, e_onaylayan_kullanici, e_ad, e_soyad, e_durum) => {
+  window.sil = (e_id, e_kullanici_adi, e_ad, e_soyad, e_durum) => {
     if(confirm(`"${e_ad} ${e_soyad}" isimli kullanıcıyı silmek istediğinize emin misiniz?`)) {
       fetch('/kullaniciSil', {
         method: 'POST',
@@ -362,7 +362,7 @@ function kapatModal() {
   //   const e_durum = document.getElementById('e_durum').value;
   //   const e_ad = document.getElementById('e_ad').value;
   //   const e_soyad = document.getElementById('e_soyad').value;
-  //   const e_kullanici_adi = document.getElementById('e_onaylayan_kullanici').value;
+  //   const e_kullanici_adi = document.getElementById('e_kullanici_adi').value;
 
   //   // Ekleme veya güncelleme
   //   if (secilenKayit) {
@@ -375,7 +375,7 @@ function kapatModal() {
   //         e_durum: e_durum,
   //         e_ad: e_ad,
   //         e_soyad: e_soyad,
-  //         e_onaylayan_kullanici: e_kullanici_adi
+  //         e_kullanici_adi: e_kullanici_adi
   //       })
   //     })
   //     .then(r => r.json())
@@ -387,7 +387,7 @@ function kapatModal() {
   //         users[idx].e_durum = e_durum;
   //         users[idx].e_ad = e_ad;
   //         users[idx].e_soyad = e_soyad;
-  //         users[idx].e_onaylayan_kullanici = e_kullanici_adi;
+  //         users[idx].e_kullanici_adi = e_kullanici_adi;
   //       }
   //       draw(users);
   //       kapatModal();
@@ -403,7 +403,7 @@ function kapatModal() {
   //         e_durum,
   //         e_ad,
   //         e_soyad,
-  //         e_onaylayan_kullanici: e_kullanici_adi
+  //         e_kullanici_adi: e_kullanici_adi
   //       })
   //     })
   //     .then(r => r.json())
@@ -424,7 +424,7 @@ function kapatModal() {
   //   const e_durum = document.getElementById('e_durum').value;
   //   const e_ad = document.getElementById('e_ad').value;
   //   const e_soyad = document.getElementById('e_soyad').value;
-  //   const e_kullanici_adi = document.getElementById('e_onaylayan_kullanici').value;
+  //   const e_kullanici_adi = document.getElementById('e_kullanici_adi').value;
   
   //   fetch('/kullaniciEkle', {
   //     method: 'POST',
@@ -433,7 +433,7 @@ function kapatModal() {
   //       e_durum,
   //       e_ad,
   //       e_soyad,
-  //       e_onaylayan_kullanici: e_kullanici_adi
+  //       e_kullanici_adi: e_kullanici_adi
   //     })
   //   })
   //   .then(r => r.json())
@@ -451,7 +451,7 @@ function kapatModal() {
   //   const e_durum = document.getElementById('e_durum').value;
   //   const e_ad = document.getElementById('e_ad').value;
   //   const e_soyad = document.getElementById('e_soyad').value;
-  //   const e_kullanici_adi = document.getElementById('e_onaylayan_kullanici').value;
+  //   const e_kullanici_adi = document.getElementById('e_kullanici_adi').value;
   
   //   fetch('/kullaniciDuzenle', {
   //     method: 'POST',
@@ -461,7 +461,7 @@ function kapatModal() {
   //       e_durum,
   //       e_ad,
   //       e_soyad,
-  //       e_onaylayan_kullanici: e_kullanici_adi
+  //       e_kullanici_adi: e_kullanici_adi
   //     })
   //   })
   //   .then(r => r.json())
@@ -472,7 +472,7 @@ function kapatModal() {
   //       users[idx].e_durum = e_durum;
   //       users[idx].e_ad = e_ad;
   //       users[idx].e_soyad = e_soyad;
-  //       users[idx].e_onaylayan_kullanici = e_kullanici_adi;
+  //       users[idx].e_kullanici_adi = e_kullanici_adi;
   //     }
   //     draw(users);
   //     kapatModal();
@@ -592,7 +592,7 @@ function kapatModal() {
             </div>
             <div class="column-flat">
               <label for="">Kullanıcı Adı *</label>
-              <input id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" required="" placeholder="" type="text" class="input">
+              <input id="e_kullanici_adi" name="e_kullanici_adi" required="" placeholder="" type="text" class="input">
             </div>
             <div class="column-flat">
               <label for="">Ad *</label>

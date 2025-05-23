@@ -5,7 +5,7 @@
     "e_musteri_numarasi": "1",
     "e_firma_adi": "Yönetim paneli ile ilgili adımlar",
     "e_durum": "Tamamlandı",
-    "e_onaylayan_kullanici": "ebrar",
+    "e_kullanici_adi": "ebrar",
     "e_talep": "Kayıtlarda müşteri soyadı gönderilecek ve telefon numarası gönderilecek"
   },
   {
@@ -14,7 +14,7 @@
     "e_musteri_numarasi": "2",
     "e_firma_adi": "üst panele eklenecek şeyler",
     "e_durum": "Tamamlandı",
-    "e_onaylayan_kullanici": "ebrar",
+    "e_kullanici_adi": "ebrar",
     "e_talep": "filtreleme özellikleri buraya gelecek, input, tarih, belki kayıt sayısı"
   },
   {
@@ -23,7 +23,7 @@
     "e_musteri_numarasi": "3",
     "e_firma_adi": "ana sayfa düzenlemesi",
     "e_durum": "Tamamlandı",
-    "e_onaylayan_kullanici": "nazım",
+    "e_kullanici_adi": "nazım",
     "e_talep": "ana sayfanın görünümünü düzelt değiştir allah için."
   },
   {
@@ -32,7 +32,7 @@
     "e_musteri_numarasi": "4",
     "e_firma_adi": "Yönetim paneli ile ilgili adımlar",
     "e_durum": "İptal Edildi",
-    "e_onaylayan_kullanici": "ebrar",
+    "e_kullanici_adi": "ebrar",
     "e_talep": "Kayıt eklenirken tarih bilgisi gönderilecek, ardındanda bu bilgiler ana sayfada tarihi yaklaşan talepler olarak ekrana basılacak Eklenecek Fieldlar: e_saat_baslangic e_saat_son e_tarih_baslangic e_tarih_son"
   },
   {
@@ -41,7 +41,7 @@
     "e_musteri_numarasi": "5",
     "e_firma_adi": "Modal Düzenlemesi",
     "e_durum": "Tamamlandı",
-    "e_onaylayan_kullanici": "ebrar",
+    "e_kullanici_adi": "ebrar",
     "e_talep": "kayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugün"
   },
   {
@@ -49,7 +49,7 @@
     "e_musteri_adi": "Ebrar Müşteri Adını Değiştirdi",
     "e_musteri_numarasi": "Bunu değiştir",
     "e_firma_adi": "Ebrar Firma Adını Değiştirdi",
-    "e_onaylayan_kullanici": "ebrar",
+    "e_kullanici_adi": "ebrar",
     "e_talep": "Ebrar Talebi Değiştirdi",
     "e_durum": "Tamamlandı"
   },
@@ -59,7 +59,7 @@
     "e_musteri_numarasi": "çalışıyor",
     "e_firma_adi": "çalışıyor",
     "e_durum": "Tamamlandı",
-    "e_onaylayan_kullanici": "ebrar",
+    "e_kullanici_adi": "ebrar",
     "e_talep": "çalışıyoraaa"
   }
 ]

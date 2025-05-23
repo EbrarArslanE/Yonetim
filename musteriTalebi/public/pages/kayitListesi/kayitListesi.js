@@ -13,11 +13,11 @@ window.onload = () => {
       users = list;
       draw(users);
 
-      const sel = document.getElementById('e_onaylayan_kullanici');
+      const sel = document.getElementById('e_kullanici_adi');
       list.forEach(u => {
         const opt = document.createElement('option');
-        opt.value = u.e_onaylayan_kullanici;
-        opt.textContent = `${u.e_firma_adi} ${u.e_musteri_adi} (${u.e_onaylayan_kullanici})`;
+        opt.value = u.e_kullanici_adi;
+        opt.textContent = `${u.e_firma_adi} ${u.e_musteri_adi} (${u.e_kullanici_adi})`;
         sel.appendChild(opt);
       });
     })
@@ -32,7 +32,7 @@ window.onload = () => {
       const sel = document.getElementById('firmaFiltrele');
       data.forEach(u => {
         const opt = document.createElement('option');
-        opt.value = u.e_onaylayan_kullanici;
+        opt.value = u.e_kullanici_adi;
         opt.textContent = `${u.e_firma_adi}`;
         sel.appendChild(opt);
       });
@@ -66,7 +66,7 @@ window.onload = () => {
            <td>${u.e_firma_adi}</td>
           <td class="text-left">${u.e_musteri_adi}</td>
           <td class="text-left">${u.e_musteri_numarasi}</td>
-          <td class="text-left">${u.e_onaylayan_kullanici || 'Yok'}</td>
+          <td class="text-left">${u.e_kullanici_adi || 'Yok'}</td>
           <td class="text-left">${u.e_talep}</td>
           <td class="text-center"><span class="w-100 badge ${badgeDegeri}">${badgeSinifi}</span></td>
            <td class="text-center w-10">
@@ -104,7 +104,7 @@ window.onload = () => {
       document.getElementById('e_musteri_adi').value = secilenKayit.e_musteri_adi || '';
       document.getElementById('e_musteri_numarasi').value = secilenKayit.e_musteri_numarasi || '';
       document.getElementById('e_talep').value = secilenKayit.e_talep || '';
-      document.getElementById('e_onaylayan_kullanici').value = secilenKayit.e_onaylayan_kullanici || '';
+      document.getElementById('e_kullanici_adi').value = secilenKayit.e_kullanici_adi || '';
     }
 
     modal.style.display = "flex";
@@ -120,7 +120,7 @@ window.onload = () => {
     document.getElementById('e_musteri_adi').value = '';
     document.getElementById('e_musteri_numarasi').value = '';
     document.getElementById('e_talep').value = '';
-    document.getElementById('e_onaylayan_kullanici').value = '';
+    document.getElementById('e_kullanici_adi').value = '';
     modal.style.display = "flex";
   };
 
@@ -133,7 +133,7 @@ window.onload = () => {
     document.getElementById('e_musteri_adi').value = '';
     document.getElementById('e_musteri_numarasi').value = '';
     document.getElementById('e_talep').value = '';
-    document.getElementById('e_onaylayan_kullanici').value = '';
+    document.getElementById('e_kullanici_adi').value = '';
   };
 };
 window.islemiKaydet = () => {
@@ -142,7 +142,7 @@ window.islemiKaydet = () => {
   const e_musteri_adi = document.getElementById('e_musteri_adi').value;
   const e_musteri_numarasi = document.getElementById('e_musteri_numarasi').value;
   const e_talep = document.getElementById('e_talep').value;
-  const e_onaylayan_kullanici = document.getElementById('e_onaylayan_kullanici').value;
+  const e_kullanici_adi = document.getElementById('e_kullanici_adi').value;
 
   const veri = {
     e_durum,
@@ -150,7 +150,7 @@ window.islemiKaydet = () => {
     e_musteri_adi,
     e_musteri_numarasi,
     e_talep,
-    e_onaylayan_kullanici
+    e_kullanici_adi
   };
 
   let url = '';

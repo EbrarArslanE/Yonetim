@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = 1322;
+const PORT = 1312;
 const { v4: uuidv4 } = require('uuid');
 app.use(express.json());
 const MUSTERI_ID_OLUSTUR = path.join(__dirname, '/DATA/ID_DATA/musteriID.txt');
@@ -145,9 +145,9 @@ app.get('/gorevListesi', (req, res) => {
 
 // EKLEME İŞLEMLERİ
 app.post('/kullaniciEkle', (req, res) => {
-  const { e_onaylayan_kullanici, e_ad, e_soyad, e_durum } = req.body;
+  const { e_kullanici_adi, e_ad, e_soyad, e_durum, e_sifre } = req.body;
 
-  if (!e_onaylayan_kullanici || !e_ad || !e_soyad || !e_durum) {
+  if (!e_kullanici_adi || !e_ad || !e_soyad || !e_durum || !e_sifre) {
     return res.status(400).json({ hata: 'Eksik kullanıcı bilgisi' });
   }
 
@@ -160,10 +160,11 @@ app.post('/kullaniciEkle', (req, res) => {
 
    const yeniKullanici = {
     e_id: String(newId),
-    e_onaylayan_kullanici,
+    e_kullanici_adi,
     e_ad,
     e_soyad,
     e_durum,
+    e_sifre,
     u_id: uuidv4(), // ← Her kullanıcıya bir UUID atanıyor
     sessionExpires: Date.now() + (15 * 60 * 1000), // Oturum süresi: 15 dakika
     lastLogin: Date.now() // Oturum başlama zamanı
@@ -197,9 +198,9 @@ app.post('/kullaniciEkle', (req, res) => {
 });
 
 app.post('/gorevEkle', (req, res) => {
-  const { e_gorevli_kullanici, e_onaylayan_kullanici, e_gorev, e_durum } = req.body;
+  const { e_gorevli_kullanici, e_kullanici_adi, e_gorev, e_durum } = req.body;
 
-  if (!e_gorevli_kullanici || !e_onaylayan_kullanici || !e_gorev || !e_durum) {
+  if (!e_gorevli_kullanici || !e_kullanici_adi || !e_gorev || !e_durum) {
     return res.status(400).json({ hata: 'Eksik görev bilgisi' });
   }
 
@@ -213,7 +214,7 @@ app.post('/gorevEkle', (req, res) => {
     const yeniGorev = {
       e_id: String(newId),
       e_gorevli_kullanici,
-      e_onaylayan_kullanici,
+      e_kullanici_adi,
       e_gorev,
       e_durum
     };
@@ -244,9 +245,9 @@ app.post('/gorevEkle', (req, res) => {
 });
 
 app.post('/musteriTalepEkle', (req, res) => {
-  const { e_musteri_adi, e_durum, e_musteri_numarasi, e_firma_adi, e_onaylayan_kullanici, e_talep } = req.body;
+  const { e_musteri_adi, e_durum, e_musteri_numarasi, e_firma_adi, e_kullanici_adi, e_talep } = req.body;
 
-  if (!e_musteri_adi || !e_durum || !e_musteri_numarasi || !e_firma_adi || !e_onaylayan_kullanici || !e_talep) {
+  if (!e_musteri_adi || !e_durum || !e_musteri_numarasi || !e_firma_adi || !e_kullanici_adi || !e_talep) {
     return res.status(400).json({ hata: 'Eksik müşteri talep bilgisi' });
   }
 
@@ -262,7 +263,7 @@ app.post('/musteriTalepEkle', (req, res) => {
       e_musteri_numarasi,
       e_firma_adi,
       e_durum,
-      e_onaylayan_kullanici,
+      e_kullanici_adi,
       e_talep
     };
 
@@ -410,7 +411,7 @@ app.post('/gorevSil', (req, res) => {
 
 // DÜZENLEME İŞLEMLERİ
 app.post('/musteriTalepDuzenle', (req, res) => {
-  const { e_musteri_numarasi, e_durum, e_musteri_adi, e_firma_adi, e_onaylayan_kullanici, e_talep } = req.body;
+  const { e_musteri_numarasi, e_durum, e_musteri_adi, e_firma_adi, e_kullanici_adi, e_talep } = req.body;
 
   fs.readFile(DATA_PATH, 'utf8', (err, data) => {
     if (err) return res.status(500).json({ hata: 'Dosya okunamadı.' });
@@ -430,7 +431,7 @@ app.post('/musteriTalepDuzenle', (req, res) => {
         item.e_talep                = e_talep;
         item.e_musteri_adi          = e_musteri_adi;
         item.e_musteri_numarasi     = e_musteri_numarasi;
-        item.e_onaylayan_kullanici  = e_onaylayan_kullanici;
+        item.e_kullanici_adi  = e_kullanici_adi;
         item.e_firma_adi            = e_firma_adi;
         bulundu = true;
       }
@@ -450,7 +451,7 @@ app.post('/musteriTalepDuzenle', (req, res) => {
 });
 
 app.post('/kullaniciDuzenle', (req, res) => {
-  const { e_id, e_onaylayan_kullanici, e_durum, e_ad, e_soyad } = req.body;
+  const { e_id, e_kullanici_adi, e_durum, e_ad, e_soyad, e_sifre } = req.body;
 
   if (!e_id) {
     return res.status(400).json({ hata: 'e_id gerekli.' });
@@ -472,10 +473,11 @@ app.post('/kullaniciDuzenle', (req, res) => {
 
     const guncellenmisListe = veriListesi.map(item => {
       if (String(item.e_id) === String(e_id)) {
-        item.e_onaylayan_kullanici = e_onaylayan_kullanici ?? item.e_onaylayan_kullanici;
-        item.e_durum               = e_durum ?? item.e_durum;
-        item.e_ad                  = e_ad ?? item.e_ad;
-        item.e_soyad               = e_soyad ?? item.e_soyad;
+        item.e_kullanici_adi = e_kullanici_adi  ?? item.e_kullanici_adi;
+        item.e_durum               = e_durum    ?? item.e_durum;
+        item.e_sifre               = e_sifre    ?? item.e_sifre;
+        item.e_ad                  = e_ad       ?? item.e_ad;
+        item.e_soyad               = e_soyad    ?? item.e_soyad;
         bulundu = true;
       }
       return item;
@@ -495,7 +497,7 @@ app.post('/kullaniciDuzenle', (req, res) => {
 });
 
 app.post('/gorevDuzenle', (req, res) => {
-  const { e_id, e_gorev, e_durum, e_gorevli_kullanici, e_onaylayan_kullanici } = req.body;
+  const { e_id, e_gorev, e_durum, e_gorevli_kullanici, e_kullanici_adi } = req.body;
 
   if (!e_id) {
     return res.status(400).json({ hata: 'e_id gerekli.' });
@@ -518,7 +520,7 @@ app.post('/gorevDuzenle', (req, res) => {
         item.e_durum                = e_durum;
         item.e_gorevli_kullanici    = e_gorevli_kullanici;
         item.e_gorev                = e_gorev;
-        item.e_onaylayan_kullanici  = e_onaylayan_kullanici;
+        item.e_kullanici_adi  = e_kullanici_adi;
         bulundu = true;
       }
       return item;

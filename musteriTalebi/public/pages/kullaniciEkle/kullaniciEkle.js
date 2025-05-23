@@ -3,10 +3,10 @@
 
     const e_ad = document.getElementById('e_ad').value;
     const e_soyad = document.getElementById('e_soyad').value;
-    const e_onaylayan_kullanici = document.getElementById('e_onaylayan_kullanici').value;
+    const e_kullanici_adi = document.getElementById('e_kullanici_adi').value;
     const e_durum = document.getElementById('e_durum').value;
 
-    if (!e_ad || !e_soyad || !e_onaylayan_kullanici || !e_durum) {
+    if (!e_ad || !e_soyad || !e_kullanici_adi || !e_durum) {
       alert("Lütfen tüm alanları doldurun.");
       return;
     }
@@ -19,7 +19,7 @@
       body: JSON.stringify({
         e_ad,
         e_soyad,
-        e_onaylayan_kullanici,
+        e_kullanici_adi,
         e_durum
       })
     })

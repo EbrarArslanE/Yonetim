@@ -109,6 +109,28 @@
         <hr>
         <div class="modal-body">
           <form>
+          
+            <div class="flex flex-row gap-12 w-100">
+              <div class="w-50">
+                <label for="">Ad *</label>
+                <input id="e_ad" name="e_ad" required="1" placeholder="Ad" type="text" class="input" required>
+                </div>
+                <div class="w-50">
+                  <label for="">Soyad *</label>
+                  <input id="e_soyad" name="e_soyad" required="1" placeholder="Soyad" type="text" class="input" required>
+                </div>
+              </div>
+            
+            <div class="column-flat">
+              <label for="">Kullanıcı Adı *</label>
+              <input id="e_kullanici_adi" name="e_kullanici_adi" required="1" placeholder="Kullanıcı Adı" type="text" class="input">
+            </div>
+            
+            <div class="column-flat">
+              <label for="">Şifre *</label>
+              <input id="e_sifre" name="e_sifre" required="1" placeholder="Şifre" type="password" class="input">
+            </div>
+
             <div class="column-flat">
               <label for="durumSec" style="display:block; margin-bottom:8px;">Kullanıcı Durumu:</label>
               <select class="custom-select w-100" name="e_durum" id="e_durum" required>
@@ -117,18 +139,7 @@
                 <option value="Pasif">Pasif</option>
               </select>
             </div>
-            <div class="column-flat">
-              <label for="">Kullanıcı Adı *</label>
-              <input id="e_onaylayan_kullanici" name="e_onaylayan_kullanici" required="" placeholder="" type="text" class="input">
-            </div>
-            <div class="column-flat">
-              <label for="">Ad *</label>
-              <input id="e_ad" name="e_ad" required="" placeholder="" type="text" class="input" required>
-            </div>
-            <div class="column-flat">
-              <label for="">Soyad *</label>
-              <input id="e_soyad" name="e_soyad" required="1" placeholder="" type="text" class="input" required>
-            </div>
+
           </form>
         </div>
         <div class="modal-footer gap-12">

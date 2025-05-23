@@ -19,11 +19,11 @@ function kaydet() {
 fetch('/kullaniciListesi')
   .then(r => r.json())
   .then(list => {
-    const sel = document.getElementById('e_onaylayan_kullanici');
+    const sel = document.getElementById('e_kullanici_adi');
     list.forEach(u => {
       const opt = document.createElement('option');
-      opt.value = u.e_onaylayan_kullanici;
-      opt.textContent = `${u.e_ad} ${u.e_soyad} (${u.e_onaylayan_kullanici})`;
+      opt.value = u.e_kullanici_adi;
+      opt.textContent = `${u.e_ad} ${u.e_soyad} (${u.e_kullanici_adi})`;
       sel.appendChild(opt);
     });
   });
