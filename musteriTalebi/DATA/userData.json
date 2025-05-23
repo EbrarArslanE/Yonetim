@@ -23,7 +23,7 @@
   },
   {
     "e_id": "23",
-    "e_kullanici_adi": "uuid",
+    "e_kullanici_adi": "uuidtest",
     "e_ad": "uuid",
     "e_soyad": "uuid",
     "e_durum": "Pasif",

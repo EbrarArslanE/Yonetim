@@ -68,5 +68,12 @@
     "e_kullanici_adi": "ebrar",
     "e_gorev": "kayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugün",
     "e_durum": "Tamamlandı"
+  },
+  {
+    "e_id": "17",
+    "e_gorevli_kullanici": "ebrar",
+    "e_kullanici_adi": "ebrar",
+    "e_gorev": "Servis isimleri değişecek evde.",
+    "e_durum": "Bekliyor"
   }
 ]

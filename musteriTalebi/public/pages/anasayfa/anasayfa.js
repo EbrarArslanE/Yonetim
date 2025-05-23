@@ -242,4 +242,4 @@ if (sessionExpires && Date.now() > parseInt(sessionExpires)) {
   window.location.href = '/pages/giris/giris.html';
 }
 const girisYapanKullanici = localStorage.getItem('e_kullanici_adi');
-document.getElementById('girisYapanKullanici').textContent = girisYapanKullanici ? `Hoş geldin, ${girisYapanKullanici}` : 'Giriş yapmadınız.';
+document.getElementById('girisYapanKullanici').textContent = girisYapanKullanici ? `Tekrar Hoş geldin, ${girisYapanKullanici}` : 'Giriş yapmadınız.';
