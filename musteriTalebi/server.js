@@ -557,7 +557,7 @@ app.post('/giris', (req, res) => {
       if (err) return res.status(500).json({ hata: 'Oturum bilgisi kaydedilemedi' });
 
       // 🔽 sessionExpires frontend'e gönderiliyor
-      res.json({ basarili: true, u_id: kullanici.u_id, sessionExpires: kullanici.sessionExpires });
+      res.json({ basarili: true, u_id: kullanici.u_id, sessionExpires: kullanici.sessionExpires, e_kullanici_adi: kullanici.e_kullanici_adi });
     });
   });
 });

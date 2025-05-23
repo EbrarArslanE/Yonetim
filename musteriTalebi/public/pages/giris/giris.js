@@ -26,6 +26,8 @@ form.addEventListener('submit', async (e) => {
     hataMesaji.textContent = data.hata || 'Giriş Başarılı.';
     console.log('Giriş başarılı! Kullanıcı ID:', data.u_id);
     localStorage.setItem('u_id', data.u_id);
+    localStorage.setItem('e_kullanici_adi', data.e_kullanici_adi);
+
 
     // Başarılı giriş sonrası yönlendirme
     window.location.href = '/pages/anasayfa/anasayfa.html';

@@ -226,17 +226,6 @@ grafikChart1 = new Chart(ctx1, {
       const diff = now.getDate() - day + (day === 0 ? -6 : 1); // pazartesi
       return new Date(now.setDate(diff));
     }
-  // const btn = document.querySelector('.dropdown-btn');
-  const kullaniciBtn = document.getElementById('kullanici');
-  const kayitBtn = document.getElementById('kayit');
-  const content = document.querySelector('.dropdown-content');
-
-  kullaniciBtn.addEventListener('click', () => {
-    content.style.display = content.style.display === 'block' ? 'none' : 'block';
-  });
-  kayitBtn.addEventListener('click', () => {
-    content.style.display = content.style.display === 'block' ? 'none' : 'block';
-  });
 
   // Dışarı tıklayınca dropdown'ı kapat
   window.addEventListener('click', (e) => {
@@ -252,3 +241,5 @@ if (sessionExpires && Date.now() > parseInt(sessionExpires)) {
   localStorage.removeItem('sessionExpires');
   window.location.href = '/pages/giris/giris.html';
 }
+const girisYapanKullanici = localStorage.getItem('e_kullanici_adi');
+document.getElementById('girisYapanKullanici').textContent = girisYapanKullanici ? `Hoş geldin, ${girisYapanKullanici}` : 'Giriş yapmadınız.';
