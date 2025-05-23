@@ -4,7 +4,7 @@
     "e_musteri_adi": "Yönetima",
     "e_musteri_numarasi": "1",
     "e_firma_adi": "Yönetim paneli ile ilgili adımlar",
-    "e_durum": "Bekliyor",
+    "e_durum": "Tamamlandı",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "Kayıtlarda müşteri soyadı gönderilecek ve telefon numarası gönderilecek"
   },
@@ -13,7 +13,7 @@
     "e_musteri_adi": "Yönetim",
     "e_musteri_numarasi": "2",
     "e_firma_adi": "üst panele eklenecek şeyler",
-    "e_durum": "Bekliyor",
+    "e_durum": "Tamamlandı",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "filtreleme özellikleri buraya gelecek, input, tarih, belki kayıt sayısı"
   },
@@ -22,7 +22,7 @@
     "e_musteri_adi": "acil",
     "e_musteri_numarasi": "3",
     "e_firma_adi": "ana sayfa düzenlemesi",
-    "e_durum": "Bekliyor",
+    "e_durum": "Tamamlandı",
     "e_onaylayan_kullanici": "nazım",
     "e_talep": "ana sayfanın görünümünü düzelt değiştir allah için."
   },
@@ -31,7 +31,7 @@
     "e_musteri_adi": "Önemli",
     "e_musteri_numarasi": "4",
     "e_firma_adi": "Yönetim paneli ile ilgili adımlar",
-    "e_durum": "Bekliyor",
+    "e_durum": "İptal Edildi",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "Kayıt eklenirken tarih bilgisi gönderilecek, ardındanda bu bilgiler ana sayfada tarihi yaklaşan talepler olarak ekrana basılacak Eklenecek Fieldlar: e_saat_baslangic e_saat_son e_tarih_baslangic e_tarih_son"
   },
@@ -40,36 +40,9 @@
     "e_musteri_adi": "Önemli",
     "e_musteri_numarasi": "5",
     "e_firma_adi": "Modal Düzenlemesi",
-    "e_durum": "Bekliyor",
+    "e_durum": "Tamamlandı",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "kayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugün"
-  },
-  {
-    "e_id": "1f47b327-1dd6-4e15-9612-2091fa0f2783",
-    "e_musteri_adi": "Müşteri Adı Burada",
-    "e_musteri_numarasi": "1234",
-    "e_firma_adi": "Firma Adı Burada",
-    "e_durum": "Bekliyor",
-    "e_onaylayan_kullanici": "ebrar",
-    "e_talep": "talep buradaf"
-  },
-  {
-    "e_id": "d69b89d7-603b-4a90-9356-19322f4fa88d",
-    "e_musteri_adi": "Müşteri Adı Burada",
-    "e_musteri_numarasi": "34",
-    "e_firma_adi": "Firma Adı Burada",
-    "e_durum": "Bekliyor",
-    "e_onaylayan_kullanici": "ebrar",
-    "e_talep": "talep"
-  },
-  {
-    "e_id": "ee887870-b264-4ab0-9b91-4a165b39fc5b",
-    "e_musteri_adi": "ebrar",
-    "e_musteri_numarasi": "1312",
-    "e_firma_adi": "calisiuoasad",
-    "e_durum": "Bekliyor",
-    "e_onaylayan_kullanici": "ebrar",
-    "e_talep": "asd"
   },
   {
     "e_id": "e5f6a2d5-e15a-4b50-b9fa-29e8fd8001c4",
@@ -81,33 +54,6 @@
     "e_durum": "Tamamlandı"
   },
   {
-    "e_id": "c3c2e869-c6a5-4d95-8d3b-35df313d2de1",
-    "e_musteri_adi": "calisiuo",
-    "e_musteri_numarasi": "calisiuo",
-    "e_firma_adi": "calisiuo",
-    "e_durum": "Bekliyor",
-    "e_onaylayan_kullanici": "ebrar",
-    "e_talep": "calisiuo"
-  },
-  {
-    "e_id": "4a5d25c7-416f-4c43-9262-b36f78dfad10",
-    "e_musteri_adi": "ID DENEME",
-    "e_musteri_numarasi": "ID DENEME",
-    "e_firma_adi": "ID DENEME",
-    "e_durum": "Bekliyor",
-    "e_onaylayan_kullanici": "ebrar",
-    "e_talep": "ID DENEME"
-  },
-  {
-    "e_id": "64fe1d64-b477-4eb5-a53c-ca54f0db272f",
-    "e_musteri_adi": "asd",
-    "e_musteri_numarasi": "asd",
-    "e_firma_adi": "asd",
-    "e_durum": "Bekliyor",
-    "e_onaylayan_kullanici": "ebrar",
-    "e_talep": "asd"
-  },
-  {
     "e_id": "bb2901eb-e446-4ff4-b718-fb30df6ce08d",
     "e_musteri_adi": "çalışıyor",
     "e_musteri_numarasi": "çalışıyor",
@@ -115,14 +61,5 @@
     "e_durum": "Tamamlandı",
     "e_onaylayan_kullanici": "ebrar",
     "e_talep": "çalışıyoraaa"
-  },
-  {
-    "e_id": 1,
-    "e_musteri_adi": "yeni id denemesi",
-    "e_musteri_numarasi": "yeni id denemesi",
-    "e_firma_adi": "yeni id denemesi",
-    "e_durum": "Bekliyor",
-    "e_onaylayan_kullanici": "nazim",
-    "e_talep": "yeni id denemesi"
   }
 ]

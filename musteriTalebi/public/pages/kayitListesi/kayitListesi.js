@@ -40,10 +40,26 @@ window.onload = () => {
     .catch(err => console.error('Görev çekme hatası', err));
   function draw(arr) {
     tbody.innerHTML = '';
-    arr.forEach(u => {
-      const durumDegeri = String(u.e_durum || '').toLowerCase();
-      const badgeDegeri = durumDegeri === 'aktif' ? 'bg-success' : 'bg-danger';
-      const badgeSinifi = durumDegeri.charAt(0).toUpperCase() + durumDegeri.slice(1);
+   arr.forEach(u => {
+    const durumDegeri = String(u.e_durum || '').toLowerCase();
+    let badgeDegeri;
+
+    // Duruma göre rozet rengi ata
+    switch (durumDegeri) {
+      case 'bekliyor':
+        badgeDegeri = 'bg-warning'; // sarımsı
+        break;
+      case 'tamamlandı':
+        badgeDegeri = 'bg-success'; // yeşil
+        break;
+      case 'iptal edildi':
+        badgeDegeri = 'bg-danger'; // kırmızı
+        break;
+      default:
+        badgeDegeri = 'bg-secondary'; // bilinmeyen durumlar için gri
+    }
+
+    const badgeSinifi = durumDegeri.charAt(0).toUpperCase() + durumDegeri.slice(1);
 
       const tr = document.createElement('tr');
       tr.innerHTML = `

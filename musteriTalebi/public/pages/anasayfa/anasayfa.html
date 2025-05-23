@@ -60,10 +60,10 @@
       align-items: center;
       justify-content: center;
     }
-    .grafik-box canvas {
+    /* .grafik-box canvas {
       width: 50% !important;
       height: auto !important;
-    }
+    } */
     .istatistik-kartlari {
       gap: 0.75rem;
       width: 100%;
@@ -224,6 +224,17 @@
   animation: strokeCheck 2s ease-out 1s infinite;
 }
 
+.pie-chart {
+  position: relative;
+  width: 480px !important;
+  height: 480px !important;
+}
+.bar-chart {
+  position: relative;
+  width: 800px !important;
+  height: 380px !important;
+}
+
 @keyframes strokeCircle {
   to {
     stroke-dashoffset: 0;
@@ -261,19 +272,19 @@
       <div class="dropdown-container">
         <a class="text-white text-decoration-none" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
         <a class="text-white text-decoration-none" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcı Tanımları</a>
-        <a class="text-white text-decoration-none" href="/pages/kayitListesi/kayitListesi.html">Kayıt Tanımları</a>
+        <a class="text-white text-decoration-none" href="/pages/kayitListesi/kayitListesi.html">Talep Tanımları</a>
         <a class="text-white text-decoration-none" href="/pages/gorevListesi/gorevListesi.html">Görev Tanımları</a>
       </div>
     </div>
     
     <div class="body-bottom w-100">
       
-      <div class="left flex flex-col w-50">
-        <div class="grafik-box">
-          <canvas id="grafik1"></canvas>
+      <div class="left flex flex-col w-50 h-100">
+        <div class="grafik-box h-50">
+          <canvas class="bar-chart" id="grafik1"></canvas>
         </div>
         <div class="grafik-box">
-          <canvas id="grafik2"></canvas>
+          <canvas class="pie-chart" id="grafik2"></canvas>
         </div>
       </div>
 

@@ -17,59 +17,127 @@ fetch('/musteriTalepListesi')
     const baslikLabels = Object.keys(basliklar);
     const baslikValues = Object.values(basliklar);
 
-    // Eğer grafik varsa önce sil, sonra yenisini çiz
-    const ctx1 = document.getElementById('grafik1').getContext('2d');
-    if (grafikChart1) {
-      grafikChart1.destroy();
-    }
-    grafikChart1 = new Chart(ctx1, {
-      type: 'bar',
-      data: {
-        labels: baslikLabels,
-        datasets: [{
-          label: 'Talep Başlığına Göre Kayıt Sayısı',
-          data: baslikValues,
-          backgroundColor: '#58A6FF',
-          borderColor: '#fff',
-          borderWidth: 1
-        }]
+ const ctx1 = document.getElementById('grafik1').getContext('2d');
+if (grafikChart1) {
+  grafikChart1.destroy();
+}
+grafikChart1 = new Chart(ctx1, {
+  type: 'bar',
+  data: {
+    labels: baslikLabels,
+    datasets: [{
+      label: 'Talep Başlığına Göre Kayıt Sayısı',
+      data: baslikValues,
+      backgroundColor: '#FFC107',
+      borderColor: '#DDDDDD',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    plugins: {
+      legend: {
+        labels: {
+          color: '#C9D1D9', // Yazı rengi
+          font: {
+            size: 14,
+            weight: 'bold',
+            family: 'Arial'
+          }
+        }
       }
-    });
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#C9D1D9', // X ekseni yazı rengi
+          font: {
+            size: 12
+          }
+        }
+      },
+      y: {
+        ticks: {
+          color: '#C9D1D9', // Y ekseni yazı rengi
+          font: {
+            size: 12
+          }
+        },
+        beginAtZero: true
+      }
+    }
+  }
+});
+
 
     // 2. Grafik: Duruma Göre Pie Chart
     const durumlar = {};
     data.forEach(item => {
-      if (durumlar[item.e_durum]) {
-        durumlar[item.e_durum]++;
+      const durum = item.e_durum?.trim();
+      if (!durum) return;
+
+      if (durumlar[durum]) {
+        durumlar[durum]++;
       } else {
-        durumlar[item.e_durum] = 1;
+        durumlar[durum] = 1;
       }
     });
 
     const durumLabels = Object.keys(durumlar);
     const durumValues = Object.values(durumlar);
 
+    // Renk eşlemesi
+    const renkler = {
+      "Bekliyor": "#FFD66B",       // sarı
+      "İptal Edildi": "#FF6B6B",   // kırmızı
+      "Tamamlandı": "#4CAF50"      // yeşil
+    };
+
+    const durumBackgroundColors = durumLabels.map(label => renkler[label] || '#ccc');
+
     const ctx2 = document.getElementById('grafik2').getContext('2d');
     if (grafikChart2) {
       grafikChart2.destroy();
     }
     grafikChart2 = new Chart(ctx2, {
-      type: 'pie',
+      // type: 'pie', isteğe göre aktif ederim bi ara
+      type: 'doughnut',
       data: {
         labels: durumLabels,
         datasets: [{
           label: 'Duruma Göre Kayıt Sayısı',
           data: durumValues,
-          backgroundColor: [
-            '#58A6FF',
-            '#D9FF3E',
-            '#FF6B6B',
-            '#1C1C2E'
-          ]
+          backgroundColor: durumBackgroundColors
         }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            labels: {
+              font: {
+                size: 14,
+                family: 'Arial'
+              },
+              color: '#C9D1D9',
+              generateLabels: function(chart) {
+                const original = Chart.overrides.pie.plugins.legend.labels.generateLabels;
+                const labelsOriginal = original(chart);
+
+                labelsOriginal.forEach(label => {
+                  const text = label.text;
+                  if (renkler[text]) {
+                    label.fillStyle = renkler[text];
+                  }
+                });
+
+                return labelsOriginal;
+              }
+            }
+          }
+        }
       }
     });
   });
+
 
     fetch('/musteriTalepListesi')
       .then(res => res.json())

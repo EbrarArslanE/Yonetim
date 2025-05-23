@@ -54,5 +54,19 @@
     "e_onaylayan_kullanici": "ebrar",
     "e_gorev": "Giriş sayfası oluşturulacak,\nkullanıcı listesinde kullanıcılara uuid verilecek buradan oluşturulan kullanıcılar bu uuid ile eşleşiyorsa giriş sağlayabilecek",
     "e_durum": "Bekliyor"
+  },
+  {
+    "e_id": "15",
+    "e_gorevli_kullanici": "nazım",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_gorev": "ana sayfanın görünümünü düzelt değiştir allah için.",
+    "e_durum": "Tamamlandı"
+  },
+  {
+    "e_id": "16",
+    "e_gorevli_kullanici": "ebrar",
+    "e_onaylayan_kullanici": "ebrar",
+    "e_gorev": "kayitListesindeki düzenleme modalı patlak onada bi bakadur sen bugün",
+    "e_durum": "Tamamlandı"
   }
 ]
