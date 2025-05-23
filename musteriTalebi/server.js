@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = 1312;
+const PORT = 1322;
+const { v4: uuidv4 } = require('uuid');
 app.use(express.json());
 const MUSTERI_ID_OLUSTUR = path.join(__dirname, '/DATA/ID_DATA/musteriID.txt');
 const GOREV_ID_OLUSTUR = path.join(__dirname, '/DATA/ID_DATA/gorevID.txt');
@@ -157,13 +158,17 @@ app.post('/kullaniciEkle', (req, res) => {
       return res.status(500).json({ hata: 'ID üretilemedi.' });
     }
 
-    const yeniKullanici = {
-      e_id: String(newId),
-      e_onaylayan_kullanici,
-      e_ad,
-      e_soyad,
-      e_durum
-    };
+   const yeniKullanici = {
+    e_id: String(newId),
+    e_onaylayan_kullanici,
+    e_ad,
+    e_soyad,
+    e_durum,
+    u_id: uuidv4(), // ← Her kullanıcıya bir UUID atanıyor
+    sessionExpires: Date.now() + (15 * 60 * 1000), // Oturum süresi: 15 dakika
+    lastLogin: Date.now() // Oturum başlama zamanı
+  };
+
 
     // Kullanıcı verisini oku ve yaz
     fs.readFile(USER_DATA_PATH, 'utf8', (err, data) => {
@@ -530,6 +535,29 @@ app.post('/gorevDuzenle', (req, res) => {
     });
   });
 });
+
+app.post('/giris', (req, res) => {
+  const { e_kullanici_adi, e_sifre } = req.body;
+
+  fs.readFile('/DATA/userData.json', 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ hata: 'Dosya okunamadı' });
+
+    const kullanicilar = JSON.parse(data);
+    const kullanici = kullanicilar.find(u => u.e_kullanici_adi === e_kullanici_adi && u.e_sifre === e_sifre);
+
+    if (!kullanici) return res.status(401).json({ hata: 'Bilgiler yanlış' });
+
+    // Oturum başlangıç zamanı ve geçerlilik süresi
+    kullanici.lastLogin = Date.now(); // zaman damgası
+    kullanici.sessionExpires = Date.now() + (15 * 60 * 1000); // 15 dakika geçerli
+
+    fs.writeFile('/DATA/userData.json', JSON.stringify(kullanicilar, null, 2), err => {
+      if (err) return res.status(500).json({ hata: 'Oturum bilgisi kaydedilemedi' });
+      res.json({ basarili: true, u_id: kullanici.u_id });
+    });
+  });
+});
+
 
 // Sunucuyu başlat
 app.listen(PORT, () => {

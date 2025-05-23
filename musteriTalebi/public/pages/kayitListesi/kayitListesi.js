@@ -92,17 +92,6 @@ window.onload = () => {
     });
   }
 
-  // Arama filtresi (isteğe bağlı aktif edilebilir)
-  // search.addEventListener('input', () => {
-  //   const q = search.value.toLowerCase();
-  //   const filt = users.filter(u =>
-  //     u.e_onaylayan_kullanici.toLowerCase().includes(q) ||
-  //     u.e_firma_adi.toLowerCase().includes(q) ||
-  //     u.e_musteri_adi.toLowerCase().includes(q)
-  //   );
-  //   draw(filt);
-  // });
-
   // Düzenle butonu için modalı açar ve inputları doldurur
   window.talepDuzenlemeModunaGec = (e_id) => {
     secilenKayit = users.find(u => String(u.e_id) === String(e_id));
