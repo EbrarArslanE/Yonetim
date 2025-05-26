@@ -1,0 +1,34 @@
+[
+  {
+    "e_id": "1",
+    "e_proje_adi": "BU BİR TEST",
+    "e_proje_yetkilisi": "BU BİR TEST",
+    "e_firma_adi": "BU BİR TEST",
+    "e_durum": "Pasif",
+    "e_proje_alim_tarihi": "2020-12-13",
+    "e_proje_teslim_tarihi": "2320-04-23",
+    "e_telefon_bilgisi": "BU BİR TEST",
+    "e_mail_bilgisi": "BU BİR TEST",
+    "e_ekip_uyeleri": "",
+    "e_proje_tipi": "BU BİR TEST",
+    "e_git_repo_linki": "BU BİR TEST",
+    "e_oncelik": "Düşük",
+    "e_fiyat": "234333"
+  },
+  {
+    "e_id": "2",
+    "e_proje_adi": "₺",
+    "e_proje_yetkilisi": "₺",
+    "e_firma_adi": "₺",
+    "e_durum": "Aktif",
+    "e_proje_alim_tarihi": "53323-02-24",
+    "e_proje_teslim_tarihi": "6456-05-31",
+    "e_telefon_bilgisi": "₺",
+    "e_mail_bilgisi": "₺",
+    "e_ekip_uyeleri": "₺",
+    "e_proje_tipi": "₺",
+    "e_git_repo_linki": "₺",
+    "e_oncelik": "Orta",
+    "e_fiyat": "345"
+  }
+]

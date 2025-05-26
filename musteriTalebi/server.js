@@ -6,9 +6,10 @@ const app = express();
 const PORT = 1312;
 const { v4: uuidv4 } = require('uuid');
 app.use(express.json());
-const MUSTERI_ID_OLUSTUR = path.join(__dirname, '/DATA/ID_DATA/musteriID.txt');
-const GOREV_ID_OLUSTUR = path.join(__dirname, '/DATA/ID_DATA/gorevID.txt');
-const KULLANICI_ID_OLUSTUR = path.join(__dirname, '/DATA/ID_DATA/kullaniciID.txt');
+const MUSTERI_ID_OLUSTUR    = path.join(__dirname, '/DATA/ID_DATA/musteriID.txt');
+const GOREV_ID_OLUSTUR      = path.join(__dirname, '/DATA/ID_DATA/gorevID.txt');
+const KULLANICI_ID_OLUSTUR  = path.join(__dirname, '/DATA/ID_DATA/kullaniciID.txt');
+const PROJE_ID_OLUSTUR      = path.join(__dirname, '/DATA/ID_DATA/projeID.txt');
 
 function YENI_MUSTERI_ID(MUSTERI_ID_OLUSTUR, callback) {
   fs.readFile(MUSTERI_ID_OLUSTUR, 'utf8', (err, data) => {
@@ -82,6 +83,30 @@ function YENI_KULLANICI_ID(KULLANICI_ID_OLUSTUR, callback) {
   });
 }
 
+function YENI_PROJE_ID(PROJE_ID_OLUSTUR, callback) {
+  fs.readFile(PROJE_ID_OLUSTUR, 'utf8', (err, data) => {
+    if (err) {
+      if (err.code === 'ENOENT') {
+        // Dosya yoksa oluştur ve 1 ile başlat
+        fs.writeFile(PROJE_ID_OLUSTUR, '1', (err) => {
+          if (err) return callback(err);
+          callback(null, 1);
+        });
+      } else {
+        return callback(err);
+      }
+    } else {
+      let currentId = parseInt(data, 10);
+      if (isNaN(currentId)) currentId = 0;
+      const newId = currentId + 1;
+      fs.writeFile(PROJE_ID_OLUSTUR, newId.toString(), (err) => {
+        if (err) return callback(err);
+        callback(null, newId);
+      });
+    }
+  });
+}
+
 // Public klasörünü statik dosyalar için kullan
 app.use(express.static('public'));
 
@@ -93,6 +118,7 @@ app.use(bodyParser.json());
 const DATA_PATH = path.join(__dirname, '/DATA/data.json');
 const USER_DATA_PATH = path.join(__dirname, '/DATA/userData.json');
 const TALEP_DATA_PATH = path.join(__dirname, '/DATA/gorevData.json');
+const PROJE_DATA_PATH = path.join(__dirname, '/DATA/projeData.json');
 
 // Ana sayfaya yönlendirme
 app.get('/', (req, res) => {
@@ -139,6 +165,22 @@ app.get('/gorevListesi', (req, res) => {
       res.json(gorevListesi);
     } catch (e) {
       return res.status(500).json({ hata: 'Görev Listesi formatı hatalı.' });
+    }
+  });
+});
+
+app.get('/projeListesi', (req, res) => {
+  fs.readFile(PROJE_DATA_PATH, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Proje verisi okunamadı:', err);
+      return res.status(500).json({ hata: 'Proje Listesi alınamadı.' });
+    }
+
+    try {
+      const projeListesi = JSON.parse(data);
+      res.json(projeListesi);
+    } catch (e) {
+      return res.status(500).json({ hata: 'Proje Listesi formatı hatalı.' });
     }
   });
 });
@@ -291,6 +333,60 @@ app.post('/musteriTalepEkle', (req, res) => {
   });
 });
 
+app.post('/projeEkle', (req, res) => {
+  const { e_proje_adi, e_durum, e_proje_yetkilisi, e_firma_adi, e_proje_alim_tarihi, e_proje_teslim_tarihi, e_fiyat, e_telefon_bilgisi, e_mail_bilgisi, e_ekip_uyeleri, e_proje_tipi, e_git_repo_linki, e_oncelik } = req.body;
+
+  if (!e_proje_adi || !e_durum || !e_proje_yetkilisi || !e_firma_adi || !e_proje_alim_tarihi || !e_proje_teslim_tarihi || !e_fiyat) {
+    return res.status(400).json({ hata: 'Eksik müşteri talep bilgisi' });
+  }
+
+  YENI_PROJE_ID(PROJE_ID_OLUSTUR, (err, newId) => {
+    if (err) {
+      console.error('ID üretme hatası:', err);
+      return res.status(500).json({ hata: 'ID üretilemedi.' });
+    }
+
+    const yeniProje = {
+      e_id: String(newId),
+      e_proje_adi,
+      e_proje_yetkilisi,
+      e_firma_adi,
+      e_durum,
+      e_proje_alim_tarihi,
+      e_proje_teslim_tarihi,
+      e_telefon_bilgisi,
+      e_mail_bilgisi,
+      e_ekip_uyeleri,
+      e_proje_tipi,
+      e_git_repo_linki,
+      e_oncelik,
+      e_fiyat
+    };
+
+    fs.readFile(PROJE_DATA_PATH, 'utf8', (err, data) => {
+      let projeListesi = [];
+
+      if (!err && data) {
+        try {
+          projeListesi = JSON.parse(data);
+        } catch (e) {
+          console.error('JSON parse hatası:', e);
+        }
+      }
+
+      projeListesi.push(yeniProje);
+
+      fs.writeFile(PROJE_DATA_PATH, JSON.stringify(projeListesi, null, 2), (err) => {
+        if (err) {
+          console.error('Veri kaydetme hatası:', err);
+          return res.status(500).json({ success: false, mesaj: 'Veri kaydedilemedi.' });
+        }
+        res.json({ success: true, mesaj: 'Kayıt başarılı.', e_id: newId });
+      });
+    });
+  });
+});
+
 // SİLME İŞLEMLERİ
 app.post('/kayitSil', (req, res) => {
   const gelenVeri = req.body;
@@ -409,6 +505,45 @@ app.post('/gorevSil', (req, res) => {
   });
 });
 
+app.post('/projeSil', (req, res) => {
+  const gelenVeri = req.body;
+
+  if (!gelenVeri || Object.keys(gelenVeri).length === 0) {
+    return res.status(400).json({ hata: 'Silinecek veri sağlanmadı.' });
+  }
+
+  fs.readFile(PROJE_DATA_PATH, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ hata: 'Veriler alınamadı.' });
+
+    let projeListesi;
+    try {
+      projeListesi = JSON.parse(data);
+    } catch (parseErr) {
+      return res.status(500).json({ hata: 'Veri formatı hatalı.' });
+    }
+
+    let silindiMi = false;
+    const yeniListe = projeListesi.filter(item => {
+      const tamEslesen = Object.keys(gelenVeri).every(key => item[key] === gelenVeri[key]);
+      if (tamEslesen && !silindiMi) {
+        silindiMi = true;
+        return false;
+      }
+      return true;
+    });
+
+    if (!silindiMi) {
+      return res.status(404).json({ hata: 'Silinecek proje bulunamadı.' });
+    }
+
+    fs.writeFile(PROJE_DATA_PATH, JSON.stringify(yeniListe, null, 2), (err) => {
+      if (err) return res.status(500).json({ hata: 'Görev silinemedi.' });
+
+      res.json({ mesaj: 'Görev başarıyla silindi.' });
+    });
+  });
+});
+
 // DÜZENLEME İŞLEMLERİ
 app.post('/musteriTalepDuzenle', (req, res) => {
   const { e_musteri_numarasi, e_durum, e_musteri_adi, e_firma_adi, e_kullanici_adi, e_talep } = req.body;
@@ -431,7 +566,7 @@ app.post('/musteriTalepDuzenle', (req, res) => {
         item.e_talep                = e_talep;
         item.e_musteri_adi          = e_musteri_adi;
         item.e_musteri_numarasi     = e_musteri_numarasi;
-        item.e_kullanici_adi  = e_kullanici_adi;
+        item.e_kullanici_adi        = e_kullanici_adi;
         item.e_firma_adi            = e_firma_adi;
         bulundu = true;
       }
@@ -496,7 +631,7 @@ app.post('/kullaniciDuzenle', (req, res) => {
   });
 });
 
-app.post('/gorevDuzenle', (req, res) => {
+app.post('gorevTanimlari/gorevDuzenle', (req, res) => {
   const { e_id, e_gorev, e_durum, e_gorevli_kullanici, e_kullanici_adi } = req.body;
 
   if (!e_id) {
@@ -538,6 +673,58 @@ app.post('/gorevDuzenle', (req, res) => {
   });
 });
 
+app.post('/projeDuzenle', (req, res) => {
+  const { e_id, e_proje_adi, e_durum, e_proje_yetkilisi, e_firma_adi, e_proje_alim_tarihi, e_proje_teslim_tarihi, e_fiyat, e_telefon_bilgisi, e_mail_bilgisi, e_ekip_uyeleri, e_proje_tipi, e_git_repo_linki, e_oncelik } = req.body;
+
+  if (!e_id) {
+    return res.status(400).json({ hata: 'e_id gerekli.' });
+  }
+
+  fs.readFile(PROJE_DATA_PATH, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ hata: 'Dosya okunamadı.' });
+
+    let projeListesi;
+    try {
+      projeListesi = JSON.parse(data);
+    } catch (parseErr) {
+      return res.status(500).json({ hata: 'JSON formatı hatalı.' });
+    }
+
+    let bulundu = false;
+
+    const guncellenmisListe = projeListesi.map(item => {
+      if (String(item.e_id) === String(e_id)) {
+        item.e_proje_teslim_tarihi  = e_proje_teslim_tarihi;
+        item.e_proje_alim_tarihi    = e_proje_alim_tarihi;
+        item.e_telefon_bilgisi      = e_telefon_bilgisi;
+        item.e_mail_bilgisi         = e_mail_bilgisi;
+        item.e_proje_yetkilisi      = e_proje_yetkilisi;
+        item.e_git_repo_linki       = e_git_repo_linki;
+        item.e_ekip_uyeleri         = e_ekip_uyeleri;
+        item.e_proje_tipi           = e_proje_tipi;
+        item.e_proje_adi            = e_proje_adi;
+        item.e_firma_adi            = e_firma_adi;
+        item.e_oncelik              = e_oncelik;
+        item.e_durum                = e_durum;
+        item.e_fiyat                = e_fiyat;
+        bulundu = true;
+      }
+      return item;
+    });
+
+    if (!bulundu) {
+      return res.status(404).json({ hata: 'Müşteri numarası bulunamadı' });
+    }
+
+    fs.writeFile(PROJE_DATA_PATH, JSON.stringify(guncellenmisListe, null, 2), err => {
+      if (err) return res.status(500).json({ hata: 'Dosyaya yazılamadı' });
+
+      res.json({ mesaj: 'Görev Güncellendi' });
+    });
+  });
+});
+
+// KULLANICI GİRİŞ EKRANI İŞLEMLERİ
 app.post('/giris', (req, res) => {
   const { e_kullanici_adi, e_sifre } = req.body;
 

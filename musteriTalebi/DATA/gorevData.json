@@ -18,7 +18,7 @@
     "e_gorevli_kullanici": "ebrar",
     "e_kullanici_adi": "ebrar",
     "e_gorev": "Chartlar ile ilgilenilecek renk ayarlamaları başlıklar vs",
-    "e_durum": "Bekliyor"
+    "e_durum": "Tamamlandı"
   },
   {
     "e_id": "10",
@@ -39,21 +39,14 @@
     "e_gorevli_kullanici": "ebrar",
     "e_kullanici_adi": "ebrar",
     "e_gorev": "Badgeler düzenlenecek",
-    "e_durum": "Bekliyor"
-  },
-  {
-    "e_id": "13",
-    "e_gorevli_kullanici": "ebrar",
-    "e_kullanici_adi": "ebrar",
-    "e_gorev": "Sistem Raporları Componenti eklenecek buradan bütün sistem eksiklerini hatalarını not alacağız ve görüntüleyebileceğiz.",
-    "e_durum": "Bekliyor"
+    "e_durum": "Tamamlandı"
   },
   {
     "e_id": "14",
     "e_gorevli_kullanici": "ebrar",
     "e_kullanici_adi": "ebrar",
     "e_gorev": "Giriş sayfası oluşturulacak,\nkullanıcı listesinde kullanıcılara uuid verilecek buradan oluşturulan kullanıcılar bu uuid ile eşleşiyorsa giriş sağlayabilecek",
-    "e_durum": "Bekliyor"
+    "e_durum": "Tamamlandı"
   },
   {
     "e_id": "15",
@@ -74,6 +67,20 @@
     "e_gorevli_kullanici": "ebrar",
     "e_kullanici_adi": "ebrar",
     "e_gorev": "Servis isimleri değişecek evde.",
+    "e_durum": "Bekliyor"
+  },
+  {
+    "e_id": "18",
+    "e_gorevli_kullanici": "nazım",
+    "e_kullanici_adi": "ebrar",
+    "e_gorev": "İş tanımları front-end yapacan",
+    "e_durum": "Bekliyor"
+  },
+  {
+    "e_id": "19",
+    "e_gorevli_kullanici": "ebrar",
+    "e_kullanici_adi": "ebrar",
+    "e_gorev": "Servis isimleri düzenlenecek ",
     "e_durum": "Bekliyor"
   }
 ]

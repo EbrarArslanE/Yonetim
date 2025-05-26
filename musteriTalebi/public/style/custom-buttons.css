@@ -1,0 +1,35 @@
+.detay-button {
+  background-color: #ffffff00;
+  color: #fff;
+  height: 50px;
+  border: #3654ff 0.2em solid;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+}
+
+.detay-button:hover {
+  background-color: #3654ff;
+  cursor: pointer;
+  
+}
+
+.detay-button svg {
+  width: 1.6em;
+  margin: -0.2em 0.8em 1em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.detay-button:hover svg {
+  transform: translateX(5px);
+}
+
+.detay-text {
+  margin: 0 1.5em;
+  color: black;
+}
+.detay-text:hover {
+  color: white;
+}
