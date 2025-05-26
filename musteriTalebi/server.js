@@ -631,7 +631,7 @@ app.post('/kullaniciDuzenle', (req, res) => {
   });
 });
 
-app.post('gorevTanimlari/gorevDuzenle', (req, res) => {
+app.post('/gorevDuzenle', (req, res) => {
   const { e_id, e_gorev, e_durum, e_gorevli_kullanici, e_kullanici_adi } = req.body;
 
   if (!e_id) {

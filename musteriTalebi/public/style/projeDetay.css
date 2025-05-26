@@ -1,0 +1,33 @@
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .detay {
+      margin-bottom: 15px;
+    }
+
+    .etiket {
+      font-weight: bold;
+      color: #1C1C2E;
+    }
+
+    .deger {
+      color: #333;
+      margin-left: 10px;
+    }
+
+    a {
+      color: #58A6FF;
+    }

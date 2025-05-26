@@ -30,5 +30,21 @@
     "e_git_repo_linki": "₺",
     "e_oncelik": "Orta",
     "e_fiyat": "345"
+  },
+  {
+    "e_id": "3",
+    "e_proje_adi": "Avukatlara Front End site",
+    "e_proje_yetkilisi": "nazım",
+    "e_firma_adi": "Firma Adı Burada",
+    "e_durum": "Aktif",
+    "e_proje_alim_tarihi": "2020-10-10",
+    "e_proje_teslim_tarihi": "2121-11-11",
+    "e_telefon_bilgisi": "1",
+    "e_mail_bilgisi": "1",
+    "e_ekip_uyeleri": "1",
+    "e_proje_tipi": "web",
+    "e_git_repo_linki": "a",
+    "e_oncelik": "Düşük",
+    "e_fiyat": "34"
   }
 ]

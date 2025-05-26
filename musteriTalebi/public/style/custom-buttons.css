@@ -1,7 +1,7 @@
 .detay-button {
   background-color: #ffffff00;
   color: #fff;
-  height: 50px;
+  height: 40px;
   border: #3654ff 0.2em solid;
   border-radius: 11px;
   text-align: right;
@@ -27,7 +27,7 @@
 }
 
 .detay-text {
-  margin: 0 1.5em;
+  margin: 0 2.5em;
   color: black;
 }
 .detay-text:hover {
