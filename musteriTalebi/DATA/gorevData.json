@@ -25,7 +25,7 @@
     "e_gorevli_kullanici": "nazım",
     "e_kullanici_adi": "ebrar",
     "e_gorev": "Sayfaları kontrol et kayıt listesine bütün sorunları yaz sonra githubdan pushla",
-    "e_durum": "Bekliyor"
+    "e_durum": "Tamamlandı"
   },
   {
     "e_id": "11",
@@ -63,13 +63,6 @@
     "e_durum": "Tamamlandı"
   },
   {
-    "e_id": "17",
-    "e_gorevli_kullanici": "ebrar",
-    "e_kullanici_adi": "ebrar",
-    "e_gorev": "Servis isimleri değişecek evde.",
-    "e_durum": "Bekliyor"
-  },
-  {
     "e_id": "18",
     "e_gorevli_kullanici": "nazım",
     "e_kullanici_adi": "ebrar",
@@ -81,6 +74,13 @@
     "e_gorevli_kullanici": "ebrar",
     "e_kullanici_adi": "ebrar",
     "e_gorev": "Servis isimleri düzenlenecek ",
+    "e_durum": "Bekliyor"
+  },
+  {
+    "e_id": "20",
+    "e_gorevli_kullanici": "ebrar",
+    "e_kullanici_adi": "ebrar",
+    "e_gorev": "Proje Detay sayfasına;\nDüzenlemeleri kaydetme butonu gelecek\nProje Listesi sayfasına;\nsilme butonu gelecek\nbu işlemler yaptırılacak",
     "e_durum": "Bekliyor"
   }
 ]

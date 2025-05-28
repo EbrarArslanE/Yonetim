@@ -78,5 +78,21 @@
     "e_git_repo_linki": "asda",
     "e_oncelik": "Düşük",
     "e_fiyat": "1234"
+  },
+  {
+    "e_id": "7",
+    "e_proje_adi": "Ekip Yönetim Paneli",
+    "e_proje_yetkilisi": "Ebrar",
+    "e_firma_adi": "Ebos Cumhuriyeti",
+    "e_durum": "Aktif",
+    "e_proje_alim_tarihi": "1111-11-11",
+    "e_proje_teslim_tarihi": "2222-02-22",
+    "e_telefon_bilgisi": "1312",
+    "e_mail_bilgisi": "asd@asd.com",
+    "e_ekip_uyeleri": "ebrar\nnazım",
+    "e_proje_tipi": "Web",
+    "e_git_repo_linki": "https://github.com/EbrarArslanE/Yonetim",
+    "e_oncelik": "Yüksek",
+    "e_fiyat": "5000"
   }
 ]
