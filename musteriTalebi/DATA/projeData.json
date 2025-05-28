@@ -46,5 +46,21 @@
     "e_git_repo_linki": "a",
     "e_oncelik": "Düşük",
     "e_fiyat": "34"
+  },
+  {
+    "e_id": "4",
+    "e_proje_adi": "test",
+    "e_proje_yetkilisi": "test",
+    "e_firma_adi": "test",
+    "e_durum": "Aktif",
+    "e_proje_alim_tarihi": "2025-10-03",
+    "e_proje_teslim_tarihi": "2026-10-03",
+    "e_telefon_bilgisi": "05388677750",
+    "e_mail_bilgisi": "asd@asd.com",
+    "e_ekip_uyeleri": "test",
+    "e_proje_tipi": "test",
+    "e_git_repo_linki": "test",
+    "e_oncelik": "Düşük",
+    "e_fiyat": "5000"
   }
 ]

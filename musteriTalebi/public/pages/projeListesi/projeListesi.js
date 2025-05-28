@@ -65,12 +65,12 @@ window.onload = () => {
         <td class="text-center flex w-100 justify-content-center gap-2">
 
           
-          <button class="detay-button w-80" onclick="projeSec(${u.e_id})">
+          <button class="detay-button w-80" onclick="detayaGit(${u.e_id})">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
             </svg>
             <div class="detay-text">
-              Detaya Gir
+              Detaya Git
             </div>  
           </button>
         </td>
@@ -229,9 +229,10 @@ function kullaniciSil(id) {
 });
 }
 
-window.projeSec = function (id) {
-  window.location.href = `/pages/projeDetay/projeDetay.html?id=${id}`;
-};
-
+function detayaGit(e_id) {
+  localStorage.setItem('secilenProjeId', e_id);
+  const url = `/pages/projeDetay/projeDetay.html?e_id=${e_id}`;
+  window.location = url;
+}
 
 
