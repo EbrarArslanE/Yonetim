@@ -56,22 +56,34 @@ window.onload = () => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
           <td>${u.e_proje_adi}</td>
-        <td class="text-center w-5">${u.e_proje_yetkilisi}</td>
+        <td class="text-center w-10">${u.e_proje_yetkilisi}</td>
         <td class="text-center w-5">${u.e_firma_adi}</td>
-        <td class="text-left w-5">${u.e_fiyat} ₺</td>
         <td class="text-center w-5">${u.e_proje_tipi}</td>
         <td class="text-center w-5">${u.e_oncelik}</td>
-        <td class="text-center"><span class="w-100 badge ${badgeDegeri}">${badgeSinifi}</span></td>
+        <td class="text-center w-5"><span class="w-100 badge ${badgeDegeri}">${badgeSinifi}</span></td>
         <td class="text-center flex w-100 justify-content-center gap-2">
-
-          
-          <button class="detay-button w-80" onclick="detayaGit(${u.e_id})">
+          <button class="detay-button w-50" onclick="detayaGit(${u.e_id})">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
             </svg>
             <div class="detay-text">
-              Detaya Git
+              Detay
             </div>  
+          </button>
+          <button class="bin-button w-50 h-30px" onclick="kullaniciSil('${u.e_id}', '${u.e_kullanici_adi}', '${u.e_ad}', '${u.e_soyad}', '${u.e_durum}')">
+            <!-- SVG sil ikonu -->
+            <svg class="bin-top" viewBox="0 0 39 7" fill="none">
+              <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
+              <line x1="12" y1="1.5" x2="26.0357" y2="1.5" stroke="white" stroke-width="3"></line>
+            </svg>
+            <svg class="bin-bottom" viewBox="0 0 33 39" fill="none">
+              <mask id="path-1-inside-1_8_19" fill="white">
+                <path d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"></path>
+              </mask>
+              <path d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z" fill="white" mask="url(#path-1-inside-1_8_19)"></path>
+              <path d="M12 6L12 29" stroke="white" stroke-width="4"></path>
+              <path d="M21 6V29" stroke="white" stroke-width="4"></path>
+            </svg>
           </button>
         </td>
       `;

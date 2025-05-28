@@ -1,9 +1,9 @@
 .detay-button {
   background-color: #ffffff00;
   color: #fff;
-  height: 40px;
+  height: 30px;
   border: #3654ff 0.2em solid;
-  border-radius: 11px;
+  border-radius: 6px;
   text-align: right;
   transition: all 0.6s ease;
 }
@@ -16,7 +16,7 @@
 
 .detay-button svg {
   width: 1.6em;
-  margin: -0.2em 0.8em 1em;
+  margin: -0.1em 0.8em 2em;
   position: absolute;
   display: flex;
   transition: all 0.6s ease;
