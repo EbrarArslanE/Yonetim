@@ -16,24 +16,16 @@
     <link rel="stylesheet" href="/style/projeDetay.css">
     <link rel="shortcut icon" href="/assets/images/code-ai-fill.svg" type="image/x-icon">
     <title>
-      Proje Kayıtları
+      Proje Detayı
     </title>
   </head>
-  
   <body>
-    <div class="container-body">
+    <div class="template-body"> 
       <div class="body-top">
         <div class="top-bar">
             <img src="/assets/images/code-ai-fill.svg" alt="" style="height: 70px;">
           <div class="panel-wrapper">
-            <div class="logo">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 4H21V6H8V4ZM3 3.5H6V6.5H3V3.5ZM3 10.5H6V13.5H3V10.5ZM3 17.5H6V20.5H3V17.5ZM8 11H21V13H8V11ZM8 18H21V20H8V18Z">
-                </path>
-              </svg>
-              <h1>
-                Kullanıcı Listesi</h1>
-            </div>
+            <hr>
             <div class="dropdown-container">
               <div class="dropdown-container">
                 <a class="a" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
@@ -48,82 +40,85 @@
        
       </div>
       <div class="body-bottom">
-  <h1 id="e_proje_adi">Proje Adı</h1>
+        <div class="container-card-header w-100 flex">
+          <h1 id="e_proje_adi">Proje Adı</h1>
+        </div>
+        <div class="flex flex-row w-100">     
+          
+          <div class="container flex flex-col w-70 h-500px">
+            <div class="container-header">
+              <span>Proje Firma Bilgileri</span>
+            </div>
+            <div class="container-body h-100">
+              <div class="flex flex-row items-center justify-start w-100 gap-40">
+                <div class="w-100 flex flex-row items-center justify-center gap-40">
+                  <div class="flex flex-col h-300px gap-32  justify-center items-start w-20">
+                    <span class="etiket">Firma Adı</span>
+                    <span class="etiket">Proje Yetkilisi</span>
+                    <span class="etiket">Mail Bilgisi</span>
+                    <span class="etiket">Telefon Bilgisi</span>
+                  </div>
+                  <div class="flex flex-col w-50 h-300px items-start justify-center gap-40">
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                  </div>
+                  <div class="flex flex-col gap-26 w-80">
+                    <input class="custom-input w-100" id="e_firma_adi">
+                    <input class="custom-input w-100" id="e_proje_yetkilisi">
+                    <input class="custom-input w-100" id="e_mail_bilgisi">
+                    <input class="custom-input w-100" id="e_telefon_bilgisi">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <div class="container-group w-100">
-    <div class="container w-90 h-400px">
-      <div class="flex flex-row items-center justify-center gap-40">
-        <div class="flex flex-col">
-          <span class="etiket">Firma Adı:</span>
-          <input class="custom-input" id="e_firma_adi">
-        </div>
-        <div class="flex flex-col">
-          <span class="etiket">Proje Yetkilisi:</span>
-          <input class="custom-input" id="e_proje_yetkilisi">
-        </div>
-      </div>
-      <div class="flex flex-row items-center justify-center gap-40">
-        <div class="flex flex-col">
-          <span class="etiket">Mail Bilgisi:</span>
-          <input class="custom-input" id="e_mail_bilgisi">
-        </div>
-        <div class="flex flex-col">
-          <span class="etiket">Telefon Bilgisi:</span>
-          <input class="custom-input" id="e_telefon_bilgisi">
-        </div>
-      </div>
-    </div>
-
-    <div class="container w-90 h-400px">
-      <div class="flex flex-row items-center justify-center gap-40">
-        <div class="flex flex-col">
-          <span class="etiket">Durum:</span>
-          <input class="custom-input" id="e_durum">
-        </div>
-        <div class="flex flex-col">
-          <span class="etiket">Öncelik:</span>
-          <input class="custom-input" id="e_oncelik">
-        </div>
-      </div>
-      <div class="flex flex-row items-center justify-center gap-40">
-        <div class="flex flex-col">
-          <span class="etiket">Proje Tipi:</span>
-          <input class="custom-input" id="e_proje_tipi">
-        </div>
-        <div class="flex flex-col">
-          <span class="etiket">Fiyat:</span>
-          <input class="custom-input" id="e_fiyat">
+          <div class="container flex flex-col w-70 h-500px">
+            <div class="container-header">
+              <span>Proje Detayları</span>
+            </div>
+            <div class="container-body h-100">
+              <div class="flex flex-row items-center justify-start w-100">
+                <div class="w-100 flex flex-row h-100 items-center justify-center h-500px">
+                  <div class="flex flex-col h-100 gap-26  justify-center items-start w-30 ">
+                    <span class="etiket">Durum ve Öncelik</span>
+                    <span class="etiket">Proje Tipi</span>
+                    <span class="etiket">Fiyat</span>
+                    <span class="etiket">Alım - Teslim Tarihi</span>
+                    <span class="etiket">Ekip Üyeleri</span>
+                    <span class="etiket">GitHub Linki</span>
+                  </div>
+                   <div class="flex flex-col w-40 h-300px items-start justify-center text-black  gap-26">
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                    <span>:</span>
+                  </div>
+                  <div class="flex flex-col h-400px gap-12  justify-center items-start w-50">
+                    <div class="flex flex-row w-100 gap-20">
+                      <input class="custom-input w-50" id="e_durum">
+                      <input class="custom-input w-50" id="e_oncelik">
+                    </div>
+                    <input class="custom-input w-100" id="e_proje_tipi">
+                    <input class="custom-input w-100" id="e_fiyat">
+                    <div class="flex flex-row w-100 gap-20">
+                      <input class="custom-input w-50" id="e_proje_alim_tarihi">
+                      <input class="custom-input w-50" id="e_proje_teslim_tarihi">
+                    </div>
+                    <input class="custom-input w-100" id="e_ekip_uyeleri">
+                    <span class="deger" id="e_git_repo_linki"></span>
+                  </div>
+                </div>
+              </div>
+          </div>
         </div>
       </div>
+      <div class="container-footer w-100 mt-50"></div>
     </div>
-
-    <div class="container w-90 h-400px">
-      <div class="flex flex-row items-center justify-center gap-40">
-        <div class="flex flex-col">
-          <span class="etiket">Alım Tarihi:</span>
-          <input class="custom-input" id="e_proje_alim_tarihi">
-        </div>
-        <div class="flex flex-col">
-          <span class="etiket">Teslim Tarihi:</span>
-          <input class="custom-input" id="e_proje_teslim_tarihi">
-        </div>
-      </div>
-    </div>
-
-    <div class="container w-90 h-400px">
-      <div class="flex flex-col">
-        <span class="etiket">GitHub Linki:</span>
-        <span class="deger" id="e_git_repo_linki"></span>
-      </div>
-      <div class="flex flex-col">
-      <span class="etiket">Ekip Üyeleri:</span>
-      <input class="custom-input" id="e_ekip_uyeleri">
-    </div>
-    </div>
-  </div>
-</div>
-
-    </div>
-    <script src="projeDetay.js"></script>
-  </body>
+  <script src="projeDetay.js"></script>
+</body>
 </html>

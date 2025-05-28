@@ -14,7 +14,7 @@ window.onload = () => {
           return;
         }
 
-        document.getElementById('e_proje_adi').value = proje.e_proje_adi;
+        document.getElementById('e_proje_adi').textContent = proje.e_proje_adi;
         document.getElementById('e_proje_yetkilisi').value = proje.e_proje_yetkilisi;
         document.getElementById('e_firma_adi').value = proje.e_firma_adi;
         document.getElementById('e_durum').value = proje.e_durum;

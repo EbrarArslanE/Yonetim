@@ -64,19 +64,19 @@
     "e_fiyat": "5000"
   },
   {
-    "e_id": "5",
-    "e_proje_adi": "Ekip Yönetim Paneli",
-    "e_proje_yetkilisi": "Ebrar",
-    "e_firma_adi": "------",
+    "e_id": "6",
+    "e_proje_adi": "test",
+    "e_proje_yetkilisi": "test",
+    "e_firma_adi": "calisiuo",
     "e_durum": "Aktif",
-    "e_proje_alim_tarihi": "2025-10-05",
-    "e_proje_teslim_tarihi": "2025-10-06",
-    "e_telefon_bilgisi": "05388677750",
-    "e_mail_bilgisi": "asd@asd.com",
-    "e_ekip_uyeleri": "ebrar \nnazım",
-    "e_proje_tipi": "web yönetim paneli",
-    "e_git_repo_linki": "https://github.com/EbrarArslanE/Yonetim",
-    "e_oncelik": "Yüksek",
-    "e_fiyat": "0"
+    "e_proje_alim_tarihi": "35332-02-24",
+    "e_proje_teslim_tarihi": "3534-05-31",
+    "e_telefon_bilgisi": "adas",
+    "e_mail_bilgisi": "asdadsa",
+    "e_ekip_uyeleri": "asdasdsa",
+    "e_proje_tipi": "asdas",
+    "e_git_repo_linki": "asda",
+    "e_oncelik": "Düşük",
+    "e_fiyat": "1234"
   }
 ]
