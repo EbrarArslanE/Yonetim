@@ -48,23 +48,81 @@
        
       </div>
       <div class="body-bottom">
-          <div class="container">
-    <h1 id="e_proje_adi">Proje Adı</h1>
+  <h1 id="e_proje_adi">Proje Adı</h1>
 
-    <div class="detay"><span class="etiket">Proje Yetkilisi:</span><span class="deger" id="e_proje_yetkilisi"></span></div>
-    <div class="detay"><span class="etiket">Firma Adı:</span><span class="deger" id="e_firma_adi"></span></div>
-    <div class="detay"><span class="etiket">Durum:</span><span class="deger" id="e_durum"></span></div>
-    <div class="detay"><span class="etiket">Alım Tarihi:</span><span class="deger" id="e_proje_alim_tarihi"></span></div>
-    <div class="detay"><span class="etiket">Teslim Tarihi:</span><span class="deger" id="e_proje_teslim_tarihi"></span></div>
-    <div class="detay"><span class="etiket">Mail Bilgisi:</span><span class="deger" id="e_mail_bilgisi"></span></div>
-    <div class="detay"><span class="etiket">Telefon Bilgisi:</span><span class="deger" id="e_telefon_bilgisi"></span></div>
-    <div class="detay"><span class="etiket">Ekip Üyeleri:</span><span class="deger" id="e_ekip_uyeleri"></span></div>
-    <div class="detay"><span class="etiket">Proje Tipi:</span><span class="deger" id="e_proje_tipi"></span></div>
-    <div class="detay"><span class="etiket">GitHub Linki:</span><span class="deger"><a id="e_git_repo_linki" href="#" target="_blank">Görüntüle</a></span></div>
-    <div class="detay"><span class="etiket">Öncelik:</span><span class="deger" id="e_oncelik"></span></div>
-    <div class="detay"><span class="etiket">Fiyat:</span><span class="deger" id="e_fiyat"></span></div>
-  </div>
+  <div class="container-group w-100">
+    <div class="container w-90 h-400px">
+      <div class="flex flex-row items-center justify-center gap-40">
+        <div class="flex flex-col">
+          <span class="etiket">Firma Adı:</span>
+          <input class="custom-input" id="e_firma_adi">
+        </div>
+        <div class="flex flex-col">
+          <span class="etiket">Proje Yetkilisi:</span>
+          <input class="custom-input" id="e_proje_yetkilisi">
+        </div>
       </div>
+      <div class="flex flex-row items-center justify-center gap-40">
+        <div class="flex flex-col">
+          <span class="etiket">Mail Bilgisi:</span>
+          <input class="custom-input" id="e_mail_bilgisi">
+        </div>
+        <div class="flex flex-col">
+          <span class="etiket">Telefon Bilgisi:</span>
+          <input class="custom-input" id="e_telefon_bilgisi">
+        </div>
+      </div>
+    </div>
+
+    <div class="container w-90 h-400px">
+      <div class="flex flex-row items-center justify-center gap-40">
+        <div class="flex flex-col">
+          <span class="etiket">Durum:</span>
+          <input class="custom-input" id="e_durum">
+        </div>
+        <div class="flex flex-col">
+          <span class="etiket">Öncelik:</span>
+          <input class="custom-input" id="e_oncelik">
+        </div>
+      </div>
+      <div class="flex flex-row items-center justify-center gap-40">
+        <div class="flex flex-col">
+          <span class="etiket">Proje Tipi:</span>
+          <input class="custom-input" id="e_proje_tipi">
+        </div>
+        <div class="flex flex-col">
+          <span class="etiket">Fiyat:</span>
+          <input class="custom-input" id="e_fiyat">
+        </div>
+      </div>
+    </div>
+
+    <div class="container w-90 h-400px">
+      <div class="flex flex-row items-center justify-center gap-40">
+        <div class="flex flex-col">
+          <span class="etiket">Alım Tarihi:</span>
+          <input class="custom-input" id="e_proje_alim_tarihi">
+        </div>
+        <div class="flex flex-col">
+          <span class="etiket">Teslim Tarihi:</span>
+          <input class="custom-input" id="e_proje_teslim_tarihi">
+        </div>
+      </div>
+    </div>
+
+    <div class="container w-90 h-400px">
+      <div class="flex flex-col">
+        <span class="etiket">GitHub Linki:</span>
+        <span class="deger" id="e_git_repo_linki"></span>
+      </div>
+      <div class="flex flex-col">
+      <span class="etiket">Ekip Üyeleri:</span>
+      <input class="custom-input" id="e_ekip_uyeleri">
+    </div>
+    </div>
+  </div>
+</div>
+
     </div>
     <script src="projeDetay.js"></script>
   </body>

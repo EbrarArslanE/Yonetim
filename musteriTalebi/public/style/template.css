@@ -45,14 +45,16 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     gap: 20px;
     height: 100%;
     padding: 20px;
     background-color: #f4f4f9;
-    /* background-color: blue; */
+    flex-direction: column;
+    align-content: space-around;
 }
+
 .right{
     /* background-color: blue; */
     width: 100%;
