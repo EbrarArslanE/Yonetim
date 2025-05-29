@@ -67,20 +67,20 @@
     "e_gorevli_kullanici": "nazım",
     "e_kullanici_adi": "ebrar",
     "e_gorev": "İş tanımları front-end yapacan",
-    "e_durum": "Bekliyor"
+    "e_durum": "Tamamlandı"
   },
   {
     "e_id": "19",
     "e_gorevli_kullanici": "ebrar",
     "e_kullanici_adi": "ebrar",
     "e_gorev": "Servis isimleri düzenlenecek ",
-    "e_durum": "Bekliyor"
+    "e_durum": "İptal Edildi"
   },
   {
     "e_id": "20",
     "e_gorevli_kullanici": "ebrar",
     "e_kullanici_adi": "ebrar",
     "e_gorev": "Proje Detay sayfasına;\nDüzenlemeleri kaydetme butonu gelecek\nProje Listesi sayfasına;\nsilme butonu gelecek\nbu işlemler yaptırılacak",
-    "e_durum": "Bekliyor"
+    "e_durum": "Tamamlandı"
   }
 ]

@@ -15,23 +15,41 @@
 </head>
 <body>
    <div class="template-body">
-    <div class="body-top">
-             <div class="top-bar">
+  <div class="body-top">
+        <div class="top-bar">
             <img src="/assets/images/code-ai-fill.svg" alt="" style="height: 70px;">
           <div class="panel-wrapper">
-            <hr>
-            <div class="dropdown-container">
-              <div class="dropdown-container">
-                <a class="a" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
-                <a class="a" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcı Listesi</a>
-                <a class="a" href="/pages/gorevListesi/gorevListesi.html">Görev Listesi</a>  
-                <a class="a" href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
-                <a class="a" href="/pages/projeListesi/projeListesi.html">Proje Listesi</a> 
-              </div>
-            </div>
+              <label class="main">
+                Tanımlar
+                <input class="inp" checked="" type="checkbox" />
+                <div class="bar">
+                  <span class="top bar-list"></span>
+                  <span class="middle bar-list"></span>
+                  <span class="bottom bar-list"></span>
+                </div>
+                <section class="menu-container">
+                  <div class="menu-list" onclick="kullaniciTanimlari()">Kullanıcı Tanımları</div>
+                  <div class="menu-list" onclick="gorevTanimlari()">Görev Tanımları</div>
+                  <div class="menu-list" onclick="projeTanimlari()">Proje Tanımları</div>
+                </section>
+              </label>
+            
+              <label class="main">
+                Listelemeler
+                <input class="inp" checked="" type="checkbox" />
+                <div class="bar">
+                  <span class="top bar-list"></span>
+                  <span class="middle bar-list"></span>
+                  <span class="bottom bar-list"></span>
+                </div>
+                <section class="menu-container">
+                  <div class="menu-list" onclick="kullaniciTanimlari()">Rapor Listesi</div>
+                  <div class="menu-list" onclick="gorevTanimlari()">Talep Listesi</div>
+                </section>
+              </label>
           </div>
         </div>
-    </div>
+      </div>
     <div class="body-bottom">
           <div class="right">
           
