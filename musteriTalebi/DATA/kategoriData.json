@@ -1,12 +1,17 @@
 [
   {
-    "e_id": "2",
-    "e_kategori_adi": "ads",
-    "e_durum": "Pasif"
+    "e_id": "4",
+    "e_kategori_adi": "Web",
+    "e_durum": "Aktif"
   },
   {
-    "e_id": "3",
-    "e_kategori_adi": "asdasdasda",
+    "e_id": "5",
+    "e_kategori_adi": "Web CRM Yönetim Panel",
+    "e_durum": "Aktif"
+  },
+  {
+    "e_id": "6",
+    "e_kategori_adi": "Masaüstü",
     "e_durum": "Pasif"
   }
 ]

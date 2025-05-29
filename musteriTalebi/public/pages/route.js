@@ -10,3 +10,9 @@ function talepTanimlari(params) {
 function projeTanimlari(params) {
     window.location.href = "/pages/projeListesi/projeListesi.html";
 }
+function kategoriTanimlari(params) {
+    window.location.href = "/pages/kategoriListesi/kategoriListesi.html";
+}
+function raporTanimlari(params) {
+    window.location.href = "/pages/raporListesi/raporListesi.html";
+}
