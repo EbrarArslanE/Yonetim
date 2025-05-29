@@ -13,5 +13,10 @@
     "e_id": "6",
     "e_kategori_adi": "Masaüstü",
     "e_durum": "Pasif"
+  },
+  {
+    "e_id": "7",
+    "e_kategori_adi": "Mobil",
+    "e_durum": "Pasif"
   }
 ]
