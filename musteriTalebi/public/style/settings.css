@@ -187,6 +187,21 @@
   margin-top: 30px;
 }
 
+/* HR - Yatay Çizgi */
+.hr-horizontal {
+  border: none;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  margin: 10px 0;
+}
+
+/* HR - Dikey Çizgi */
+.hr-vertical {
+  border: none;
+  border-left: 1px solid #ccc;
+  height: 100%;
+  margin: 0 10px;
+}
 
 
 .container {
