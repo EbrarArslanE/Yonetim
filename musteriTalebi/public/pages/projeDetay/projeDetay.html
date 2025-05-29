@@ -40,8 +40,23 @@
        
       </div>
       <div class="body-bottom">
-        <div class="container-card-header w-100 flex">
-          <h1 id="e_proje_adi">Proje Adı</h1>
+        <div class="container-card-header items-center w-100 flex gap-12">
+          <h1 style="font-size: 20px;">Proje Adı :</h1>
+          <div class="wave-group">
+            <input required="" id="e_proje_adi" type="text" class="input-wave">
+            <span class="bar"></span>
+            <label class="label">
+              <span class="label-char" style="--index: 0">P</span>
+              <span class="label-char" style="--index: 1">r</span>
+              <span class="label-char" style="--index: 2">o</span>
+              <span class="label-char" style="--index: 3">j</span>
+              <span class="label-char" style="--index: 4">e</span>
+              &nbsp
+              <span class="label-char" style="--index: 5">A</span>
+              <span class="label-char" style="--index: 6">d</span>
+              <span class="label-char" style="--index: 7">ı</span>
+            </label>
+          </div>
         </div>
         <div class="flex flex-row w-100">     
           
@@ -100,14 +115,23 @@
                   </div>
                   <div class="flex flex-col h-400px gap-12  justify-center items-start w-50">
                     <div class="flex flex-row w-100 gap-20">
-                      <input class="custom-input w-50" id="e_durum">
-                      <input class="custom-input w-50" id="e_oncelik">
+                      <select class="custom-select w-50" name="e_durum" id="e_durum" required>
+                        <option value="">---- Seçiniz ----</option>
+                        <option value="Aktif">Aktif</option>
+                        <option value="Pasif">Pasif</option>
+                      </select>
+                      <select class="custom-select w-50" id="e_oncelik" name="e_oncelik" required>
+                        <option value="">---- Seçiniz ----</option>
+                        <option value="Yüksek">Yüksek</option>
+                        <option value="Orta">Orta</option>
+                        <option value="Düşük">Düşük</option>
+                      </select>
                     </div>
                     <input class="custom-input w-100" id="e_proje_tipi">
                     <input class="custom-input w-100" id="e_fiyat">
                     <div class="flex flex-row w-100 gap-20">
-                      <input class="custom-input w-50" id="e_proje_alim_tarihi">
-                      <input class="custom-input w-50" id="e_proje_teslim_tarihi">
+                      <input class="custom-input w-50" type="date" id="e_proje_alim_tarihi">
+                      <input class="custom-input w-50" type="date" id="e_proje_teslim_tarihi">
                     </div>
                     <input class="custom-input w-100" id="e_ekip_uyeleri">
                     <span class="deger" id="e_git_repo_linki"></span>

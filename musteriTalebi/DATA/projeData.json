@@ -16,21 +16,6 @@
     "e_fiyat": "234333"
   },
   {
-    "e_id": "2",
-    "e_proje_adi": "₺",
-    "e_proje_yetkilisi": "Emirhan Göven",
-    "e_firma_adi": "Eron Yazılım",
-    "e_durum": "Aktif",
-    "e_proje_alim_tarihi": "53323-02-24",
-    "e_proje_teslim_tarihi": "6456-05-31",
-    "e_telefon_bilgisi": "yok",
-    "e_mail_bilgisi": "emirhan.goven@eronyazilim.com",
-    "e_ekip_uyeleri": "ebrar",
-    "e_proje_tipi": "test",
-    "e_oncelik": "Orta",
-    "e_fiyat": "80"
-  },
-  {
     "e_id": "3",
     "e_proje_adi": "Avukatlara Front End site",
     "e_proje_yetkilisi": "nazım",

@@ -70,7 +70,7 @@ window.onload = () => {
               Detay
             </div>  
           </button>
-          <button class="bin-button w-50 h-30px" onclick="kullaniciSil('${u.e_id}', '${u.e_kullanici_adi}', '${u.e_ad}', '${u.e_soyad}', '${u.e_durum}')">
+          <button class="bin-button w-50 h-30px" onclick="kullaniciSil('${u.e_id}')">
             <!-- SVG sil ikonu -->
             <svg class="bin-top" viewBox="0 0 39 7" fill="none">
               <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>

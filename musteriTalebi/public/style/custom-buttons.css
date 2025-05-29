@@ -2,14 +2,14 @@
   background-color: #ffffff00;
   color: #fff;
   height: 30px;
-  border: #3654ff 0.2em solid;
+  border: black 0.2em solid;
   border-radius: 6px;
   text-align: right;
   transition: all 0.6s ease;
 }
 
 .detay-button:hover {
-  background-color: #3654ff;
+  background-color: black;
   cursor: pointer;
   
 }
