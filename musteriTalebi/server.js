@@ -10,6 +10,7 @@ const MUSTERI_ID_OLUSTUR    = path.join(__dirname, '/DATA/ID_DATA/musteriID.txt'
 const GOREV_ID_OLUSTUR      = path.join(__dirname, '/DATA/ID_DATA/gorevID.txt');
 const KULLANICI_ID_OLUSTUR  = path.join(__dirname, '/DATA/ID_DATA/kullaniciID.txt');
 const PROJE_ID_OLUSTUR      = path.join(__dirname, '/DATA/ID_DATA/projeID.txt');
+const KATEGORI_ID_OLUSTUR      = path.join(__dirname, '/DATA/ID_DATA/kategoriID.txt');
 
 function YENI_MUSTERI_ID(MUSTERI_ID_OLUSTUR, callback) {
   fs.readFile(MUSTERI_ID_OLUSTUR, 'utf8', (err, data) => {
@@ -107,6 +108,30 @@ function YENI_PROJE_ID(PROJE_ID_OLUSTUR, callback) {
   });
 }
 
+function YENI_KATEGORI_ID(KATEGORI_ID_OLUSTUR, callback) {
+  fs.readFile(KATEGORI_ID_OLUSTUR, 'utf8', (err, data) => {
+    if (err) {
+      if (err.code === 'ENOENT') {
+        // Dosya yoksa oluştur ve 1 ile başlat
+        fs.writeFile(KATEGORI_ID_OLUSTUR, '1', (err) => {
+          if (err) return callback(err);
+          callback(null, 1);
+        });
+      } else {
+        return callback(err);
+      }
+    } else {
+      let currentId = parseInt(data, 10);
+      if (isNaN(currentId)) currentId = 0;
+      const newId = currentId + 1;
+      fs.writeFile(KATEGORI_ID_OLUSTUR, newId.toString(), (err) => {
+        if (err) return callback(err);
+        callback(null, newId);
+      });
+    }
+  });
+}
+
 // Public klasörünü statik dosyalar için kullan
 app.use(express.static('public'));
 
@@ -119,6 +144,7 @@ const DATA_PATH = path.join(__dirname, '/DATA/data.json');
 const USER_DATA_PATH = path.join(__dirname, '/DATA/userData.json');
 const TALEP_DATA_PATH = path.join(__dirname, '/DATA/gorevData.json');
 const PROJE_DATA_PATH = path.join(__dirname, '/DATA/projeData.json');
+const KATEGORI_DATA_PATH = path.join(__dirname, '/DATA/kategoriData.json');
 
 // Ana sayfaya yönlendirme
 app.get('/', (req, res) => {
@@ -181,6 +207,22 @@ app.get('/projeListesi', (req, res) => {
       res.json(projeListesi);
     } catch (e) {
       return res.status(500).json({ hata: 'Proje Listesi formatı hatalı.' });
+    }
+  });
+});
+
+app.get('/kategoriListesi', (req, res) => {
+  fs.readFile(KATEGORI_DATA_PATH, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Kategori verisi okunamadı:', err);
+      return res.status(500).json({ hata: 'Kategori Listesi alınamadı.' });
+    }
+
+    try {
+      const kategoriListesi = JSON.parse(data);
+      res.json(kategoriListesi);
+    } catch (e) {
+      return res.status(500).json({ hata: 'Kategori Listesi formatı hatalı.' });
     }
   });
 });
@@ -387,6 +429,53 @@ app.post('/projeEkle', (req, res) => {
   });
 });
 
+app.post('/kategoriEkle', (req, res) => {
+  const { e_kategori_adi, e_durum } = req.body;
+
+  if (!e_kategori_adi || !e_durum) {
+    return res.status(400).json({ hata: 'Eksik kategori bilgisi' });
+  }
+
+  // ID üret
+  YENI_KATEGORI_ID(KATEGORI_ID_OLUSTUR, (err, newId) => {
+    if (err) {
+      console.error('ID üretme hatası:', err);
+      return res.status(500).json({ hata: 'ID üretilemedi.' });
+    }
+
+   const yeniKategori = {
+    e_id: String(newId),
+    e_kategori_adi,
+    e_durum
+  };
+
+
+    // Kullanıcı verisini oku ve yaz
+    fs.readFile(KATEGORI_DATA_PATH, 'utf8', (err, data) => {
+      let kategoriListesi = [];
+
+      if (!err && data) {
+        try {
+          kategoriListesi = JSON.parse(data);
+        } catch (e) {
+          console.error('kategoriData.json parse hatası:', e);
+        }
+      }
+
+      kategoriListesi.push(yeniKategori);
+
+      fs.writeFile(KATEGORI_DATA_PATH, JSON.stringify(kategoriListesi, null, 2), err => {
+        if (err) {
+          console.error('Kategori yazma hatası:', err);
+          return res.status(500).json({ hata: 'Kategori eklenemedi.' });
+        }
+
+        res.json({ mesaj: 'Kategori başarıyla eklendi.', e_id: newId });
+      });
+    });
+  });
+});
+
 // SİLME İŞLEMLERİ
 app.post('/kayitSil', (req, res) => {
   const gelenVeri = req.body;
@@ -540,6 +629,45 @@ app.post('/projeSil', (req, res) => {
       if (err) return res.status(500).json({ hata: 'Görev silinemedi.' });
 
       res.json({ mesaj: 'Görev başarıyla silindi.' });
+    });
+  });
+});
+
+app.post('/kategoriSil', (req, res) => {
+  const gelenVeri = req.body;
+
+  if (!gelenVeri || Object.keys(gelenVeri).length === 0) {
+    return res.status(400).json({ hata: 'Silinecek veri sağlanmadı.' });
+  }
+
+  fs.readFile(KATEGORI_DATA_PATH, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ hata: 'Veriler alınamadı.' });
+
+    let kategoriListesi;
+    try {
+      kategoriListesi = JSON.parse(data);
+    } catch (parseErr) {
+      return res.status(500).json({ hata: 'Veri formatı hatalı.' });
+    }
+
+    let silindiMi = false;
+    const yeniListe = kategoriListesi.filter(item => {
+      const tamEslesen = Object.keys(gelenVeri).every(key => item[key] === gelenVeri[key]);
+      if (tamEslesen && !silindiMi) {
+        silindiMi = true;
+        return false;
+      }
+      return true;
+    });
+
+    if (!silindiMi) {
+      return res.status(404).json({ hata: 'Silinecek kategori bulunamadı.' });
+    }
+
+    fs.writeFile(KATEGORI_DATA_PATH, JSON.stringify(yeniListe, null, 2), (err) => {
+      if (err) return res.status(500).json({ hata: 'Görev silinemedi.' });
+
+      res.json({ mesaj: 'Kategori başarıyla silindi.' });
     });
   });
 });
@@ -720,6 +848,49 @@ app.post('/projeDuzenle', (req, res) => {
       if (err) return res.status(500).json({ hata: 'Dosyaya yazılamadı' });
 
       res.json({ mesaj: 'Görev Güncellendi' });
+    });
+  });
+});
+
+app.post('/kategoriDuzenle', (req, res) => {
+  const { e_id, e_kategori_adi, e_durum } = req.body;
+
+  if (!e_id) {
+    return res.status(400).json({ hata: 'e_id gerekli.' });
+  }
+
+
+  fs.readFile(KATEGORI_DATA_PATH, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ hata: 'Dosya okunamadı.' });
+
+    let veriListesi;
+    try {
+      veriListesi = JSON.parse(data);
+    } catch (parseErr) {
+      return res.status(500).json({ hata: 'JSON formatı hatalı.' });
+    }
+
+    let bulundu = false;
+    // const idToUpdate = Number(e_id);
+
+    const guncellenmisListe = veriListesi.map(item => {
+      if (String(item.e_id) === String(e_id)) {
+        item.e_kategori_adi       = e_kategori_adi  ?? item.e_kategori_adi;
+        item.e_durum              = e_durum         ?? item.e_durum;
+        bulundu = true;
+      }
+      return item;
+    });
+
+
+    if (!bulundu) {
+      return res.status(404).json({ hata: 'Kategori bulunamadı' });
+    }
+
+    fs.writeFile(KATEGORI_DATA_PATH, JSON.stringify(guncellenmisListe, null, 2), err => {
+      if (err) return res.status(500).json({ hata: 'Dosyaya yazılamadı' });
+
+      res.json({ mesaj: 'Kategori başarıyla güncellendi' });
     });
   });
 });

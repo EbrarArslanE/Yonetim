@@ -7,6 +7,8 @@
   <link rel="shortcut icon" href="/assets/images/code-ai-fill.svg" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/style/settings.css">
+  <link rel="stylesheet" href="/style/anasayfa.css">
+  
   <style>
     body {
       background-color: #0d1117;
@@ -274,11 +276,52 @@
         Anasayfa ve Portföyünüz
       </div>
       <div class="dropdown-container">
-        <a class="text-white text-decoration-none" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
+        <!-- <a class="text-white text-decoration-none" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
         <a class="text-white text-decoration-none" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcı Tanımları</a>
         <a class="text-white text-decoration-none" href="/pages/kayitListesi/kayitListesi.html">Talep Tanımları</a>
         <a class="text-white text-decoration-none" href="/pages/gorevListesi/gorevListesi.html">Görev Tanımları</a>
-        <a class="text-white text-decoration-none" href="/pages/projeListesi/projeListesi.html">Proje Listesi</a>
+        <a class="text-white text-decoration-none" href="/pages/projeListesi/projeListesi.html">Proje Listesi</a> -->
+        <label class="main">
+          Tanımlar
+          <input class="inp" checked="" type="checkbox" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="menu-list" onclick="kullaniciTanimlari()">Kullanıcı Tanımları</div>
+            <div class="menu-list" onclick="gorevTanimlari()">Görev Tanımları</div>
+          </section>
+        </label>
+      
+        <label class="main">
+          Listelemeler
+          <input class="inp" checked="" type="checkbox" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="menu-list" onclick="raporTanimlari()">Rapor Listesi</div>
+            <div class="menu-list" onclick="talepTanimlari()">Talep Listesi</div>
+          </section>
+        </label>
+        
+        <label class="main">
+          Proje Yönetimi
+          <input class="inp" checked="" type="checkbox" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="menu-list" onclick="kategoriTanimlari()">Kategori Tanımları</div>
+            <div class="menu-list" onclick="projeTanimlari()">Proje Tanımları</div>
+          </section>
+        </label>
       </div>
     </div>
     
@@ -299,20 +342,20 @@
           <div class="left">
             <div class="istatistik-kartlari">
               <h1 style="font-size: 30px;">Kullanıcı Bilgileri</h1>
-              <div class="kart">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 25px;">
-                  <p class="pasif"></p>
-                  <h3 style="font-size: 20px; margin: 0;">Pasif Kullanıcı</h3>
-                </div>
-                <p id="pasifKullanici"></p>
-              </div>
-              <div class="kart">
+                <div class="kart">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 25px;">
                   <p class="title"></p>
                   <h3 style="font-size: 20px; margin: 0;">Aktif Kullanıcı</h3>
                 </div>
                 <p id="aktifKullanici"></p>
               </div>
+              <div class="kart">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 25px;">
+                  <p class="pasif"></p>
+                  <h3 style="font-size: 20px; margin: 0;">Pasif Kullanıcı</h3>
+                </div>
+                <p id="pasifKullanici"></p>
+              </div> 
             </div>
           </div>
     
@@ -324,7 +367,7 @@
                   <p id="toplamTalep"></p>
                 </div>  
                 <div class="kart">
-                  <h3 style="font-size: 20px;">🕒 Yaklaşan</h3>
+                  <h3 style="font-size: 20px;">Proje Sayısı</h3>
                   <p id="ortalamaSure">3s 20dk</p>
                 </div>
               </div>
@@ -381,10 +424,7 @@
     </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    guncelleKurBilgisi();
-    setInterval(guncelleKurBilgisi, 60000);
-  </script>
   <script src="anasayfa.js"></script>
+  <script src="/pages/route.js"></script>
 </body>
 </html>

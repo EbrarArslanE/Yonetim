@@ -21,23 +21,54 @@
   
   <body>
     <div class="template-body">
-      <div class="body-top">
+     <div class="body-top">
         <div class="top-bar">
             <img src="/assets/images/code-ai-fill.svg" alt="" style="height: 70px;">
+            <hr class="hr-vertical">
           <div class="panel-wrapper">
-            <hr>
-            <div class="dropdown-container">
-              <div class="dropdown-container">
-                <a class="a" href="/pages/anasayfa/anasayfa.html">Anasayfa</a>
-                <a class="a" href="/pages/kullaniciListesi/kullaniciListesi.html">Kullanıcı Listesi</a>
-                <a class="a" href="/pages/gorevListesi/gorevListesi.html">Görev Listesi</a>  
-                <a class="a" href="/pages/kayitListesi/kayitListesi.html">Kayıt Listesi</a> 
-                <a class="a" href="/pages/projeListesi/projeListesi.html">Proje Listesi</a> 
-              </div>
-            </div>
+                <label class="main">
+          Tanımlar
+          <input class="inp" checked="" type="checkbox" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="menu-list" onclick="kullaniciTanimlari()">Kullanıcı Tanımları</div>
+            <div class="menu-list" onclick="gorevTanimlari()">Görev Tanımları</div>
+          </section>
+        </label>
+      
+        <label class="main">
+          Listelemeler
+          <input class="inp" checked="" type="checkbox" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="menu-list" onclick="raporTanimlari()">Rapor Listesi</div>
+            <div class="menu-list" onclick="talepTanimlari()">Talep Listesi</div>
+          </section>
+        </label>
+        
+        <label class="main">
+          Proje Yönetimi
+          <input class="inp" checked="" type="checkbox" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="menu-list" onclick="kategoriTanimlari()">Kategori Tanımları</div>
+            <div class="menu-list" onclick="projeTanimlari()">Proje Tanımları</div>
+          </section>
+        </label>
           </div>
         </div>
-       
       </div>
       <div class="body-bottom">
         <div class="right">
@@ -208,8 +239,73 @@
         </div>
       </div>
     </div>
+
+      <div class="modal-container" id="kullaniciEklemeModal" style="display: none;">
+    <div class="modal-xl">
+      <div class="modal-header">
+        <h1>Kullanıcı Ekleme Formu</h1>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="body-bottom">
+              <div class="right">
+                <div class="table-top">
+
+                     <div class="table-header items-center justify-start p-30">
+                      <div class="flex flex-col items-start w-30">
+                        <label for="">Arama :</label>
+                        <div class="group w-100">
+                          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+                          <input placeholder="Kullanıcı Adına Göre Ara" id="filterInput" type="search" class="input">
+                        </div>
+                      </div>
+                    
+                      <div class="flex flex-col items-start w-20">
+                        <label for="durumFiltrele" style="display:block;">Durum :</label>
+                        <select name="e_durum" id="durumFiltrele" class="custom-select w-100">
+                          <option value="">---- Seçiniz ----</option>
+                          <option value="Bekliyor">Bekliyor</option>
+                          <option value="Tamamlandı">Tamamlandı</option>
+                          <option value="İptal Edildi">İptal Edildi</option>
+                        </select>
+                      </div>
+
+                    </div>         
+                  </div>
+                  <div class="table-bottom">
+                    <div class="table-container">
+                      <div class="table-body">
+                        <table id="kullaniciTablo">
+                          <thead>
+                            <tr>
+                              <th class="w-3"></th>
+                              <th class="w-10">Kullanıcı Adı</th>
+                              <th class="w-5">Ad</th>
+                              <th class="w-5">Soyad</th>
+                              <th class="w-10">Durum</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- Veriler burada dinamik olarak eklenecek -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button" id="modalKapat">
+          <span>Kapat</span>
+        </button>
+      </div>
+    </div>
+  </div>
     <script src="projeListesi.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/pages/route.js"></script>
   </body>
 
 </html>

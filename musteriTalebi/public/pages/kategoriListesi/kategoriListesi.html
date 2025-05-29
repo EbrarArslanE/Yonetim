@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="/style/dropdown.css">
     <link rel="stylesheet" href="/style/custom-modal.css">
     <link rel="shortcut icon" href="/assets/images/code-ai-fill.svg" type="image/x-icon">
-    <title>
-      Kullanıcı Kayıtları
-    </title>
+    <title>Kategori Kayıtları</title>
   </head>
   
   <body>
@@ -24,47 +22,47 @@
             <img src="/assets/images/code-ai-fill.svg" alt="" style="height: 70px;">
             <hr class="hr-vertical">
           <div class="panel-wrapper">
-                <label class="main">
-                 Tanımlar
-                 <input class="inp" checked="" type="checkbox" />
-                 <div class="bar">
-                   <span class="top bar-list"></span>
-                   <span class="middle bar-list"></span>
-                   <span class="bottom bar-list"></span>
-                 </div>
-                 <section class="menu-container">
-                   <div class="menu-list" onclick="kullaniciTanimlari()">Kullanıcı Tanımları</div>
-                   <div class="menu-list" onclick="gorevTanimlari()">Görev Tanımları</div>
-                 </section>
-               </label>
-             
-               <label class="main">
-                 Listelemeler
-                 <input class="inp" checked="" type="checkbox" />
-                 <div class="bar">
-                   <span class="top bar-list"></span>
-                   <span class="middle bar-list"></span>
-                   <span class="bottom bar-list"></span>
-                 </div>
-                 <section class="menu-container">
-                   <div class="menu-list" onclick="raporTanimlari()">Rapor Listesi</div>
-                   <div class="menu-list" onclick="talepTanimlari()">Talep Listesi</div>
-                 </section>
-               </label>
-               
-               <label class="main">
-                 Proje Yönetimi
-                 <input class="inp" checked="" type="checkbox" />
-                 <div class="bar">
-                   <span class="top bar-list"></span>
-                   <span class="middle bar-list"></span>
-                   <span class="bottom bar-list"></span>
-                 </div>
-                 <section class="menu-container">
-                   <div class="menu-list" onclick="kategoriTanimlari()">Kategori Tanımları</div>
-                   <div class="menu-list" onclick="projeTanimlari()">Proje Tanımları</div>
-                 </section>
-               </label>
+              <label class="main">
+          Tanımlar
+          <input class="inp" checked="" type="checkbox" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="menu-list" onclick="kullaniciTanimlari()">Kullanıcı Tanımları</div>
+            <div class="menu-list" onclick="gorevTanimlari()">Görev Tanımları</div>
+          </section>
+        </label>
+      
+        <label class="main">
+          Listelemeler
+          <input class="inp" checked="" type="checkbox" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="menu-list" onclick="raporTanimlari()">Rapor Listesi</div>
+            <div class="menu-list" onclick="talepTanimlari()">Talep Listesi</div>
+          </section>
+        </label>
+        
+        <label class="main">
+          Proje Yönetimi
+          <input class="inp" checked="" type="checkbox" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="menu-list" onclick="kategoriTanimlari()">Kategori Tanımları</div>
+            <div class="menu-list" onclick="projeTanimlari()">Proje Tanımları</div>
+          </section>
+        </label>
           </div>
         </div>
       </div>
@@ -98,18 +96,14 @@
             <div class="table-bottom">
               <div class="table-container">
                 <div class="table-body">
-                  <table id="kullaniciTablo">
+                  <table id="kategoriTablo">
                     <thead>
                       <tr>
-                        <th class="w-10">Kullanıcı Adı</th>
-                        <th class="w-5">Ad</th>
-                        <th class="w-5">Soyad</th>
-                        <th class="w-10">Durum</th>
-                        <th class="w-10">
+                        <th class="w-20">Kategori Adı</th>
+                        <th class="w-5">Durum</th>
+                        <th class="w-5">
                           <button class="add-button w-100" onclick="kullaniciOlusturModal()">
-                            <a class="text">
-                              Kullanıcı Oluştur
-                            </a>
+                            <a class="text">Kategori Ekle</a>
                           </button>
                         </th>
                       </tr>
@@ -128,63 +122,29 @@
     <div class="modal-container" id="kullaniciTanimlariModal" style="display: none;">
       <div class="modal-content">
         <div class="modal-header">
-          <h2> Kullanıcı Ekleme Formu</h2>
+          <h2> Kategori Ekleme Formu</h2>
         </div>
         <hr>
         <div class="modal-body">
           <form>
-          
-            <div class="flex flex-row gap-12 w-100">
-              <div class="w-50">
-                <label for="e_ad">Ad *</label>
-                <div class="input-wrapper">
-                  <!-- Kullanıcı ikon -->
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-                  </svg>
-                  <input id="e_ad" name="e_ad" placeholder="Ad" type="text" required>
-                </div>
-              </div>
-            
-              <div class="w-50">
-                <label for="e_soyad">Soyad *</label>
-                <div class="input-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-                  </svg>
-                  <input id="e_soyad" name="e_soyad" placeholder="Soyad" type="text" required>
-                </div>
-              </div>
-            </div>
 
             <div class="column-flat">
-              <label for="durumSec" style="display:block; margin-bottom:8px;">Kullanıcı Durumu:</label>
+              <label for="durumSec" style="display:block; margin-bottom:8px;">Kategori Durumu:</label>
               <select class="custom-select w-100" name="e_durum" id="e_durum" required>
                 <option value="">---- Seçiniz ----</option>
                 <option value="Aktif">Aktif</option>
                 <option value="Pasif">Pasif</option>
               </select>
             </div>
-            
+
             <div class="column-flat">
-              <label for="e_kullanici_adi">Kullanıcı Adı *</label>
+              <label for="e_kategori_adi">Kategori Adı *</label>
               <div class="input-wrapper">
                 <!-- @ ikon -->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path d="M12 2a10 10 0 1 0 10 10h-2a8 8 0 1 1-2.34-5.66l-1.42 1.42a6 6 0 1 0 1.76 4.24v-1h-2v1a4 4 0 1 1-4-4 3.8 3.8 0 0 1 1.24.21l1.63-1.63A10 10 0 0 0 12 2z"/>
                 </svg>
-                <input id="e_kullanici_adi" name="e_kullanici_adi" placeholder="Kullanıcı Adı" type="text" required>
-              </div>
-            </div>
-            
-            <div class="column-flat">
-              <label for="e_sifre">Şifre *</label>
-              <div class="input-wrapper">
-                <!-- kilit ikon -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M17 8V6a5 5 0 0 0-10 0v2H5v14h14V8h-2zm-6 0V6a3 3 0 0 1 6 0v2h-6z"/>
-                </svg>
-                <input id="e_sifre" name="e_sifre" placeholder="Şifre" type="password" required>
+                <input id="e_kategori_adi" name="e_kategori_adi" placeholder="Kategori Adı" type="text" required>
               </div>
             </div>
 
@@ -200,7 +160,7 @@
         </div>
       </div>
     </div>
-    <script src="kullaniciListesi.js"></script>
+    <script src="kategoriListesi.js"></script>
     <script src="/pages/route.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
