@@ -9,7 +9,7 @@
     "e_proje_teslim_tarihi": "2320-04-23",
     "e_telefon_bilgisi": "BU BİR TEST",
     "e_mail_bilgisi": "BU BİR TEST",
-    "e_ekip_uyeleri": "",
+    "e_ekip_uyeleri": "ebrar",
     "e_proje_tipi": "BU BİR TEST",
     "e_git_repo_linki": "BU BİR TEST",
     "e_oncelik": "Düşük",
@@ -88,9 +88,10 @@
     "e_proje_teslim_tarihi": "2222-02-22",
     "e_telefon_bilgisi": "131223",
     "e_mail_bilgisi": "asd@asd.com",
-    "e_ekip_uyeleri": "ebrarnazım",
+    "e_ekip_uyeleri": "ebrar, nazım",
     "e_proje_tipi": "Web",
     "e_oncelik": "Yüksek",
-    "e_fiyat": "5000"
+    "e_fiyat": "5000",
+    "e_git_repo_linki": ""
   }
 ]

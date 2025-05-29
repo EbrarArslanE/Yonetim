@@ -9,13 +9,13 @@ window.onload = () => {
     fetch("/projeListesi")
       .then(res => res.json())
       .then(data => {
-        secilenProje = data.find(item => item.e_id === id); // BURADA DEĞİŞTİRİLDİ
+        secilenProje = data.find(item => item.e_id === id);
         if (!secilenProje) {
           console.error("Proje bulunamadı.");
           return;
         }
 
-        // Değerleri doldur
+        // Form alanlarını doldur
         document.getElementById('e_proje_adi').value = secilenProje.e_proje_adi;
         document.getElementById('e_proje_yetkilisi').value = secilenProje.e_proje_yetkilisi;
         document.getElementById('e_firma_adi').value = secilenProje.e_firma_adi;
@@ -33,7 +33,7 @@ window.onload = () => {
       .catch(err => console.error("Detay getirme hatası:", err));
   }
 
-    const modal = document.getElementById('kullaniciEklemeModal');
+  const modal = document.getElementById('kullaniciEklemeModal');
   const modalClose = document.getElementById('modalKapat');
   const modalOpen = document.getElementById('e_ekip_uyeleri');
   const tbody = document.querySelector('#kullaniciTablo tbody');
@@ -59,6 +59,16 @@ window.onload = () => {
     })
     .catch(err => console.error('Kullanıcı çekme hatası:', err));
 
+  // Filtreleme
+  search.addEventListener('input', e => {
+    const filtreli = users.filter(u =>
+      u.e_kullanici_adi.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      u.e_ad.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      u.e_soyad.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    draw(filtreli);
+  });
+
   // Kullanıcıları tabloya çiz
   function draw(arr) {
     tbody.innerHTML = '';
@@ -82,7 +92,7 @@ window.onload = () => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td class="flex w-100 h-50px justify-center items-center gap-2">
-          <input checked type="checkbox">
+          <input type="checkbox" value="${u.e_kullanici_adi}" class="ekip-checkbox">
         </td>
         <td>${u.e_kullanici_adi}</td>
         <td class="text-center w-10">${u.e_ad}</td>
@@ -91,8 +101,21 @@ window.onload = () => {
       `;
       tbody.appendChild(tr);
     });
+
+    // Checkbox seçimlerini yakala
+    const checkboxes = document.querySelectorAll('.ekip-checkbox');
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const secilenler = Array.from(checkboxes)
+          .filter(c => c.checked)
+          .map(c => c.value);
+        document.getElementById('e_ekip_uyeleri').value = secilenler.join(', ');
+      });
+    });
   }
 };
+
+// Kayıt işlemi
 window.islemiKaydet = () => {
   const e_proje_adi = document.getElementById('e_proje_adi').value;
   const e_proje_yetkilisi = document.getElementById('e_proje_yetkilisi').value;
@@ -156,8 +179,3 @@ window.islemiKaydet = () => {
       alert("Bir hata oluştu.");
     });
 };
-
-
-
-
-
