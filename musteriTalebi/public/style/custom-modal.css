@@ -114,6 +114,5 @@
 }
 .input:focus,input:hover {
   outline:none;
-  border-color:rgba(234,76,137,0.4);
   background-color:#fff;
 }
