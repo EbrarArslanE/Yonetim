@@ -60,14 +60,14 @@ window.onload = () => {
     .catch(err => console.error('Kullanıcı çekme hatası:', err));
 
   // Filtreleme
-  search.addEventListener('input', e => {
-    const filtreli = users.filter(u =>
-      u.e_kullanici_adi.toLowerCase().includes(e.target.value.toLowerCase()) ||
-      u.e_ad.toLowerCase().includes(e.target.value.toLowerCase()) ||
-      u.e_soyad.toLowerCase().includes(e.target.value.toLowerCase())
-    );
-    draw(filtreli);
-  });
+  // search.addEventListener('input', e => {
+  //   const filtreli = users.filter(u =>
+  //     u.e_kullanici_adi.toLowerCase().includes(e.target.value.toLowerCase()) ||
+  //     u.e_ad.toLowerCase().includes(e.target.value.toLowerCase()) ||
+  //     u.e_soyad.toLowerCase().includes(e.target.value.toLowerCase())
+  //   );
+  //   draw(filtreli);
+  // });
 
   // Kullanıcıları tabloya çiz
   function draw(arr) {
@@ -179,3 +179,5 @@ window.islemiKaydet = () => {
       alert("Bir hata oluştu.");
     });
 };
+
+

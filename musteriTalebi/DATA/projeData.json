@@ -78,21 +78,5 @@
     "e_oncelik": "Yüksek",
     "e_fiyat": "5000",
     "e_git_repo_linki": ""
-  },
-  {
-    "e_id": "8",
-    "e_proje_adi": "nagehanı cok ozledım",
-    "e_proje_yetkilisi": "BU BİR TEST",
-    "e_firma_adi": "Firma Adı Burada",
-    "e_durum": "Pasif",
-    "e_proje_alim_tarihi": "2008-12-01",
-    "e_proje_teslim_tarihi": "2007-10-03",
-    "e_telefon_bilgisi": "1",
-    "e_mail_bilgisi": "BU BİR TEST",
-    "e_ekip_uyeleri": "ebrar, nazım",
-    "e_proje_tipi": "BU BİR TEST",
-    "e_git_repo_linki": "BU BİR TEST",
-    "e_oncelik": "Yüksek",
-    "e_fiyat": "80"
   }
 ]

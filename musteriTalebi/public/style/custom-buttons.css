@@ -98,3 +98,5 @@
 .custom-checkbox:checked ~ .checkmark:after {
   animation: checkAnim 0.2s forwards;
 }
+
+
