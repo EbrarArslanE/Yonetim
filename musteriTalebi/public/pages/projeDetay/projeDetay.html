@@ -188,8 +188,17 @@
                     </div>
                     <div class="h-10 w-100">
                       <div class="flex flex-row w-100 gap-20">
-                        <input class="custom-input w-50 pl-10 pr-10" id="e_durum">
-                        <input class="custom-input w-50 pl-10 pr-10" id="e_oncelik">
+                        <select class="custom-select w-50 pl-10 pr-10" name="e_durum" id="e_durum" required>
+                          <option value="">---- Seçiniz ----</option>
+                          <option value="Aktif">Aktif</option>
+                          <option value="Pasif">Pasif</option>
+                        </select>
+                        <select class="custom-select w-50 pl-10 pr-10" id="e_oncelik" name="e_oncelik" required>
+                          <option value="">---- Seçiniz ----</option>
+                          <option value="Yüksek">Yüksek</option>
+                          <option value="Orta">Orta</option>
+                          <option value="Düşük">Düşük</option>
+                        </select>
                       </div>
                     </div>
                     <div class="h-10 w-100">
@@ -202,7 +211,7 @@
                       </div>
                     </div>
                     <div class="h-10 w-100">
-                      <input onclick="ekipUyeleriDuzenle()" class="custom-input c-pointer w-100 pl-10 pr-10" id="e_ekip_uyeleri" readonly>
+                      <input class="custom-input c-pointer w-100 pl-10 pr-10" id="e_ekip_uyeleri" readonly>
                     </div>
                     <div class="h-10 w-100">
                       <span class="deger" id="e_git_repo_linki"></span>
