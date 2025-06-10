@@ -116,16 +116,27 @@ window.onload = () => {
 
     const kategoriModal = document.getElementById('kategoriEklemeModal');
     const kategoriModalAc = document.getElementById('e_proje_tipi');
+    const kategoriModalKapat = document.getElementById('modalKapat')
     const Kategoritbody = document.querySelector('#kullaniciTablo tbody');
     const kategoriSearch = document.getElementById('filterUser');
     let kategori = [];
+
+      // Modal açma
+    kategoriModalAc.addEventListener('click', () => {
+      kategoriModal.style.display = 'flex';
+    });
+
+    // Modal kapama
+    kategoriModalKapat.addEventListener('click', () => {
+      kategoriModal.style.display = 'none';
+    });
 
     // Kategorileri çek
   fetch('/kategoriListesi')
     .then(r => r.json())
     .then(list => {
-      kategoriler = list;
-      drawKategori(kategoriler);
+      kategori = list;
+      drawKategori(kategori);
     })
     .catch(err => console.error('Kullanıcı çekme hatası:', err));
 
@@ -158,7 +169,7 @@ window.onload = () => {
         <td class="text-center w-10">${u.e_durum}</td>
         <td class="text-center"><span class="w-100 badge ${badgeDegeri}">${badgeSinifi}</span></td>
       `;
-      tbody.appendChild(tr);
+      Kategoritbody.appendChild(tr);
     });
 
     // Checkbox seçimlerini yakala
