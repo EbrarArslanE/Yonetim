@@ -50,6 +50,16 @@ window.onload = () => {
     modal.style.display = 'none';
   });
 
+    // Filtreleme
+  // search.addEventListener('input', e => {
+  //   const filtreli = users.filter(u =>
+  //     u.e_kullanici_adi.toLowerCase().includes(e.target.value.toLowerCase()) ||
+  //     u.e_ad.toLowerCase().includes(e.target.value.toLowerCase()) ||
+  //     u.e_soyad.toLowerCase().includes(e.target.value.toLowerCase())
+  //   );
+  //   draw(filtreli);
+  // });
+
   // Kullanıcıları çek
   fetch('/kullaniciListesi')
     .then(r => r.json())
@@ -58,16 +68,6 @@ window.onload = () => {
       draw(users);
     })
     .catch(err => console.error('Kullanıcı çekme hatası:', err));
-
-  // Filtreleme
-  search.addEventListener('input', e => {
-    const filtreli = users.filter(u =>
-      u.e_kullanici_adi.toLowerCase().includes(e.target.value.toLowerCase()) ||
-      u.e_ad.toLowerCase().includes(e.target.value.toLowerCase()) ||
-      u.e_soyad.toLowerCase().includes(e.target.value.toLowerCase())
-    );
-    draw(filtreli);
-  });
 
   // Kullanıcıları tabloya çiz
   function draw(arr) {
@@ -110,6 +110,76 @@ window.onload = () => {
           .filter(c => c.checked)
           .map(c => c.value);
         document.getElementById('e_ekip_uyeleri').value = secilenler.join(', ');
+      });
+    });
+  }
+
+    const kategoriModal = document.getElementById('kategoriEklemeModal');
+    const kategoriModalAc = document.getElementById('e_proje_tipi');
+    const kategoriModalKapat = document.getElementById('modalKapat')
+    const Kategoritbody = document.querySelector('#kullaniciTablo tbody');
+    const kategoriSearch = document.getElementById('filterUser');
+    let kategori = [];
+
+      // Modal açma
+    kategoriModalAc.addEventListener('click', () => {
+      kategoriModal.style.display = 'flex';
+    });
+
+    // Modal kapama
+    kategoriModalKapat.addEventListener('click', () => {
+      kategoriModal.style.display = 'none';
+    });
+
+    // Kategorileri çek
+  fetch('/kategoriListesi')
+    .then(r => r.json())
+    .then(list => {
+      kategori = list;
+      drawKategori(kategori);
+    })
+    .catch(err => console.error('Kullanıcı çekme hatası:', err));
+
+  // Kullanıcıları tabloya çiz
+  function drawKategori(arr) {
+    Kategoritbody.innerHTML = '';
+    arr.forEach(u => {
+      const durumDegeri = String(u.e_durum || '').toLowerCase();
+      let badgeDegeri;
+
+      switch (durumDegeri) {
+        case 'pasif':
+          badgeDegeri = 'bg-danger';
+          break;
+        case 'aktif':
+          badgeDegeri = 'bg-success';
+          break;
+        default:
+          badgeDegeri = 'bg-secondary';
+      }
+
+      const badgeSinifi = durumDegeri.charAt(0).toUpperCase() + durumDegeri.slice(1);
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="flex w-100 h-50px justify-center items-center gap-2">
+          <input type="checkbox" value="${u.e_kategori_adi}" class="ekip-checkbox">
+        </td>
+        <td>${u.e_kategori_adi}</td>
+        <td class="text-center w-10">${u.e_durum}</td>
+        <td class="text-center"><span class="w-100 badge ${badgeDegeri}">${badgeSinifi}</span></td>
+      `;
+      Kategoritbody.appendChild(tr);
+    });
+
+    // Checkbox seçimlerini yakala
+    const checkboxes = document.querySelectorAll('.ekip-checkbox');
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const secilenler = Array.from(checkboxes)
+          .filter(c => c.checked)
+          .map(c => c.value);
+        document.getElementById('e_proje_tipi').value = secilenler.join(', ');
       });
     });
   }
@@ -179,3 +249,5 @@ window.islemiKaydet = () => {
       alert("Bir hata oluştu.");
     });
 };
+
+

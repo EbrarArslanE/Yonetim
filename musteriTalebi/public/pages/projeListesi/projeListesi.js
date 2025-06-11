@@ -5,7 +5,6 @@
 window.onload = () => {
   const tbody = document.querySelector('#projeTablo tbody');
   const search = document.getElementById('filterUser');
-  let users = [];
 
   // Dropdown listesi için kullanıcıları çek
   // fetch('/kullaniciListesi')
@@ -88,6 +87,86 @@ window.onload = () => {
         </td>
       `;
       tbody.appendChild(tr);
+    });
+  }
+
+    const modal = document.getElementById('kullaniciEklemeModal');
+  const modalClose = document.getElementById('modalKapat');
+  const modalOpen = document.getElementById('e_ekip_uyeleri');
+  const kullanici_tbody = document.querySelector('#kullaniciTablo tbody');
+  const kullanici_search = document.getElementById('filterUser');
+
+  // Modal açma
+  modalOpen.addEventListener('click', () => {
+    modal.style.display = 'flex';
+  });
+
+  // Modal kapama
+  modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Kullanıcıları çek
+  fetch('/kullaniciListesi')
+    .then(r => r.json())
+    .then(list => {
+      users = list;
+      drawKullaniciListesi(users);
+    })
+    .catch(err => console.error('Kullanıcı çekme hatası:', err));
+
+  // Filtreleme
+  // search.addEventListener('input', e => {
+  //   const filtreli = users.filter(u =>
+  //     u.e_kullanici_adi.toLowerCase().includes(e.target.value.toLowerCase()) ||
+  //     u.e_ad.toLowerCase().includes(e.target.value.toLowerCase()) ||
+  //     u.e_soyad.toLowerCase().includes(e.target.value.toLowerCase())
+  //   );
+  //   draw(filtreli);
+  // });
+
+  // Kullanıcıları tabloya çiz
+  function drawKullaniciListesi(arr) {
+    kullanici_tbody.innerHTML = '';
+    arr.forEach(u => {
+      const durumDegeri = String(u.e_durum || '').toLowerCase();
+      let badgeDegeri;
+
+      switch (durumDegeri) {
+        case 'pasif':
+          badgeDegeri = 'bg-danger';
+          break;
+        case 'aktif':
+          badgeDegeri = 'bg-success';
+          break;
+        default:
+          badgeDegeri = 'bg-secondary';
+      }
+
+      const badgeSinifi = durumDegeri.charAt(0).toUpperCase() + durumDegeri.slice(1);
+
+      const kullanici_tr = document.createElement('tr');
+      kullanici_tr.innerHTML = `
+        <td class="flex w-100 h-50px justify-center items-center gap-2">
+          <input type="checkbox" value="${u.e_kullanici_adi}" class="ekip-checkbox">
+        </td>
+        <td>${u.e_kullanici_adi}</td>
+        <td class="text-center w-10">${u.e_ad}</td>
+        <td class="text-center w-10">${u.e_soyad}</td>
+        <td class="text-center"><span class="w-100 badge ${badgeDegeri}">${badgeSinifi}</span></td>
+      `;
+      kullanici_tbody.appendChild(kullanici_tr);
+    });
+
+    // Checkbox seçimlerini yakala
+    const checkboxes = document.querySelectorAll('.ekip-checkbox');
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const secilenler = Array.from(checkboxes)
+          .filter(c => c.checked)
+          .map(c => c.value);
+        document.getElementById('e_ekip_uyeleri').value = secilenler.join(', ');
+      });
     });
   }
 

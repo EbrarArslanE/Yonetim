@@ -152,16 +152,26 @@ grafikChart1 = new Chart(ctx1, {
       });
    
      fetch('/kullaniciListesi')
-  .then(res => res.json())
-  .then(data => {
-    const toplam = data.length;
-    const aktifKullanicilar = data.filter(kullanici => kullanici.e_durum === "Aktif").length;
-    const pasifKullanicilar = data.filter(kullanici => kullanici.e_durum === "Pasif").length;
+    .then(res => res.json())
+    .then(data => {
+      const toplam = data.length;
+      const aktifKullanicilar = data.filter(kullanici => kullanici.e_durum === "Aktif").length;
+      const pasifKullanicilar = data.filter(kullanici => kullanici.e_durum === "Pasif").length;
+    
+      document.getElementById('toplamTalep').textContent = toplam;
+      document.getElementById('aktifKullanici').textContent = aktifKullanicilar;
+      document.getElementById('pasifKullanici').textContent = pasifKullanicilar;
+    });
 
-    document.getElementById('toplamTalep').textContent = toplam;
-    document.getElementById('aktifKullanici').textContent = aktifKullanicilar;
-    document.getElementById('pasifKullanici').textContent = pasifKullanicilar;
-  });
+    fetch('/projeListesi')
+    .then(res => res.json())
+    .then(data => {
+      const toplam = data.length;
+      const aktifProjeler = data.filter(proje => proje.e_durum === "Aktif").length;
+      const pasifProjeler = data.filter(proje => proje.e_durum === "Pasif").length;
+
+      document.getElementById('toplamProjeSayisi').textContent = toplam;
+    });
 
     
      fetch('/gorevListesi')

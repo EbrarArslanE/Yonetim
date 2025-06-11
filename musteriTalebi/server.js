@@ -145,6 +145,7 @@ const USER_DATA_PATH = path.join(__dirname, '/DATA/userData.json');
 const TALEP_DATA_PATH = path.join(__dirname, '/DATA/gorevData.json');
 const PROJE_DATA_PATH = path.join(__dirname, '/DATA/projeData.json');
 const KATEGORI_DATA_PATH = path.join(__dirname, '/DATA/kategoriData.json');
+const RAPOR_DATA_PATH = path.join(__dirname, '/DATA/raporData.json');
 
 // Ana sayfaya yönlendirme
 app.get('/', (req, res) => {
