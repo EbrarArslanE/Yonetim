@@ -6,11 +6,14 @@ const app = express();
 const PORT = 1312;
 const { v4: uuidv4 } = require('uuid');
 app.use(express.json());
-const MUSTERI_ID_OLUSTUR    = path.join(__dirname, '/DATA/ID_DATA/musteriID.txt');
-const GOREV_ID_OLUSTUR      = path.join(__dirname, '/DATA/ID_DATA/gorevID.txt');
-const KULLANICI_ID_OLUSTUR  = path.join(__dirname, '/DATA/ID_DATA/kullaniciID.txt');
-const PROJE_ID_OLUSTUR      = path.join(__dirname, '/DATA/ID_DATA/projeID.txt');
-const KATEGORI_ID_OLUSTUR      = path.join(__dirname, '/DATA/ID_DATA/kategoriID.txt');
+
+const MUSTERI_ID_OLUSTUR              = path.join(__dirname, '/DATA/ID_DATA/musteriID.txt');
+const GOREV_ID_OLUSTUR                = path.join(__dirname, '/DATA/ID_DATA/gorevID.txt');
+const KULLANICI_ID_OLUSTUR            = path.join(__dirname, '/DATA/ID_DATA/kullaniciID.txt');
+const PROJE_ID_OLUSTUR                = path.join(__dirname, '/DATA/ID_DATA/projeID.txt');
+const KATEGORI_ID_OLUSTUR             = path.join(__dirname, '/DATA/ID_DATA/kategoriID.txt');
+const FIRMA_ID_OLUSTUR                = path.join(__dirname, '/DATA/ID_DATA/firmaID.txt');
+const YENI_FIRMA_YETKILISI_ID_OLUSTUR = path.join(__dirname, '/DATA/ID_DATA/firmaYetkilisiID.txt');
 
 function YENI_MUSTERI_ID(MUSTERI_ID_OLUSTUR, callback) {
   fs.readFile(MUSTERI_ID_OLUSTUR, 'utf8', (err, data) => {
@@ -132,6 +135,53 @@ function YENI_KATEGORI_ID(KATEGORI_ID_OLUSTUR, callback) {
   });
 }
 
+function YENI_FIRMA_ID(FIRMA_ID_OLUSTUR, callback) {
+  fs.readFile(FIRMA_ID_OLUSTUR, 'utf8', (err, data) => {
+    if (err) {
+      if (err.code === 'ENOENT') {
+        // Dosya yoksa oluştur ve 1 ile başlat
+        fs.writeFile(FIRMA_ID_OLUSTUR, '1', (err) => {
+          if (err) return callback(err);
+          callback(null, 1);
+        });
+      } else {
+        return callback(err);
+      }
+    } else {
+      let currentId = parseInt(data, 10);
+      if (isNaN(currentId)) currentId = 0;
+      const newId = currentId + 1;
+      fs.writeFile(FIRMA_ID_OLUSTUR, newId.toString(), (err) => {
+        if (err) return callback(err);
+        callback(null, newId);
+      });
+    }
+  });
+}
+
+function YENI_FIRMA_YETKILISI_ID(YENI_FIRMA_YETKILISI_ID_OLUSTUR, callback) {
+  fs.readFile(YENI_FIRMA_YETKILISI_ID_OLUSTUR, 'utf8', (err, data) => {
+    if (err) {
+      if (err.code === 'ENOENT') {
+        // Dosya yoksa oluştur ve 1 ile başlat
+        fs.writeFile(YENI_FIRMA_YETKILISI_ID_OLUSTUR, '1', (err) => {
+          if (err) return callback(err);
+          callback(null, 1);
+        });
+      } else {
+        return callback(err);
+      }
+    } else {
+      let currentId = parseInt(data, 10);
+      if (isNaN(currentId)) currentId = 0;
+      const newId = currentId + 1;
+      fs.writeFile(YENI_FIRMA_YETKILISI_ID_OLUSTUR, newId.toString(), (err) => {
+        if (err) return callback(err);
+        callback(null, newId);
+      });
+    }
+  });
+}
 // Public klasörünü statik dosyalar için kullan
 app.use(express.static('public'));
 
@@ -145,7 +195,7 @@ const USER_DATA_PATH = path.join(__dirname, '/DATA/userData.json');
 const TALEP_DATA_PATH = path.join(__dirname, '/DATA/gorevData.json');
 const PROJE_DATA_PATH = path.join(__dirname, '/DATA/projeData.json');
 const KATEGORI_DATA_PATH = path.join(__dirname, '/DATA/kategoriData.json');
-const RAPOR_DATA_PATH = path.join(__dirname, '/DATA/raporData.json');
+const FIRMA_DATA_PATH = path.join(__dirname, '/DATA/firmaData.json');
 
 // Ana sayfaya yönlendirme
 app.get('/', (req, res) => {
@@ -228,6 +278,21 @@ app.get('/kategoriListesi', (req, res) => {
   });
 });
 
+app.get('/firmaTanimlari', (req, res) => {
+  fs.readFile(FIRMA_DATA_PATH, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Firma Tanım verisi okunamadı:', err);
+      return res.status(500).json({ hata: 'Firma Tanımları Listesi alınamadı.' });
+    }
+
+    try {
+      const firmaTanimlari = JSON.parse(data);
+      res.json(firmaTanimlari);
+    } catch (e) {
+      return res.status(500).json({ hata: 'Firma Tanımları formatı hatalı.' });
+    }
+  });
+});
 // EKLEME İŞLEMLERİ
 app.post('/kullaniciEkle', (req, res) => {
   const { e_kullanici_adi, e_ad, e_soyad, e_durum, e_sifre } = req.body;
@@ -477,6 +542,131 @@ app.post('/kategoriEkle', (req, res) => {
   });
 });
 
+app.post('/firmaEkle', (req, res) => {
+  const { e_firma_adi, e_firma_yetkilisi, e_firma_calisan_sayisi, e_durum } = req.body;
+
+  if (!e_firma_adi || !e_firma_yetkilisi || !e_firma_calisan_sayisi || !e_durum) {
+    return res.status(400).json({ hata: 'Eksik firma bilgisi' });
+  }
+
+  YENI_FIRMA_ID(FIRMA_ID_OLUSTUR, (err, newId) => {
+    if (err) {
+      console.error('ID üretme hatası:', err);
+      return res.status(500).json({ hata: 'Firma ID üretilemedi.' });
+    }
+
+    YENI_FIRMA_YETKILISI_ID(FIRMA_YETKILISI_ID_OLUSTUR, (err, newYetkiliId) => {
+      if (err) {
+        console.error('Yetkili ID üretme hatası:', err);
+        return res.status(500).json({ hata: 'Yetkili ID üretilemedi.' });
+      }
+
+      const yeniFirma = {
+        e_id: String(newId),
+        e_yetkili_id: String(newYetkiliId),
+        e_firma_adi,
+        e_firma_yetkilisi,
+        e_firma_calisan_sayisi,
+        e_firma_yetkilisi_id: String(newYetkiliId), // PATCHLENDİ
+        e_durum,
+        yetkililer: [] // Boş olarak başlatılıyor; sonra eklenecek
+      };
+
+      fs.readFile(FIRMA_DATA_PATH, 'utf8', (err, data) => {
+        let firmaListesi = [];
+
+        if (!err && data) {
+          try {
+            firmaListesi = JSON.parse(data);
+          } catch (e) {
+            console.error('firmaData.json parse hatası:', e);
+          }
+        }
+
+        firmaListesi.push(yeniFirma);
+
+        fs.writeFile(FIRMA_DATA_PATH, JSON.stringify(firmaListesi, null, 2), err => {
+          if (err) {
+            console.error('Firma yazma hatası:', err);
+            return res.status(500).json({ hata: 'Firma eklenemedi.' });
+          }
+
+          res.json({ mesaj: 'Firma başarıyla eklendi.', e_id: newId });
+        });
+      });
+    });
+  });
+});
+
+app.post('/firmaYetkiliEkle', (req, res) => {
+  const { e_id, e_yetkili_adi, e_yetkili_soyadi, e_yetkili_rolu, e_yetkili_mail_adresi, e_yetkili_telefon_numarasi, e_durum } = req.body;
+
+  // Gerekli alan kontrolü
+  if (!e_id || !ad || !rol) {
+    return res.status(400).json({ hata: 'Firma ID, Yetkili Adı ve Rolü zorunludur.' });
+  }
+
+  // Yeni yetkili ID üret
+  YENI_YETKILI_ID((err, newYetkiliId) => {
+    if (err) {
+      console.error('Yetkili ID üretme hatası:', err);
+      return res.status(500).json({ hata: 'Yetkili ID üretilemedi.' });
+    }
+
+    // Yetkili objesi oluştur
+    const yeniYetkili = {
+      e_id: String(newYetkiliId),
+      e_yetkili_adi,
+      e_yetkili_soyadi,
+      e_yetkili_soyadi: e_yetkili_soyadi || '',
+      e_yetkili_rolu,
+      e_yetkili_mail_adresi: e_yetkili_mail_adresi || '',
+      e_yetkili_telefon_numarasi: e_yetkili_telefon_numarasi || '',
+      e_durum
+    };
+
+    // Firma verisini oku
+    fs.readFile(FIRMA_DATA_PATH, 'utf8', (err, data) => {
+      if (err) {
+        console.error('Firma dosyası okunamadı:', err);
+        return res.status(500).json({ hata: 'Firma dosyası okunamadı.' });
+      }
+
+      let firmaListesi;
+      try {
+        firmaListesi = JSON.parse(data);
+      } catch (parseErr) {
+        console.error('JSON parse hatası:', parseErr);
+        return res.status(500).json({ hata: 'Firma dosyası formatı hatalı.' });
+      }
+
+      // Firma bulunuyor mu?
+      const firmaIndex = firmaListesi.findIndex(firma => String(firma.e_id) === String(e_id));
+      if (firmaIndex === -1) {
+        return res.status(404).json({ hata: 'Firma bulunamadı.' });
+      }
+
+      // Firma objesinde yetkililer dizisi yoksa oluştur
+      if (!Array.isArray(firmaListesi[firmaIndex].yetkililer)) {
+        firmaListesi[firmaIndex].yetkililer = [];
+      }
+
+      // Yeni yetkiliyi ekle
+      firmaListesi[firmaIndex].yetkililer.push(yeniYetkili);
+
+      // Dosyaya yaz
+      fs.writeFile(FIRMA_DATA_PATH, JSON.stringify(firmaListesi, null, 2), (err) => {
+        if (err) {
+          console.error('Firma dosyasına yazılamadı:', err);
+          return res.status(500).json({ hata: 'Yetkili eklenemedi.' });
+        }
+
+        res.json({ mesaj: 'Yetkili başarıyla eklendi.', y_id: yeniYetkili.e_id });
+      });
+    });
+  });
+});
+
 // SİLME İŞLEMLERİ
 app.post('/kayitSil', (req, res) => {
   const gelenVeri = req.body;
@@ -669,6 +859,65 @@ app.post('/kategoriSil', (req, res) => {
       if (err) return res.status(500).json({ hata: 'Görev silinemedi.' });
 
       res.json({ mesaj: 'Kategori başarıyla silindi.' });
+    });
+  });
+});
+
+app.post('/yetkiliSil', (req, res) => {
+  const { e_id, e_yetkili_id } = req.body;
+
+  if (!e_id || !e_yetkili_id) {
+    return res.status(400).json({ hata: 'e_id ve e_yetkili_id gerekli.' });
+  }
+
+  fs.readFile(FIRMA_DATA_PATH, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ hata: 'Dosya okunamadı.' });
+
+    let veriListesi;
+    try {
+      veriListesi = JSON.parse(data);
+    } catch (parseErr) {
+      return res.status(500).json({ hata: 'JSON formatı hatalı.' });
+    }
+
+    let firmaBulundu = false;
+    let yetkiliBulundu = false;
+
+    const guncellenmisListe = veriListesi.map(item => {
+      if (String(item.e_id) === String(e_id)) {
+        firmaBulundu = true;
+
+        if (Array.isArray(item.yetkililer)) {
+          const ilkUzunluk = item.yetkililer.length;
+          item.yetkililer = item.yetkililer.filter(y => String(y.e_yetkili_id) !== String(e_yetkili_id));
+
+          if (item.yetkililer.length < ilkUzunluk) {
+            yetkiliBulundu = true;
+
+            // Eğer silinen yetkili ana yetkiliyse, null'a çekiyoruz
+            if (String(item.e_yetkili_id) === String(e_yetkili_id)) {
+              item.e_yetkili_id = null;
+              item.e_firma_yetkilisi_id = null;
+              item.e_firma_yetkilisi = null;
+            }
+          }
+        }
+      }
+      return item;
+    });
+
+    if (!firmaBulundu) {
+      return res.status(404).json({ hata: 'Firma bulunamadı' });
+    }
+
+    if (!yetkiliBulundu) {
+      return res.status(404).json({ hata: 'Yetkili bulunamadı' });
+    }
+
+    fs.writeFile(FIRMA_DATA_PATH, JSON.stringify(guncellenmisListe, null, 2), err => {
+      if (err) return res.status(500).json({ hata: 'Dosyaya yazılamadı.' });
+
+      res.json({ mesaj: 'Yetkili başarıyla silindi.' });
     });
   });
 });
@@ -896,6 +1145,85 @@ app.post('/kategoriDuzenle', (req, res) => {
   });
 });
 
+app.post('/firmaDuzenle', (req, res) => {
+  const {
+    e_id,
+    e_firma_adi,
+    e_firma_yetkilisi,
+    e_firma_calisan_sayisi,
+    e_firma_yetkilisi_id,
+    e_yetkili_mail_adresi,
+    e_yetkili_adi,
+    e_yetkili_soyadi,
+    e_yetkili_rolu,
+    e_yetkili_telefon_numarasi,
+    e_yetkili_id,
+    e_durum
+  } = req.body;
+
+  if (!e_id) {
+    return res.status(400).json({ hata: 'e_id gerekli.' });
+  }
+
+  fs.readFile(FIRMA_DATA_PATH, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ hata: 'Dosya okunamadı.' });
+
+    let veriListesi;
+    try {
+      veriListesi = JSON.parse(data);
+    } catch (parseErr) {
+      return res.status(500).json({ hata: 'JSON formatı hatalı.' });
+    }
+
+    let bulundu = false;
+
+    const guncellenmisListe = veriListesi.map(item => {
+      if (String(item.e_id) === String(e_id)) {
+        // Firma bilgilerini güncelle
+        item.e_firma_adi            = e_firma_adi            ?? item.e_firma_adi;
+        item.e_firma_yetkilisi      = e_firma_yetkilisi      ?? item.e_firma_yetkilisi;
+        item.e_firma_calisan_sayisi = e_firma_calisan_sayisi ?? item.e_firma_calisan_sayisi;
+        item.e_durum                = e_durum                ?? item.e_durum;
+
+        // Firma ana yetkili ID'sini güncelle
+        if (e_yetkili_id) {
+          item.e_yetkili_id = e_yetkili_id;
+          item.e_firma_yetkilisi_id = e_yetkili_id;
+        }
+
+        // Yetkililer dizisinden doğru yetkiliyi bul ve güncelle
+        if (Array.isArray(item.yetkililer) && e_yetkili_id) {
+          const yetkiliIndex = item.yetkililer.findIndex(y => String(y.e_yetkili_id) === String(e_yetkili_id));
+          if (yetkiliIndex !== -1) {
+            const yetkili = item.yetkililer[yetkiliIndex];
+
+            yetkili.e_yetkili_adi              = e_yetkili_adi              ?? yetkili.e_yetkili_adi;
+            yetkili.e_yetkili_soyadi           = e_yetkili_soyadi           ?? yetkili.e_yetkili_soyadi;
+            yetkili.e_yetkili_mail_adresi      = e_yetkili_mail_adresi      ?? yetkili.e_yetkili_mail_adresi;
+            yetkili.e_yetkili_rolu             = e_yetkili_rolu             ?? yetkili.e_yetkili_rolu;
+            yetkili.e_yetkili_telefon_numarasi = e_yetkili_telefon_numarasi ?? yetkili.e_yetkili_telefon_numarasi;
+          }
+        }
+
+        bulundu = true;
+      }
+      return item;
+    });
+
+    if (!bulundu) {
+      return res.status(404).json({ hata: 'Firma bulunamadı' });
+    }
+
+    fs.writeFile(FIRMA_DATA_PATH, JSON.stringify(guncellenmisListe, null, 2), err => {
+      if (err) return res.status(500).json({ hata: 'Dosyaya yazılamadı' });
+
+      res.json({ mesaj: 'Firma başarıyla güncellendi' });
+    });
+  });
+});
+
+
+
 // KULLANICI GİRİŞ EKRANI İŞLEMLERİ
 app.post('/giris', (req, res) => {
   const { e_kullanici_adi, e_sifre } = req.body;
@@ -927,4 +1255,3 @@ app.post('/giris', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Sunucu ${PORT} portunda çalışıyor.`);
 });
- 

@@ -1,0 +1,29 @@
+{
+  "e_id": "1",
+  "e_yetkili_id": "1",
+  "e_firma_adi": "Örnek Teknoloji A.Ş.",
+  "e_firma_yetkilisi": "Ahmet Yılmaz",
+  "e_firma_calisan_sayisi": "50",
+  "e_firma_yetkilisi_id": "Y123",
+  "e_durum": "aktif",
+  "yetkililer": [
+    {
+      "e_id": "Y456",
+      "e_yetkili_adi": "Mehmet",
+      "e_yetkili_soyadi": "Demir",
+      "e_yetkili_rolu": "Muhasebe",
+      "e_yetkili_mail_adresi": "mehmet@ornek.com",
+      "e_yetkili_telefon_numarasi": "05554443322",
+      "e_durum": "Aktif"
+    },
+    {
+      "e_id": "Y789",
+      "e_yetkili_adi": "Zeynep",
+      "e_yetkili_soyadi": "Kaya",
+      "e_yetkili_rolu": "İK",
+      "e_yetkili_mail_adresi": "zeynep@ornek.com",
+      "e_yetkili_telefon_numarasi": "05443332211",
+      "e_durum": "Pasif"
+    }
+  ]
+}

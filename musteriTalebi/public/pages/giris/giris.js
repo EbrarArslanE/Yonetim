@@ -1,5 +1,6 @@
 const form = document.getElementById('loginForm');
 const hataMesaji = document.getElementById('hataMesaji');
+const girisBasariliMesaji = document.getElementById('girisBasariliMesaji');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -21,9 +22,10 @@ form.addEventListener('submit', async (e) => {
     if (!response.ok) {
       hataMesaji.textContent = data.hata || 'Giriş yapılamadı.';
       return;
+    }else{
+      girisBasariliMesaji.textContent = data.hata || 'Giriş Başarılı.';
     }
     
-    hataMesaji.textContent = data.hata || 'Giriş Başarılı.';
     console.log('Giriş başarılı! Kullanıcı ID:', data.u_id);
     localStorage.setItem('u_id', data.u_id);
     localStorage.setItem('OturumSuresi', data.sessionExpires);
