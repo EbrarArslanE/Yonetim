@@ -5,7 +5,11 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = 1312;
 const { v4: uuidv4 } = require('uuid');
+const axios = require("axios");
+require("dotenv").config();
 app.use(express.json());
+
+const apiKey = process.env.GEMINI_API_KEY;
 
 const MUSTERI_ID_OLUSTUR              = path.join(__dirname, '/DATA/ID_DATA/musteriID.txt');
 const GOREV_ID_OLUSTUR                = path.join(__dirname, '/DATA/ID_DATA/gorevID.txt');
@@ -1222,6 +1226,55 @@ app.post('/firmaDuzenle', (req, res) => {
   });
 });
 
+//YAPAY ZEKA
+
+// async function listModels() {
+//   try {
+//     const res = await axios.get('https://generativelanguage.googleapis.com/v1/models', {
+//       params: { key: process.env.GEMINI_API_KEY }
+//     });
+//     console.log('Desteklenen Modeller:', res.data);
+//   } catch (err) {
+//     console.error('Model listeleme hatası:', err.response?.data || err.message);
+//   }
+// }
+
+// listModels()
+
+app.post('/chat', async (req, res) => {
+  const userMessage = req.body.message;
+
+  if (!userMessage) {
+    return res.status(400).json({ reply: 'Mesaj boş olamaz.' });
+  }
+
+  try {
+  const response = await axios.post(
+    'https://generativelanguage.googleapis.com/v1/models/gemini-2.5-pro:generateContent',
+    {
+      contents: [
+        {
+          parts: [{ text: userMessage }]
+        }
+      ]
+    },
+    {
+      headers: { 'Content-Type': 'application/json' },
+      params: { key: apiKey }
+    }
+  );
+
+
+    const reply = response.data.candidates?.[0]?.content?.parts?.[0]?.text || 'Boş yanıt geldi.';
+    res.json({ reply });
+
+  } catch (error) {
+    console.error('Gemini API hatası:', error.response?.data || error.message);
+    res.status(500).json({ reply: 'Gemini API ile iletişimde hata oluştu.' });
+  }
+});
+
+module.exports.app;
 
 
 // KULLANICI GİRİŞ EKRANI İŞLEMLERİ
@@ -1248,8 +1301,6 @@ app.post('/giris', (req, res) => {
     });
   });
 });
-
-
 
 // Sunucuyu başlat
 app.listen(PORT, () => {

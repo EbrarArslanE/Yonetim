@@ -206,26 +206,17 @@ window.onload = () => {
   };
 };
 window.islemiKaydet = () => {
-  const e_firma_adi = document.getElementById('e_firma_adi').value;
+  const e_firma_adi            = document.getElementById('e_firma_adi').value;
   const e_firma_calisan_sayisi = document.getElementById('e_firma_calisan_sayisi').value;
-  const e_firma_yetkilisi = document.getElementById('e_firma_yetkilisi').value;
-  const e_durum = document.getElementById('e_durum').value;
+  const e_firma_yetkilisi      = document.getElementById('e_firma_yetkilisi').value;
+  const e_durum                = document.getElementById('e_durum').value;
 
 
   const veri = {
-      e_proje_adi,
-      e_proje_yetkilisi,
-      e_firma_adi,
-      e_durum,
-      e_proje_alim_tarihi,
-      e_proje_teslim_tarihi,
-      e_telefon_bilgisi,
-      e_mail_bilgisi,
-      e_ekip_uyeleri,
-      e_proje_tipi,
-      e_git_repo_linki,
-      e_oncelik,
-      e_fiyat
+    e_firma_adi,           
+    e_firma_calisan_sayisi,
+    e_firma_yetkilisi,     
+    e_durum               
   };
 
   let url = '';
