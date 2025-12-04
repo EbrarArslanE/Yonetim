@@ -1,12 +1,5 @@
 [
   {
-    "e_id": "5",
-    "e_gorevli_kullanici": "nazım",
-    "e_kullanici_adi": "ebrar",
-    "e_gorev": "Nazım artık şu iconları yap",
-    "e_durum": "İptal Edildi"
-  },
-  {
     "e_id": "8",
     "e_gorevli_kullanici": "ebrar",
     "e_kullanici_adi": "ebrar",
